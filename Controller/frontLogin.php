@@ -1,22 +1,23 @@
 <?php
 
+$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
+include_once($_SERVER['DOCUMENT_ROOT'].'/APPwebsite/Model/frontLogin.php');
+
+
 if (!isset($_POST['username']) OR !isset($_POST['password'])){
   $messageErreur='';
-  require('View/frontLogin.php');
-  checkID();
-
+  include_once($_SERVER['DOCUMENT_ROOT'].'/APPwebsite/View/frontLogin.php');
 }
 
 else{
-  $messageErreur='';
-  require('../View/frontLogin.php');
-  checkID();
-  // if(!checkID($_POST['username'], $_POST['password'], $bdd)){
-  //   $messageErreur='Informations incorrectes.';
-  //   require($_SERVER['DOCUMENT_ROOT'].'/APPwebsite/View/frontLogin.php');
-  // }
-  // else{
-  //   header($_SERVER['DOCUMENT_ROOT'].'/APPwebsite/View/selectionDomicile.php');
-  // }
+  if (! checkID($_POST['username'],$_POST['password'],$GLOBALS['bdd'])){
+    $messageErreur='Identifiants incorrects.';
+    include_once($_SERVER['DOCUMENT_ROOT'].'/APPwebsite/View/frontLogin.php');
+  }
+
+  else{
+    header("Refresh:0; url=/../APPwebsite/index.php?page=selectionDomicile");
+  }
 }
+
 ?>
