@@ -1,0 +1,186 @@
+body{
+  font-family: 'Lato';
+  background-image: url("/../APPwebsite2/Style/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bande {
+  opacity : 0.2;
+  position: absolute;
+  z-index: -1;
+  width: 50%;
+  height: 100%;
+  right: 0;
+  top:0;
+  background-color: #7f8c8d;
+}
+
+.WelcomeMsg {
+  font-family: 'Bauhaus 93';
+  position: relative;
+  display: inline-block;
+  color: white;
+  font-weight: lighter;
+  font-size: 55px;
+  text-align: center;
+  left:5px;
+  right:0;
+  top:10px;
+  margin:0 auto;
+  height: 100%;
+}
+
+.logoWH{
+  justify-content: space-around;
+  height: 300px;
+  position:absolute;
+  top: 0px;
+  display: block;
+  margin-left: 30%;
+  margin-top: 200px;
+}
+
+.ConnectionPanel{
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  position: relative;
+  height: 410px;
+  width: 280px;
+  float: right;
+  top: 130px;
+  right: 30px;
+  text-align: center;
+}
+
+
+.messageConnexion{
+  margin-top: -20px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #ff5252;
+  font-size: 30px;
+}
+
+.ConnectionPanel input{
+  width: 240px;
+  font-size: 25px;
+  margin-bottom:25px;
+}
+
+.logButton {
+  height: 70px;
+  width:200px;
+  background-color: #ff5252;
+  color: white;
+  font-size: 25px;
+  border-style: hidden;
+  border-radius: 7px;
+  cursor:pointer;
+  /* margin-top: 30px; */
+}
+
+.logButton:hover{
+  background-color: #c0392b;
+  transition: 0.3s;
+}
+
+.logButton:active {
+  background-color: #2980b9;
+  height: 65px;
+  width:195px;
+}
+
+.logoAdmin{
+  position: fixed;
+  bottom:0px;
+  right: 0px;
+  border-style: dashed;
+  border-color:#ff5252;
+}
+
+.logoAdmin:hover{
+  transition: 0.3s;
+  border-style: dashed;
+  border-color: #5b6bff;
+}
+
+.logoAdmin img{
+  width: 50px;
+}
+
+.logoInterrogation{
+  height: 40px;
+  margin-bottom: 25px
+}
+
+.popup{
+  color:#ccc;
+  text-shadow:0 -1px 0 black;
+}
+.popup:hover,.popup:focus{
+  box-shadow:0 1px 0 rgba(255,255,255,.4);
+}
+
+.popup span{
+  position:absolute;
+  margin-top:23px;
+  margin-left:-35px;
+  color:#ff5252;
+  background:rgba(0,0,0,.9);
+  padding:15px;
+  border-radius:3px;
+  box-shadow:0 0 2px rgba(0,0,0,.5);
+  transform:scale(0) rotate(-12deg);
+  transition:all .25s;
+  opacity:0;
+}
+
+.popup:hover span, .popup:focus span{
+     transform:scale(1) rotate(0);
+     opacity:1;
+}
+
+#listePlus{
+position: absolute;
+bottom: 20px;
+left:-130px;
+width: 90%;
+}
+
+.listePlus{
+  position: relative;
+  bottom: -20px;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+.listePlus li{
+  font-family: 'Bauhaus 93';
+  font-weight: lighter;
+  margin-right: 5%;
+  border-style: solid;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.messageErreur{
+  text-align: center;
+  position: relative;
+  color: red;
+}
