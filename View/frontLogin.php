@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <title>WatcHouse</title>
-  <link rel="stylesheet" href="/../APPwebsite2/Style/frontLog.css">
+  <link rel="stylesheet" href="/../APPwebsite2/Style/frontLogin.css">
 </head>
 <body>
       <div class="bande"></div>
@@ -18,8 +18,8 @@
     <span class="messageErreur"><?php echo $messageErreur; ?></span>
     <br/>
     <form action="/../APPwebsite2/Controller/frontLogin.php" method="post" class="formulaire">
-      <input type="txt" name="username" placeholder="Identifiant" required />
-      <input type="password" name="password" placeholder="Mot de passe" required />
+      <input type="txt" name="username" placeholder=" Identifiant" required />
+      <input type="password" name="password" placeholder=" Mot de passe" required />
       <br/>
       <a href="#" class="popup"><span>Utilisez les identifiants fournis par Domisep !</span><img src="/../APPwebsite2/View/logoInterrogation.png" alt="" class="logoInterrogation"></a>
       <br/>

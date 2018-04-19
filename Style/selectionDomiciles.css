@@ -1,0 +1,100 @@
+body{
+  background-color: #daccbf;
+  text-decoration: none;
+}
+
+/* Tableau de liste des domiciles */
+
+.tableauWrapper{
+  z-index: 1;
+}
+.tableau_domiciles{
+  border: solid;
+  border-color: #2980b9;
+  padding: 20px;
+}
+
+.titre_domiciles{
+  text-align: center;
+  font-family: 'Bauhaus 93';
+  font-size: 150%;
+  color: #2980b9;
+  font-weight: lighter;
+  margin-bottom: 20%;
+}
+
+.CaseDomicile{
+  font-family: 'Helvetica';
+  color: #34495e;
+  font-weight: bold;
+  vertical-align: bottom;
+  padding: 5px;
+  text-align: center;
+}
+
+.CaseDomicile a{
+  text-decoration: none;
+  color: #34495e;
+
+}
+
+.separator{
+  padding: 10px;
+}
+
+.clef{
+  height: 40%;
+}
+
+.addButton{
+  height: 40%;
+}
+
+/* formulaire d'ajout de domicile */
+.formWrapper{
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top : 15%;
+  left:15%;
+  height: 60%;
+  width: 70%;
+  text-align: center;
+  background-color: #ecf0f1;
+}
+
+.formulaire input{
+  height: 40px;
+  border-radius: 5px;
+  border:none;
+  box-shadow: 0px  3px 10px rgba(0, 59, 252, 0.34);
+  width: 50%;
+  font-size: 20px;
+  margin-bottom:25px;
+}
+
+.closeButton{
+  height: 50px;;
+  position: absolute;
+  top:2%;
+  cursor: pointer;
+  right:1%;
+}
+
+.pageCover{
+  z-index: 2;
+  position:absolute;
+  top:0px;
+  left: 0px;
+  background-color: black;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%
+}
+
+
+.invisible {
+    display: none;
+}

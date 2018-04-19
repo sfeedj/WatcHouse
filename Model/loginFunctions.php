@@ -1,4 +1,7 @@
 <?php
+
+$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
+
 function checkID($username, $password, $bdd){
   $req = $bdd->prepare('SELECT ID, password FROM users WHERE username = ?');
   $req->execute(array($username));
@@ -14,7 +17,6 @@ function checkID($username, $password, $bdd){
   else
   {
     if ($isPasswordCorrect) {
-      session_start();
       $_SESSION['ID'] = $resultat['ID'];
       $_SESSION['username'] = $username;
       return true;
@@ -24,7 +26,7 @@ function checkID($username, $password, $bdd){
 }
 
 function checkAdmin($username, $password, $bdd){
-  $req = $bdd->prepare('SELECT ID, password FROM users WHERE username = ?');
+  $req = $bdd->prepare('SELECT ID, password,admin FROM users WHERE username = ?');
   $req->execute(array($username));
   $resultat = $req->fetch();
 
@@ -35,8 +37,7 @@ function checkAdmin($username, $password, $bdd){
   {
     return false;
   }
-  else
-  {
+  else{
     if ($isPasswordCorrect AND $resultat['admin']==1) {
       $_SESSION['ID'] = $resultat['ID'];
       $_SESSION['username'] = $username;
@@ -45,6 +46,5 @@ function checkAdmin($username, $password, $bdd){
     return false;
   }
 }
-
 
 ?>

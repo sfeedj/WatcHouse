@@ -1,23 +1,34 @@
 <?php
 session_start();
-$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
 
-include("View/header.php");
-include("View/selectionDomicile.php");
+include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/loginFunctions.php');
 
-$req = $bdd->prepare('SELECT Nom FROM Domiciles WHERE propriétaire = ?');
+include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/View/header.php');
+
+include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/View/selectionDomicile.php');
+
+//Tableau domicile : ne pas oublié les baslises <table> dans la vue
+function Tableau_Domiciles($bdd)
+{
+$req = $bdd->prepare('SELECT Nom,ID FROM Domiciles WHERE propriétaire = ?');
 $req->execute(array($_SESSION['ID']));
 $result = $req;
-echo "<table class='tableau_domiciles'>
+
+echo "
 	  <tr>
-			 <td class='titre_domiciles'>Mes Domiciles:</td>
+			 <td class='titre_domiciles'>Mes Domiciles : <br/><br/></td>
 	  </tr>
 	  ";
 	  while ($donnees = $result->fetch())
 	  {
 	    echo "
-	    <td  class='CaseDomicile'> ".$donnees["Nom"]."</td>
+	    <td  class='CaseDomicile'><a href=\"../Controller/PageDomicile.php?id=".$donnees["ID"]."\"><img src = '../Style/clef.png' class = 'clef'><figcaption>".$donnees["Nom"]."</figcaption></a></td>
       <td class='separator'></td>
 	     ";
 	  }
-	  echo "</table>"; ?>
+}
+
+function ajouterDomicile($bdd){
+
+}
+		?>

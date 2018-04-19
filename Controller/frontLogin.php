@@ -1,6 +1,6 @@
 <?php
+session_start();
 
-$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
 include_once($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/loginFunctions.php');
 
 
@@ -10,12 +10,13 @@ if (!isset($_POST['username']) OR !isset($_POST['password'])){
 }
 
 else{
-  if (! checkID($_POST['username'],$_POST['password'],$GLOBALS['bdd'])){
+  if (!checkID($_POST['username'],$_POST['password'],$GLOBALS['bdd'])){
     $messageErreur='Identifiants incorrects.';
     include_once($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/View/frontLogin.php');
   }
 
   else{
+    $messageErreur='';
     header("Refresh:0; url=/../APPwebsite2/index.php?page=selectionDomicile");
   }
 }
