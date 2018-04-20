@@ -1,4 +1,4 @@
-<link href="../Style/selectionDomiciles.css" rel="stylesheet">
+<link href="../Style/selectionDomicile.css" rel="stylesheet">
 <script type="text/javascript" src="../js/scriptFunctions.js"></script>
 <body>
   <br/>
@@ -10,14 +10,14 @@
   </div>
   <div class="invisible" >
     <div class = 'formWrapper'>
-      <form action="/../APPwebsite2/Controller/selectionDomicile.php" method="post" class="formulaire">
+      <form action="../Controller/selectionDomicile.php" method="post" class="formulaire">
         <img src='../View/close.png' class="closeButton" onclick="cacherInvisible()">
-        <span class="titreForm">Ajouter un domicile :</span><br/>
-        <input type="txt" name="nom" placeholder=" Nom du Domicile" required /><br/>
-        <input type="txt" name="adresse" placeholder=" Adresse" required />
+        <span class="titre_form">Ajouter un domicile :</span><br/><br/>
+        <input type="txt" name="nomDomicile" placeholder=" Nom du Domicile" required /><br/>
+        <input type="txt" name="adresseDomicile" placeholder=" Adresse" required />
         <br/>
         <br/>
-        <button type="submit" class="formButton" />Connexion</button><br/><br/>
+        <button type="submit" class="formButton" />Ajouter</button><br/><br/>
       </form>
     </div>
     <div class ='pageCover'></div>

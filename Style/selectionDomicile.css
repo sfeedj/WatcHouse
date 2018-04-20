@@ -12,11 +12,21 @@ body{
   border: solid;
   border-color: #2980b9;
   padding: 20px;
+  overflow: scroll;
 }
 
 .titre_domiciles{
   text-align: center;
   font-family: 'Bauhaus 93';
+  font-size: 150%;
+  color: #2980b9;
+  font-weight: lighter;
+  margin-bottom: 20%;
+}
+
+.titre_form{
+  text-align: center;
+  font-family: 'Helvetica';
   font-size: 150%;
   color: #2980b9;
   font-weight: lighter;
@@ -83,6 +93,35 @@ body{
   right:1%;
 }
 
+/* bouton */
+.formButton {
+  font-family: "Helvetica";
+  height: 70px;
+  width:200px;
+  background-color: #3498db;
+  color: white;
+  font-size: 25px;
+  border-style: hidden;
+  border-radius: 7px;
+  cursor:pointer;
+  box-shadow: 0px  3px 6px rgba(0, 0, 0, 0.1);
+  /* margin-top: 30px; */
+}
+
+.formButton:hover{
+  background-color: #2980b9;
+  transition: 0.3s;
+}
+
+.formButton:active {
+  background-color: #2980b9;
+  height: 65px;
+  width:195px;
+}
+
+
+/* Assombrissement */
+
 .pageCover{
   z-index: 2;
   position:absolute;
@@ -93,7 +132,6 @@ body{
   height: 100%;
   width: 100%
 }
-
 
 .invisible {
     display: none;

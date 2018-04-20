@@ -5,7 +5,6 @@ body{
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-
 }
 
 .bande {
@@ -16,7 +15,7 @@ body{
   height: 100%;
   right: 0;
   top:0;
-  background-color: #2980b9;
+  background-color: #bdc3c7;
 }
 
 .WelcomeMsg {
@@ -25,7 +24,7 @@ body{
   display: inline-block;
   color: white;
   font-weight: lighter;
-  font-size: 65px;
+  font-size: 55px;
   text-align: center;
   left:5px;
   right:0;
@@ -50,12 +49,12 @@ body{
   flex-direction: column;
   justify-content: center;
   background-color: white;
-  position: relative;
+  position: absolute ;
   height: 440px;
   width: 280px;
   float: right;
-  top: 130px;
-  right: 30px;
+  top: 10%;
+  right: 5%;
   text-align: center;
 }
 
@@ -64,7 +63,7 @@ body{
   margin-top: -20px;
   margin-bottom: 30px;
   font-weight: bold;
-  color: #4b7bec;
+  color: #ff5252;
   font-size: 30px;
 }
 
@@ -72,7 +71,7 @@ body{
   height: 40px;
   border-radius: 14px;
   border:none;
-  box-shadow: 0px  3px 10px rgba(0, 59, 252, 0.34);
+  box-shadow: 0px  3px 10px rgba(143, 1, 1, 0.34);
   width: 240px;
   font-size: 25px;
   margin-bottom:25px;
@@ -81,18 +80,17 @@ body{
 .logButton {
   height: 70px;
   width:200px;
-  background-color: #3498db;
+  background-color: #ff5252;
   color: white;
   font-size: 25px;
   border-style: hidden;
   border-radius: 7px;
   cursor:pointer;
-  box-shadow: 0px  3px 6px rgba(0, 0, 0, 0.1);
   /* margin-top: 30px; */
 }
 
 .logButton:hover{
-  background-color: #2980b9;
+  background-color: #c0392b;
   transition: 0.3s;
 }
 
@@ -107,13 +105,13 @@ body{
   bottom:0px;
   right: 0px;
   border-style: dashed;
-  border-color:#4b7bec;
+  border-color:#ff5252;
 }
 
 .logoAdmin:hover{
   transition: 0.3s;
   border-style: dashed;
-  border-color: #e74c3c;
+  border-color: #5b6bff;
 }
 
 .logoAdmin img{
@@ -137,7 +135,7 @@ body{
   position:absolute;
   margin-top:23px;
   margin-left:-35px;
-  color:#09c;
+  color:#ff5252;
   background:rgba(0,0,0,.9);
   padding:15px;
   border-radius:3px;
@@ -154,13 +152,14 @@ body{
 
 #listePlus{
 position: absolute;
-bottom: 0px;
+bottom: 20px;
 left:-130px;
 width: 90%;
 }
 
 .listePlus{
-  bottom: 0px;
+  position: relative;
+  bottom: -20px;
   display: flex;
   flex-direction: row;
   list-style-type: none;
