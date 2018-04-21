@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/loginFunctions.php');
 
@@ -16,7 +15,7 @@ else{
   }
 
   else {
-    header("Refresh:0; url=/../APPwebsite2/index.php?page=clients");
+    header("Refresh:0; url=/../APPwebsite2/index.php?page=listeClients");
   }
 }
 

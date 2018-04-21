@@ -29,13 +29,6 @@
     </form>
   </div>
   <a href="/../APPwebsite2/index.php?page=frontLogin" class="logoAdmin" title="Accès Utilisateur"><img src="/../APPwebsite2/View/user.png" ></a>
-  <div>    <br/>
-    <div id="listePlus">
-    <ul class="listePlus">
-      <li>Confort</li>
-      <li>Sécurité</li>
-      <li>Connectivité</li>
-    </ul>
-    <div>
+  <div>
   </body>
   </html>

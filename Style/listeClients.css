@@ -1,0 +1,172 @@
+body{
+  background-color: #daccbf;
+  font-family: 'Helvetica';
+}
+
+a{
+  text-decoration: none;
+  color: #3498db;
+}
+/* Tableau de liste des clients */
+
+.tableauWrapper{
+  z-index: 1;
+}
+
+.gestion{
+  text-align: center;
+  width: 50%;
+  position: relative;
+  width: 50%;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Helvetica';
+}
+
+
+.tableau_clients{
+  width: 50%;
+  border: solid;
+  border-collapse: collapse;
+  border-width: medium;
+  border-color: #7f8c8d;
+  padding: 20px;
+}
+
+.tableau_clients td{
+  border: solid;
+  border-width: medium;
+  border-color: #7f8c8d;
+  padding: 20px;
+}
+
+.enTete{
+  font-weight: bold;
+}
+
+.ligneDomicile{
+  border-collapse: collapse;
+  display:none;
+}
+
+.titre_clients{
+  text-align: center;
+  font-family: 'Bauhaus 93';
+  font-size: 150%;
+  color: #2980b9;
+  font-weight: lighter;
+  margin-bottom: 20%;
+}
+
+.titre_form{
+  text-align: center;
+  font-family: 'Helvetica';
+  font-size: 150%;
+  color: #2980b9;
+  font-weight: lighter;
+  margin-bottom: 20%;
+}
+
+.CaseClients{
+  font-family: 'Helvetica';
+  color: #34495e;
+  font-weight: bold;
+  vertical-align: bottom;
+  padding: 5px;
+  text-align: center;
+}
+
+.CaseClients a{
+  text-decoration: none;
+  color: #34495e;
+
+}
+
+
+/* formulaire d'ajout de domicile */
+.formWrapper{
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top : 15%;
+  left:15%;
+  height: 60%;
+  width: 70%;
+  text-align: center;
+  background-color: #ecf0f1;
+}
+
+.formulaire #txt{
+  height: 40px;
+  border-radius: 5px;
+  border:none;
+  box-shadow: 0px  3px 10px rgba(0, 59, 252, 0.34);
+  width: 50%;
+  font-size: 20px;
+  margin-bottom:25px;
+}
+
+.closeButton{
+  height: 50px;;
+  position: absolute;
+  top:2%;
+  cursor: pointer;
+  right:1%;
+}
+
+/* bouton */
+.formButton {
+  font-family: "Helvetica";
+  height: 70px;
+  width:200px;
+  background-color: #3498db;
+  color: white;
+  font-size: 25px;
+  border-style: hidden;
+  border-radius: 7px;
+  cursor:pointer;
+  box-shadow: 0px  3px 6px rgba(0, 0, 0, 0.1);
+  /* margin-top: 30px; */
+}
+
+.formButton:hover{
+  background-color: #2980b9;
+  transition: 0.3s;
+}
+
+.formButton:active {
+  background-color: #2980b9;
+  height: 65px;
+  width:195px;
+}
+label,#checkBox{
+  cursor: pointer;
+}
+
+
+/* Assombrissement */
+
+.pageCover{
+  z-index: 2;
+  position:absolute;
+  top:0px;
+  left: 0px;
+  background-color: black;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%
+}
+
+.invisible {
+    display: none;
+}
+
+.invisibleSuppr {
+    display: none;
+}
+
+.IDClient{
+  font-weight: bold;
+}

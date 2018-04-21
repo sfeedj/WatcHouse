@@ -12,7 +12,6 @@ function ajouterDomcile($nom,$adresse,$proprietaire,$bdd){
   	'Proprietaire' => $proprietaire,
   	'Pieces' => $liste
   	));
-    echo 'azin';
 }
 
 

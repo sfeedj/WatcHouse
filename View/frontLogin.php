@@ -30,12 +30,5 @@
   <a href="/../APPwebsite2/index.php?page=backLogin" class="logoAdmin"><img src="/../APPwebsite2/View/admin.png" ></a>
   <div>
     <br/>
-    <div id="listePlus">
-    <ul class="listePlus">
-      <li>Confort</li>
-      <li>Sécurité</li>
-      <li>Connectivité</li>
-    </ul>
-    <div>
   </body>
   </html>

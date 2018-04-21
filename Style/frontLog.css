@@ -152,37 +152,6 @@ body{
      opacity:1;
 }
 
-#listePlus{
-position: absolute;
-bottom: 0px;
-left:-130px;
-width: 90%;
-}
-
-.listePlus{
-  bottom: 0px;
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  justify-content: space-around;
-  align-items: center;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-
-}
-
-.listePlus li{
-  font-family: 'Bauhaus 93';
-  font-weight: lighter;
-  margin-right: 5%;
-  border-style: solid;
-  border-radius: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
 
 .messageErreur{
   text-align: center;
