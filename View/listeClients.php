@@ -1,4 +1,4 @@
-<link href="../Style/listeClients.css" rel="stylesheet">
+<link href="../Style/listeClient.css" rel="stylesheet">
 <script type="text/javascript" src="../js/scriptFunction.js"></script>
 <body>
   <br/>
@@ -10,7 +10,7 @@
       </tr>
       </table>
       <table class='tableau_clients'>
-        <tr class="enTete"><td>ID</td><td>Username</td><td>Date d'ajout</td></tr>
+        <tr class="enTete"><td>ID</td><td>Username</td><td>Statut</td><td>Date d'ajout</td></tr>
         <?php Liste_Clients($bdd) ?>
       </table>
     </div>

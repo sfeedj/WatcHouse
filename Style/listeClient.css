@@ -17,15 +17,22 @@ a{
   text-align: center;
   width: 50%;
   position: relative;
-  width: 50%;
   text-decoration: none;
   font-weight: bold;
   font-family: 'Helvetica';
 }
 
+.gestion td :hover{
+  color: #34495e;
+}
+
+.gestion td :active{
+  font-size:0.95em;
+}
 
 .tableau_clients{
-  width: 50%;
+  position: relative;
+  width: 60%;
   border: solid;
   border-collapse: collapse;
   border-width: medium;
@@ -49,14 +56,6 @@ a{
   display:none;
 }
 
-.titre_clients{
-  text-align: center;
-  font-family: 'Bauhaus 93';
-  font-size: 150%;
-  color: #2980b9;
-  font-weight: lighter;
-  margin-bottom: 20%;
-}
 
 .titre_form{
   text-align: center;

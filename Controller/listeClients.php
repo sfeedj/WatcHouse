@@ -19,7 +19,7 @@ if (isset($_POST['nomClient']) AND isset($_POST['IDClient']) AND $_POST['IDClien
 
 function Liste_Clients($bdd)
 {
-  $reqUser = $bdd->query('SELECT ID, username, AddedOnDate FROM users ');
+  $reqUser = $bdd->query('SELECT ID, username,admin, AddedOnDate FROM users ');
   $reqDomiciles = $bdd->prepare('SELECT Nom,Adresse,InstalledOnDate FROM domiciles WHERE Propriétaire = ?');
   $k=0 ;
   while ($donnees = $reqUser->fetch())
@@ -31,9 +31,16 @@ function Liste_Clients($bdd)
     <td class = IDClient>
     <a href='#' onclick=\"affichageDomiciles($string)\">".$donnees["ID"]."</a>
     </td>
-    <td '>".$donnees["username"]."</td>
+    <td '>".$donnees["username"]."</td>" ;
+
+    if($donnees["admin"]==1){
+      echo"<td >Admin</td>";
+    }
+    else{
+      echo"<td >User</td>";
+    }
+echo "
     <td >".$donnees["AddedOnDate"]."</td>
-    </a>
     </tr>
     ";
 
