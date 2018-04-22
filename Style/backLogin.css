@@ -1,8 +1,8 @@
 body{
   font-family: 'Lato';
-  background-image: url("/../APPwebsite2/Style/background.jpg");
+  background-image: url("");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -15,7 +15,7 @@ body{
   height: 100%;
   right: 0;
   top:0;
-  background-color: #bdc3c7;
+  background-color: #c0392b;
 }
 
 .WelcomeMsg {
@@ -24,7 +24,7 @@ body{
   display: inline-block;
   color: white;
   font-weight: lighter;
-  font-size: 55px;
+  font-size: 52px;
   text-align: center;
   left:5px;
   right:0;

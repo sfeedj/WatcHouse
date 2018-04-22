@@ -1,5 +1,11 @@
 <?php
 
+if (session_status() == 2){
+  session_destroy();
+}
+//pour déconnecter l'utilisateur quand il fait "précédent" jusqu'au login
+
+
 include_once($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/loginFunctions.php');
 
 

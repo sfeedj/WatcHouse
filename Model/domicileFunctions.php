@@ -14,5 +14,12 @@ function ajouterDomcile($nom,$adresse,$proprietaire,$bdd){
   	));
 }
 
-
+function supprimerDomicile($ID,$bdd){
+  $req=$bdd->prepare("DELETE FROM domiciles WHERE ID=?");
+  $req->execute(array($ID));
+    // $req=$bdd->prepare("DELETE FROM pièces WHERE domicle=:ID");
+    // $req->execute(array(
+    //   'ID'=>$ID
+    // 	));
+}
 ?>

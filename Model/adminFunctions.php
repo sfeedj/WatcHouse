@@ -21,5 +21,15 @@ function supprimerClient($nom,$ID,$bdd){
     	));
 }
 
+function isAdmin($id, $bdd){
+  $req = $bdd->prepare('SELECT admin FROM users WHERE ID=?');
+  $req->execute(array($id));
+  $resultat = $req->fetch();
+  if ($resultat[0]==1)
+  {
+    return true;
+  }
+  return false;
+}
 
  ?>

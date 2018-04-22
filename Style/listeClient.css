@@ -7,6 +7,26 @@ a{
   text-decoration: none;
   color: #3498db;
 }
+/* POUR UNE PLUS GRANDE ZONE CLICKABLE */
+a.expand {
+  border: none;
+  position: relative;
+  font-size: 120%;
+}
+
+a.expand:hover {
+  color: #34495e;
+}
+
+
+a.expand::after {
+  content:"";
+  padding: 20%;
+  position: absolute;
+  left: -130%;
+  top: -50%;
+
+}
 /* Tableau de liste des clients */
 
 .tableauWrapper{
@@ -159,13 +179,69 @@ label,#checkBox{
 }
 
 .invisible {
-    display: none;
+  display: none;
 }
 
 .invisibleSuppr {
-    display: none;
+  display: none;
 }
 
 .IDClient{
   font-weight: bold;
+}
+
+/* ONGLETS  */
+
+.tab {
+  position: relative;
+  overflow: hidden;
+  width: 350px;
+  left : 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  border: solid 1px #95a5a6;
+  box-shadow:1px 1px 1px #3498db;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  overflow: hidden;
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 130%;;
+  font-family: 'Helvetica';
+  border-radius:40px;
+
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+}
+
+.tabcontent {
+  animation: fadeEffect 0.2s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }

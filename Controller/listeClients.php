@@ -2,20 +2,28 @@
 session_start();
 $GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
 
-include("../View/header.php");
+include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/adminFunctions.php');
 
-include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/clientsFunctions.php');
+if (isAdmin($_SESSION['ID'],$bdd)){ // POUR LA SECURITE
 
-include("../View/listeClients.php");
-if (isset($_POST['nomClient']) AND isset($_POST['email']) AND isset($_POST['admin']) ){
-  ajouterClient($_POST['nomClient'],$_POST['email'],$_POST['admin'],$GLOBALS['bdd']);
-	header("Refresh:0");
+  include("../View/header.php");
+
+  include("../View/listeClients.php");
+
+  if (isset($_POST['nomClient']) AND isset($_POST['email']) AND isset($_POST['admin']) ){
+    ajouterClient($_POST['nomClient'],$_POST['email'],$_POST['admin'],$GLOBALS['bdd']);
+    header("Refresh:0");
+  }
+
+  if (isset($_POST['nomClient']) AND isset($_POST['IDClient']) AND $_POST['IDClient'] != $_SESSION['ID'] ){
+    supprimerClient($_POST['nomClient'],$_POST['IDClient'],$GLOBALS['bdd']);
+    header("Refresh:1");
+  }
+}
+else {
+  header("Refresh:0; url=/../APPwebsite2/index.php");
 }
 
-if (isset($_POST['nomClient']) AND isset($_POST['IDClient']) AND $_POST['IDClient'] != $_SESSION['ID'] ){
-  supprimerClient($_POST['nomClient'],$_POST['IDClient'],$GLOBALS['bdd']);
-	header("Refresh:1");
-}
 
 function Liste_Clients($bdd)
 {
@@ -29,7 +37,7 @@ function Liste_Clients($bdd)
     echo "
     <tr  class='ligneClient'>
     <td class = IDClient>
-    <a href='#' onclick=\"affichageDomiciles($string)\">".$donnees["ID"]."</a>
+    <a class = 'expand' href='#' onclick=\"affichageDomiciles($string)\">".$donnees["ID"]."</a>
     </td>
     <td '>".$donnees["username"]."</td>" ;
 
@@ -39,7 +47,7 @@ function Liste_Clients($bdd)
     else{
       echo"<td >User</td>";
     }
-echo "
+    echo "
     <td >".$donnees["AddedOnDate"]."</td>
     </tr>
     ";
@@ -57,5 +65,7 @@ echo "
     }
   }
 }
+
+
 
 ?>
