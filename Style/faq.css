@@ -1,0 +1,39 @@
+.bloc_q_r{
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.bloc_q {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+
+.bloc_r {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid black;
+}
+
+.question {
+    margin-left: 20px;
+}
+
+.reponse {
+    margin-left: 20px;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 1px 1px 4px #0a7ae9;
+}
+
+form {
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+}

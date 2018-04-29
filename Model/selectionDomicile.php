@@ -11,7 +11,7 @@
 
 $page = $_GET['page'];
 // On identifie le contrôleur à appeler dont le nom est contenu dans cible passé en GET
-if(isset($page) && !empty($page])) {
+if(isset($page) && !empty($page)) {
 
   include('Controller/' . $page . '.php');
   include('Model/'.$page.'php');
@@ -19,7 +19,7 @@ if(isset($page) && !empty($page])) {
 
 } else {
     // Si aucun contrôleur défini en GET, on bascule sur login
-    include('Controller/frontLogin.php');}
+    include('Controller/frontLogin.php');
     include('Model/frontLogin.php');
 
 }
