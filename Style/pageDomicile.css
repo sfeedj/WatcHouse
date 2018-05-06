@@ -1,0 +1,232 @@
+body{
+  background-color: #ecf0f1;
+  font-family: 'Helvetica';
+}
+
+/* BOUTON SUPPRESSION DOMICILE */
+#supprDomicile{
+  background-color: #e74c3c;
+  padding: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  position: absolute;
+  right: 7px;
+  margin-top: -15px;
+}
+
+#supprDomicile:hover{
+  background-color: #c0392b;
+  transition: 0.2s;
+}
+
+#supprDomicile:active{
+  padding: 8px;
+  transition: 0.2s;
+}
+
+/* FORMULAIRE SUPPRESSION DOMICILE */
+.formWrapper{
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top : 15%;
+  left:15%;
+  height: 60%;
+  width: 70%;
+  text-align: center;
+  background-color: #ecf0f1;
+}
+
+.titre_form{
+  font-size:25px;
+  color: #34495e;
+
+}
+.formulaire #txt{
+  height: 40px;
+  border-radius: 5px;
+  border:none;
+  box-shadow: 0px  3px 10px rgba(0, 59, 252, 0.34);
+  width: 50%;
+  font-size: 20px;
+  margin-bottom:25px;
+}
+
+.closeButton{
+  height: 50px;;
+  position: absolute;
+  top:2%;
+  cursor: pointer;
+  right:1%;
+}
+/* TABLEAU DE PRESENTATION */
+
+.présentation{
+  margin-top: 25px;
+  width:100%;
+  margin-bottom: 100px;
+}
+
+
+.gauche{
+  position: -webkit-sticky;
+  position: sticky;
+  top:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+}
+
+.général{
+  position: sticky;
+  top:0;
+  margin-left: -10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: #34495e;
+  min-height: 300px;
+  min-width:100%;
+}
+
+.droite{
+  border-left: solid #bdc3c7;
+  padding-left: 5px;
+  overflow-y: auto;
+  height: 100px;
+}
+
+.titre{
+  color: white;
+  font-size: 3em;
+  letter-spacing: -6px;
+  font-family: 'Calibri';
+  font-weight: 800;
+}
+
+
+/* LISTE PIECES */
+.pieceWrapper{
+  background-color:;
+  border-radius: 5px;
+  height: 100px;
+  position: relative;
+}
+
+.titrePiece{
+  vertical-align: top;
+  height: 10px;
+  position:absolute;
+  top:-10px;
+
+}
+
+.pieceContainer{
+  position: absolute;
+}
+
+/* bouton */
+.formButton {
+  font-family: "Helvetica";
+  height: 70px;
+  width:200px;
+  background-color: #3498db;
+  color: white;
+  font-size: 25px;
+  border-style: hidden;
+  border-radius: 7px;
+  cursor:pointer;
+  box-shadow: 0px  3px 6px rgba(0, 0, 0, 0.1);
+  /* margin-top: 30px; */
+}
+
+.formButton:hover{
+  background-color: #2980b9;
+  transition: 0.3s;
+}
+
+.formButton:active {
+  background-color: #2980b9;
+  height: 65px;
+  width:195px;
+}
+label,#checkBox{
+  cursor: pointer;
+}
+
+/* Assombrissement */
+
+.pageCover{
+  z-index: 2;
+  position:fixed;
+  top:0px;
+  left: 0px;
+  background-color: black;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%
+}
+
+.invisibleSuppr{
+  display: none;
+}
+
+.invisible{
+  display: none;
+}
+
+.invisibleSupprPiece{
+  display: none;
+}
+
+/* BOUTON AJOUT PIECE */
+.gestionPieces{
+  position: fixed;
+  bottom: 45px;
+  right:7px;
+}
+
+.gestionPieces button{
+  background-color: #34495e;
+  text-align: center;
+  border:none;
+  color:white;
+  font-size: 1.5em;
+  padding-left:40px;
+  padding-right: 40px;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.gestionPieces button:hover{
+  background-color: #2980b9;
+  transition: 0.2s;
+}
+
+.gestionPieces button:active{
+  padding-left:38px;
+  padding-right: 38px;
+  transition: 0.2s;
+}
+
+/* SUPPRESSION DE PIECE */
+select{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  background-image: url('../Style/search.png');
+  background-position: 10px 7px;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding: 7px 10px 7px 35px;
+  width:30%
+}

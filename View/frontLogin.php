@@ -4,8 +4,11 @@
   <meta charset="utf-8" />
   <title>WatcHouse</title>
   <link rel="stylesheet" href="/../APPwebsite2/Style/frontLog.css">
+  <script type="text/javascript" src="../js/logFunction.js"></script>
+
 </head>
-<body>
+
+<body onload="randombg()">
       <div class="bande"></div>
   <div class="WelcomeMsg">
     <span >WatcHouse</span><br/>

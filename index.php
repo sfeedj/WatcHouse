@@ -7,7 +7,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])) {
 
 }
 else{
-  include_once($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Controller/frontLogin.php');
+  header("Refresh:0; url=/../APPwebsite2/Controller/frontLogin.php");
 }
 
 ?>

@@ -1,11 +1,10 @@
 body{
   font-family: 'Lato';
-  background-image: url("/../APPwebsite2/Style/background.jpg");
+  background-image: url("");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
   background-size: cover;
   background-attachment: fixed;
-
 }
 
 .bande {

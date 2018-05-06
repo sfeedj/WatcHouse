@@ -1,5 +1,5 @@
 body{
-  background-color: #daccbf;
+  background-color: #ecf0f1;
   font-family: 'Helvetica';
 }
 
@@ -7,55 +7,82 @@ a{
   text-decoration: none;
   color: #3498db;
 }
-/* Tableau de liste des clients */
+
+
+/* Tableau de liste des modules */
 
 .tableauWrapper{
   z-index: 1;
+  margin-bottom: 20px;
 }
+
 
 .gestion{
   text-align: center;
-  width: 50%;
+  width: 30%;
   position: relative;
+  margin-left: 6%;
   text-decoration: none;
   font-weight: bold;
   font-family: 'Helvetica';
 }
 
 .gestion td :hover{
-  color: #34495e;
+  background-color:  #3498db;
 }
 
 .gestion td :active{
-  font-size:0.95em;
+  font-size:1.3em;
 }
 
-.tableau_clients{
+.gestion button{
+  background-color:#34495e;
+  text-align: center;
+  border:none;
+  color:white;
+  font-size: 1.5em;
+  padding-left:40px;
+  padding-right: 40px;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tableau_modules{
+  margin-left: 10%;
   position: relative;
-  width: 60%;
-  border: solid;
+  width: 80%;
   border-collapse: collapse;
   border-width: medium;
   border-color: #7f8c8d;
   padding: 20px;
 }
 
-.tableau_clients td{
+.tableau_modules td{
   border: solid;
   border-width: medium;
   border-color: #7f8c8d;
   padding: 20px;
 }
 
-.enTete{
+
+.enTete {
+  font-weight: bold;
+  border: solid;
+  border-width: medium;
+  border-color: #7f8c8d;
+}
+
+.nomMudule{
   font-weight: bold;
 }
 
-.ligneDomicile{
-  border-collapse: collapse;
-  display:none;
+.Ref{
+  text-align: center;
+  font-size: 1.3em;
+  color: #34495e;
 }
-
 
 .titre_form{
   text-align: center;
@@ -66,7 +93,7 @@ a{
   margin-bottom: 20%;
 }
 
-.CaseClients{
+.Casemodules{
   font-family: 'Helvetica';
   color: #34495e;
   font-weight: bold;
@@ -75,7 +102,7 @@ a{
   text-align: center;
 }
 
-.CaseClients a{
+.Casemodules a{
   text-decoration: none;
   color: #34495e;
 
@@ -84,15 +111,17 @@ a{
 
 /* formulaire d'ajout de domicile */
 .formWrapper{
+  position: sticky;
+  top: 0;
   z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: absolute;
   top : 15%;
-  left:15%;
-  height: 60%;
-  width: 70%;
+  left:20%;
+  height: 70%;
+  width: 60%;
   text-align: center;
   background-color: #ecf0f1;
 }
@@ -149,7 +178,7 @@ label,#checkBox{
 
 .pageCover{
   z-index: 2;
-  position:absolute;
+  position:fixed;
   top:0px;
   left: 0px;
   background-color: black;
@@ -159,13 +188,9 @@ label,#checkBox{
 }
 
 .invisible {
-    display: none;
+  display: none;
 }
 
 .invisibleSuppr {
-    display: none;
-}
-
-.IDClient{
-  font-weight: bold;
+  display: none;
 }
