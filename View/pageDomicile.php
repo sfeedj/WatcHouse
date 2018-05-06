@@ -13,22 +13,24 @@
     <tr>
        <!-- COLONNE DE GAUCHE -->
       <td class='gauche'>
-        <div class="météo"> <!-- widget meteo -->
-          <div id="widget_2c421dedff1ebbc7deb4a23e6872484d">
-            <span id="l_2c421dedff1ebbc7deb4a23e6872484d"><a href="http://www.mymeteo.info/r/paris_fe">Paris France m&eacute;t&eacute;o aujourd'hui</a></span>
-            <script type="text/javascript">
-            (function() {
-              var my = document.createElement("script"); my.type = "text/javascript"; my.async = true;
-              my.src = "https://services.my-meteo.com/widget/js?ville=251&format=petit-horizontal&nb_jours=3&c1=393939&c2=a9a9a9&c3=transparent&c4=ffffff&c5=3498db&c6=d21515&police=4&t_icones=3&x=422&y=38&d=0&id=2c421dedff1ebbc7deb4a23e6872484d";
-              var z = document.getElementsByTagName("script")[0]; z.parentNode.insertBefore(my, z);
-            })();
+        <div>
+          <!-- widget meteo -->
+          <div id="widget_e967f5004672a06ac3a435bf2cd241e7">
+          <span id="l_e967f5004672a06ac3a435bf2cd241e7"><a href="http://www.mymeteo.info/r/paris_fe"></a></span>
+          <script type="text/javascript">
+          (function() {
+          	var my = document.createElement("script"); my.type = "text/javascript"; my.async = true;
+             	my.src = "https://services.my-meteo.com/widget/js?ville=251&format=petit-horizontal&nb_jours=3&c1=393939&c2=a9a9a9&c3=transparent&c4=ecf0f1&c5=3498db&c6=d21515&police=4&t_icones=3&x=422&y=38&d=0&id=e967f5004672a06ac3a435bf2cd241e7";
+             	var z = document.getElementsByTagName("script")[0]; z.parentNode.insertBefore(my, z);
+          })();
           </script>
-        </div>
-
+          </div>
+          <!-- widget meteo -->
         <div class="général">
           <span class='titre'>GÉNÉRAL</span>
         </div>
       </td>
+    </div>
 
 <!-- COLONNE DE DROITE -->
       <td class='droite'>
