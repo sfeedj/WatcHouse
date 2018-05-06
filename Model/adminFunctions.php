@@ -32,4 +32,22 @@ function isAdmin($id, $bdd){
   return false;
 }
 
+function ajouterModule($nomModule,$Prix,$Description,$img,$bdd){
+  $req=$bdd->prepare("INSERT INTO catalogue (Nom, Catégorie, Prix,Description,img) VALUES ( :Nom,:Categorie,:Prix,:Description,:img)");
+  $req->execute(array(
+    'Nom' =>$nomModule,
+    'Categorie'=>'Module',
+  	'Prix' => $Prix,
+    'Description' => $Description,
+    'img'=>$img
+  	));
+}
+
+function supprimerModule($Référence,$bdd){
+  $req=$bdd->prepare("DELETE FROM catalogue WHERE Référence= :Ref");
+  $req->execute(array(
+    'Ref' =>$Référence
+  	));
+}
+
  ?>

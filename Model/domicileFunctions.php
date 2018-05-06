@@ -22,4 +22,26 @@ function supprimerDomicile($ID,$bdd){
     //   'ID'=>$ID
     // 	));
 }
+
+function commanderArticle($nomModule,$userID,$bdd){
+  $req=$bdd->prepare("INSERT INTO commandes (user_ID, article_commandé) VALUES (:userID,:article)");
+  $req->execute(array(
+    'userID' =>$userID,
+    'article'=>$nomModule
+  	));
+}
+
+function ajouterPiece($nomPiece,$domicile,$proprietaire,$bdd){
+  $req=$bdd->prepare("INSERT INTO rooms (Domicile_ID,Propriétaire,Nom) VALUES ( :Domicile, :Proprietaire, :Nom)");
+  $req->execute(array(
+  	'Domicile' =>$domicile,
+    'Proprietaire' => $proprietaire,
+  	'Nom' => $nomPiece
+  	));
+}
+
+function supprimerPiece($IDPiece,$domicile,$proprietaire,$bdd){
+  $req=$bdd->prepare("DELETE FROM rooms WHERE ID=? AND Propriétaire=?");
+  $req->execute(array($IDPiece,$proprietaire));
+}
 ?>
