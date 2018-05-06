@@ -1,6 +1,7 @@
 .bloc_q_r{
     margin: 10px;
     border: 1px solid black;
+    border-radius: 50px;
 }
 
 .bloc_q {
@@ -15,7 +16,6 @@
     flex-direction: row;
     align-items: center;
     padding: 10px;
-    border-top: 1px solid black;
 }
 
 .question {
@@ -24,10 +24,28 @@
 
 .reponse {
     margin-left: 20px;
+    width: 50%;
+}
+.reponse form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.reponse form div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-h1 {
-    text-align: center;
+#title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#title h1 {
     text-shadow: 1px 1px 4px #0a7ae9;
 }
 
@@ -36,4 +54,8 @@ form {
     margin-top: 50px;
     flex-direction: column;
     align-items: center;
+}
+
+h3{
+    margin-left: 30px;
 }
