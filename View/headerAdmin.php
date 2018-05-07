@@ -16,6 +16,8 @@
     <a href="../index.php?page=listeClients">Accueil</a>
     <a href="../index.php?page=listeClients">Clients</a>
     <a href="../index.php?page=listeModules">Modules</a>
+    <a href="../index.php?page=faqAdmin">FAQ</a>
+
 
 
   </nav>
