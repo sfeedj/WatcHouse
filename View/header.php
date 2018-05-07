@@ -7,12 +7,13 @@
 </head>
 
 <header class="bloc-header">
-  
+
   <div class="bloc">
     <span id='logo'><a href="../index.php?page=selectionDomicile"><img src="../Style/logoWH2.png"></a></span>
     <nav>
       <span id='links'><a href="../index.php?page=selectionDomicile">Acceuil</a>
         <a href="../index.php?page=Catalogue">Catalogue</a>
+        <a href="../index.php?page=faq">FAQ</a>
         <a href="#">Notifications<span>1</span></a></span>
       </nav>
 
