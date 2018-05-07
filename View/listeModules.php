@@ -37,11 +37,7 @@
 
   <div class="invisibleSuppr" >
     <div class = 'formWrapper'>
-      <form action="../Controller/listeModules.php" method="post" class="formulaire">
-        <img src='../View/close.png' class="closeButton" onclick="affichageInvisible('invisibleSuppr')">
-        <span class="titre_form">Supprimer un module :</span><br/><br/>
-        <?php Select_Module($bdd); ?>  
-      </form>
+        <?php Select_Module($bdd); ?>
     </div>
     <div class ='pageCover'></div>
   </div>
