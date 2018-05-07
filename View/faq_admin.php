@@ -4,12 +4,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
-<div id="title">
-    <h1>FAQ ADMIN</h1>
-    <a href="/../APPwebsite2/Controller/faq.php">
-        <img src="/../APPwebsite2/Style/faq_back.png" height="60">
-    </a>
-</div>
+<h1>FAQ ADMIN</h1>
 
 
 
@@ -44,12 +39,25 @@ foreach ($liste_q as $q_r) {
     <script>
         $("#q_<?php echo($count); ?>").click(onClick<?php echo($count); ?>);
         function onClick<?php echo($count); ?>(){
-            $("#r_<?php echo($count); ?>").toggle(300);
+            $("#r_<?php echo($count); ?>").toggle(500);
         }
     </script>
     <?php
 }
+if (empty($liste_q)) {
+    ?>
+    <h2>Pas de nouvelle question</h2>
+    <?php
+}
 ?>
+
+<a href="/../APPwebsite2/Controller/faq.php" id="image_faq">
+    <figure>
+        <img src="/../APPwebsite2/Style/faq_back.png" height="60" alt="test">
+        <figcaption>Accéder à la faq</figcaption>
+    </figure>
+</a>
+
 <script>
     $(".bloc_r").toggle();
 </script>

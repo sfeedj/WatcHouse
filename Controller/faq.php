@@ -13,6 +13,11 @@ if (empty($_SESSION["ID"])){
 }
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/faq.php');
+
+if (!empty($_POST['question'])){
+    AddQuestion($_SESSION['ID'], $_POST['question']);
+}
+
 $liste_q_r=GetQuestions();
 
 include("../View/header.php");
