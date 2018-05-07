@@ -42,4 +42,19 @@ function Liste_Modules($bdd)
     ";
   }
 }
+
+
+function Select_Module($bdd){
+  $req = $bdd->query('SELECT Nom FROM Catalogue ORDER BY Nom');
+echo "
+  <select name='refModule' placeholder='Référence'>";
+  while ($donnees = $req->fetch()){
+    echo "  <option value='".$donnees["Nom"]."'>".$donnees["Nom"]."</option>";
+  }
+  echo "
+  </select>
+  <button type='submit' class='formButton' />Supprimer</button><br/><br/>";
+
+}
+
 ?>

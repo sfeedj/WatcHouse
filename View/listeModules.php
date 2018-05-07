@@ -40,10 +40,7 @@
       <form action="../Controller/listeModules.php" method="post" class="formulaire">
         <img src='../View/close.png' class="closeButton" onclick="affichageInvisible('invisibleSuppr')">
         <span class="titre_form">Supprimer un module :</span><br/><br/>
-        <input id='txt' type="txt" name="refModule" placeholder=" Référence" required /><br/>
-        <br/>
-        <br/>
-        <button type="submit" class="formButton" />Supprimer</button><br/><br/>
+        <?php Select_Module($bdd); ?>  
       </form>
     </div>
     <div class ='pageCover'></div>

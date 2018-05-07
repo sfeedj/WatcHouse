@@ -21,7 +21,7 @@
   </nav>
 
   <div class="menu">
-    <img src="/../APPwebsite/Public/images/user2.png" alt="User Image"/>
+    <img src="../Style/user2.png" alt="User Image"/>
     <p> <?php echo $_SESSION['username'] ?> </P>
     <ul>
       <li><a href="../index.php?page=profil">Profil</a></li>

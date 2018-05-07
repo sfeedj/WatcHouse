@@ -147,8 +147,8 @@ a{
 /* bouton */
 .formButton {
   font-family: "Helvetica";
-  height: 70px;
-  width:200px;
+  height: 60px;
+  width:150px;
   background-color: #3498db;
   color: white;
   font-size: 25px;
@@ -193,4 +193,14 @@ label,#checkBox{
 
 .invisibleSuppr {
   display: none;
+}
+
+.invisibleSuppr select{
+  margin-bottom: 5px;
+  padding: 10px 10px 10px 35px;
+  font-size: 20px;
+  background-image: url('../Style/search.png');
+  background-position: 10px 7px;
+  background-repeat: no-repeat;
+  background-size: 20px;
 }
