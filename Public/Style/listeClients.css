@@ -1,6 +1,6 @@
 body{
   font-family: 'Helvetica';
-  background-color: #ecf0f1;
+  /* background-color: #ecf0f1; */
 }
 
 a{
@@ -60,8 +60,6 @@ a.expand::after {
   color:white;
   width: 100px;
   font-size: 1.5em;
-  /* padding-left:40px;
-  padding-right: 40px; */
   margin-bottom: 5%;
   border-radius: 10px;
   cursor: pointer;
@@ -103,10 +101,9 @@ a.expand::after {
 
 .titre_form{
   text-align: center;
-  font-family: 'Helvetica';
+  font-family: 'Lato';
   font-size: 150%;
-  color: #2980b9;
-  font-weight: lighter;
+  color: #34495e;
   margin-bottom: 20%;
 }
 
@@ -159,24 +156,28 @@ a.expand::after {
   right:1%;
 }
 
+.closeButton:active{
+  height: 48px;
+  transition:0.1s;
+}
+
+
 /* bouton */
 .formButton {
   font-family: "Helvetica";
   height: 70px;
   width:200px;
-  background-color: #3498db;
+  background-color: #34495e;
   color: white;
   font-size: 25px;
   border-style: hidden;
   border-radius: 7px;
   cursor:pointer;
-  box-shadow: 0px  3px 6px rgba(0, 0, 0, 0.1);
-  /* margin-top: 30px; */
+  transition: 0.3s;
 }
 
 .formButton:hover{
   background-color: #2980b9;
-  transition: 0.3s;
 }
 
 .formButton:active {
@@ -188,6 +189,21 @@ label,#checkBox{
   cursor: pointer;
 }
 
+/* POPUP MAIL DEJA UTILISE */
+.popupMail{
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top : 25%;
+  left:25%;
+  height: 40%;
+  width: 50%;
+  text-align: center;
+  background-color: #ecf0f1;
+  border:solid #e74c3c;
+}
 
 /* Assombrissement */
 
@@ -208,6 +224,10 @@ label,#checkBox{
 
 .invisibleSuppr {
   display: none;
+}
+
+.invisibleMail {
+  display: none;;
 }
 
 .IDClient{
@@ -241,7 +261,7 @@ label,#checkBox{
   transition: 0.3s;
   font-size: 130%;;
   font-family: 'Helvetica';
-  border-radius:10px;
+  border-radius:5px;
 }
 
 /* Change background color of buttons on hover */
@@ -279,7 +299,7 @@ label,#checkBox{
   left: 33%;
   border: solid #bdc3c7;
   border-width: 1px;
-  background-image: url('../Style/search.png');
+  background-image: url('../Public/images/search.png');
   background-position: 10px 7px;
   background-repeat: no-repeat;
   background-size: 20px;

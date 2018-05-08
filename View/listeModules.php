@@ -1,5 +1,7 @@
-<link href="../Style/listeModules.css" rel="stylesheet">
-<script type="text/javascript" src="../js/scriptFunction.js"></script>
+<link href="../Public/Style/listeModules.css" rel="stylesheet">
+<script type="text/javascript" src="../Public/js/scriptFunction.js"></script>
+<script src="../Public/dist/dropzone.js"></script>
+
 
 <body>
   <br/>
@@ -20,9 +22,9 @@
   </div>
 
   <div class="invisible" >
-    <div class = 'formWrapper'>
+    <div class = 'formWrapperADD'>
       <form action="../Controller/listeModules.php" method="post" class="formulaire">
-        <img src='../View/close.png' class="closeButton" onclick="affichageInvisible('invisible')">
+        <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisible')">
         <span class="titre_form">Ajouter un Module :</span><br/><br/>
         <input id='txt' type="txt" name="nomModule" placeholder=" Nom " required /><br/>
         <input id='txt' type="number" name="Prix" placeholder=" Prix" required /><br/>
@@ -36,7 +38,7 @@
   </div>
 
   <div class="invisibleSuppr" >
-    <div class = 'formWrapper'>
+    <div class = 'formWrapperSUPPR'>
         <?php Select_Module($bdd); ?>
     </div>
     <div class ='pageCover'></div>

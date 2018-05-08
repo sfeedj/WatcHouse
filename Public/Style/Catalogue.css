@@ -57,7 +57,7 @@ select{
   padding: 10px;
   cursor: pointer;
   font-size: 20px;
-  background-image: url('../Style/search.png');
+  background-image: url('../Public/images/search.png');
   background-position: 10px 7px;
   background-repeat: no-repeat;
   background-size: 20px;

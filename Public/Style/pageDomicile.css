@@ -1,12 +1,15 @@
 body{
-  background-color: #ecf0f1;
+  /* background-color: #ecf0f1; */
   font-family: 'Helvetica';
 }
 
 /* BOUTON SUPPRESSION DOMICILE */
+
 #supprDomicile{
-  background-color: #e74c3c;
+  background-color:#e74c3c;
   padding: 10px;
+  padding-left: 22px;
+  padding-right:22px;
   border: none;
   color: white;
   cursor: pointer;
@@ -44,6 +47,7 @@ body{
 
 .titre_form{
   font-size:25px;
+  font-family: 'Lato';
   color: #34495e;
 
 }
@@ -51,7 +55,6 @@ body{
   height: 40px;
   border-radius: 5px;
   border:none;
-  box-shadow: 0px  3px 10px rgba(0, 59, 252, 0.34);
   width: 50%;
   font-size: 20px;
   margin-bottom:25px;
@@ -64,6 +67,12 @@ body{
   cursor: pointer;
   right:1%;
 }
+
+.closeButton:active{
+  height: 48px;
+  transition:0.1s;
+}
+
 /* TABLEAU DE PRESENTATION */
 
 .présentation{
@@ -85,18 +94,18 @@ body{
 
 .général{
   position: sticky;
+  border-radius: 5px;
   top:0;
   margin-left: -10px;
   text-align: center;
-  border-radius: 5px;
   margin-top: 10px;
-  background-color: #34495e;
+  background-color: #479BEE;
   min-height: 300px;
   min-width:100%;
 }
 
 .droite{
-  border-left: solid #bdc3c7;
+  /* border-left: solid #bdc3c7; */
   padding-left: 5px;
   overflow-y: auto;
   height: 100px;
@@ -104,27 +113,29 @@ body{
 
 .titre{
   color: white;
-  font-size: 3em;
-  letter-spacing: -6px;
-  font-family: 'Calibri';
-  font-weight: 800;
+  font-size: 2.4em;
+  font-family: 'Lato';
+  color: white;
+  font-size: 1.7em;
+  margin-left: 15px;
 }
 
 
 /* LISTE PIECES */
 .pieceWrapper{
-  background-color:;
+  background:;
   border-radius: 5px;
-  height: 100px;
+  height: 150px;
   position: relative;
+  width: 95%
 }
 
 .titrePiece{
+  font-family: 'Lato';
+  color: white;
+  font-size: 1.7em;
   vertical-align: top;
-  height: 10px;
   position:absolute;
-  top:-10px;
-
 }
 
 .pieceContainer{
@@ -133,22 +144,20 @@ body{
 
 /* bouton */
 .formButton {
-  font-family: "Helvetica";
+  font-family: "Lato";
   height: 70px;
   width:200px;
-  background-color: #3498db;
+  background-color: #34495e;
   color: white;
   font-size: 25px;
   border-style: hidden;
   border-radius: 7px;
   cursor:pointer;
-  box-shadow: 0px  3px 6px rgba(0, 0, 0, 0.1);
-  /* margin-top: 30px; */
+  transition: 0.3s;
 }
 
 .formButton:hover{
   background-color: #2980b9;
-  transition: 0.3s;
 }
 
 .formButton:active {
@@ -223,7 +232,7 @@ select{
   padding: 10px;
   cursor: pointer;
   font-size: 20px;
-  background-image: url('../Style/search.png');
+  background-image: url('../Public/images/search.png');
   background-position: 10px 7px;
   background-repeat: no-repeat;
   background-size: 20px;

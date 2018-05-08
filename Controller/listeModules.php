@@ -49,8 +49,8 @@ function Select_Module($bdd){
 
 echo "
 <form action='../Controller/listeModules.php' method='post'>
-<img src='../View/close.png' class='closeButton' onclick='affichageInvisible('invisibleSuppr')'>
-<span class='titre_form'>Supprimer un module :</span><br/><br/>
+<img src='../Public/images/close.png' class='closeButton' onclick="."affichageInvisible('invisibleSuppr')".">
+<span class='titre_form'>Supprimer un module :</span><br/><br/><br/><br/>
   <select name='refModule'>";
 
   while ($donnees = $req->fetch()){
