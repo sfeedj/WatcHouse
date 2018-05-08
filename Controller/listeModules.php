@@ -9,15 +9,42 @@ if (isset($_SESSION['ID']) && isAdmin($_SESSION['ID'],$bdd)){ // POUR LA SECURIT
   include_once("../View/headerAdmin.php");
   include_once("../View/listeModules.php");
 
-  if (isset($_POST['nomModule']) AND isset($_POST['Prix']) AND isset($_POST['Description']) AND isset($_POST['img'])  ){
-    ajouterModule($_POST['nomModule'],$_POST['Prix'],$_POST['Description'],$_POST['img'] ,$GLOBALS['bdd']);
+  // AJOUT DE MODULE
+  if (isset($_POST['nomModule']) AND isset($_POST['Prix']) AND isset($_POST['Description']) AND !empty($_FILES)){
+    $ds = DIRECTORY_SEPARATOR ;
+    $storeFolder = 'uploads';
+    $tempFile=$_FILES['file']['tmp_name'];
+    $targetPath = dirname( __FILE__ ).$ds.$storeFolder.$ds;
+    $targetFile=$targetPath.$_FILES['file']['name'];
+    move_uploaded_file($tempFile,$targetFile);
+    ajouterModule($_POST['nomModule'],$_POST['Prix'],$_POST['Description'], $targetFile ,$GLOBALS['bdd']);
     echo '<meta http-equiv="refresh" content="0" />';
   }
 
+  if (isset($_POST['nomModule']) AND isset($_POST['Prix']) AND isset($_POST['Description'])){
+    echo "<script>myDropzone.processQueue()</script>";
+      $ds = DIRECTORY_SEPARATOR ;
+      $storeFolder = 'uploads';
+      $tempFile=$_FILES['file']['tmp_name'];
+      $targetPath = $_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Public/images/Modules/';
+      $targetFile=$targetPath.$_FILES['file']['name'];
+      move_uploaded_file($tempFile,$targetFile);
+      ajouterModule($_POST['nomModule'],$_POST['Prix'],$_POST['Description'], $targetFile ,$GLOBALS['bdd']);
+      echo '<meta http-equiv="refresh" content="0" />';
+    }
+  }
+
+
+
+  // SUPPRESSION DE MODULE
   if (isset($_POST['refModule']) ){
     supprimerModule($_POST['refModule'],$GLOBALS['bdd']);
     echo '<meta http-equiv="refresh" content="0" />';
   }
+
+  // UPLOAD IMAGE
+
+
 
 }
 else {
@@ -25,6 +52,7 @@ else {
 }
 
 
+// GENERATION DE LA LISTE DES MODULES
 function Liste_Modules($bdd)
 {
   $reqUser = $bdd->query('SELECT Nom, Prix,Description, Référence FROM Catalogue ORDER BY Référence');
@@ -44,13 +72,14 @@ function Liste_Modules($bdd)
 }
 
 
+// GENERATION DU CHAMPS SELECT DES MODULES
 function Select_Module($bdd){
   $req = $bdd->query('SELECT Nom, Référence FROM Catalogue ORDER BY Nom');
 
-echo "
-<form action='../Controller/listeModules.php' method='post'>
-<img src='../Public/images/close.png' class='closeButton' onclick="."affichageInvisible('invisibleSuppr')".">
-<span class='titre_form'>Supprimer un module :</span><br/><br/><br/><br/>
+  echo "
+  <form action='../Controller/listeModules.php' method='post'>
+  <img src='../Public/images/close.png' class='closeButton' onclick="."affichageInvisible('invisibleSuppr')".">
+  <span class='titre_form'>Supprimer un module :</span><br/><br/><br/><br/>
   <select name='refModule'>";
 
   while ($donnees = $req->fetch()){
@@ -60,7 +89,7 @@ echo "
   echo "
   </select>
   <input type='submit' value='Supprimer' class='formButton' ><br/><br/>
-</form>";
+  </form>";
 }
 
 

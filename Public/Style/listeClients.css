@@ -142,7 +142,6 @@ a.expand::after {
   height: 40px;
   border-radius: 5px;
   border:none;
-  box-shadow: 0px  3px 10px rgba(0, 59, 252, 0.34);
   width: 50%;
   font-size: 20px;
   margin-bottom:25px;
@@ -299,7 +298,7 @@ label,#checkBox{
   left: 33%;
   border: solid #bdc3c7;
   border-width: 1px;
-  background-image: url('../Public/images/search.png');
+  background-image: url('../images/search.png');
   background-position: 10px 7px;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -313,7 +312,7 @@ label,#checkBox{
 
 .recherche{
   border: solid #3498db;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 70%;
   min-height: 150px;;
   margin-left: 15%;
@@ -336,7 +335,7 @@ label,#checkBox{
   color: white;
   font-size:20px;
   border-style: hidden;
-  border-radius: 7px;
+  border-radius: 5px;
   cursor:pointer;
   transition: 0.2s;
 }
