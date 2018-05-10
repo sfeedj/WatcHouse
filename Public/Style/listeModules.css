@@ -164,6 +164,7 @@ a{
 
 /* bouton */
 .formButton {
+  margin-top: 2%;
   font-family: "Helvetica";
   height: 60px;
   width:150px;
@@ -188,6 +189,27 @@ a{
 
 /* IMAGE UPLOAD */
 
+#dropZone{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
+  height: 100%;
+  border: solid;
+  border-style: dashed;
+  border-color: #462a51;
+  width: 90%;
+  font-weight: bold;
+  object-position: center;
+  background: white;
+}
+
+#dropZone img{
+  height: 70px;
+}
+
+#file{
+  display: none;
+}
 
 label,#checkBox{
   cursor: pointer;

@@ -7,7 +7,6 @@
 
 <body>
   <br/>
-
   <div>
     <div class="tableauWrapper">
       <table class="gestion">
@@ -32,12 +31,10 @@
             <input id='txt' type="txt" name="nomModule" placeholder=" Nom "  /><br/>
             <input id='txt' type="number" name="Prix" placeholder=" Prix"  /><br/>
             <input id='txt' type="txt" name="Description" placeholder=" Description"  /><br/>
-
-            <div class="box__input">
-              <input type="file" name="userfile" />
+            <div class="imgDrop">
+              <label for="file" id="dropZone"><img src='../Public/images/dz.png'><br/>Choisir ou déposer une image</label>
+              <input id="file" type="file" name="userfile"/>
             </div>
-
-
             <button type="submit" class="formButton">Ajouter</button><br/><br/>
 
           </form>
