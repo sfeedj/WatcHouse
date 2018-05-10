@@ -42,18 +42,25 @@ function isAdmin($id, $bdd){
   return false;
 }
 
-function ajouterModule($nomModule,$Prix,$Description,$img,$bdd){
-  $req=$bdd->prepare("INSERT INTO catalogue (Nom, Catégorie, Prix,Description,img) VALUES ( :Nom,:Categorie,:Prix,:Description,:img)");
+function ajouterModule($nomModule,$Prix,$Description,$userfile,$bdd){
+  echo 'LOLZER'.$userfile;
+  $req=$bdd->prepare("INSERT INTO catalogue (Nom, Catégorie, Prix, Description, img) VALUES ( :Nom,:Categorie,:Prix,:Description,:img)");
   $req->execute(array(
     'Nom' =>$nomModule,
     'Categorie'=>'Module',
     'Prix' => $Prix,
     'Description' => $Description,
-    'img'=>$img
+    'img'=>$userfile
   ));
 }
 
 function supprimerModule($Référence,$bdd){
+  $reqImg=$bdd->prepare("SELECT img FROM catalogue WHERE Référence= :Ref");
+  $reqImg->execute(array('Ref'=>$Référence));
+  $resultat = $reqImg->fetch();
+  if (file_exists($resultat[0])){
+    unlink($resultat[0]);
+  }
   $req=$bdd->prepare("DELETE FROM catalogue WHERE Référence= :Ref");
   $req->execute(array(
     'Ref' =>$Référence

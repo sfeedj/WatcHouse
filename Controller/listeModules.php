@@ -10,30 +10,16 @@ if (isset($_SESSION['ID']) && isAdmin($_SESSION['ID'],$bdd)){ // POUR LA SECURIT
   include_once("../View/listeModules.php");
 
   // AJOUT DE MODULE
-  if (isset($_POST['nomModule']) AND isset($_POST['Prix']) AND isset($_POST['Description']) AND !empty($_FILES)){
-    $ds = DIRECTORY_SEPARATOR ;
-    $storeFolder = 'uploads';
-    $tempFile=$_FILES['file']['tmp_name'];
-    $targetPath = dirname( __FILE__ ).$ds.$storeFolder.$ds;
-    $targetFile=$targetPath.$_FILES['file']['name'];
-    move_uploaded_file($tempFile,$targetFile);
-    ajouterModule($_POST['nomModule'],$_POST['Prix'],$_POST['Description'], $targetFile ,$GLOBALS['bdd']);
-    echo '<meta http-equiv="refresh" content="0" />';
-  }
-
-  if (isset($_POST['nomModule']) AND isset($_POST['Prix']) AND isset($_POST['Description'])){
-    echo "<script>myDropzone.processQueue()</script>";
-      $ds = DIRECTORY_SEPARATOR ;
-      $storeFolder = 'uploads';
-      $tempFile=$_FILES['file']['tmp_name'];
-      $targetPath = $_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Public/images/Modules/';
-      $targetFile=$targetPath.$_FILES['file']['name'];
-      move_uploaded_file($tempFile,$targetFile);
-      ajouterModule($_POST['nomModule'],$_POST['Prix'],$_POST['Description'], $targetFile ,$GLOBALS['bdd']);
-      echo '<meta http-equiv="refresh" content="0" />';
+  if (isset($_POST['nomModule']) AND isset($_POST['Prix']) AND isset($_POST['Description']) ){
+    if (!empty($_FILES)){
+      $userfile = upload($_FILES['userfile']);
     }
+    else{
+      $userfile='N/A';
+    }
+    ajouterModule($_POST['nomModule'],$_POST['Prix'],$_POST['Description'],$userfile,$GLOBALS['bdd']);
+    echo '<meta http-equiv="refresh" content="2" />';
   }
-
 
 
   // SUPPRESSION DE MODULE
@@ -42,13 +28,10 @@ if (isset($_SESSION['ID']) && isAdmin($_SESSION['ID'],$bdd)){ // POUR LA SECURIT
     echo '<meta http-equiv="refresh" content="0" />';
   }
 
-  // UPLOAD IMAGE
-
-
 
 }
 else {
-  header("Refresh:0; url=/../APPwebsite2/index.php");
+  echo '<meta http-equiv="refresh" content="0;URL=../index.php" />';
 }
 
 
@@ -92,5 +75,17 @@ function Select_Module($bdd){
   </form>";
 }
 
+// UPLOAD IMAGE
+
+function upload($index)
+{
+  $ds="/";
+  // $targetPath = dirname( __FILE__ ) . $ds;
+  $targetPath='../Public/images/Modules/';
+  $targetFile=$targetPath.$index['name'];
+  //Déplacement
+  move_uploaded_file($index['tmp_name'],$targetFile);
+  return $targetFile;
+}
 
 ?>

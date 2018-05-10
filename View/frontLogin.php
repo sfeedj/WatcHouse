@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <title>WatcHouse</title>
-  <link rel="stylesheet" href="/../APPwebsite2/Style/frontLog.css">
+  <link rel="stylesheet" href="/../APPwebsite2/Public/Style/frontLog.css">
   <script type="text/javascript" src="../Public/js/logFunction.js"></script>
 
 </head>

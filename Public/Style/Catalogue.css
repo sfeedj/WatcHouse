@@ -1,5 +1,5 @@
 body{
-  background-color: #ecf0f1;
+  /* background-color: #ecf0f1; */
   font-family: 'Helvetica';
 }
 
@@ -54,7 +54,6 @@ button, input{
 }
 
 select{
-  padding: 10px;
   cursor: pointer;
   font-size: 20px;
   background-image: url('../images/search.png');

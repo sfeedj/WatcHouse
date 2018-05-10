@@ -36,7 +36,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   top : 15%;
   left:15%;
   height: 60%;

@@ -139,9 +139,9 @@ function Liste_Clients($bdd)
     {
       echo "
       <tr  class='ligneDomicile ".$k."'>
-      <td  >Nom : ".$Domicile["Nom"]."</td>
-      <td >Adresse : ".$Domicile["Adresse"]."</td>
-      <td >Date d'installation : ".$Domicile["InstalledOnDate"]."</td>
+      <td  ><b>Nom : </b>".$Domicile["Nom"]."</td>
+      <td ><b>Adresse : </b>".$Domicile["Adresse"]."</td>
+      <td ><b>Date d'installation : </b>".$Domicile["InstalledOnDate"]."</td>
       </tr>
       ";
     }
