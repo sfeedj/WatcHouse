@@ -25,6 +25,7 @@
     </div>
   </div>
 
+        <!-- TAB RECHERCHE -->
   <div id="tabRecherche" class="tabcontent">
     <br/>
     <div class="recherche">
@@ -49,7 +50,7 @@
       </div>
     </div>
 
-
+<!-- FORMULAIRE AJOUT CLIENT -->
     <div class="invisible" >
       <div class = 'formWrapper'>
         <form action="../Controller/listeClients.php" method="post" class="formulaire">
@@ -68,6 +69,7 @@
       <div class ='pageCover'></div>
     </div>
 
+<!-- FORMULAIRE SUPPRESSION CLIENT -->
     <div class="invisibleSuppr" >
       <div class = 'formWrapper'>
         <form action="../Controller/listeClients.php" method="post" class="formulaire">

@@ -4,9 +4,9 @@
 <script type="text/javascript">
 </script>
 
-
 <body>
   <br/>
+
   <div>
     <div class="tableauWrapper">
       <table class="gestion">
@@ -36,7 +36,6 @@
               <input id="file" type="file" name="userfile"/>
             </div>
             <button type="submit" class="formButton">Ajouter</button><br/><br/>
-
           </form>
         </div>
         <div class ='pageCover'></div>

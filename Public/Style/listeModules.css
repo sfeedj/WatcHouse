@@ -213,9 +213,8 @@ a{
 
 label,#checkBox{
   cursor: pointer;
-}
-
 /* Assombrissement */
+}
 
 .pageCover{
   z-index: 2;

@@ -15,7 +15,6 @@
       <td class='gauche'>
         <div>
           <!-- widget meteo -->
-          <!-- widget meteo -->
           <div id="widget_9ae53f3ec3cf40418ae88a63eb3ea58d">
             <span id="l_9ae53f3ec3cf40418ae88a63eb3ea58d"><a href="http://www.mymeteo.info/r/paris_fe">consultez la m&eacute;t&eacute;o Paris</a></span>
             <script type="text/javascript">
@@ -26,7 +25,6 @@
             })();
             </script>
           </div>
-          <!-- widget meteo -->
           <!-- widget meteo -->
           <div class="général">
             <span class='titre'>Général</span>
