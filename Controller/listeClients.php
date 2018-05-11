@@ -1,6 +1,6 @@
 <?php
 session_start();
-$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
+$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', 'root');
 
 include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/adminFunctions.php');
 

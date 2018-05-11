@@ -49,7 +49,8 @@ function SendMailWithAnswer($idQuestion, $reponse){
         "Cordialement, " . "\r\n" .
         "L'équipe WatcHouse.";
     $headers = 'From: WatchHouse.isep@gmail.com' . "\r\n" .
-        'Reply-To: WatchHouse.isep@gmail.com' . "\r\n";
+        'Reply-To: WatchHouse.isep@gmail.com' . "\r\n" .
+        'Content-Type: text/plain; charset = "utf8"' . "\r\n";
 
     mail($to, $subject, $message, $headers);
 }
