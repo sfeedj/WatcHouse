@@ -3,25 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <title>WatcHouse</title>
-  <link rel="stylesheet" href="../Style/headerAdmin.css">
+  <link rel="stylesheet" href="../Public/Style/headerAdmin.css">
 
 </head>
 
 <header class="bloc-header">
 
   <div class="bloc">
-    <span id='logo'><a href="../index.php?page=listeClients"><img src="../Style/logoWH2.png"></a></span>
+    <span id='logo'><a href="../index.php?page=listeClients"><img src="../Public/images/logoWH2.png"></a></span>
 
   <nav>
     <a href="../index.php?page=listeClients">Accueil</a>
     <a href="../index.php?page=listeClients">Clients</a>
     <a href="../index.php?page=listeModules">Modules</a>
+    <a href="../index.php?page=faqAdmin">FAQ</a>
+
 
 
   </nav>
 
   <div class="menu">
-    <img src="/../APPwebsite/Public/images/user2.png" alt="User Image"/>
+    <img src="../Public/images/user2.png" alt="User Image"/>
     <p> <?php echo $_SESSION['username'] ?> </P>
     <ul>
       <li><a href="../index.php?page=profil">Profil</a></li>

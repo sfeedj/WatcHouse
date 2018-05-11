@@ -1,12 +1,22 @@
 <?php
 function ajouterClient($nom,$email,$admin,$bdd){
   $req=$bdd->prepare("INSERT INTO users (username,password,email,admin) VALUES ( :username,:password,:email, :admin)");
-  $req->execute(array(
-    'username' =>$nom,
-  	'password' =>'password',
-    'email' =>$email,
-    'admin' =>$admin
-  	));
+  $reqMail=$bdd->prepare("SELECT username FROM users WHERE email=?");
+  $reqMail->execute(array($email));
+  $resMail=$reqMail->fetch();
+  if (count($resMail)==0){
+    $req->execute(array(
+      'username' =>$nom,
+      'password' =>'password',
+      'email' =>$email,
+      'admin' =>$admin
+    ));
+  }
+  else{
+    echo "<script>
+    affichageInvisible('invisibleMail');
+    </script>";
+  }
 }
 
 function supprimerClient($nom,$ID,$bdd){
@@ -14,11 +24,11 @@ function supprimerClient($nom,$ID,$bdd){
   $req->execute(array(
     'username' =>$nom,
     'ID'=>$ID
-  	));
-    $req=$bdd->prepare("DELETE FROM domiciles WHERE Propriétaire=:ID");
-    $req->execute(array(
-      'ID'=>$ID
-    	));
+  ));
+  $req=$bdd->prepare("DELETE FROM domiciles WHERE Propriétaire=:ID");
+  $req->execute(array(
+    'ID'=>$ID
+  ));
 }
 
 function isAdmin($id, $bdd){
@@ -32,22 +42,29 @@ function isAdmin($id, $bdd){
   return false;
 }
 
-function ajouterModule($nomModule,$Prix,$Description,$img,$bdd){
-  $req=$bdd->prepare("INSERT INTO catalogue (Nom, Catégorie, Prix,Description,img) VALUES ( :Nom,:Categorie,:Prix,:Description,:img)");
+function ajouterModule($nomModule,$Prix,$Description,$userfile,$bdd){
+  echo 'LOLZER'.$userfile;
+  $req=$bdd->prepare("INSERT INTO catalogue (Nom, Catégorie, Prix, Description, img) VALUES ( :Nom,:Categorie,:Prix,:Description,:img)");
   $req->execute(array(
     'Nom' =>$nomModule,
     'Categorie'=>'Module',
-  	'Prix' => $Prix,
+    'Prix' => $Prix,
     'Description' => $Description,
-    'img'=>$img
-  	));
+    'img'=>$userfile
+  ));
 }
 
 function supprimerModule($Référence,$bdd){
+  $reqImg=$bdd->prepare("SELECT img FROM catalogue WHERE Référence= :Ref");
+  $reqImg->execute(array('Ref'=>$Référence));
+  $resultat = $reqImg->fetch();
+  if (file_exists($resultat[0])){
+    unlink($resultat[0]);
+  }
   $req=$bdd->prepare("DELETE FROM catalogue WHERE Référence= :Ref");
   $req->execute(array(
     'Ref' =>$Référence
-  	));
+  ));
 }
 
- ?>
+?>

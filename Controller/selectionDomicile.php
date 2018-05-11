@@ -38,7 +38,7 @@ function Tableau_Domiciles($bdd)
 	{
 		echo "
 		<td  class='CaseDomicile'>
-		<a href=\"../Controller/PageDomicile.php?id=".$donnees["ID"]."\"><img src = '../Style/clef.png' class = 'clef'><figcaption>".$donnees["Nom"]."</figcaption></a>
+		<a href=\"../Controller/PageDomicile.php?id=".$donnees["ID"]."\"><img src = '../Public/images/clef.png' class = 'clef'><figcaption>".$donnees["Nom"]."</figcaption></a>
 		</td>
 
 		<td class='separator'></td> ";

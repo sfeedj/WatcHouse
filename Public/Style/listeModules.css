@@ -1,5 +1,5 @@
 body{
-  background-color: #ecf0f1;
+  /* background-color: #ecf0f1; */
   font-family: 'Helvetica';
 }
 
@@ -8,14 +8,12 @@ a{
   color: #3498db;
 }
 
-
 /* Tableau de liste des modules */
 
 .tableauWrapper{
   z-index: 1;
   margin-bottom: 20px;
 }
-
 
 .gestion{
   text-align: center;
@@ -86,11 +84,10 @@ a{
 
 .titre_form{
   text-align: center;
-  font-family: 'Helvetica';
+  font-family: 'Lato';
   font-size: 150%;
-  color: #2980b9;
-  font-weight: lighter;
-  margin-bottom: 20%;
+  color: #34495e;
+  margin-bottom: 50%;
 }
 
 .Casemodules{
@@ -110,7 +107,7 @@ a{
 
 
 /* formulaire d'ajout de domicile */
-.formWrapper{
+.formWrapperADD{
   position: sticky;
   top: 0;
   z-index: 3;
@@ -120,10 +117,26 @@ a{
   position: absolute;
   top : 15%;
   left:20%;
-  height: 70%;
+  height: 75%;
   width: 60%;
   text-align: center;
   background-color: #ecf0f1;
+}
+
+.formWrapperSUPPR{
+  position: fixed;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top : 15%;
+  left:25%;
+  height: 60%;
+  width: 50%;
+  text-align: center;
+  background-color: #ecf0f1;
+
 }
 
 .formulaire #txt{
@@ -144,19 +157,23 @@ a{
   right:1%;
 }
 
+.closeButton:active{
+  height: 48px;
+  transition:0.1s;
+}
+
 /* bouton */
 .formButton {
+  margin-top: 2%;
   font-family: "Helvetica";
-  height: 70px;
-  width:200px;
-  background-color: #3498db;
+  height: 60px;
+  width:150px;
+  background-color: #34495e;
   color: white;
   font-size: 25px;
   border-style: hidden;
   border-radius: 7px;
   cursor:pointer;
-  box-shadow: 0px  3px 6px rgba(0, 0, 0, 0.1);
-  /* margin-top: 30px; */
 }
 
 .formButton:hover{
@@ -166,15 +183,38 @@ a{
 
 .formButton:active {
   background-color: #2980b9;
-  height: 65px;
-  width:195px;
+  height: 57px;
+  width:147px;
 }
+
+/* IMAGE UPLOAD */
+
+#dropZone{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: inline-block;
+  height: 100%;
+  border: solid;
+  border-style: dashed;
+  border-color: #462a51;
+  width: 90%;
+  font-weight: bold;
+  object-position: center;
+  background: white;
+}
+
+#dropZone img{
+  height: 70px;
+}
+
+#file{
+  display: none;
+}
+
 label,#checkBox{
   cursor: pointer;
-}
-
-
 /* Assombrissement */
+}
 
 .pageCover{
   z-index: 2;
@@ -193,4 +233,14 @@ label,#checkBox{
 
 .invisibleSuppr {
   display: none;
+}
+
+.invisibleSuppr select{
+  margin-bottom: 5px;
+  padding: 10px 10px 10px 35px;
+  font-size: 20px;
+  background-image: url('../images/search.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  background-size: 20px;
 }

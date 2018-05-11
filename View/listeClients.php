@@ -1,5 +1,5 @@
-<link href="../Style/listeClients.css" rel="stylesheet">
-<script type="text/javascript" src="../js/scriptFunction.js"></script>
+<link href="../Public/Style/listeClients.css" rel="stylesheet">
+<script type="text/javascript" src="../Public/js/scriptFunction.js"></script>
 
 <body>
   <br/>
@@ -25,6 +25,7 @@
     </div>
   </div>
 
+        <!-- TAB RECHERCHE -->
   <div id="tabRecherche" class="tabcontent">
     <br/>
     <div class="recherche">
@@ -49,11 +50,11 @@
       </div>
     </div>
 
-
+<!-- FORMULAIRE AJOUT CLIENT -->
     <div class="invisible" >
       <div class = 'formWrapper'>
         <form action="../Controller/listeClients.php" method="post" class="formulaire">
-          <img src='../View/close.png' class="closeButton" onclick="affichageInvisible('invisible')">
+          <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisible')">
           <span class="titre_form">Ajouter un client :</span><br/><br/>
           <input id='txt' type="txt" name="nomClient" placeholder=" Nom du Client" required /><br/>
           <input id='txt' type="email" name="email" placeholder=" Adresse Mail" required /><br/>
@@ -68,10 +69,11 @@
       <div class ='pageCover'></div>
     </div>
 
+<!-- FORMULAIRE SUPPRESSION CLIENT -->
     <div class="invisibleSuppr" >
       <div class = 'formWrapper'>
         <form action="../Controller/listeClients.php" method="post" class="formulaire">
-          <img src='../View/close.png' class="closeButton" onclick="affichageInvisible('invisibleSuppr')">
+          <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisibleSuppr')">
           <span class="titre_form">Supprimer un client :</span><br/><br/>
           <input id='txt' type="txt" name="nomClient" placeholder=" Nom du Client" required /><br/>
           <input id='txt' type="txt" name="IDClient" placeholder=" ID du client" required /><br/>
@@ -85,20 +87,17 @@
       <div class ='pageCover'></div>
     </div>
 
+    <div class="invisibleMail" >
+      <div class = 'popupMail'>
+        <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisibleMail')">
+        <br/><br/><br/><br/><br/>
+          <span class="titre_form">Cette adresse mail est déjà utilisée !</span>
+      </div>
+      <div class ='pageCover'></div>
+    </div>
+
     <script>
     document.getElementById("defaultOpen").click();
-
-    function loadByAjax()
-    {
-      $.ajax({
-        type: "POST",
-        url: "../Controller/listeClients.php",
-        data: "searchkey=data_from_user_input",
-        success: function (response_data){
-          $('myDiv').html(response_data)
-        }
-      });
-    }
     </script>
 
 

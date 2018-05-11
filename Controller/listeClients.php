@@ -11,7 +11,8 @@ if (isset($_SESSION['ID']) && isAdmin($_SESSION['ID'],$bdd)){ // POUR LA SECURIT
   //AJOUT DE CLIENT
   if (isset($_POST['nomClient']) AND isset($_POST['email']) AND isset($_POST['admin']) ){
     ajouterClient($_POST['nomClient'],$_POST['email'],$_POST['admin'],$GLOBALS['bdd']);
-    echo '<meta http-equiv="refresh" content="0" />';
+    echo '<meta http-equiv="refresh" content="5" />';
+
   }
 
   //SUPPRESSION DE CLIENT
@@ -105,10 +106,10 @@ function rechercheClient($nom,$bdd){
 
 
 
-//GENERE UN TABLEAU DES CLIENTS
+//GENERER UN TABLEAU DES CLIENTS
 function Liste_Clients($bdd)
 {
-  $reqUser = $bdd->query('SELECT ID, username,admin, AddedOnDate FROM users ');
+  $reqUser = $bdd->query('SELECT ID, username,admin, AddedOnDate FROM users ORDER BY ID ');
   $reqDomiciles = $bdd->prepare('SELECT Nom,Adresse,InstalledOnDate FROM domiciles WHERE Propriétaire = ?');
   $k=0 ;
   while ($donnees = $reqUser->fetch())
@@ -138,15 +139,12 @@ function Liste_Clients($bdd)
     {
       echo "
       <tr  class='ligneDomicile ".$k."'>
-      <td  >".$Domicile["Nom"]."</td>
-      <td >".$Domicile["Adresse"]."</td>
-      <td >".$Domicile["InstalledOnDate"]."</td>
+      <td  ><b>Nom : </b>".$Domicile["Nom"]."</td>
+      <td ><b>Adresse : </b>".$Domicile["Adresse"]."</td>
+      <td ><b>Date d'installation : </b>".$Domicile["InstalledOnDate"]."</td>
       </tr>
       ";
     }
   }
 }
-
-
-
 ?>

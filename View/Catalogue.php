@@ -1,5 +1,5 @@
-<link href="../Style/Catalogue.css" rel="stylesheet">
-<script type="text/javascript" src="../js/scriptFunction.js"></script>
+<link href="../Public/Style/Catalogue.css" rel="stylesheet">
+<script type="text/javascript" src="../Public/js/scriptFunction.js"></script>
 
 <body>
   <br/>

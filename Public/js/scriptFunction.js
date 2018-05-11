@@ -54,24 +54,24 @@ function changeBackground(){
   for(i=1;i<=boxes.length;i++){
     var random= Math.floor(Math.random() * 12 ) + 0;
     var clr = [
-      '1abc9c',
-      '54a0ff',
-      'f39c12',
-      'ff7979',
-      '1dd1a1',
-      '4B77BE',
-      '1e90ff',
-      'ff7f50',
-      '6C7A89',
-      '757D75',
-      '19B5FE',
-      'ff9ff3'
+      '#A3CDF7',
+      '#A3CDF7',
+      '#A3CDF7',
+      '#A3CDF7',
+      '#A3CDF7',
+      '#A3CDF7',
+      '#A3CDF7',
+      '#A3CDF7',
+      '#A3CDF7',
+      '#A3CDF7',
+      '#A3CDF7',
+      '#A3CDF7',
     ];
     if(i<=12){
-    document.getElementById("d"+i).style.backgroundColor='#'+clr[i].toString();
+    document.getElementById("d"+i).style.background=clr[i].toString();
     }
     else{
-      document.getElementById("d"+i).style.backgroundColor='#'+clr[random].toString();
+      document.getElementById("d"+i).style.background=clr[random].toString();
     }
   }
 }
