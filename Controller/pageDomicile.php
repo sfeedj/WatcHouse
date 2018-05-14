@@ -1,13 +1,13 @@
 <?php
 
 if (! isset($_GET['id'])){
-  header("Refresh:0; url=/../APPwebsite2/index.php?page=selectionDomicile");// POUR LA SECURITE
+  header("Refresh:0; url=/../WatcHouse/index.php?page=selectionDomicile");// POUR LA SECURITE
 }
 else{
   $GLOBALS['domicileSelect']=$_GET['id'];
 
 
-  include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/domicileFunctions.php');
+  include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/domicileFunctions.php');
 
   if (isset($_SESSION['ID'])){                                // POUR LA SECURITE
 
@@ -17,8 +17,8 @@ else{
       $statut = 'Propriétaire';
     }
 
-    include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/View/header.php');
-    include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/View/pageDomicile.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/header.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/pageDomicile.php');
 
 
     // SUPPRESSION DOMICILE
@@ -26,12 +26,12 @@ else{
     if (isset($_POST['supprDomicile']) AND $_POST['supprDomicile']=='delete'){
       if (checkProprietaire($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd'])) {
         supprimerDomicile($_GET['id'],$GLOBALS['bdd']);
-        // echo '<meta http-equiv="refresh" content="0;url=/../APPwebsite2/index.php?page=selectionDomicile" />';
+        // echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
       }
       // POUR UN UTILISATEUR SECONDAIRE
       else{
         // supprimerDomicileInvite($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd']);
-        // echo '<meta http-equiv="refresh" content="0;url=/../APPwebsite2/index.php?page=selectionDomicile" />';
+        // echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
       }
     }
 
@@ -67,7 +67,7 @@ else{
 
   else{
     // REDIRECTION SI NON DROITS D'ACCES
-    header("Refresh:0; url=/../APPwebsite2/index.php");
+    header("Refresh:0; url=/../WatcHouse/index.php");
   }
 }
 

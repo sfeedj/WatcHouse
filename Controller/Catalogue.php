@@ -1,6 +1,6 @@
 <?php
 
-include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/domicileFunctions.php');
+include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/domicileFunctions.php');
 
 if (isset($_SESSION['ID'])){ // SECURITE
 
@@ -15,7 +15,7 @@ if (isset($_SESSION['ID'])){ // SECURITE
 
 }
 else {
-  header("Refresh:0; url=/../APPwebsite2/index.php");
+  header("Refresh:0; url=/../WatcHouse/index.php");
 }
 
 

@@ -1,6 +1,6 @@
 <?php
 
-include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/adminFunctions.php');
+include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/adminFunctions.php');
 
 if (isset($_SESSION['ID']) && isAdmin($_SESSION['ID'],$bdd)){ // POUR LA SECURITE
   include_once("../View/headerAdmin.php");
@@ -21,7 +21,7 @@ if (isset($_SESSION['ID']) && isAdmin($_SESSION['ID'],$bdd)){ // POUR LA SECURIT
 
 }
 else {
-  header("Refresh:0; url=/../APPwebsite2/index.php");
+  header("Refresh:0; url=/../WatcHouse/index.php");
 }
 
 

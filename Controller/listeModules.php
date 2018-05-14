@@ -1,6 +1,6 @@
 <?php
 
-include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/adminFunctions.php');
+include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/adminFunctions.php');
 
 if (isset($_SESSION['ID']) && isAdmin($_SESSION['ID'],$bdd)){ // POUR LA SECURITE
 

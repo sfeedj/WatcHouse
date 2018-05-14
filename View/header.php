@@ -23,7 +23,7 @@
         <ul>
           <li><a href="#">Profil</a></li>
           <li><a href="#">Etats des capteurs</a></li>
-          <li><a href="/../APPwebsite2/index.php?page=logOut" class="highlight">Déconnexion</a></li>
+          <li><a href="/../WatcHouse/index.php?page=logOut" class="highlight">Déconnexion</a></li>
         </ul>
       </div>
 
