@@ -1,0 +1,80 @@
+body{
+  /* background-color: #ecf0f1; */
+  font-family: 'Helvetica';
+}
+
+/* Tableau de liste des modules */
+.imageModule{
+  height: 150px;
+  border-radius: 10px;
+  border: solid #3498db;
+  border-width: 1px;
+}
+
+.tableau_modules{
+  border-collapse: collapse;
+  border-style: hidden;
+  margin-bottom: 40px;
+}
+
+.tableau_modules td{
+border: solid #bdc3c7;
+border-width: 1px;
+text-align: center;
+}
+
+#nom{
+  margin-top: 20px;
+  font-family: 'Bauhaus 93';
+  font-size: 20px;
+  margin-bottom:3px;
+}
+
+#description{
+  margin-top: 10px;
+  margin-bottom:5px;
+}
+
+#prix{
+  margin-bottom:10px;
+  font-weight:bold;
+}
+
+button, input{
+  background-color: #34495e;
+  text-align: center;
+  border:none;
+  color:white;
+  font-size: 1.5em;
+  padding-left:40px;
+  padding-right: 40px;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+select{
+  cursor: pointer;
+  font-size: 20px;
+  background-image: url('../images/search.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding: 10px 10px 10px 35px;
+}
+
+
+.commande{
+  position: -webkit-sticky;
+  position: sticky;
+  top:0;
+}
+
+input:hover{
+  background: #2980b9;
+  transition: 0.2s;
+}
+
+.invisible{
+  display: none;
+}

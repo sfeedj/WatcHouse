@@ -1,0 +1,351 @@
+body{
+  font-family: 'Helvetica';
+  /* background-color: #ecf0f1; */
+}
+
+a{
+  text-decoration: none;
+  color: #3498db;
+}
+/* POUR UNE PLUS GRANDE ZONE CLICKABLE */
+a.expand {
+  border: none;
+  position: relative;
+  font-size: 120%;
+}
+
+a.expand:hover {
+  color: #34495e;
+}
+
+
+a.expand::after {
+  content:"";
+  padding: 20%;
+  position: absolute;
+  left: -130%;
+  top: -50%;
+
+}
+/* Tableau de liste des clients */
+
+.tableauWrapper{
+  z-index: 1;
+}
+
+.gestion{
+  text-align: center;
+  width: 27%;
+  position: sticky;
+  top:0;
+  margin-left: 17%;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Helvetica';
+  transition: 0.2s;
+}
+
+.gestion td :hover{
+  background-color  :#2980b9;
+}
+
+.gestion td :active{
+  font-size:1.3em;
+}
+
+.gestion button{
+  background-color: #2c3e50;
+  text-align: center;
+  border:none;
+  color:white;
+  width: 100px;
+  font-size: 1.5em;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tableau_clients{
+  position: relative;
+  margin-left: 20%;
+  width: 60%;
+  border-collapse: collapse;
+  border-width: medium;
+  border-color: #7f8c8d;
+  padding: 20px;
+}
+
+.tableau_clients td{
+  border: solid;
+  border-width: medium;
+  border-color: #7f8c8d;
+  padding: 20px;
+}
+
+
+
+.enTete {
+  font-weight: bold;
+  border: solid;
+  border-width: medium;
+  border-color: #7f8c8d;
+}
+
+
+.ligneDomicile{
+  border: solid;
+  display:none;
+}
+
+
+.titre_form{
+  text-align: center;
+  font-family: 'Lato';
+  font-size: 150%;
+  color: #34495e;
+  margin-bottom: 20%;
+}
+
+.CaseClients{
+  font-family: 'Helvetica';
+  color: #34495e;
+  font-weight: bold;
+  vertical-align: bottom;
+  padding: 5px;
+  text-align: center;
+}
+
+.CaseClients a{
+  text-decoration: none;
+  color: #34495e;
+
+}
+
+
+/* formulaire d'ajout de domicile */
+.formWrapper{
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top : 15%;
+  left:15%;
+  height: 60%;
+  width: 70%;
+  text-align: center;
+  background-color: #ecf0f1;
+}
+
+.formulaire #txt{
+  height: 40px;
+  border-radius: 5px;
+  border:none;
+  width: 50%;
+  font-size: 20px;
+  margin-bottom:25px;
+}
+
+.closeButton{
+  height: 50px;;
+  position: absolute;
+  top:2%;
+  cursor: pointer;
+  right:1%;
+}
+
+.closeButton:active{
+  height: 48px;
+  transition:0.1s;
+}
+
+
+/* bouton */
+.formButton {
+  font-family: "Helvetica";
+  height: 70px;
+  width:200px;
+  background-color: #34495e;
+  color: white;
+  font-size: 25px;
+  border-style: hidden;
+  border-radius: 7px;
+  cursor:pointer;
+  transition: 0.3s;
+}
+
+.formButton:hover{
+  background-color: #2980b9;
+}
+
+.formButton:active {
+  background-color: #2980b9;
+  height: 65px;
+  width:195px;
+}
+label,#checkBox{
+  cursor: pointer;
+}
+
+/* POPUP MAIL DEJA UTILISE */
+.popupMail{
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top : 25%;
+  left:25%;
+  height: 40%;
+  width: 50%;
+  text-align: center;
+  background-color: #ecf0f1;
+  border:solid #e74c3c;
+}
+
+/* Assombrissement */
+
+.pageCover{
+  z-index: 2;
+  position:fixed;
+  top:0px;
+  left: 0px;
+  background-color: black;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%
+}
+
+.invisible {
+  display: none;
+}
+
+.invisibleSuppr {
+  display: none;
+}
+
+.invisibleMail {
+  display: none;;
+}
+
+.IDClient{
+  font-weight: bold;
+}
+
+/* ONGLETS  */
+
+.tab {
+  position: relative;
+  overflow: hidden;
+  width: 350px;
+  left : 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #0a7ae9;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  overflow: hidden;
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 130%;;
+  font-family: 'Helvetica';
+  border-radius:5px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #dcdde1;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color:#dcdde1;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+}
+
+.tabcontent {
+  animation: fadeEffect 0.2s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+/* RECHERCHE */
+
+#rechercheBarre{
+  position: relative;
+  margin-top: 5px;
+  left: 33%;
+  border: solid #bdc3c7;
+  border-width: 1px;
+  background-image: url('../images/search.png');
+  background-position: 10px 7px;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding: 5px 10px 5px 35px;
+  font-size: 130%;;
+  font-family: 'Helvetica';
+  border-radius:40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+.recherche{
+  border: solid #3498db;
+  border-radius: 5px;
+  width: 70%;
+  min-height: 150px;;
+  margin-left: 15%;
+  background-color: white;
+  max-height: 450px;
+  overflow: scroll;
+}
+
+.searchForm div{
+  justify-content: flex-start;
+}
+
+.searchButton{
+  position: relative;
+  left: 33%;
+  margin-left: 5px;
+  height: 30px;
+  width:50px;
+  background-color:#95a5a6;
+  color: white;
+  font-size:20px;
+  border-style: hidden;
+  border-radius: 5px;
+  cursor:pointer;
+  transition: 0.2s;
+}
+
+.searchButton:hover{
+  background-color:#7f8c8d;
+}
+
+.searchCategory{
+  font-size: 20px;
+  font-weight: bold;
+  color: #2980b9;
+}
