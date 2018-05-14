@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
+$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', 'ISEP');
 
 function ajouterDomcile($nom,$adresse,$proprietaire,$bdd){
   $liste='';

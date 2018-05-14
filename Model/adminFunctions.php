@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', 'ISEP');
+
 function ajouterClient($nom,$email,$admin,$bdd){
   $req=$bdd->prepare("INSERT INTO users (username,password,email,admin) VALUES ( :username,:password,:email, :admin)");
   $reqMail=$bdd->prepare("SELECT username FROM users WHERE email=?");
