@@ -1,7 +1,7 @@
 <?php
 $GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
 
-include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite2/Model/domicileFunctions.php');
+include($_SERVER['DOCUMENT_ROOT'].'/appwebsite/watchouse/Model/domicileFunctions.php');
 
 if (isset($_SESSION['ID'])){ // SECURITE
 
@@ -16,7 +16,7 @@ if (isset($_SESSION['ID'])){ // SECURITE
 
 }
 else {
-  header("Refresh:0; url=/../APPwebsite2/index.php");
+  header("Refresh:0; url=/../appwebsite/watchouse/index.php");
 }
 
 

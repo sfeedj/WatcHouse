@@ -21,9 +21,9 @@
         <img src="../Public/images/user2.png" alt="User Image"/>
         <p> <?php echo $_SESSION['username'] ?> </p>
         <ul>
-          <li><a href="#">Profil</a></li>
+          <li><a href="../index.php?page=profil">Profil</a></li>
           <li><a href="#">Etats des capteurs</a></li>
-          <li><a href="/../APPwebsite2/index.php?page=logOut" class="highlight">Déconnexion</a></li>
+          <li><a href="/../appwebsite/watchouse/index.php?page=logOut" class="highlight">Déconnexion</a></li>
         </ul>
       </div>
 
