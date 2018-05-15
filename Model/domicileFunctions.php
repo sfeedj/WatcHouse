@@ -81,6 +81,11 @@ function supprimerPiece($IDPiece,$domicile,$proprietaire,$bdd){
   $req->execute(array($IDPiece,$proprietaire));
 }
 
-
+function nomDomicile($domicileID,$bdd){
+  $req=$bdd->prepare("SELECT Nom FROM rooms WHERE ID=?");
+  $req->execute(array($domicileID));
+  $res=$req->fetch();
+  return $res['Nom'];
+}
 
 ?>

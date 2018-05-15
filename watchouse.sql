@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 14 mai 2018 à 22:46
+-- Généré le :  mar. 15 mai 2018 à 09:31
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -145,6 +145,35 @@ INSERT INTO `domiciles` (`ID`, `Nom`, `Adresse`, `Propriétaire`, `Pièces`, `In
 (65, 'Cabane du jardin', 'Au fond du jardin', 1, '', '2018-04-21 22:55:59'),
 (85, 'Salle 314', '4 rue de Vanves', 48, '', '2018-05-06 13:57:34'),
 (86, 'Salle 313', '4 rue de Vanves', 49, '', '2018-05-06 17:44:48');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `faq`
+--
+
+DROP TABLE IF EXISTS `faq`;
+CREATE TABLE IF NOT EXISTS `faq` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user_question` int(11) DEFAULT NULL,
+  `id_user_reponse` int(11) DEFAULT NULL,
+  `question` varchar(255) DEFAULT NULL,
+  `reponse` varchar(255) DEFAULT NULL,
+  `visible` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `faq`
+--
+
+INSERT INTO `faq` (`id`, `id_user_question`, `id_user_reponse`, `question`, `reponse`, `visible`) VALUES
+(1, 1, 1, 'J\'aimerais installer de nouveaux capteurs dans ma maison. Est ce que l\'installation peut être effectuée par un professionnel ?', 'Oui bien-sur un professionnel peut installer vos capteurs. Le service d\'installation est gratuit.', 1),
+(2, 1, 1, 'Mon capteur de température ne fonctionne plus. Que dois-je faire ?', 'Vous pouvez redémarrer le capteur. Si le problème persiste n\'hésitez pas à appeler un de nos agents au SAV.', 1),
+(3, 1, 1, 'Un de mes capteurs est cassé. Est-il remboursable?', 'Oui, si la garantit comprend la cause de la casse. Pour vérifier cela il vous suffit de nous envoyer votre certificat de garantit dur notre adresse mail.', 1),
+(12, 1, 1, '\r\nJ\'aimerais avoir un nouveau système de domotique pour mon appartement, puis-je avoir un devis? ', 'Oui, il vous suffit d\'appeler notre espace client et un de nos agents répondra à votre demande. ', 1),
+(20, 1, 1, 'qsdhfgjhkjkl', 'dsfgjhkjl', 1),
+(21, 1, 1, 'Est ce que le simulateur smtp fonctionne bien ? ', 'Oui il fonctionne très bien ;)', 1);
 
 -- --------------------------------------------------------
 

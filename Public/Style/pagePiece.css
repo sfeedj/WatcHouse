@@ -1,0 +1,12 @@
+body{
+  /* background-color: #ecf0f1; */
+  font-family: 'Lato';
+}
+
+.entete{
+  text-align: center;
+}
+
+h1{
+  color : rgb(163, 205, 247);
+}
