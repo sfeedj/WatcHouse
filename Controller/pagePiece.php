@@ -11,11 +11,48 @@ if (isset($_SESSION['ID'])){                                // POUR LA SECURITE
   include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/pagePiece.php');
   include("../View/footer.php");
 
+  if(isset($_POST['module']) && isset($GLOBALS['pieceSelect']) && isset($_POST['nomModule'])){
+    ajouterModule($_POST['nomModule'],$_SESSION['ID'], $GLOBALS['pieceSelect'], $_POST['module'],$GLOBALS['bdd']);
+    echo '<meta http-equiv="refresh" content="0" />';
+  }
 }
 
-else{
-  header("Refresh:0; url=/../WatcHouse/index.php");
-}
+  else{
+    header("Refresh:0; url=/../WatcHouse/index.php");
+  }
+
+
+
+  function Select_Module($bdd){
+    $reqUser = $bdd->query('SELECT Nom, Prix,Description,img,Référence FROM Catalogue ORDER BY Nom');
+    echo "
+    <select name='module'>";
+    while ($donnees = $reqUser->fetch()){
+      echo "  <option value='".$donnees["Référence"]."'>".$donnees["Nom"]."</option>";
+    }
+    echo "
+    </select>
+    ";
+  }
+
+   // LISTE DES MODULES
+  function listeModules($pieceID,$bdd){
+    $req = $bdd->prepare('SELECT Nom, Référence FROM capteurs WHERE ID_pièce=? ORDER BY UUID DESC');
+    $req->execute(array($pieceID));
+    $k=1;
+    while ($donnees = $req->fetch())
+    {
+      echo "
+      <div id='d".$k."' class='modulesWrapper'>
+      <div class='titre titreModule'>".$donnees["Nom"]."</div>
+      </a>
+      <div class='modulesContainer'></div>
+      </div>
+      <br/>
+      ";
+      $k++;
+    }
+  }
 
 
 ?>

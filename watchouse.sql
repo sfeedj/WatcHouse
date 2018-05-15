@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 15 mai 2018 à 09:31
+-- Généré le :  mar. 15 mai 2018 à 20:54
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -31,12 +31,22 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `capteurs`;
 CREATE TABLE IF NOT EXISTS `capteurs` (
   `Référence` int(11) NOT NULL,
+  `Type` text NOT NULL,
+  `Nom` text,
   `ID_propriétaire` int(11) NOT NULL,
   `ID_pièce` int(11) NOT NULL,
   `ID_CeMac` int(11) DEFAULT NULL,
   `UUID` int(11) NOT NULL AUTO_INCREMENT,
+  `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`UUID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `capteurs`
+--
+
+INSERT INTO `capteurs` (`Référence`, `Type`, `Nom`, `ID_propriétaire`, `ID_pièce`, `ID_CeMac`, `UUID`, `AddedOnDate`) VALUES
+(3, 'WatcHouse Luxmètre', 'lumieres', 1, 29, NULL, 16, '2018-05-15 20:52:16');
 
 -- --------------------------------------------------------
 
@@ -161,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `faq` (
   `reponse` varchar(255) DEFAULT NULL,
   `visible` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `faq`
@@ -235,8 +245,7 @@ CREATE TABLE IF NOT EXISTS `userdomicile` (
 --
 
 INSERT INTO `userdomicile` (`userID`, `domicileID`, `AddedOnDate`, `ID`) VALUES
-(4, 65, '2018-05-12 14:21:21', 34),
-(4, 1, '2018-05-14 21:21:46', 38);
+(4, 65, '2018-05-12 14:21:21', 34);
 
 -- --------------------------------------------------------
 

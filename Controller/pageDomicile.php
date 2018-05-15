@@ -26,12 +26,12 @@ else{
     if (isset($_POST['supprDomicile']) AND $_POST['supprDomicile']=='delete'){
       if (checkProprietaire($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd'])) {
         supprimerDomicile($_GET['id'],$GLOBALS['bdd']);
-        // echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
+        echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
       }
       // POUR UN UTILISATEUR SECONDAIRE
       else{
-        // supprimerDomicileInvite($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd']);
-        // echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
+        supprimerDomicileInvite($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd']);
+        echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
       }
     }
 
