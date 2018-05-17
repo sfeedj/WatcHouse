@@ -38,7 +38,7 @@ if ( isset($_POST['oldPassword1']) && isset($_POST['oldPassword2']) && $_POST['o
 
 $_SESSION['messagePassword']='<script>
 
-boiteDialogue.showModal;
+alert("Les mots de passe ne correspondent pas veuillez recommencer");
 
 </script>';
 

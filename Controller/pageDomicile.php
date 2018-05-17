@@ -62,7 +62,6 @@ else{
     }
 
     // FOOTER
-    include("../View/footer.php");
   }
 
   else{

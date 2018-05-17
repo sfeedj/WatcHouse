@@ -7,7 +7,6 @@ if (isset($_SESSION['ID'])){ // SECURITE
 
   include_once("../View/header.php");
   include_once("../View/Catalogue.php");
-  include("../View/footer.php");
 
   // COMMANDE D'ARTICLE
   if (isset($_GET['article'])){

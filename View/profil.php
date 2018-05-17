@@ -1,9 +1,7 @@
 <link href="../public/style/profil.css" rel="stylesheet">
 <script src="../Public/js/scriptFunctions.js"></script>
 
-<?php 
-echo $_SESSION['messagePassword'];
-?>
+
 <section id=photo-profil>
 <img src="/../APPwebsite/Public/images/iniesta.jpg"alt=""></br>
 

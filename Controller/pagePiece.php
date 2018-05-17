@@ -7,7 +7,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/appwebsite/watchouse/Model/domicileFunctions
 if (isset($_SESSION['ID'])){                                // POUR LA SECURITE
 
   include($_SERVER['DOCUMENT_ROOT'].'/appwebsite/watchouse/View/header.php');
-  include("../View/footer.php");
   
 }
 

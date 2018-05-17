@@ -17,12 +17,24 @@
     <img src="/../appwebsite/watchouse/Public/images/logoWH2.png" alt="" class="logoWH">
   </div>
   <div class="ConnectionPanel">
+    <div id="connectezVous">
+    <img id="connectezVousImg" src="/../appwebsite/watchouse/Public/images/login.png" alt="userLogin"> 
     <span class="messageConnexion">Connectez vous !</span>
+  </div>
+
     <span class="messageErreur"><?php echo $messageErreur; ?></span>
     <br/>
     <form action="/../appwebsite/watchouse/Controller/backLogin.php" method="post" class="formulaire">
+    <div>
+      <img class="LoginImg" src="/../appwebsite/watchouse/Public/images/userLogin.png" alt="userLogin"> 
       <input type="txt" name="username" placeholder=" Identifiant" required />
+      </div>
+      <div id="input-password">
+      <img class="LoginImg" src="/../appwebsite/watchouse/Public/images/password.png" alt="password">
       <input type="password" name="password" placeholder=" Mot de passe" required />
+      </div>
+
+
       <br/>
       <a href="#" class="popup"><span>Utilisez vos identifiants administrateur !</span><img src="/../appwebsite/watchouse/Public/images/logoInterrogation.png" alt="" class="logoInterrogation"></a>
       <br/>

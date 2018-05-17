@@ -33,10 +33,18 @@ else {
 }
 
 
+if (!empty($_FILES)){
+    $userfile = upload($_FILES['userfile']);
 
-
-
-
+}
+function uploadPhotoProfil($index)
+{
+  $ds="/";
+  $targetPath='../Public/images/users/';
+  $targetFile=$targetPath.$index['name'];
+  move_uploaded_file($index['tmp_name'],$targetFile);
+  return $targetFile;
+}
 
 
 

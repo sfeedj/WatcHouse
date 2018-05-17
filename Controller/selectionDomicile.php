@@ -13,8 +13,8 @@ if (isset($_SESSION['ID'])){ // POUR LA SECURITE
 		header("Refresh:0");
 	}
 
-	include("../View/footer.php");
 
+	
 }
 else {
 	header("Refresh:0; url=/../appwebsite/watchouse/index.php");

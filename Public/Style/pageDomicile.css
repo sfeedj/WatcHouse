@@ -132,6 +132,25 @@ color: white;
   margin-bottom: 100px;
 }
 
+@keyframes gauche {
+  0% {
+      transform: translateX(-100%);
+  }
+
+  100% {
+      transform: translateX(0%);
+  }
+}
+
+@keyframes droite {
+  0% {
+      transform: translateX(200%);
+  }
+
+  100% {
+      transform: translateX(0%);
+  }
+}
 
 .gauche{
   position: -webkit-sticky;
@@ -141,6 +160,10 @@ color: white;
   align-items: center;
   justify-content: center;
   left: 0;
+  animation-duration: 0.5s;
+  animation-name: gauche;
+
+  
 }
 
 .général{
@@ -153,6 +176,7 @@ color: white;
   background-color: #479BEE;
   min-height: 300px;
   min-width:100%;
+
 }
 
 .droite{
@@ -160,6 +184,8 @@ color: white;
   padding-left: 5px;
   overflow-y: auto;
   height: 100px;
+  animation-duration: 0.8s;
+  animation-name: droite;
 }
 
 .titre{
@@ -174,7 +200,6 @@ color: white;
 
 /* LISTE PIECES */
 .pieceWrapper{
-  background:;
   border-radius: 5px;
   height: 150px;
   position: relative;
@@ -308,3 +333,5 @@ select{
   padding: 7px 10px 7px 35px;
   width:30%
 }
+
+

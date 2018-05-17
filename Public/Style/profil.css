@@ -19,7 +19,7 @@ h1,h2 {
 
 
 #TéléphoneF {
-    background-image:url(/../APPwebsite/Public/images/icons/phone.png);
+    background-image:url(/../APPwebsite/Watchouse/Public/images/icons/phone.png);
     background-position:50%;
     background-size: 38px;
     background-repeat:no-repeat;
@@ -27,14 +27,14 @@ h1,h2 {
 }
 
 #MailF {
-    background-image:url(/../APPwebsite/Public/images/icons/mail.png);
+    background-image:url(/../APPwebsite/Watchouse/Public/images/icons/mail.png);
     background-position:50%;
     background-size: 38px;
     background-repeat:no-repeat;
 }
 
 #AdresseF {
-    background-image:url(/../APPwebsite/Public/images/icons/location.png);
+    background-image:url(/../APPwebsite/Watchouse/Public/images/icons/location.png);
     background-position:50%;
     background-size: 38px;
     background-repeat:no-repeat;
@@ -227,8 +227,6 @@ h1,h2 {
 
 
 
-    
-
 dialog {
     text-align: center;
     background-color: rgb(255, 255, 255);
@@ -237,8 +235,6 @@ dialog {
     box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
     animation-duration: 0.5s;
     animation-name: grossi;
-
-
 }
 
 .sectionPassword{
