@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <title>WatcHouse</title>
   <link rel="stylesheet" href="../Public/Style/header.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
 </head>
 
 <header class="bloc-header">
