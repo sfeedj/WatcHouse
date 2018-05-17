@@ -91,11 +91,8 @@ function nomDomicile($domicileID,$bdd){
 function ajouterModule($name,$userID, $pieceID, $ref,$bdd){
   $reqName=$bdd->prepare("SELECT Nom FROM Catalogue WHERE Référence =?");
   $reqName->execute(array($ref));
-  //die(var_dump($reqName));
   $res=$reqName->fetch();
   $res=$res[0];
-  // var_dump($res);
-
   $req=$bdd->prepare("INSERT INTO capteurs (Référence,Type , Nom, ID_propriétaire,ID_pièce) VALUES ( :ref, :type, :nom, :userID, :pieceID)");
   $req->execute(array(
     'ref' =>$ref,
@@ -104,7 +101,11 @@ function ajouterModule($name,$userID, $pieceID, $ref,$bdd){
     'userID' => $userID,
     'pieceID' => $pieceID
   ));
+}
 
+function supprimerModule($moduleID,$pieceID,$bdd){
+  $req=$bdd->prepare("DELETE FROM capteurs WHERE UUID=? AND ID_pièce=?");
+  $req->execute(array($moduleID,$pieceID));
 }
 
 ?>
