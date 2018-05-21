@@ -83,4 +83,5 @@ function supprimerPiece($IDPiece,$domicile,$proprietaire,$bdd){
 
 
 
+
 ?>

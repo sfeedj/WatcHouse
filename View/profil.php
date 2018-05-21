@@ -1,7 +1,6 @@
 <link href="../public/style/profil.css" rel="stylesheet">
 <script src="../Public/js/scriptFunctions.js"></script>
 
-
 <section id=photo-profil>
 <img src="/../APPwebsite/Public/images/iniesta.jpg"alt=""></br>
 
@@ -15,7 +14,7 @@
 <form class="form1" >
 
 <h1 id="info"> Informations personnelles</h1> 
-<h2>  Login: <?php echo htmlspecialchars($_SESSION['username']) ?></h2>
+<h2>  ID : <?php echo htmlspecialchars($_SESSION['ID']) ?></h2>
 
 
 <input class="appelation" id="NomF" type="text" name="NomF" value="Nom" disabled="disabled" />
@@ -34,6 +33,9 @@
 <button id="changeInfo" type="button" >Changer mes Informations</button>
 <button id="changePassword" type="button">Changer de mot de passe</button>
 
+
+
+
 </form>
 
 </div>
@@ -41,9 +43,11 @@
 
 <!-- Simple boîte de dialogue, contenant un formulaire -->
 <dialog id="boiteDialogue">
-	<form method="post" class="form2"  onsubmit="return changePassword();">
+	<form method="post" name="form_password"  class="form2"  >
+	<h1 id="message_cache"><h1>
 		<section class="sectionPassword">
-				<input  class="inputDialog" name="oldPassword1"  type="password" placeholder="Ancien mot de Passe" required minlength="4">
+				
+				<input  class="inputDialog"  name="oldPassword1"  type="password" placeholder="Ancien mot de Passe" required minlength="4">
 				<input  class="inputDialog" name="oldPassword2" type="password" placeholder="Confirmez l'ancien mot de Passe" required minlength="4">
 				<input  class="inputDialog" name="newPassword" type="password" placeholder="Nouveau mot de Passe" required minlength="4">
 		</section>
@@ -107,11 +111,12 @@
 
 
 
+
 	(function() {
 		var updateButton = document.getElementById('changePassword');
 		var cancelButton = document.getElementById('annuler');
 		var dialog = document.getElementById('boiteDialogue');
-
+		
 
 		// button ouvre une boite de dialogue
 		updateButton.addEventListener('click', function() {
@@ -125,8 +130,31 @@
 
 	})();
 
+
+	window.onload = function() {
+	document.forms.form_password.onsubmit = function() {
+		var result = true;
+		if(document.forms.form_password.oldPassword1.value!=document.forms.form_password.oldPassword2.value) {
+			result = false;
+			alert('Les mots de passes ne correspondent pas');
+		}
+		if ( !document.forms.form_password.newPassword.value.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) )	{
+			result = false;
+			alert('Veillez entrer un caractere spécial');
+		}		
+		
+		else {
+			result = true;
+
+		}
+
+		return result;
+		}
+	}
 	</script>
 	<script>
+
+	
 
 	
 	(function() {

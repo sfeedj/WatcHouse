@@ -15,6 +15,7 @@ $req = $bdd->query('SELECT * FROM users WHERE username="'.$username.'"');
 
 while ($donnees = $req->fetch())
 {
+    $_SESSION['ID']=$donnees['ID'];
     $_SESSION['username']=$donnees['username'];
     $_SESSION['Nom']=$donnees['Nom'];
     $_SESSION['password']=$donnees['password'];
@@ -34,19 +35,9 @@ if ( isset($_POST['oldPassword1']) && isset($_POST['oldPassword2']) && isset($_P
     $bdd->exec( " UPDATE users SET password='$newPassword'  WHERE username='$username' ");
 }
 
-if ( isset($_POST['oldPassword1']) && isset($_POST['oldPassword2']) && $_POST['oldPassword1']!=$_POST['oldPassword2']) {
-
-$_SESSION['messagePassword']='<script>
-
-alert("Les mots de passe ne correspondent pas veuillez recommencer");
-
-</script>';
-
-
-
 }
 
-}
+
 
 function changeNom($bdd,$username) {
 
