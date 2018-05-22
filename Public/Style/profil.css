@@ -18,7 +18,7 @@ h1,h2 {
 }
 
 
-#TéléphoneF {
+#TéléphoneF,#TéléphoneF2 {
     background-image:url(/../APPwebsite/Watchouse/Public/images/icons/phone.png);
     background-position:50%;
     background-size: 38px;
@@ -26,14 +26,14 @@ h1,h2 {
 
 }
 
-#MailF {
+#MailF,#MailF2 {
     background-image:url(/../APPwebsite/Watchouse/Public/images/icons/mail.png);
     background-position:50%;
     background-size: 38px;
     background-repeat:no-repeat;
 }
 
-#AdresseF {
+#AdresseF,#AdresseF2 {
     background-image:url(/../APPwebsite/Watchouse/Public/images/icons/location.png);
     background-position:50%;
     background-size: 38px;

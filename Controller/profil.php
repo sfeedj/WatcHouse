@@ -16,6 +16,16 @@ changePrenom($bdd,$username);
 changeNom($bdd,$username);
 changeAdresse($bdd,$username);
 
+if(isset($_POST['submit_photo'])) {
+    if (getimagesize($_FILES['image']['temp_name'])==FALSE) {
+        echo "failed";
+    }
+    else {
+        $name=addslashes($_FILES['image']['name']);
+        $image=base64_encode(file_get_contents(addslashes($_FILES['image']['temp_name'])));
+        saveimage($name,$image,$bdd);
+    }
+}
 
 
 

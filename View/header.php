@@ -41,8 +41,8 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <div id="pageFooterContent"><div id=rectangleInterieur>
 <a>Informations <br /> WatcHouse@isep.fr<br /> </a> </br>
-<img id ="imgFooter2" src="/../APPwebsite/Public/images/logoWH2.png" alt="imgFooter2">
-<img id ="imgFooter3" src="/../APPwebsite/Public/images/isep.png" alt="imgFooter3">
+<img id ="imgFooter2" src="" alt="imgFooter2">
+<img id ="imgFooter3" src="" alt="imgFooter3">
 </footer>
 
 <script>

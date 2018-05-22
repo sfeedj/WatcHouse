@@ -23,7 +23,7 @@ while ($donnees = $req->fetch())
     $_SESSION['Date_de_naissance']=$donnees['Date_de_naissance'];
     $_SESSION['Mail']=$donnees['Mail'];
     $_SESSION['Téléphone']=$donnees['Téléphone'];
-    $_SESSION['adresse']=$donnees['adresse'];
+    $_SESSION['Adresse']=$donnees['adresse'];
 }
 }
 
@@ -106,6 +106,19 @@ if (  isset($_POST['Téléphone']) ) {
 }
 
 }
+
+
+
+
+function save($image,$name,$bdd) {
+    $req=$bdd->prepare("INSERT INTO users (image,name) VALUES ( :image, :name)");
+    $req->execute(array(
+      'image' =>$image,
+      'name' => $name,
+     ));
+
+}
+
 
 
 
