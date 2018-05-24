@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 14 mai 2018 à 21:22
--- Version du serveur :  5.7.19
--- Version de PHP :  5.6.31
+-- Généré le :  jeu. 24 mai 2018 à 07:17
+-- Version du serveur :  5.7.21
+-- Version de PHP :  5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,12 +31,22 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `capteurs`;
 CREATE TABLE IF NOT EXISTS `capteurs` (
   `Référence` int(11) NOT NULL,
+  `Type` text NOT NULL,
+  `Nom` text,
   `ID_propriétaire` int(11) NOT NULL,
   `ID_pièce` int(11) NOT NULL,
   `ID_CeMac` int(11) DEFAULT NULL,
   `UUID` int(11) NOT NULL AUTO_INCREMENT,
+  `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`UUID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `capteurs`
+--
+
+INSERT INTO `capteurs` (`Référence`, `Type`, `Nom`, `ID_propriétaire`, `ID_pièce`, `ID_CeMac`, `UUID`, `AddedOnDate`) VALUES
+(3, 'WatcHouse Luxmètre', 'lumieres', 1, 29, NULL, 16, '2018-05-15 20:52:16');
 
 -- --------------------------------------------------------
 
@@ -128,7 +138,11 @@ DROP TABLE IF EXISTS `domiciles`;
 CREATE TABLE IF NOT EXISTS `domiciles` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` text NOT NULL,
+  `Numéro` int(11) NOT NULL,
   `Adresse` text NOT NULL,
+  `CodePostal` int(11) NOT NULL,
+  `Ville` text NOT NULL,
+  `Pays` text NOT NULL,
   `Propriétaire` int(11) NOT NULL,
   `Pièces` text NOT NULL,
   `InstalledOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -139,12 +153,41 @@ CREATE TABLE IF NOT EXISTS `domiciles` (
 -- Déchargement des données de la table `domiciles`
 --
 
-INSERT INTO `domiciles` (`ID`, `Nom`, `Adresse`, `Propriétaire`, `Pièces`, `InstalledOnDate`) VALUES
-(1, 'Chez Bobby', '', 1, '', '2018-04-21 09:50:43'),
-(2, 'Chez les parents', '', 1, '', '2018-04-21 09:50:43'),
-(65, 'Cabane du jardin', 'Au fond du jardin', 1, '', '2018-04-21 22:55:59'),
-(85, 'Salle 314', '4 rue de Vanves', 48, '', '2018-05-06 13:57:34'),
-(86, 'Salle 313', '4 rue de Vanves', 49, '', '2018-05-06 17:44:48');
+INSERT INTO `domiciles` (`ID`, `Nom`, `Numéro`, `Adresse`, `CodePostal`, `Ville`, `Pays`, `Propriétaire`, `Pièces`, `InstalledOnDate`) VALUES
+(1, 'Chez Bobby', 0, '', 0, '0', '0', 1, '', '2018-04-21 09:50:43'),
+(2, 'Chez les parents', 0, '', 0, '0', '0', 1, '', '2018-04-21 09:50:43'),
+(65, 'Cabane du jardin', 0, 'Au fond du jardin', 0, '0', '0', 1, '', '2018-04-21 22:55:59'),
+(85, 'Salle 314', 0, '4 rue de Vanves', 0, '0', '0', 48, '', '2018-05-06 13:57:34'),
+(86, 'Salle 313', 0, '4 rue de Vanves', 0, '0', '0', 49, '', '2018-05-06 17:44:48');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `faq`
+--
+
+DROP TABLE IF EXISTS `faq`;
+CREATE TABLE IF NOT EXISTS `faq` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user_question` int(11) DEFAULT NULL,
+  `id_user_reponse` int(11) DEFAULT NULL,
+  `question` varchar(255) DEFAULT NULL,
+  `reponse` varchar(255) DEFAULT NULL,
+  `visible` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `faq`
+--
+
+INSERT INTO `faq` (`id`, `id_user_question`, `id_user_reponse`, `question`, `reponse`, `visible`) VALUES
+(1, 1, 1, 'J\'aimerais installer de nouveaux capteurs dans ma maison. Est ce que l\'installation peut être effectuée par un professionnel ?', 'Oui bien-sur un professionnel peut installer vos capteurs. Le service d\'installation est gratuit.', 1),
+(2, 1, 1, 'Mon capteur de température ne fonctionne plus. Que dois-je faire ?', 'Vous pouvez redémarrer le capteur. Si le problème persiste n\'hésitez pas à appeler un de nos agents au SAV.', 1),
+(3, 1, 1, 'Un de mes capteurs est cassé. Est-il remboursable?', 'Oui, si la garantit comprend la cause de la casse. Pour vérifier cela il vous suffit de nous envoyer votre certificat de garantit dur notre adresse mail.', 1),
+(12, 1, 1, '\r\nJ\'aimerais avoir un nouveau système de domotique pour mon appartement, puis-je avoir un devis? ', 'Oui, il vous suffit d\'appeler notre espace client et un de nos agents répondra à votre demande. ', 1),
+(20, 1, 1, 'qsdhfgjhkjkl', 'dsfgjhkjl', 1),
+(21, 1, 1, 'Est ce que le simulateur smtp fonctionne bien ? ', 'Oui il fonctionne très bien ;)', 1);
 
 -- --------------------------------------------------------
 
@@ -206,8 +249,7 @@ CREATE TABLE IF NOT EXISTS `userdomicile` (
 --
 
 INSERT INTO `userdomicile` (`userID`, `domicileID`, `AddedOnDate`, `ID`) VALUES
-(4, 65, '2018-05-12 14:21:21', 34),
-(4, 1, '2018-05-14 21:21:46', 38);
+(4, 65, '2018-05-12 14:21:21', 34);
 
 -- --------------------------------------------------------
 
