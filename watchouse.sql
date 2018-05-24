@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 24 mai 2018 à 07:17
+-- Généré le :  jeu. 24 mai 2018 à 08:31
 -- Version du serveur :  5.7.21
 -- Version de PHP :  5.6.35
 
@@ -154,11 +154,11 @@ CREATE TABLE IF NOT EXISTS `domiciles` (
 --
 
 INSERT INTO `domiciles` (`ID`, `Nom`, `Numéro`, `Adresse`, `CodePostal`, `Ville`, `Pays`, `Propriétaire`, `Pièces`, `InstalledOnDate`) VALUES
-(1, 'Chez Bobby', 0, '', 0, '0', '0', 1, '', '2018-04-21 09:50:43'),
-(2, 'Chez les parents', 0, '', 0, '0', '0', 1, '', '2018-04-21 09:50:43'),
+(1, 'Chez Bobby', 3, 'Impasse de Nulle-part', 0, '0', '0', 1, '', '2018-04-21 09:50:43'),
+(2, 'Chez les parents', 18, 'Boulevard du Pois Vert', 0, '0', '0', 1, '', '2018-04-21 09:50:43'),
 (65, 'Cabane du jardin', 0, 'Au fond du jardin', 0, '0', '0', 1, '', '2018-04-21 22:55:59'),
-(85, 'Salle 314', 0, '4 rue de Vanves', 0, '0', '0', 48, '', '2018-05-06 13:57:34'),
-(86, 'Salle 313', 0, '4 rue de Vanves', 0, '0', '0', 49, '', '2018-05-06 17:44:48');
+(85, 'Salle 314', 4, 'Rue de Vanves', 0, '0', '0', 48, '', '2018-05-06 13:57:34'),
+(86, 'Salle 313', 4, 'Rue de Vanves', 0, '0', '0', 49, '', '2018-05-06 17:44:48');
 
 -- --------------------------------------------------------
 
