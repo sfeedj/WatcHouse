@@ -75,7 +75,7 @@ body{
   position: absolute;
   top : 15%;
   left:15%;
-  height: 60%;
+  height: 70%;
   width: 70%;
   text-align: center;
   background-color: #ecf0f1;
@@ -87,7 +87,7 @@ body{
   border:none;
   width: 50%;
   font-size: 20px;
-  margin-bottom:25px;
+  margin-bottom:15px;
 }
 
 .closeButton{

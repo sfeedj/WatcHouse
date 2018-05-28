@@ -17,7 +17,11 @@
         <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisible')">
         <span class="titre_form">Ajouter un domicile :</span><br/><br/>
         <input type="txt" name="nomDomicile" placeholder=" Nom du Domicile" required /><br/>
-        <input type="txt" name="adresseDomicile" placeholder=" Adresse" required />
+        <input type="int" name="numeroDomicile" placeholder=" Numéro" required />
+        <input type="txt" name="adresseDomicile" placeholder=" Adresse" required /><br/>
+        <input type="int" name="codepostalDomicile" placeholder=" Code Postal" required />
+        <input type="txt" name="villeDomicile" placeholder=" Ville" required />
+        <input type="txt" name="paysDomicile" placeholder=" Pays" required /><br/>
         <br/>
         <br/>
         <button type="submit" class="formButton" />Ajouter</button><br/><br/>

@@ -8,8 +8,8 @@ if (isset($_SESSION['ID'])){ // POUR LA SECURITE
 
 
 	// AJOUT DOMICILE
-	if (isset($_POST['nomDomicile']) AND isset($_POST['adresseDomicile'])){
-		ajouterDomcile($_POST['nomDomicile'],$_POST['adresseDomicile'],$_SESSION['ID'],$GLOBALS['bdd']);
+	if (isset($_POST['nomDomicile']) AND isset($_POST['numeroDomicile']) AND isset($_POST['adresseDomicile'])AND isset($_POST['codepostalDomicile'])AND isset($_POST['villeDomicile'])AND isset($_POST['paysDomicile'])){
+		ajouterDomcile($_POST['nomDomicile'],$_POST['numeroDomicile'],$_POST['adresseDomicile'],$_POST['codepostalDomicile'],$_POST['villeDomicile'],$_POST['paysDomicile'],$_SESSION['ID'],$GLOBALS['bdd']);
 		header("Refresh:0");
 	}
 
@@ -21,7 +21,7 @@ else {
 }
 
 
-//Tableau domicile : ne pas oublié les baslises <table> dans la vue
+//Tableau domicile : ne pas oublier les balises <table> dans la vue
 function Tableau_Domiciles($bdd)
 {
 	$req = $bdd->prepare('SELECT ID, Nom FROM Domiciles WHERE propriétaire = ? ');
