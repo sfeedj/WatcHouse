@@ -54,36 +54,47 @@ function Select_Installed_Module($pieceID,$bdd){
   </select>
   ";
 }
-// LISTE DES MODULES
+// LISTE DES MODULES SANS ACTIONNEURS
 function listeModules($pieceID,$bdd){
-  $req = $bdd->prepare('SELECT Nom, Référence FROM capteurs WHERE ID_pièce=? ORDER BY UUID DESC');
+  $req = $bdd->prepare("SELECT Nom, Référence, UUID, Catégorie FROM capteurs WHERE ID_pièce=? AND Catégorie != 'Actionneur' ORDER BY UUID DESC");
   $req->execute(array($pieceID));
 
   $k=0;
   echo "
   <table id='tableModules'>  ";
-  
+
   while ($donnees = $req->fetch()){
     $reqImg = $bdd->prepare('SELECT img FROM catalogue WHERE Référence=?');
     $reqImg->execute(array($donnees['Référence']));
     $reqImg=$reqImg->fetch();
 
-    echo "
-    <td  id='d".$k."' class='modulesWrapper'>
-    <img src='".$reqImg[0]."' class='imageModule' style='height:100px;'><figcaption style='text-align:center;'>".$donnees["Nom"]."</figcaption>
-    </td>
-    <td class='separator'></td>
-    ";
+      echo "
+      <td  id='d".$k."' class='modulesWrapper'>
+      <img src='".$reqImg[0]."' class='imageModule' style='height:100px;'>
+      <p>";
+      echo moduleInfo($donnees['Référence'],$donnees['UUID'],$donnees['Catégorie']);
+      echo "</p>
+      <figcaption >".$donnees["Nom"]."</figcaption>
+      </td>
+      <td class='separator'></td>
+      ";
 
-    $k++;
-    // if ($k >=5){
-    //   echo "<tr><tr/>";
-    //   $k=0;
-    // }
+      $k++;
+      if ($k >=5){
+        echo "<tr class='lineSeparator'><tr/>";
+        $k=0;
+      }
+    }
+    echo "</table>";
   }
-  echo "</table>";
 
+function moduleInfo($ref,$id,$categorie){
+  if($categorie=="Module"){
+    return "Active";
+  }
+  elseif ($categorie=="Capteur") {
+    return lastMesure($id,$GLOBALS['bdd'] );
+  }
+  return "test";
 }
-
-
 ?>

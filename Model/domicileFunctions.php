@@ -95,17 +95,19 @@ function nomDomicile($domicileID,$bdd){
 
 
 function ajouterModule($name,$userID, $pieceID, $ref,$bdd){
-  $reqName=$bdd->prepare("SELECT Nom FROM Catalogue WHERE Référence =?");
+  $reqName=$bdd->prepare("SELECT Nom, Catégorie FROM Catalogue WHERE Référence =?");
   $reqName->execute(array($ref));
   $res=$reqName->fetch();
-  $res=$res[0];
-  $req=$bdd->prepare("INSERT INTO capteurs (Référence,Type , Nom, ID_propriétaire,ID_pièce) VALUES ( :ref, :type, :nom, :userID, :pieceID)");
+  $resType=$res[0];
+  $resCategorie=$res[1];
+  $req=$bdd->prepare("INSERT INTO capteurs (Référence,Type , Nom, ID_propriétaire,ID_pièce,Catégorie) VALUES ( :ref, :type, :nom, :userID, :pieceID, :categorie)");
   $req->execute(array(
     'ref' =>$ref,
-    'type'=>$res,
+    'type'=>$resType,
     'nom'=>$name,
     'userID' => $userID,
-    'pieceID' => $pieceID
+    'pieceID' => $pieceID,
+    'categorie' => $resCategorie
   ));
 }
 
@@ -114,4 +116,14 @@ function supprimerModule($moduleID,$pieceID,$bdd){
   $req->execute(array($moduleID,$pieceID));
 }
 
+function lastMesure($id,$bdd){
+  $req=$bdd->prepare ("SELECT MAX(UUID) FROM mesures WHERE capteurID=?");
+  $req->execute(array($id));
+  $res=$req->fetch();
+  if (isset($res[0])){
+    return $res[0];
+  }
+  else
+    return "N/A";
+}
 ?>
