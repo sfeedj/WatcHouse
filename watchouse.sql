@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 15 mai 2018 à 20:54
+-- Généré le :  sam. 02 juin 2018 à 18:58
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -36,17 +36,22 @@ CREATE TABLE IF NOT EXISTS `capteurs` (
   `ID_propriétaire` int(11) NOT NULL,
   `ID_pièce` int(11) NOT NULL,
   `ID_CeMac` int(11) DEFAULT NULL,
+  `Catégorie` text,
   `UUID` int(11) NOT NULL AUTO_INCREMENT,
   `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`UUID`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `capteurs`
 --
 
-INSERT INTO `capteurs` (`Référence`, `Type`, `Nom`, `ID_propriétaire`, `ID_pièce`, `ID_CeMac`, `UUID`, `AddedOnDate`) VALUES
-(3, 'WatcHouse Luxmètre', 'lumieres', 1, 29, NULL, 16, '2018-05-15 20:52:16');
+INSERT INTO `capteurs` (`Référence`, `Type`, `Nom`, `ID_propriétaire`, `ID_pièce`, `ID_CeMac`, `Catégorie`, `UUID`, `AddedOnDate`) VALUES
+(3, 'WatcHouse Luxmètre', 'lumieres3', 1, 29, NULL, 'Capteur', 28, '2018-06-01 14:19:21'),
+(3, 'WatcHouse Luxmètre', 'lumière 2', 1, 29, NULL, 'Capteur', 26, '2018-06-01 14:12:42'),
+(1, 'CeMac', 'centrale', 1, 16, NULL, 'Module', 55, '2018-06-02 18:39:06'),
+(6, 'WatcHouse Hygromètre', 'zersfd', 1, 16, NULL, 'Capteur', 58, '2018-06-02 18:49:24'),
+(1, 'CeMac', 'ed', 1, 16, NULL, 'Module', 57, '2018-06-02 18:47:01');
 
 -- --------------------------------------------------------
 
@@ -92,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `commandes` (
   `article_commandé` tinytext NOT NULL,
   `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `commandes`
@@ -114,6 +119,7 @@ INSERT INTO `commandes` (`ID`, `user_ID`, `article_commandé`, `AddedOnDate`) VA
 (13, 1, 'WatcHouse Oversight', '2018-05-03 22:05:26'),
 (14, 1, 'WatcHouse Oversight', '2018-05-03 22:05:39'),
 (15, 1, 'WatcHouse CeMac', '2018-05-03 22:05:41'),
+(39, 1, 'WatcHouse Smart Lightbulb', '2018-06-01 12:53:12'),
 (38, 1, 'CeMac', '2018-05-10 13:10:21'),
 (37, 1, 'CeMac', '2018-05-10 13:07:23'),
 (36, 1, 'CeMac', '2018-05-10 12:34:03'),
@@ -138,23 +144,27 @@ DROP TABLE IF EXISTS `domiciles`;
 CREATE TABLE IF NOT EXISTS `domiciles` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` text NOT NULL,
+  `Numéro` int(11) NOT NULL,
   `Adresse` text NOT NULL,
+  `CodePostal` int(11) NOT NULL,
+  `Ville` text NOT NULL,
+  `Pays` text NOT NULL,
   `Propriétaire` int(11) NOT NULL,
   `Pièces` text NOT NULL,
   `InstalledOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=90 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `domiciles`
 --
 
-INSERT INTO `domiciles` (`ID`, `Nom`, `Adresse`, `Propriétaire`, `Pièces`, `InstalledOnDate`) VALUES
-(1, 'Chez Bobby', '', 1, '', '2018-04-21 09:50:43'),
-(2, 'Chez les parents', '', 1, '', '2018-04-21 09:50:43'),
-(65, 'Cabane du jardin', 'Au fond du jardin', 1, '', '2018-04-21 22:55:59'),
-(85, 'Salle 314', '4 rue de Vanves', 48, '', '2018-05-06 13:57:34'),
-(86, 'Salle 313', '4 rue de Vanves', 49, '', '2018-05-06 17:44:48');
+INSERT INTO `domiciles` (`ID`, `Nom`, `Numéro`, `Adresse`, `CodePostal`, `Ville`, `Pays`, `Propriétaire`, `Pièces`, `InstalledOnDate`) VALUES
+(1, 'Chez Bobby', 3, 'Impasse de Nulle-part', 78000, 'Versailles', 'France', 1, '', '2018-04-21 07:50:43'),
+(2, 'Chez les parents', 18, 'Boulevard du Pois Vert', 1000, 'Lausanne', 'Suisse', 1, '', '2018-04-21 07:50:43'),
+(65, 'Cabane du jardin', 0, 'Au fond du jardin', 0, '0', '0', 1, '', '2018-04-21 20:55:59'),
+(85, 'Salle 314', 4, 'Rue de Vanves', 92130, 'Issy-les-Moulineaux', 'France', 48, '', '2018-05-06 11:57:34'),
+(86, 'Salle 313', 4, 'Rue de Vanves', 92130, 'Issy-les-Moulineaux', 'France', 49, '', '2018-05-06 15:44:48');
 
 -- --------------------------------------------------------
 
@@ -184,6 +194,23 @@ INSERT INTO `faq` (`id`, `id_user_question`, `id_user_reponse`, `question`, `rep
 (12, 1, 1, '\r\nJ\'aimerais avoir un nouveau système de domotique pour mon appartement, puis-je avoir un devis? ', 'Oui, il vous suffit d\'appeler notre espace client et un de nos agents répondra à votre demande. ', 1),
 (20, 1, 1, 'qsdhfgjhkjkl', 'dsfgjhkjl', 1),
 (21, 1, 1, 'Est ce que le simulateur smtp fonctionne bien ? ', 'Oui il fonctionne très bien ;)', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `mesures`
+--
+
+DROP TABLE IF EXISTS `mesures`;
+CREATE TABLE IF NOT EXISTS `mesures` (
+  `UUID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `capteurID` int(11) NOT NULL,
+  `nomCapteur` text NOT NULL,
+  `typeCapteur` text NOT NULL,
+  `pieceID` int(11) NOT NULL,
+  `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -261,6 +288,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` text NOT NULL,
   `admin` tinyint(1) NOT NULL,
   `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Téléphone` int(20) NOT NULL,
+  `adresse` varchar(200) NOT NULL,
+  `Mail` varchar(200) NOT NULL,
+  `Prénom` varchar(50) NOT NULL,
+  `Nom` varchar(40) NOT NULL,
+  `Date_de_naissance` int(11) NOT NULL,
+  `image` longblob NOT NULL,
+  `name` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
 
@@ -268,11 +303,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`ID`, `username`, `password`, `email`, `admin`, `AddedOnDate`) VALUES
-(4, 'Eliott', 'password', 'eliott.sfedj@hotmail.fr', 0, '2018-04-21 09:49:53'),
-(1, 'Bob', 'password', 'eliott.sfedj@gmail.com', 1, '2018-04-21 09:49:53'),
-(49, 'test', 'password', 'machin@gmail.com', 0, '2018-05-06 17:42:35'),
-(48, 'admin', 'password', 'admin.admin@admin.admin', 1, '2018-05-06 11:20:55');
+INSERT INTO `users` (`ID`, `username`, `password`, `email`, `admin`, `AddedOnDate`, `Téléphone`, `adresse`, `Mail`, `Prénom`, `Nom`, `Date_de_naissance`, `image`, `name`) VALUES
+(4, 'Eliott', 'jmqs', 'eliott.sfedj@hotmail.fr', 0, '2018-04-21 07:49:53', 333, '7 allée hentri matisse', 'nidhal.sabbah@gmail.com', 'Nidhal', 'Sabbah', 0, '', ''),
+(1, 'Bob', 'password', 'eliott.sfedj@gmail.com', 1, '2018-04-21 07:49:53', 0, '', '', '', '', 0, '', ''),
+(49, 'test', 'password', 'machin@gmail.com', 0, '2018-05-06 15:42:35', 0, '', '', '', '', 0, '', ''),
+(48, 'admin', 'password', 'admin.admin@admin.admin', 1, '2018-05-06 09:20:55', 0, '', '', '', '', 0, '', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
