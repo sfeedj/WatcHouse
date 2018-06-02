@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 02 juin 2018 à 18:58
+-- Généré le :  sam. 02 juin 2018 à 19:45
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -50,7 +50,7 @@ INSERT INTO `capteurs` (`Référence`, `Type`, `Nom`, `ID_propriétaire`, `ID_pi
 (3, 'WatcHouse Luxmètre', 'lumieres3', 1, 29, NULL, 'Capteur', 28, '2018-06-01 14:19:21'),
 (3, 'WatcHouse Luxmètre', 'lumière 2', 1, 29, NULL, 'Capteur', 26, '2018-06-01 14:12:42'),
 (1, 'CeMac', 'centrale', 1, 16, NULL, 'Module', 55, '2018-06-02 18:39:06'),
-(6, 'WatcHouse Hygromètre', 'zersfd', 1, 16, NULL, 'Capteur', 58, '2018-06-02 18:49:24'),
+(6, 'WatcHouse Hygromètre', 'hygro1', 1, 16, NULL, 'Capteur', 58, '2018-06-02 18:49:24'),
 (1, 'CeMac', 'ed', 1, 16, NULL, 'Module', 57, '2018-06-02 18:47:01');
 
 -- --------------------------------------------------------
@@ -203,14 +203,23 @@ INSERT INTO `faq` (`id`, `id_user_question`, `id_user_reponse`, `question`, `rep
 
 DROP TABLE IF EXISTS `mesures`;
 CREATE TABLE IF NOT EXISTS `mesures` (
-  `UUID` int(11) NOT NULL,
+  `UUID` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) NOT NULL,
   `capteurID` int(11) NOT NULL,
-  `nomCapteur` text NOT NULL,
-  `typeCapteur` text NOT NULL,
   `pieceID` int(11) NOT NULL,
-  `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `data` int(11) NOT NULL,
+  `nomCapteur` text NOT NULL,
+  PRIMARY KEY (`UUID`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `mesures`
+--
+
+INSERT INTO `mesures` (`UUID`, `userID`, `capteurID`, `pieceID`, `AddedOnDate`, `data`, `nomCapteur`) VALUES
+(1, 1, 58, 16, '2018-06-02 19:36:07', 30, 'hygro1'),
+(2, 1, 58, 16, '2018-06-02 19:36:09', 31, 'hygro1');
 
 -- --------------------------------------------------------
 

@@ -117,7 +117,7 @@ function supprimerModule($moduleID,$pieceID,$bdd){
 }
 
 function lastMesure($id,$bdd){
-  $req=$bdd->prepare ("SELECT MAX(UUID) FROM mesures WHERE capteurID=?");
+  $req=$bdd->prepare ("SELECT data FROM mesures WHERE capteurID=? ORDER BY AddedOnDate DESC limit 1");
   $req->execute(array($id));
   $res=$req->fetch();
   if (isset($res[0])){
