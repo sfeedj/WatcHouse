@@ -4,8 +4,6 @@
   <meta charset="utf-8" />
   <title>WatcHouse</title>
   <link rel="stylesheet" href="../Public/Style/header.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
 </head>
 
 <header class="bloc-header">
@@ -23,7 +21,7 @@
         <img src="../Public/images/user2.png" alt="User Image"/>
         <p> <?php echo $_SESSION['username'] ?> </p>
         <ul>
-          <li><a href="#">Profil</a></li>
+          <li><a href="/../WatcHouse/index.php?page=profil">Profil</a></li>
           <li><a href="#">Etats des capteurs</a></li>
           <li><a href="/../WatcHouse/index.php?page=logOut" class="highlight">Déconnexion</a></li>
         </ul>

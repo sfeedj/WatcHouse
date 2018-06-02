@@ -3,14 +3,18 @@
 session_start();
 $GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', 'ISEP');
 
-function ajouterDomcile($nom,$adresse,$proprietaire,$bdd){
+function ajouterDomcile($nom,$numero,$adresse,$codepostal,$ville,$pays,$proprietaire,$bdd){
   $liste='';
-  $req=$bdd->prepare("INSERT INTO domiciles ( Nom, Adresse, Propriétaire, Pièces) VALUES ( :Nom, :Adresse, :Proprietaire, :Pieces)");
+  $req=$bdd->prepare("INSERT INTO domiciles ( Nom, Numéro, Adresse, CodePostal, Ville, Pays, Propriétaire, Pièces) VALUES ( :Nom, :Numero, :Adresse, :CodePostal, :Ville, :Pays, :Proprietaire, :Pieces)");
   $req->execute(array(
     'Nom' =>$nom,
-    'Adresse' => $adresse,
-    'Proprietaire' => $proprietaire,
-    'Pieces' => $liste
+    'Numero' =>$numero,
+    'Adresse' =>$adresse,
+    'CodePostal' =>$codepostal,
+    'Ville' =>$ville,
+    'Pays' =>$pays,
+    'Proprietaire' =>$proprietaire,
+    'Pieces' =>$liste,
   ));
 }
 
@@ -81,12 +85,14 @@ function supprimerPiece($IDPiece,$domicile,$proprietaire,$bdd){
   $req->execute(array($IDPiece,$proprietaire));
 }
 
+
 function nomDomicile($domicileID,$bdd){
   $req=$bdd->prepare("SELECT Nom FROM rooms WHERE ID=?");
   $req->execute(array($domicileID));
   $res=$req->fetch();
   return $res['Nom'];
 }
+
 
 function ajouterModule($name,$userID, $pieceID, $ref,$bdd){
   $reqName=$bdd->prepare("SELECT Nom FROM Catalogue WHERE Référence =?");

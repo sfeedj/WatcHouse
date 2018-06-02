@@ -17,7 +17,7 @@ if (isset($_SESSION['ID'])){                                // POUR LA SECURITE
     echo '<meta http-equiv="refresh" content="0" />';
   }
 
-// SUPPRESSION MODULE
+  // SUPPRESSION MODULE
   if(isset($_POST['module']) && isset($GLOBALS['pieceSelect']) && isset($_POST['supprModule'])){
     supprimerModule($_POST['module'], $GLOBALS['pieceSelect'],$GLOBALS['bdd']);
     echo '<meta http-equiv="refresh" content="0" />';
@@ -28,7 +28,6 @@ if (isset($_SESSION['ID'])){                                // POUR LA SECURITE
 else{
   header("Refresh:0; url=/../WatcHouse/index.php");
 }
-
 
 
 function Select_Module($bdd){
@@ -55,24 +54,36 @@ function Select_Installed_Module($pieceID,$bdd){
   </select>
   ";
 }
-
 // LISTE DES MODULES
 function listeModules($pieceID,$bdd){
   $req = $bdd->prepare('SELECT Nom, Référence FROM capteurs WHERE ID_pièce=? ORDER BY UUID DESC');
   $req->execute(array($pieceID));
-  $k=1;
-  while ($donnees = $req->fetch())
-  {
+
+  $k=0;
+  echo "
+  <table id='tableModules'>  ";
+  
+  while ($donnees = $req->fetch()){
+    $reqImg = $bdd->prepare('SELECT img FROM catalogue WHERE Référence=?');
+    $reqImg->execute(array($donnees['Référence']));
+    $reqImg=$reqImg->fetch();
+
     echo "
-    <div id='d".$k."' class='modulesWrapper'>
-    <div class='titre titreModule'>".$donnees["Nom"]."</div>
-    </a>
-    <div class='modulesContainer'></div>
-    </div>
-    <br/>
+    <td  id='d".$k."' class='modulesWrapper'>
+    <img src='".$reqImg[0]."' class='imageModule' style='height:100px;'><figcaption style='text-align:center;'>".$donnees["Nom"]."</figcaption>
+    </td>
+    <td class='separator'></td>
     ";
+
     $k++;
+    // if ($k >=5){
+    //   echo "<tr><tr/>";
+    //   $k=0;
+    // }
   }
+  echo "</table>";
+
 }
+
 
 ?>

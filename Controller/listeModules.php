@@ -58,11 +58,19 @@ function Select_Module($bdd){
   $req = $bdd->query('SELECT Nom, Référence FROM Catalogue ORDER BY Nom');
 
   echo "
+  <form action='../Controller/listeModules.php' method='post'>
+  <img src='../Public/images/close.png' class='closeButton' onclick="."affichageInvisible('invisibleSuppr')".">
+  <span class='titre_form'>Supprimer un module :</span><br/><br/><br/><br/>
   <select name='refModule'>";
+
   while ($donnees = $req->fetch()){
     echo "  <option value='".$donnees["Référence"]."'>".$donnees["Nom"]."</option>";
   }
-  echo "</select>";
+
+  echo "
+  </select>
+  <input type='submit' value='Supprimer' class='formButton' ><br/><br/>
+  </form>";
 }
 
 // UPLOAD IMAGE
