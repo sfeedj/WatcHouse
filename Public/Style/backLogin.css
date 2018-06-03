@@ -56,6 +56,7 @@ body{
   top: 10%;
   right: 5%;
   text-align: center;
+  align-items: center;
 }
 
 
@@ -87,6 +88,10 @@ body{
   border-radius: 7px;
   cursor:pointer;
   /* margin-top: 30px; */
+}
+
+.mdpoublie {
+  width: 200px;
 }
 
 .logButton:hover{
@@ -150,8 +155,74 @@ body{
      opacity:1;
 }
 
-.messageErreur{
+.messageErreur {
   text-align: center;
   position: relative;
   color: red;
+}
+
+.invisible{
+  display: none;
+}
+.formWrapper{
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top : 30%;
+  left:25%;
+  height: 40%;
+  width: 50%;
+  text-align: center;
+  background-color: #ecf0f1;
+}
+.closeButton{
+  height: 50px;;
+  position: absolute;
+  top:2%;
+  cursor: pointer;
+  right:1%;
+}
+
+.closeButton:active{
+  height: 48px;
+  transition:0.1s;
+}
+.titre_form{
+  text-align: center;
+  font-family: 'Lato';
+  font-size: 150%;
+  color: #34495e;
+  margin-bottom: 20%;
+}
+.formulaire #txt{
+  height: 40px;
+  border-radius: 5px;
+  border:none;
+  width: 50%;
+  font-size: 20px;
+  margin-bottom:25px;
+}
+.formButton {
+  font-family: "Helvetica";
+  height: 70px;
+  width:200px;
+  background-color: #34495e;
+  color: white;
+  font-size: 25px;
+  border-style: hidden;
+  border-radius: 7px;
+  cursor:pointer;
+  transition: 0.3s;
+}
+
+.formButton:hover{
+  background-color: #2980b9;
+}
+
+.formButton:active {
+  background-color: #2980b9;
+  height: 65px;
+  width:195px;
 }

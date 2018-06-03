@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', 'ISEP');
+include_once('bddConnect.php');
 $username=$_SESSION['username'];
 
 function chargerInfosProfile($bdd,$username) {
