@@ -26,12 +26,12 @@ else{
     if (isset($_POST['supprDomicile']) AND $_POST['supprDomicile']=='delete'){
       if (checkProprietaire($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd'])) {
         supprimerDomicile($_GET['id'],$GLOBALS['bdd']);
-        // echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
+        echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
       }
       // POUR UN UTILISATEUR SECONDAIRE
       else{
-        // supprimerDomicileInvite($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd']);
-        // echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
+        supprimerDomicileInvite($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd']);
+        echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
       }
     }
 
@@ -114,13 +114,51 @@ function listePiece($domicileID,$bdd){
     <a href='../Controller/pagePiece.php?id=".$GLOBALS['domicileSelect']."&ip=".$donnees["ID"]."'>
     <div class='titre titrePiece'>".$donnees["Nom"]."</div>
     </a>
-    <div class='pieceContainer'></div>
+    <div class='pieceContainer'>";
+    listeModulesInline($donnees["ID"],$GLOBALS['bdd']);
+    echo "</div>
     </div>
     <br/>
     ";
     $k++;
   }
 }
+
+function listeModulesInline($pieceID,$bdd){
+  $req = $bdd->prepare("SELECT Nom, Référence, UUID, Catégorie FROM capteurs WHERE ID_pièce=? AND Catégorie != 'Actionneur' ORDER BY UUID DESC");
+  $req->execute(array($pieceID));
+
+  $k=0;
+
+  while ($donnees = $req->fetch()){
+    $reqImg = $bdd->prepare('SELECT img FROM catalogue WHERE Référence=?');
+    $reqImg->execute(array($donnees['Référence']));
+    $reqImg=$reqImg->fetch();
+
+      echo "
+      <div  id='d".$k."' class='modulesWrapper'>
+      <img src='".$reqImg[0]."' class='imageModule' style='height:70px;'>
+      <p>";
+      echo moduleInfo($donnees['Référence'],$donnees['UUID'],$donnees['Catégorie']);
+      echo "</p>
+      <figcaption >".$donnees["Nom"]."</figcaption>
+      </div>
+      ";
+
+    }
+    $k++;
+  }
+
+function moduleInfo($ref,$id,$categorie){
+  if($categorie=="Module"){
+    return "Active";
+  }
+  elseif ($categorie=="Capteur") {
+    return lastMesure($id,$GLOBALS['bdd'] );
+  }
+  return "test";
+}
+
 
 
 ?>

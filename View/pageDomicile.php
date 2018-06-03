@@ -35,7 +35,7 @@
               <col span="2" style="width: 50%;">
             </colgroup>
             <tr>
-              <button id='supprUser' href="#" onclick="affichageInvisible('invisibleSupprUser')">Supprimer un Utilisateur</button>
+              <button id='supprUser' href="#" onclick="affichageInvisible('invisibleSupprUser')">Supprimer un utilisateur</button>
               <button id='addUser' href="#" onclick="affichageInvisible('invisibleADD')">Ajouter un utilisateur</button><br/>
             </tr>
           </table>

@@ -2,11 +2,207 @@ body{
   /* background-color: #ecf0f1; */
   font-family: 'Lato';
 }
-
+/* TITRE */
 .entete{
   text-align: center;
 }
 
 h1{
   color : rgb(163, 205, 247);
+}
+
+.selectModule{
+position : relative;
+width: 100%;
+}
+
+
+.addButton{
+  background-color: #34495e;
+  text-align: center;
+  border:none;
+  color:white;
+  font-size: 1.5em;
+  padding-left:40px;
+  padding-right: 40px;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* BOUTON RETOUR */
+#return{
+  position: absolute;
+  left: 0px;
+  top:13%;
+  padding: 7px;
+  padding-left: 20px;
+  background-color: #e74c3c;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#return:hover{
+  background-color:#c0392b;
+}
+
+/* FORMULAIRES */
+.invisible{
+  display: none;
+}
+.invisibleSuppr{
+  display: none;
+}
+
+form select{
+  cursor: pointer;
+  font-size: 20px;
+  background-image: url('../images/search.png');
+  background-position: 10px 7px;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding: 6px 6px 6px 35px;
+}
+
+
+.formWrapper{
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top : 15%;
+  left:15%;
+  height: 60%;
+  width: 70%;
+  text-align: center;
+  background-color: #ecf0f1;
+}
+
+.titre_form{
+  font-size:25px;
+  font-family: 'Lato';
+  color: #34495e;
+}
+
+.formulaire #txt{
+  height: 40px;
+  border-radius: 5px;
+  border:none;
+  width: 34%;
+  font-size: 20px;
+  margin-bottom:25px;
+}
+
+.closeButton{
+  height: 50px;;
+  position: absolute;
+  top:2%;
+  cursor: pointer;
+  right:1%;
+}
+
+.closeButton:active{
+  height: 48px;
+  transition:0.1s;
+}
+
+.formButton {
+  font-family: "Lato";
+  height: 70px;
+  width:200px;
+  background-color: #34495e;
+  color: white;
+  font-size: 25px;
+  border-style: hidden;
+  border-radius: 7px;
+  cursor:pointer;
+  transition: 0.3s;
+}
+
+.formButton:hover{
+  background-color: #2980b9;
+}
+
+.formButton:active {
+  background-color: #2980b9;
+  height: 65px;
+  width:195px;
+}
+
+/* Assombrissement */
+
+.pageCover{
+  z-index: 2;
+  position:fixed;
+  top:0px;
+  left: 0px;
+  background-color: black;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%
+}
+
+/* BOUTON AJOUT MODULES */
+.gestionModules{
+  position: fixed;
+  bottom: 45px;
+  right:0px;
+}
+
+.gestionModules button{
+  background-color: #34495e;
+  text-align: center;
+  border:none;
+  color:white;
+  font-size: 1.5em;
+  padding-left:40px;
+  padding-right: 40px;
+  margin-bottom: 5%;
+  margin-right: -5px;
+  cursor: pointer;
+}
+
+.gestionModules button:hover{
+  background-color: #2980b9;
+}
+
+.gestionModules button:active{
+  padding-left:38px;
+  padding-right: 38px;
+}
+
+/* TABLEAU LISTE MODULES */
+#tableModules{
+  padding-top: 30px;
+  margin: 0 auto;
+}
+
+.separator{
+  width:5%;
+}
+
+.lineSeparator{
+  height: 5px;
+}
+
+.modulesWrapper{
+  text-align: center;
+}
+
+.modulesWrapper figcaption{
+  text-align:center;
+  font-weight:bold;
+}
+
+.modulesWrapper p{
+  border-radius: 5px;
+  text-align:center;
+  margin: 0;
+  margin-bottom: 5%;
+  color: #55efc4;
+  background: #74b9ff;
 }

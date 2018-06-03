@@ -3,14 +3,18 @@
 session_start();
 $GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', 'ISEP');
 
-function ajouterDomcile($nom,$adresse,$proprietaire,$bdd){
+function ajouterDomcile($nom,$numero,$adresse,$codepostal,$ville,$pays,$proprietaire,$bdd){
   $liste='';
-  $req=$bdd->prepare("INSERT INTO domiciles ( Nom, Adresse, Propriétaire, Pièces) VALUES ( :Nom, :Adresse, :Proprietaire, :Pieces)");
+  $req=$bdd->prepare("INSERT INTO domiciles ( Nom, Numéro, Adresse, CodePostal, Ville, Pays, Propriétaire, Pièces) VALUES ( :Nom, :Numero, :Adresse, :CodePostal, :Ville, :Pays, :Proprietaire, :Pieces)");
   $req->execute(array(
     'Nom' =>$nom,
-    'Adresse' => $adresse,
-    'Proprietaire' => $proprietaire,
-    'Pieces' => $liste
+    'Numero' =>$numero,
+    'Adresse' =>$adresse,
+    'CodePostal' =>$codepostal,
+    'Ville' =>$ville,
+    'Pays' =>$pays,
+    'Proprietaire' =>$proprietaire,
+    'Pieces' =>$liste,
   ));
 }
 
@@ -81,6 +85,7 @@ function supprimerPiece($IDPiece,$domicile,$proprietaire,$bdd){
   $req->execute(array($IDPiece,$proprietaire));
 }
 
+
 function nomDomicile($domicileID,$bdd){
   $req=$bdd->prepare("SELECT Nom FROM rooms WHERE ID=?");
   $req->execute(array($domicileID));
@@ -88,4 +93,37 @@ function nomDomicile($domicileID,$bdd){
   return $res['Nom'];
 }
 
+
+function ajouterModule($name,$userID, $pieceID, $ref,$bdd){
+  $reqName=$bdd->prepare("SELECT Nom, Catégorie FROM Catalogue WHERE Référence =?");
+  $reqName->execute(array($ref));
+  $res=$reqName->fetch();
+  $resType=$res[0];
+  $resCategorie=$res[1];
+  $req=$bdd->prepare("INSERT INTO capteurs (Référence,Type , Nom, ID_propriétaire,ID_pièce,Catégorie) VALUES ( :ref, :type, :nom, :userID, :pieceID, :categorie)");
+  $req->execute(array(
+    'ref' =>$ref,
+    'type'=>$resType,
+    'nom'=>$name,
+    'userID' => $userID,
+    'pieceID' => $pieceID,
+    'categorie' => $resCategorie
+  ));
+}
+
+function supprimerModule($moduleID,$pieceID,$bdd){
+  $req=$bdd->prepare("DELETE FROM capteurs WHERE UUID=? AND ID_pièce=?");
+  $req->execute(array($moduleID,$pieceID));
+}
+
+function lastMesure($id,$bdd){
+  $req=$bdd->prepare ("SELECT data FROM mesures WHERE capteurID=? ORDER BY AddedOnDate DESC limit 1");
+  $req->execute(array($id));
+  $res=$req->fetch();
+  if (isset($res[0])){
+    return $res[0];
+  }
+  else
+    return "N/A";
+}
 ?>
