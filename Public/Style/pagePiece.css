@@ -30,6 +30,25 @@ width: 100%;
   cursor: pointer;
 }
 
+/* BOUTON RETOUR */
+#return{
+  position: absolute;
+  left: 0px;
+  top:13%;
+  padding: 7px;
+  padding-left: 20px;
+  background-color: #e74c3c;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#return:hover{
+  background-color:#c0392b;
+}
+
 /* FORMULAIRES */
 .invisible{
   display: none;
@@ -149,13 +168,11 @@ form select{
 
 .gestionModules button:hover{
   background-color: #2980b9;
-  transition: 0.2s;
 }
 
 .gestionModules button:active{
   padding-left:38px;
   padding-right: 38px;
-  transition: 0.2s;
 }
 
 /* TABLEAU LISTE MODULES */

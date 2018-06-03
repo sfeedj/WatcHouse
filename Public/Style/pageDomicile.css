@@ -267,7 +267,7 @@ label,#checkBox{
 .gestionPieces{
   position: fixed;
   bottom: 45px;
-  right:7px;
+  right:0px;
 }
 
 .gestionPieces button{
@@ -279,19 +279,19 @@ label,#checkBox{
   padding-left:40px;
   padding-right: 40px;
   margin-bottom: 5%;
-  border-radius: 10px;
+  margin-right: -5px;
   cursor: pointer;
+  transition: 0.2s;
+
 }
 
 .gestionPieces button:hover{
   background-color: #2980b9;
-  transition: 0.2s;
 }
 
 .gestionPieces button:active{
   padding-left:38px;
   padding-right: 38px;
-  transition: 0.2s;
 }
 
 /* SUPPRESSION DE PIECE */
@@ -307,4 +307,34 @@ select{
   background-size: 20px;
   padding: 7px 10px 7px 35px;
   width:30%
+}
+
+/* LISTE MODULE EN LIGNE  */
+
+
+.pieceContainer{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  overflow-x: scroll;
+  width : 100%;
+  margin-top: 4%;
+  min-height: 80%;
+}
+
+.modulesWrapper{
+  display: inline-block;
+  margin-right: 3%;
+  margin-left: 2%;
+}
+
+.modulesWrapper p{
+  margin-top: -10%;
+  color: white;
+  font-size: 80%;
+}
+
+.modulesWrapper figcaption{
+  margin-top: -20%;
+  font-weight: bold;
 }

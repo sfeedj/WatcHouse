@@ -11,6 +11,7 @@
 
     <div class = 'entete'>
     <h1><?php echo nomDomicile($GLOBALS['pieceSelect'],$bdd); ?></h1>
+    <a id="return" href="../Controller/pageDomicile.php?id=<?php echo $GLOBALS['domicileSelect'];?>"> ←   Retourner au domicile</a>
   </div>
   <div class="selectModule"><?php listeModules($GLOBALS['pieceSelect'],$bdd); ?></div>
   <div class='gestionModules'>
