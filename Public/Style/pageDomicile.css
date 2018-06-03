@@ -144,7 +144,6 @@ color: white;
 }
 
 .général{
-  position: sticky;
   border-radius: 5px;
   top:0;
   margin-left: -10px;
@@ -316,7 +315,7 @@ select{
   display: flex;
   flex-direction: row;
   text-align: center;
-  overflow-x: scroll;
+  overflow-x: auto;
   width : 100%;
   margin-top: 4%;
   min-height: 80%;

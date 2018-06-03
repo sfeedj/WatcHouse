@@ -19,6 +19,9 @@
     <button href="#" onclick="affichageInvisible('invisibleSuppr')">-</button>
   </div>
 
+      <!--Div that will hold the  chart-->
+      <div id="chart_div"></div>
+
 
     <!-- FORMULAIRE AJOUT MODULE -->
     <div class="invisible" >

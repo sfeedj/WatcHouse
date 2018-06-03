@@ -9,6 +9,7 @@ if (isset($_SESSION['ID'])){                                // POUR LA SECURITE
 
   include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/header.php');
   include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/pagePiece.php');
+  include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Controller/stats1.php');
   include("../View/footer.php");
 
   // AJOUT MODULE

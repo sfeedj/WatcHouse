@@ -16,7 +16,6 @@ position : relative;
 width: 100%;
 }
 
-
 .addButton{
   background-color: #34495e;
   text-align: center;
@@ -205,4 +204,10 @@ form select{
   margin-bottom: 5%;
   color: #55efc4;
   background: #74b9ff;
+}
+
+/* STATS */
+#chart_div{
+  margin-top: 15px;
+  margin-left: 27%;
 }
