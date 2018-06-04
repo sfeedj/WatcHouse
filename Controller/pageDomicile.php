@@ -9,7 +9,7 @@ else{
 
   include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/domicileFunctions.php');
 
-  if (isset($_SESSION['ID'])){                                // POUR LA SECURITE
+  if (isset($_SESSION['ID']) && checkProprietaire($_SESSION['ID'],$GLOBALS['domicileSelect'],$GLOBALS['bdd'])){                                // POUR LA SECURITE
 
     $statut = 'Invité';
 

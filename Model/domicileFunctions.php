@@ -42,10 +42,8 @@ function checkProprietaire($userID,$domicileID,$bdd){
   $req2->execute(array($userID,$domicileID));
   $res2=$req2->fetchAll();
   if (!isset($res2[0])){
-    // echo 'false';
     return false;
   }
-  // echo 'true';
   return true;
 }
 
