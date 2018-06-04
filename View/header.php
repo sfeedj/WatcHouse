@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>WatcHouse</title>
   <link rel="stylesheet" href="../Public/Style/header.css">
+  <link rel="icon" href="../Public/images/favicon.png" />
 </head>
 
 <header class="bloc-header">
@@ -30,3 +31,10 @@
     </div>
 
   </header>
+
+  <noscript>
+    <div style="border: 1px solid red; padding: 10px;text-align:center">
+      <span style="color:red;text-align:center;"> Attention : JavaScript est désactivé !</span><br/>
+      <span style="color:red;text-align:center;"> Veuillez le réactiver pour une utilisation optimale de WatcHouse.</span>
+    </div>
+  </noscript>
