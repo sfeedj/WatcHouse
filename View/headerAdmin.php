@@ -5,6 +5,8 @@
   <title>WatcHouse</title>
   <link rel="stylesheet" href="../Public/Style/headerAdmin.css">
   <link rel="icon" href="../Public/images/favicon.png" />
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
 </head>
 
 <header class="bloc-header">
