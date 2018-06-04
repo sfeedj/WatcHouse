@@ -140,7 +140,12 @@ color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   left: 0;
+}
+
+#buttonUser{
+  text-align: center;
 }
 
 .général{
