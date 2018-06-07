@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>WatcHouse</title>
   <link rel="stylesheet" href="/../WatcHouse/Public/Style/backLogin.css">
+  <link rel="icon" href="../Public/images/favicon.png" />
   <script type="text/javascript" src="../Public/js/logFunction.js"></script>
 
 </head>

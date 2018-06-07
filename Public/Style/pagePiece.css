@@ -147,6 +147,7 @@ form select{
 
 /* BOUTON AJOUT MODULES */
 .gestionModules{
+  z-index:1;
   position: fixed;
   bottom: 45px;
   right:0px;

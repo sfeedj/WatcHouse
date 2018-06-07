@@ -77,12 +77,12 @@ function isAdmin($id, $bdd){
   }
   return false;
 }
-function ajouterModule($nomModule,$Prix,$Description,$userfile,$bdd){
+function ajouterModule($nomModule,$Prix,$Description,$userfile,$moduleType,$bdd){
   echo 'LOLZER'.$userfile;
   $req=$bdd->prepare("INSERT INTO catalogue (Nom, Catégorie, Prix, Description, img) VALUES ( :Nom,:Categorie,:Prix,:Description,:img)");
   $req->execute(array(
     'Nom' =>$nomModule,
-    'Categorie'=>'Module',
+    'Categorie'=>$moduleType,
     'Prix' => $Prix,
     'Description' => $Description,
     'img'=>$userfile
