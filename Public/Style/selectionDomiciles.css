@@ -20,7 +20,7 @@ body{
   font-family: 'Lato';
   font-size: 150%;
   color: #34495e;
-  margin-bottom: 20%;
+  margin-bottom: 15%;
 }
 
 .titre_form{
@@ -67,8 +67,6 @@ body{
 }
 
 
-
-
 @keyframes grossi {
   0% {
       transform:scale(0);
@@ -79,7 +77,6 @@ body{
   }
 }
 
-
 /* formulaire d'ajout de domicile */
 .formWrapper{
   z-index: 3;
@@ -89,7 +86,7 @@ body{
   position: absolute;
   top : 15%;
   left:15%;
-  height: 60%;
+  height: 66%;
   width: 70%;
   text-align: center;
   background-color: #ecf0f1;
@@ -103,17 +100,28 @@ body{
     animation-name: grossi;
 }
 
-
-.formulaire input{
+.formulaire .full{
   height: 40px;
   border-radius: 5px;
-  border-width:thin;
   border-color: rgba(0, 0, 0, 0.075);
   box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
-
+  border:none;
   width: 50%;
   font-size: 20px;
-  margin-bottom:25px;
+  margin-bottom:10px;
+}
+
+
+
+.half{
+  height: 40px;
+  border-radius: 5px;
+  border-color: rgba(0, 0, 0, 0.075);
+  box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096); 
+  border:none;
+  font-size: 20px;
+  margin-bottom:10px;
+  width: 25%;
 }
 
 .closeButton{
@@ -143,6 +151,7 @@ body{
   cursor:pointer;
   transition: 0.3s;
 }
+
 
 .formButton:hover{
   background-color: #2980b9;

@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header("Refresh:0; url=/../appwebsite/watchouse/index.php");
+header("Refresh:0; url=/../WatcHouse/index.php");
  ?>

@@ -1,6 +1,6 @@
 #container {
     display: flex;
-    
+
 
 }
 
@@ -19,7 +19,7 @@ h1,h2 {
 
 
 #TéléphoneF,#TéléphoneF2 {
-    background-image:url(/../APPwebsite/Watchouse/Public/images/icons/phone.png);
+    background-image:url(/../Watchouse/Public/images/icons/phone.png);
     background-position:50%;
     background-size: 38px;
     background-repeat:no-repeat;
@@ -27,14 +27,14 @@ h1,h2 {
 }
 
 #MailF,#MailF2 {
-    background-image:url(/../APPwebsite/Watchouse/Public/images/icons/mail.png);
+    background-image:url(/../Watchouse/Public/images/icons/mail.png);
     background-position:50%;
     background-size: 38px;
     background-repeat:no-repeat;
 }
 
 #AdresseF,#AdresseF2 {
-    background-image:url(/../APPwebsite/Watchouse/Public/images/icons/location.png);
+    background-image:url(/../Watchouse/Public/images/icons/location.png);
     background-position:50%;
     background-size: 38px;
     background-repeat:no-repeat;
@@ -46,7 +46,7 @@ h1,h2 {
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-       border-radius: 10px; 
+       border-radius: 10px;
        border-width: 1.5px;
        border-color: rgba(0, 0, 0, 0.103);
        width: 11%;
@@ -57,7 +57,7 @@ h1,h2 {
 
     margin-top: 250px;
     margin-left: -155px;
- 
+
     animation-duration: 0.5s;
     animation-name: grossi;
 }
@@ -67,9 +67,9 @@ h1,h2 {
 @keyframes slidein {
     from {
       margin-left: 100%;
-      width: 300%; 
+      width: 300%;
     }
-  
+
     to {
       margin-left: 0%;
       width: 100%;
@@ -81,7 +81,7 @@ h1,h2 {
     0% {
         transform:scale(0);
     }
-  
+
     100% {
         transform:scale(1);
     }
@@ -92,7 +92,7 @@ h1,h2 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
      text-align: center;
-        border-radius: 10px 0px 0px 10px; 
+        border-radius: 10px 0px 0px 10px;
         border-width: 1.5px;
         border-right: none;
         border-color: rgba(0, 0, 0, 0.103);
@@ -104,16 +104,16 @@ h1,h2 {
         text-shadow: dimgrey;
         animation-duration: 0.5s;
         animation-name: grossi;
- 
+
  }
 
 .inputLong {
     position: relative;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-    border-radius: 0px 10px 10px 0px; 
+    border-radius: 0px 10px 10px 0px;
     border-width: 1.5px;
-    border-color: rgba(0, 0, 0, 0.103);  
+    border-color: rgba(0, 0, 0, 0.103);
     text-align: center;
     width: 52%;
     height: 50px;
@@ -128,7 +128,7 @@ h1,h2 {
 
 .inputCourt {
     position: relative;
-    border-radius: 0px 10px 10px 0px; 
+    border-radius: 0px 10px 10px 0px;
     border-width: 1.5px;
     border-color: rgba(0, 0, 0, 0.103);
     text-align: center;
@@ -162,7 +162,7 @@ h1,h2 {
 
 #changePassword {
     position: relative;
-    border-radius: 0px 10px 10px 0px; 
+    border-radius: 0px 10px 10px 0px;
     border-width: 1.5px;
     border-color: rgba(0, 0, 0, 0.103);
     text-align: center;
@@ -178,7 +178,7 @@ h1,h2 {
 
 #changeInfo {
     position: relative;
-    border-radius: 10px 0px 0px 10px; 
+    border-radius: 10px 0px 0px 10px;
     border-width: 1.5px;
     border-color: rgba(0, 0, 0, 0.103);
     text-align: center;
@@ -200,7 +200,7 @@ h1,h2 {
 .inputDialog {
     display: flex;
     margin: auto;
-    border-radius: 28px 28px 28px 28px; 
+    border-radius: 28px 28px 28px 28px;
     border-width: 1.5px;
     border-color: rgba(0, 0, 0, 0.103);
     text-align: center;
@@ -246,7 +246,7 @@ dialog {
  }
 
  .confirmer,.annuler {
-    border-radius: 28px 28px 28px 28px; 
+    border-radius: 28px 28px 28px 28px;
     border-width: 1.5px;
     border-color: rgba(0, 0, 0, 0.103);
     text-align: center;

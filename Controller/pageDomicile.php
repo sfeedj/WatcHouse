@@ -1,13 +1,13 @@
 <?php
 
 if (! isset($_GET['id'])){
-  header("Refresh:0; url=/../appwebsite/watchouse/index.php?page=selectionDomicile");// POUR LA SECURITE
+  header("Refresh:0; url=/../WatcHouse/index.php?page=selectionDomicile");// POUR LA SECURITE
 }
 else{
   $GLOBALS['domicileSelect']=$_GET['id'];
 
 
-  include($_SERVER['DOCUMENT_ROOT'].'/appwebsite/watchouse/Model/domicileFunctions.php');
+  include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/domicileFunctions.php');
 
   if (isset($_SESSION['ID'])){                                // POUR LA SECURITE
 
@@ -17,21 +17,21 @@ else{
       $statut = 'Propriétaire';
     }
 
-    include($_SERVER['DOCUMENT_ROOT'].'/appwebsite/watchouse/View/header.php');
-    include($_SERVER['DOCUMENT_ROOT'].'/appwebsite/watchouse/View/pageDomicile.php');
-
+    include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/header.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Controller/statsGeneral.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/pageDomicile.php');
 
     // SUPPRESSION DOMICILE
     // POUR LE PROPRIETAIRE
     if (isset($_POST['supprDomicile']) AND $_POST['supprDomicile']=='delete'){
       if (checkProprietaire($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd'])) {
         supprimerDomicile($_GET['id'],$GLOBALS['bdd']);
-        // echo '<meta http-equiv="refresh" content="0;url=/../appwebsite/watchouse/index.php?page=selectionDomicile" />';
+        echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
       }
       // POUR UN UTILISATEUR SECONDAIRE
       else{
-        // supprimerDomicileInvite($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd']);
-        // echo '<meta http-equiv="refresh" content="0;url=/../appwebsite/watchouse/index.php?page=selectionDomicile" />';
+        supprimerDomicileInvite($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd']);
+        echo '<meta http-equiv="refresh" content="0;url=/../WatcHouse/index.php?page=selectionDomicile" />';
       }
     }
 
@@ -62,11 +62,12 @@ else{
     }
 
     // FOOTER
+    include("../View/footer.php");
   }
 
   else{
     // REDIRECTION SI NON DROITS D'ACCES
-    header("Refresh:0; url=/../appwebsite/watchouse/index.php");
+    header("Refresh:0; url=/../WatcHouse/index.php");
   }
 }
 
@@ -113,13 +114,51 @@ function listePiece($domicileID,$bdd){
     <a href='../Controller/pagePiece.php?id=".$GLOBALS['domicileSelect']."&ip=".$donnees["ID"]."'>
     <div class='titre titrePiece'>".$donnees["Nom"]."</div>
     </a>
-    <div class='pieceContainer'></div>
+    <div class='pieceContainer'>";
+    listeModulesInline($donnees["ID"],$GLOBALS['bdd']);
+    echo "</div>
     </div>
     <br/>
     ";
     $k++;
   }
 }
+
+function listeModulesInline($pieceID,$bdd){
+  $req = $bdd->prepare("SELECT Nom, Référence, UUID, Catégorie FROM capteurs WHERE ID_pièce=? AND Catégorie != 'Actionneur' ORDER BY UUID DESC");
+  $req->execute(array($pieceID));
+
+  $k=0;
+
+  while ($donnees = $req->fetch()){
+    $reqImg = $bdd->prepare('SELECT img FROM catalogue WHERE Référence=?');
+    $reqImg->execute(array($donnees['Référence']));
+    $reqImg=$reqImg->fetch();
+
+      echo "
+      <div  id='d".$k."' class='modulesWrapper'>
+      <img src='".$reqImg[0]."' class='imageModule' style='height:70px;'>
+      <p>";
+      echo moduleInfo($donnees['Référence'],$donnees['UUID'],$donnees['Catégorie']);
+      echo "</p>
+      <figcaption >".$donnees["Nom"]."</figcaption>
+      </div>
+      ";
+
+    }
+    $k++;
+  }
+
+function moduleInfo($ref,$id,$categorie){
+  if($categorie=="Module"){
+    return "Active";
+  }
+  elseif ($categorie=="Capteur") {
+    return lastMesure($id,$GLOBALS['bdd'] );
+  }
+  return "test";
+}
+
 
 
 ?>

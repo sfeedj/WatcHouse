@@ -1,12 +1,12 @@
 <?php
-$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
 
-include($_SERVER['DOCUMENT_ROOT'].'/appwebsite/watchouse/Model/domicileFunctions.php');
+include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/domicileFunctions.php');
 
 if (isset($_SESSION['ID'])){ // SECURITE
 
   include_once("../View/header.php");
   include_once("../View/Catalogue.php");
+  include("../View/footer.php");
 
   // COMMANDE D'ARTICLE
   if (isset($_GET['article'])){
@@ -15,7 +15,7 @@ if (isset($_SESSION['ID'])){ // SECURITE
 
 }
 else {
-  header("Refresh:0; url=/../appwebsite/watchouse/index.php");
+  header("Refresh:0; url=/../WatcHouse/index.php");
 }
 
 

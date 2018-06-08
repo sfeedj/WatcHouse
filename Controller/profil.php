@@ -1,53 +1,37 @@
 <?php
-
-
-include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite/watchouse/Model/profil.php');
-
-
+include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/Model/profil.php');
 if (isset($_SESSION['username'])) {
+  include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/View/header.php');
 
-include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite/watchouse/view/header.php');
+  chargerInfosProfile($bdd,$username);
+  urlImage($username,$bdd);
+  changePassword($bdd,$username);
+  changeMail($bdd,$username);
+  changePhone($bdd,$username);
+  changePrenom($bdd,$username);
+  changeNom($bdd,$username);
+  changeAdresse($bdd,$username);
 
-chargerInfosProfile($bdd,$username);
-changePassword($bdd,$username);
-changeMail($bdd,$username);
-changePhone($bdd,$username);
-changePrenom($bdd,$username);
-changeNom($bdd,$username);
-changeAdresse($bdd,$username);
+  
+  include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/View/profil.php');
 
-if(isset($_POST['submit_photo'])) {
-    if (getimagesize($_FILES['image']['temp_name'])==FALSE) {
-        echo "failed";
+    if (!empty($_FILES)){
+      $userphoto = upload($_FILES['userphoto']);
+      ajouterPhoto($userphoto,$username,$GLOBALS['bdd']);
+      echo '<meta http-equiv="refresh" content="2" />';
+
     }
-    else {
-        $name=addslashes($_FILES['image']['name']);
-        $image=base64_encode(file_get_contents(addslashes($_FILES['image']['temp_name'])));
-        saveimage($name,$image,$bdd);
+    else{
+      $userphoto='N/A';
     }
-}
-
-
-
-include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite/watchouse/view/profil.php');
-
-
-
-
-
-
-}
+  }
 
 else {
-    include($_SERVER['DOCUMENT_ROOT'].'/APPwebsite/watchouse/index.php');
+  include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/index.php');
 }
 
 
-if (!empty($_FILES)){
-    $userfile = upload($_FILES['userfile']);
-
-}
-function uploadPhotoProfil($index)
+function upload($index)
 {
   $ds="/";
   $targetPath='../Public/images/users/';
@@ -57,9 +41,4 @@ function uploadPhotoProfil($index)
 }
 
 
-
-
-
-
- 
 ?>

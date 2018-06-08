@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>WatcHouse</title>
   <link rel="stylesheet" href="../Public/Style/headerAdmin.css">
-
+  <link rel="icon" href="../Public/images/favicon.png" />
 </head>
 
 <header class="bloc-header">
@@ -16,9 +16,7 @@
     <a href="../index.php?page=listeClients">Accueil</a>
     <a href="../index.php?page=listeClients">Clients</a>
     <a href="../index.php?page=listeModules">Modules</a>
-    <a href="../index.php?page=faqAdmin">FAQ</a>
-
-
+    <a href="../index.php?page=faq_admin">FAQ</a>
 
   </nav>
 
@@ -49,3 +47,10 @@
         mnuTimeout = setTimeout(function(){$('#pageFooterContent').animate({height: '30'}, 250); },250);
      });
 </script>
+
+<noscript>
+  <div style="border: 1px solid red; padding: 10px;text-align:center">
+    <span style="color:red;text-align:center;"> Attention : JavaScript est désactivé !</span><br/>
+    <span style="color:red;text-align:center;"> Veuillez le réactiver pour une utilisation optimale de WatcHouse.</span>
+  </div>
+</noscript>

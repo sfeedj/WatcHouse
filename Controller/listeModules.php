@@ -1,8 +1,6 @@
 <?php
-session_start();
-$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
 
-include($_SERVER['DOCUMENT_ROOT'].'/appwebsite/watchouse/Model/adminFunctions.php');
+include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/adminFunctions.php');
 
 if (isset($_SESSION['ID']) && isAdmin($_SESSION['ID'],$bdd)){ // POUR LA SECURITE
 

@@ -42,6 +42,7 @@ function checkAdmin($username, $password, $bdd){
     if ($isPasswordCorrect AND $resultat['admin']==1) {
       $_SESSION['ID'] = $resultat['ID'];
       $_SESSION['username'] = $username;
+      $_SESSION['admin'] = 1;
       return true;
     }
     return false;
