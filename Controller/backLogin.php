@@ -1,5 +1,5 @@
 <?php
-
+include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/adminFunctions.php');
 if (session_status() == 2){
   session_destroy();
 }
@@ -22,5 +22,7 @@ else{
     header("Refresh:0; url=/../WatcHouse/index.php?page=listeClients");
   }
 }
-
+if (!empty($_POST['email'])){
+  resetMdp($_POST['email']);
+}
  ?>

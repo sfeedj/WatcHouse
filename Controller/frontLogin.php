@@ -1,5 +1,5 @@
 <?php
-
+include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/adminFunctions.php');
 if (session_status() == 2){
   session_destroy();
 }
@@ -24,6 +24,9 @@ else{
     $messageErreur='';
     header("Refresh:0; url=/../WatcHouse/index.php?page=selectionDomicile");
   }
+}
+if (!empty($_POST['email'])){
+    resetMdp($_POST['email']);
 }
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/frontLogin.php');

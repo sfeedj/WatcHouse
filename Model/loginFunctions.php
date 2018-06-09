@@ -48,5 +48,36 @@ function checkAdmin($username, $password, $bdd){
     return false;
   }
 }
+function sendMailWithNewPassword($email, $username, $password){
+    $to      = $email;
+    $subject = 'Votre nouveau mot de passe';
+    $message =
+        "Bonjour " . $username . "," . "\r\n" .
+        "Vous avez demandé un renouvellement de mot de passe," ."\r\n" .
+        "Votre nouveau mot de passe provisoire est:"  . $password . "\r\n" .
+        "Nous vous invitons à le modifier dès que possible." . "\r\n" .
+        "Cordialement," . "\r\n" .
+        "L'équipe Domisep";
+    $headers = 'From: WatchHouse.isep@gmail.com' . "\r\n" .
+        'Reply-To: WatchHouse.isep@gmail.com' . "\r\n" .
+        'Content-Type: text/plain; charset = "utf8"' . "\r\n";
+    mail($to, $subject, $message, $headers);
+}
 
+function resetMdp($email){
+    $bdd = $GLOBALS["bdd"];
+    $req = $bdd->prepare('SELECT username, ID FROM users WHERE email= ?');
+    $req->execute(array($email));
+    $resultat = $req->fetch();
+    if(!$resultat){
+        return false;
+    }
+    else{
+        $password=genererMdp();
+        $req = $bdd->prepare('UPDATE users SET password=? WHERE ID= ?');
+        $req->execute(array($password, $resultat['ID']));
+        sendMailWithNewPassword($email, $resultat['username'], $password);
+    }
+
+}
 ?>

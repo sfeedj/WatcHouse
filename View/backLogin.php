@@ -36,7 +36,7 @@
 
     <div class="invisible" >
         <div class = 'formWrapper'>
-            <form action="../Controller/frontLogin.php" method="post" class="formulaire">
+            <form action="../Controller/backLogin.php" method="post" class="formulaire">
                 <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisible')">
                 <span class="titre_form">Oublie de mot de passe</span><br/><br/>
                 <input id='txt' type="email" name="email" placeholder=" Email" required /><br/>
