@@ -23,7 +23,7 @@
         <p id="user-name-header"> <?php echo $_SESSION['username'] ?> </p>
         <ul>
           <li><a href="/../WatcHouse/index.php?page=profil">Profil</a></li>
-          <li><a href="#">Etats des capteurs</a></li>
+          <li><a href="/../Watchouse/index.php?page=etatCapteurs">Etats des capteurs</a></li>
           <li><a href="/../WatcHouse/index.php?page=logOut" class="highlight">Déconnexion</a></li>
         </ul>
       </div>

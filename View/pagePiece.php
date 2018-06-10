@@ -67,9 +67,10 @@
         if (this.readyState == 4 && this.status == 200) {
         }
       };
+      console.log(id);
 
-      xhttp.open("GET", "demo.php", true);
-      xhttp.send(id);
+      xhttp.open("POST", "ajax.php", true);
+      xhttp.send("id="+id);
     }
 
 

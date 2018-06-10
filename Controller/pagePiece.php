@@ -106,20 +106,46 @@ function moduleInfo($ref,$id,$categorie){
   //$etat = getEtat($id);
   //echo $etat['Etat'];
 
+  if($categorie=="Actioneur"){
+    //WatcHouse Smart Outlet
+    //WatcHouse Smart Lightbulb
+    return '
+    <input name="cap" id="'.$id.'" class="toggle-status" onclick="go('.$id.')" type="checkbox">
+    <label for="'.$id.'"  class="toggle-switch  toggle-x2 toggle-rounded"></label>
+    ';
+  }
+
+  if($categorie=="CapteurTemperature"){
+    //WatcHouse Smart Outlet
+    //WatcHouse Smart Lightbulb
+    return '
+    <button name="bouttonPlus" id="'.$id.'" class="bouttonTemp" onclick="plus('.$id.')">
+    <h1>
+    <button name="bouttonPlus" id="'.$id.'" class="bouttonTemp" onclick="plus('.$id.')">
+    ';
+  }
+
+
+
+
   if($categorie=="Module"){
     return '
     <input name="cap" id="'.$id.'" class="toggle-status" onclick="go('.$id.')" type="checkbox">
-    <label for="'.$id.'"  class="toggle-switch  toggle-x2 toggle-rounded"></label>';
+    <label for="'.$id.'"  class="toggle-switch  toggle-x2 toggle-rounded"></label>
+    ';
   }
   elseif ($categorie=="Capteur") {
 
     return 
-    '<div style="height: 100px;display: flex;justify-content: center;">
-  <input type="range" id="'.$id.'" min="0" max="60" value="40" step="10"  onchange="cursor('.$id.')" />
-</div>
-<script>console.log(document.getElementById("'.$id.'").value);
-</script>
-'
+      '<div style="height: 100px;display: flex;justify-content: center;">
+      <input type="range" id="'.$id.'" min="15" max="40" value="'.lastMesure($id,$GLOBALS["bdd"]).'" step="0.5" onchange="cursor('.$id.')" />
+      </div>
+      <div id=" '.$id.' "></div>
+      <script>
+      document.getElementById("'.$id.'").onchange = function() {
+      document.getElementById(" '.$id.' ").textContent=document.getElementById("'.$id.'").value+"°C";
+      }
+      </script>'
 
 
 //.lastMesure($id,$GLOBALS['bdd'] )

@@ -1,3 +1,8 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
 .bloc_q_r{
   margin: 10px;
   border: 1px solid black;

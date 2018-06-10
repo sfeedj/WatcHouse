@@ -1,0 +1,54 @@
+.tableCapteurs {
+    border: solid 1px rgb(197, 200, 204);
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1em;
+    animation-duration: 0.5s;
+    animation-name: grossi;
+
+
+}
+
+.tableCapteurs thead th {
+    background-color: rgb(197, 200, 204);
+    border: solid 1px rgb(197, 200, 204);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgb(26, 26, 26);
+}
+
+.tableCapteurs tr:hover {
+    background-color: rgb(231, 243, 245);
+}
+
+.tableCapteurs tbody td {
+    border: solid 1px rgb(197, 200, 204);
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+#tablePosition {
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 100px;
+}
+
+.okIcons {
+    width: 32px;
+    height: auto;
+}
+
+
+@keyframes grossi {
+    0% {
+        transform:scale(0);
+    }
+
+    100% {
+        transform:scale(1);
+    }
+  }
