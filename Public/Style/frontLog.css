@@ -178,6 +178,8 @@ body{
   opacity:0;
 }
 
+
+
 .popup:hover span, .popup:focus span{
      transform:scale(1) rotate(0);
      opacity:1;

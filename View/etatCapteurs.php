@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../Public/Style/etatCapteurs.css">
 
-
+<h1>Etat des capteurs</h1>
 <div id="tablePosition">
 <table class="tableCapteurs">
 <thead>
@@ -14,6 +14,6 @@
 
         </tr>
     </thead>
-<?php tableauCapteurs($bdd); ?>
+<?php tableauCapteurs($ID,$bdd); ?>
 </table>
 </div>

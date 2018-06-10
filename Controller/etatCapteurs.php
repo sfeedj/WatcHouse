@@ -2,6 +2,8 @@
 
 include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/Model/domicileFunctions.php');
 
+$ID=$_SESSION['ID'];
+
 
 function iconEtat($icon,$bdd) {
   if ($icon=="1" ){
@@ -13,8 +15,9 @@ function iconEtat($icon,$bdd) {
 }
 
 
-function tableauCapteurs($bdd)
+function tableauCapteurs($ID,$bdd)
 {
+
   $req = $bdd->query(
        ' SELECT capteurs.Nom AS capteurNom,
         capteurs.Type AS capteurType,
@@ -26,7 +29,7 @@ function tableauCapteurs($bdd)
         JOIN rooms 
         ON rooms.ID = capteurs.ID_pièce 
         JOIN domiciles 
-        ON domiciles.ID= rooms.Domicile_ID WHERE ID_propriétaire="1" ');
+        ON domiciles.ID= rooms.Domicile_ID WHERE ID_propriétaire="'.$ID.'" ');
 
 
   while ($donnees = $req->fetch()){

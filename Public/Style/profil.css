@@ -20,14 +20,24 @@ h1,h2 {
 
 #TéléphoneF,#TéléphoneF2 {
     background-image:url(/../Watchouse/Public/images/icons/phone.png);
+    opacity: 0.7;
     background-position:50%;
     background-size: 38px;
     background-repeat:no-repeat;
 
 }
 
+#NaissanceF,NaissanceF2 {
+    background-image:url(/../Watchouse/Public/images/icons/date.png);
+    opacity: 0.7;
+    background-position:50%;
+    background-size: 38px;
+    background-repeat:no-repeat;
+}
+
 #MailF,#MailF2 {
     background-image:url(/../Watchouse/Public/images/icons/mail.png);
+    opacity: 0.7;
     background-position:50%;
     background-size: 38px;
     background-repeat:no-repeat;
@@ -35,6 +45,7 @@ h1,h2 {
 
 #AdresseF,#AdresseF2 {
     background-image:url(/../Watchouse/Public/images/icons/location.png);
+    opacity: 0.7;
     background-position:50%;
     background-size: 38px;
     background-repeat:no-repeat;
@@ -43,25 +54,30 @@ h1,h2 {
 #changePhoto {
     position: relative;
     float: left;
-
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
        border-radius: 10px;
        border-width: 1.5px;
        border-color: rgba(0, 0, 0, 0.103);
-       width: 11%;
+       width: 160px;
        height: 50px;
        background-color: rgba(138, 138, 138, 0.13);
        color: rgb(109, 109, 109);
 
 
-    margin-top: 250px;
-    margin-left: -155px;
+    margin-top: 270px;
+    margin-left: -180px;
 
     animation-duration: 0.5s;
     animation-name: grossi;
 }
 
+
+
+.msg {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+}
 
 
 @keyframes slidein {
@@ -90,7 +106,7 @@ h1,h2 {
 .appelation {
     position: relative;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    font-weight: bold;
      text-align: center;
         border-radius: 10px 0px 0px 10px;
         border-width: 1.5px;
@@ -105,12 +121,12 @@ h1,h2 {
         animation-duration: 0.5s;
         animation-name: grossi;
 
+
  }
 
 .inputLong {
     position: relative;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
     border-radius: 0px 10px 10px 0px;
     border-width: 1.5px;
     border-color: rgba(0, 0, 0, 0.103);

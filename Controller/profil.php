@@ -1,6 +1,11 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/Model/profil.php');
+include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/domicileFunctions.php');
+$username=$_SESSION['username'];
+
 if (isset($_SESSION['username'])) {
+    
+  
+
   include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/View/header.php');
 
   chargerInfosProfile($bdd,$username);
@@ -10,7 +15,9 @@ if (isset($_SESSION['username'])) {
   changePhone($bdd,$username);
   changePrenom($bdd,$username);
   changeNom($bdd,$username);
+  changeDate($bdd,$username);
   changeAdresse($bdd,$username);
+
 
   
   include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/View/profil.php');
@@ -39,6 +46,8 @@ function upload($index)
   move_uploaded_file($index['tmp_name'],$targetFile);
   return $targetFile;
 }
+
+
 
 
 ?>

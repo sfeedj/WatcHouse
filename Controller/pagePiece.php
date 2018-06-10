@@ -134,6 +134,9 @@ function moduleInfo($ref,$id,$categorie){
     <label for="'.$id.'"  class="toggle-switch  toggle-x2 toggle-rounded"></label>
     ';
   }
+
+
+  
   elseif ($categorie=="Capteur") {
 
     return 

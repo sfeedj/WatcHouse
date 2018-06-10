@@ -3,8 +3,8 @@
 
 <section id=photo-profil>
 	
-<img src="<?php echo $_SESSION['urlPhoto'] ?>" alt="photo-profil"></br>
-
+<?php echo urlImage($_SESSION['username'],$bdd);
+	 ?>
 </section>
 
 <button id="changePhoto">Changer l'image</button>
@@ -25,14 +25,14 @@
 <input class="appelation" id="MailF" type="text" name="MailF"  disabled="disabled" />
 <input class="inputLong"  type="text" type="button"  name="Mail" value="<?php echo htmlspecialchars($_SESSION['Mail']) ?>" disabled="disabled" /> </br>
 <input class="appelation" id="NaissanceF" type="text" name="NaissanceF" value="      " disabled="disabled" />
-<input class="inputCourt" type="date" name="Dat_de_naisssance" value="<?php echo htmlspecialchars($_SESSION['Date_de_naissance']) ?>"  disabled="disabled"/>
+<input class="inputCourt"  name="Date_de_naissance" value="<?php echo htmlspecialchars($_SESSION['Date_de_naissance']) ?>"  disabled="disabled"/>
 <input class="appelation" id="TéléphoneF"  type="text" name="TéléphoneF" value="      " disabled="disabled" />
 <input class="inputCourt"  type="tel" type="button" name="Téléphone" value="<?php echo htmlspecialchars($_SESSION['Téléphone']) ?>"  disabled="disabled"/></br>
 <input class="appelation" id="AdresseF" type="text" name="AdresseF" disabled="disabled" />
 <input class="inputLong" type="text" name="Adresse" value="<?php echo htmlspecialchars($_SESSION['Adresse']) ?>" disabled="disabled" /></br>
 
 <button id="changeInfo" type="button" >Changer mes Informations</button>
-<button id="changePassword" type="button">Changer de mot de passe</button>
+<button id="changePassword" type="button" >Changer de mot de passe</button>
 
 
 
@@ -45,8 +45,8 @@
 <!-- Simple boîte de dialogue, contenant un formulaire -->
 <dialog id="boiteDialogue">
 	<form method="post" name="form_password"  class="form2"  >
-	<p id="message_cache1"><p>
-	<p id="message_cache2"><p>
+	<a class="msg" id="message_cache1"></a></br>
+	<a class="msg" id="message_cache2"></a>
 
 		<section class="sectionPassword">
 
@@ -74,7 +74,7 @@
 <input class="appelation" id="MailF2" type="text" name="MailF"  disabled="disabled" />
 <input class="inputLong" type="email" type="button"  name="Mail" value="<?php echo htmlspecialchars($_SESSION['Mail']) ?>"  /></br>
 <input class="appelation" id="NaissanceF2" type="text" name="NaissanceF" value="      " disabled="disabled" />
-<input class="inputCourt" type="date" name="Dat_de_naisssance" value="<?php echo htmlspecialchars($_SESSION['Date_de_naissance']) ?>"  />
+<input class="inputCourt" type="date" name="Date_de_naissance" value="<?php echo htmlspecialchars($_SESSION['Date_de_naissance']) ?>"  />
 <input class="appelation" id="TéléphoneF2"  type="text" name="TéléphoneF" value="      " disabled="disabled" />
 <input class="inputCourt"  type="tel" type="button" name="Téléphone" value="<?php echo htmlspecialchars($_SESSION['Téléphone']) ?>"  /></br>
 <input class="appelation" id="AdresseF2" type="text" name="AdresseF"  disabled="disabled" />
@@ -109,7 +109,7 @@
 
 
 
-	<script>
+<script>
 
 //Boite de dialogue changement de mot de passe
 (function() {
@@ -134,9 +134,9 @@ document.forms.form_password.onsubmit = function() {
     result = false;
 	document.getElementById('message_cache1').innerHTML='Les deux mots de passe ne correspondent pas!';
   }
-  if ( !document.forms.form_password.newPassword.value.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/) )	{
+  if ( !document.forms.form_password.newPassword.value.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,),1,2,3,4,5,6,7,8,9,0,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]/) )	{
 	result = false;
-	document.getElementById('message_cache2').innerHTML='le mot de passe doit contenir un caractère spécial!';
+	document.getElementById('message_cache2').innerHTML='le mot de passe doit contenir au moins </br>un caractère spécial, un chiffre et une majuscule!';
   }
   else {
     result = true;

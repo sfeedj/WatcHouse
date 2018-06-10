@@ -15,11 +15,10 @@
       <span id='links'><a href="../index.php?page=selectionDomicile">Acceuil</a>
         <a href="../index.php?page=Catalogue">Catalogue</a>
         <a href="../index.php?page=faq">FAQ</a>
-        <a href="#">Notifications<span>1</span></a></span>
       </nav>
 
       <div class="menu">
-      <img src="<?php echo $_SESSION['urlPhoto'] ?>" alt="User Image"/>
+      <?php echo urlImage($_SESSION['username'],$bdd)?>
         <p id="user-name-header"> <?php echo $_SESSION['username'] ?> </p>
         <ul>
           <li><a href="/../WatcHouse/index.php?page=profil">Profil</a></li>

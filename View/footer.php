@@ -1,8 +1,8 @@
 <footer id="pageFooter">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-  <div id="pageFooterContent"><div id=rectangleInterieur><a>Informations<br/>WatcHouse@isep.fr<br/>
-  <img id ="imgFooter2" src="" alt="imgFooter2">
-  <img id ="imgFooter3" src="" alt="imgFooter3">
+  <div id="pageFooterContent"><div id=rectangleInterieur><a>*********<br/><a href="mailto:watchouse@isep.fr"> watchouse@isep.fr </a><br/>
+  <img id ="imgFooter2" src="../Public/images/icons/isep.png" alt="imgFooter2">
+  <img id ="imgFooter3" src="../Public/images/LogoWH2.png" alt="imgFooter3">
 </footer>
 
 <script>

@@ -48,13 +48,27 @@ body{
 .separator{
   padding: 10px;
 }
+@keyframes rotation {
+  0% {
+    transform: scaleX(0)
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
 
 .clef{
   height: 150px;
+  animation-duration: 0.5s;
+  animation-name: rotation;
+
 }
 
 .addButton{
   height: 150px;
+  animation-duration: 0.5s;
+  animation-name: rotation;
 }
 
 
