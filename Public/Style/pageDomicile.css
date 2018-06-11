@@ -1,6 +1,6 @@
 body{
   /* background-color: #ecf0f1; */
-  font-family: 'Lato';
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* STATUT USER */
@@ -87,13 +87,22 @@ color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   top : 15%;
   left:15%;
-  height: 60%;
+  height: 66%;
   width: 70%;
   text-align: center;
   background-color: #ecf0f1;
+
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
+    animation-duration: 0.5s;
+    animation-name: grossi;
+  
 }
 
 .titre_form{
@@ -105,10 +114,12 @@ color: white;
 .formulaire #txt{
   height: 40px;
   border-radius: 5px;
+  border-color: rgba(0, 0, 0, 0.075);
+  box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096); 
   border:none;
-  width: 50%;
   font-size: 20px;
-  margin-bottom:25px;
+  margin-bottom:10px;
+  width: 50%;
 }
 
 .closeButton{
@@ -133,6 +144,17 @@ color: white;
 }
 
 
+@keyframes gauche {
+  0% {
+      transform: translateX(-100%);
+  }
+
+  100% {
+      transform: translateX(0%);
+  }
+}
+
+
 .gauche{
   position: -webkit-sticky;
   position: sticky;
@@ -141,25 +163,38 @@ color: white;
   align-items: center;
   justify-content: center;
   left: 0;
+  animation-duration: 0.5s;
+  animation-name: gauche;
 }
 
 .général{
-  position: sticky;
   border-radius: 5px;
   top:0;
   margin-left: -10px;
   text-align: center;
   margin-top: 10px;
   background-color: #479BEE;
+  box-shadow: -1px 0px 15px 2px rgba(0, 0, 0, 0.116) inset;
   min-height: 300px;
   min-width:100%;
 }
 
+@keyframes droite {
+  0% {
+      transform: translateX(200%);
+  }
+
+  100% {
+      transform: translateX(0%);
+  }
+}
 .droite{
   /* border-left: solid #bdc3c7; */
   padding-left: 5px;
   overflow-y: auto;
   height: 100px;
+  animation-duration: 0.8s;
+  animation-name: droite;
 }
 
 .titre{
@@ -174,7 +209,7 @@ color: white;
 
 /* LISTE PIECES */
 .pieceWrapper{
-  background:;
+  box-shadow: -1px 0px 15px 2px rgba(0, 0, 0, 0.082) inset;
   border-radius: 5px;
   height: 150px;
   position: relative;
@@ -208,12 +243,12 @@ color: white;
 .formButton {
   font-family: "Lato";
   height: 70px;
-  width:200px;
+  width:180px;
   background-color: #34495e;
   color: white;
   font-size: 25px;
   border-style: hidden;
-  border-radius: 7px;
+  border-radius: 180px;
   cursor:pointer;
   transition: 0.3s;
 }
@@ -296,17 +331,18 @@ label,#checkBox{
 
 /* SUPPRESSION DE PIECE */
 select{
-  margin-top: 30px;
-  margin-bottom: 20px;
-  padding: 10px;
   cursor: pointer;
   font-size: 20px;
   background-image: url('../images/search.png');
-  background-position: 10px 7px;
+  background-position: 10px 12px;
   background-repeat: no-repeat;
   background-size: 20px;
-  padding: 7px 10px 7px 35px;
-  width:30%
+  padding: 10px 10px 10px 35px;
+  border-radius: 100px;
+  border-color: rgb(230, 230, 230);
+  box-shadow: 0px 0px 10px rgba(34, 34, 34, 0.185);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width:30%;
 }
 
 /* LISTE MODULE EN LIGNE  */
@@ -316,7 +352,7 @@ select{
   display: flex;
   flex-direction: row;
   text-align: center;
-  overflow-x: scroll;
+  overflow-x: auto;
   width : 100%;
   margin-top: 4%;
   min-height: 80%;

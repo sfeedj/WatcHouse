@@ -18,8 +18,8 @@ else{
     }
 
     include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/header.php');
+    include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Controller/statsGeneral.php');
     include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/pageDomicile.php');
-
 
     // SUPPRESSION DOMICILE
     // POUR LE PROPRIETAIRE

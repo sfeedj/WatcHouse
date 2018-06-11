@@ -23,7 +23,7 @@ else {
 function Select_Commande($bdd){
   $reqUser = $bdd->query('SELECT Nom, Prix,Description,img,Référence FROM Catalogue ORDER BY Nom');
   echo "
-  <form action='../Controller/Catalogue.php'>
+  <form action='../Controller/Catalogue.php' id='rechercheForm'>
   <select name='article'>";
   while ($donnees = $reqUser->fetch()){
     echo "  <option value='".$donnees["Nom"]."'>".$donnees["Nom"]."</option>";

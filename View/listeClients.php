@@ -81,7 +81,7 @@
           <input id="checkBox2" name='safety' type="checkbox" required>
           <br/>
           <br/>
-          <button type="submit" class="formButton" >Supprimer</button><br/><br/>
+          <button type="submit" class="formButton" />Supprimer</button><br/><br/>
         </form>
       </div>
       <div class ='pageCover'></div>

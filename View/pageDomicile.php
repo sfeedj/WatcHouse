@@ -38,8 +38,10 @@
               <button id='supprUser' href="#" onclick="affichageInvisible('invisibleSupprUser')">Supprimer un utilisateur</button>
               <button id='addUser' href="#" onclick="affichageInvisible('invisibleADD')">Ajouter un utilisateur</button><br/>
             </tr>
+            <div id="chart_div_general"></div>
           </table>
         </div>
+      </td>
         <!-- COLONNE DE DROITE -->
         <td class='droite'>
           <?php listePiece($GLOBALS['domicileSelect'],$bdd) ?>

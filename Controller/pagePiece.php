@@ -88,13 +88,90 @@ function listeModules($pieceID,$bdd){
     echo "</table>";
   }
 
-function moduleInfo($ref,$id,$categorie){
-  if($categorie=="Module"){
-    return "Active";
+ 
+
+  function getEtat($id) 
+  {
+    global $bdd;
+  
+    $get = $bdd->prepare('SELECT Etat from capteurs WHERE UUID = ?');
+    $get->execute(array($id));
+    $data = $get->fetch();
+    return $data;
   }
+  
+  function isChecked($id) {
+    global $bdd;
+    $req=$bdd->query("SELECT Etat FROM capteurs WHERE UUID='$id' ");
+    while ($donnees = $req->fetch())
+    {
+      if($donnees['Etat']==1){
+        return "checked";
+      }
+      else 
+        return "";
+
+  }
+} 
+
+
+
+
+
+function moduleInfo($ref,$id,$categorie){
+  
+  //$etat = getEtat($id);
+  //echo $etat['Etat'];
+
+
+  if($categorie=="CapteurTemperature"){
+    //WatcHouse Smart Outlet
+    //WatcHouse Smart Lightbulb
+    return '
+    <button name="bouttonPlus" id="'.$id.'" class="bouttonTemp" onclick="plus('.$id.')">
+    <h1>
+    <button name="bouttonPlus" id="'.$id.'" class="bouttonTemp" onclick="plus('.$id.')">
+    ';
+  }
+
+
+
+
+  if($categorie=="Module"){
+    $checked=isChecked($id);
+    return '
+    <script>
+    
+    window.onload = function() {
+      console.log("'.$checked.'");
+      }</script>
+    <input name="cap" id="'.$id.'" class="toggle-status" onclick="go('.$id.')" type="checkbox"  '.$checked.'>
+    <label for="'.$id.'"  class="toggle-switch  toggle-x2 toggle-rounded"></label>
+    ';
+  }
+
+
+  
   elseif ($categorie=="Capteur") {
-    return lastMesure($id,$GLOBALS['bdd'] );
+
+    return 
+      '<div style="height: 100px;display: flex;justify-content: center;">
+      <input type="range" id="'.$id.'" min="15" max="40" value="'.lastMesure($id,$GLOBALS["bdd"]).'" step="0.5" onchange="cursor('.$id.')" />
+      </div>
+      <div id=" '.$id.' "></div>
+      <script>
+      document.getElementById("'.$id.'").onchange = function() {
+      document.getElementById(" '.$id.' ").textContent=document.getElementById("'.$id.'").value+"°C";
+      }
+      </script>'
+
+
+//.lastMesure($id,$GLOBALS['bdd'] )
+;
   }
   return "test";
 }
+
+
+
 ?>

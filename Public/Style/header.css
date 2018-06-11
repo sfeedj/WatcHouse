@@ -7,6 +7,9 @@
 	box-sizing: border-box;
 }
 
+body {margin: 0;}
+
+
 /* Logo */
 
 #logo img{
@@ -45,27 +48,29 @@
 	position: relative;
 	line-height: 1;
 	margin-top: 0px;
+	text-shadow: 0px  0px 3px rgba(12, 12, 12, 0.5); 
+
 	/* text-shadow: 0px  3px 6px rgba(0, 0, 0,0.5); */
 }
 
+#user-name-header{
+	font-size: 18px;
+	text-shadow: 0px  0px 3px rgba(12, 12, 12, 0.5); 
+}
+
+#user-name-header:hover{
+	text-shadow: 0px  0px 7px rgba(255, 255, 255, 0.322); 
+
+}
 
 .bloc nav a:hover {
 	opacity: 1;
+	text-shadow: 0px  0px 7px rgba(255, 255, 255, 0.322); 
+
+	
 }
 
-/* notifications */
 
-.bloc nav a span {
-	position: absolute;
-	top: -5px;
-	background-color: rgb(247, 8, 8);
-	/* box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12); */
-	border-radius: 25px;
-	height: 13px;
-	font-size: 11px;
-	right: -15px;
-	padding: 1px 4px 0;
-}
 
 .menu{
 	position: relative;
@@ -125,8 +130,9 @@
 	padding:5px;
 }
 
-.menu ul li a:hover{
-	opacity:0.9;
+.menu ul li:hover{
+	background-color: rgba(243, 243, 243, 0.158);
+
 }
 
 .menu ul li a.highlight{
@@ -134,11 +140,13 @@
 }
 
 .menu img{
-	border-radius:50%;
+	border-radius:5000px;
 	position:absolute;
 	top:6px;
-	max-width: 48px;
+	width: 48px;
+	height: 48px;
 	right:10px;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.432);
 }
 
 
@@ -197,4 +205,19 @@
 }
 #rectangleInterieur a{
 	color: white;
+}
+
+#imgFooter1 {
+	width: 30%;
+    height: auto;
+}
+#imgFooter2 {
+	width: 60px;
+	height: auto;
+	margin-right: 10px;
+}
+
+#imgFooter3 {
+	width: 30px;
+    height: auto;
 }

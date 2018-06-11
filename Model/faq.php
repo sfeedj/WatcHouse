@@ -58,3 +58,18 @@ function AddQuestion($id_user_question, $question){
     $req->execute(["id_user_question" => $id_user_question, "question" => htmlspecialchars($question)]);
     return($req->fetch());
 }
+
+
+function urlImage($username,$bdd) {
+    $req=$bdd->query("SELECT image FROM users WHERE username='$username' ");
+    while ($donnees = $req->fetch())
+    {
+      $urlPhoto=$donnees['image'];
+      if($urlPhoto!=""){
+      return "<img src='".$urlPhoto."' alt='photo'/>";
+      }
+      else{
+      return "<img src='../Public/images/userPhoto.png' alt='photo-profil'/>";
+      }
+    }
+  }

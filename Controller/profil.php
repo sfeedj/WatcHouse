@@ -1,34 +1,44 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/Model/profil.php');
+include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/domicileFunctions.php');
+$username=$_SESSION['username'];
+
 if (isset($_SESSION['username'])) {
+    
+  
+
   include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/View/header.php');
 
   chargerInfosProfile($bdd,$username);
+  urlImage($username,$bdd);
   changePassword($bdd,$username);
   changeMail($bdd,$username);
   changePhone($bdd,$username);
   changePrenom($bdd,$username);
   changeNom($bdd,$username);
+  changeDate($bdd,$username);
   changeAdresse($bdd,$username);
-  if(isset($_POST['submit_photo'])) {
-    if (getimagesize($_FILES['image']['temp_name'])==FALSE) {
-      echo "failed";
+
+
+  
+  include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/View/profil.php');
+
+    if (!empty($_FILES)){
+      $userphoto = upload($_FILES['userphoto']);
+      ajouterPhoto($userphoto,$username,$GLOBALS['bdd']);
+      echo '<meta http-equiv="refresh" content="2" />';
+
     }
-    else {
-      $name=addslashes($_FILES['image']['name']);
-      $image=base64_encode(file_get_contents(addslashes($_FILES['image']['temp_name'])));
-      saveimage($name,$image,$bdd);
+    else{
+      $userphoto='N/A';
     }
   }
-  include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/View/profil.php');
-}
+
 else {
   include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/index.php');
 }
-if (!empty($_FILES)){
-  $userfile = upload($_FILES['userfile']);
-}
-function uploadPhotoProfil($index)
+
+
+function upload($index)
 {
   $ds="/";
   $targetPath='../Public/images/users/';
@@ -36,5 +46,8 @@ function uploadPhotoProfil($index)
   move_uploaded_file($index['tmp_name'],$targetFile);
   return $targetFile;
 }
+
+
+
 
 ?>

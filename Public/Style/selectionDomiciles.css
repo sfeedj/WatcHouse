@@ -48,13 +48,28 @@ body{
 .separator{
   padding: 10px;
 }
+@keyframes rotation {
+  0% {
+    transform: scaleX(0)
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
 
 .clef{
+
   height: 150px;
+  animation-duration: 0.5s;
+  animation-name: rotation;
+
 }
 
 .addButton{
   height: 150px;
+  animation-duration: 0.5s;
+  animation-name: rotation;
 }
 
 
@@ -66,6 +81,17 @@ body{
   height: 148px;
 }
 
+
+@keyframes grossi {
+  0% {
+      transform:scale(0);
+  }
+
+  100% {
+      transform:scale(1);
+  }
+}
+
 /* formulaire d'ajout de domicile */
 .formWrapper{
   z-index: 3;
@@ -75,24 +101,38 @@ body{
   position: absolute;
   top : 15%;
   left:15%;
-  height: 70%;
+  height: 66%;
   width: 70%;
   text-align: center;
   background-color: #ecf0f1;
+
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
+    animation-duration: 0.5s;
+    animation-name: grossi;
 }
 
 .formulaire .full{
   height: 40px;
   border-radius: 5px;
+  border-color: rgba(0, 0, 0, 0.075);
+  box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
   border:none;
   width: 50%;
   font-size: 20px;
   margin-bottom:10px;
 }
 
+
+
 .half{
   height: 40px;
   border-radius: 5px;
+  border-color: rgba(0, 0, 0, 0.075);
+  box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096); 
   border:none;
   font-size: 20px;
   margin-bottom:10px;
@@ -117,15 +157,16 @@ body{
 .formButton {
   font-family: "Lato";
   height: 70px;
-  width:200px;
+  width:180px;
   background-color: #34495e;
   color: white;
   font-size: 25px;
   border-style: hidden;
-  border-radius: 7px;
+  border-radius: 180px;
   cursor:pointer;
   transition: 0.3s;
 }
+
 
 .formButton:hover{
   background-color: #2980b9;

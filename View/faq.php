@@ -37,7 +37,7 @@ foreach ($liste_q_r as $q_r) {
             if (!empty($_SESSION['admin'])) {
                 ?>
                 <a href="/../WatcHouse/Controller/faq_admin.php?delete=<?php echo($q_r['id']); ?>">
-                    <img src="/../WatcHouse/Public/images/faq_delete.png" height="20">
+                    <img src="/../WatcHouse/Public/Style/faq_delete.png" height="20">
                 </a>
                 <?php
             }
@@ -75,7 +75,7 @@ if (!empty($_SESSION['admin'])) {
     ?>
     <a href="/../WatcHouse/Controller/faq_admin.php" id="image_faq">
         <figure>
-            <img src="/../WatcHouse/Public/images/faq_admin.png" height="60">
+            <img src="/../WatcHouse/Public/Style/faq_admin.png" height="60">
             <figcaption>Accéder à la faq admin</figcaption>
         </figure>
     </a>

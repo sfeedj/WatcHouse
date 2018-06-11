@@ -26,5 +26,5 @@ if (!empty($_POST['private']) and !empty(!empty($_POST['reponse']))){
     header("Location: /../WatcHouse/Controller/faq_admin.php");
 }
 $liste_q = GetQuestionsToAnswer();
-include("../View/headerAdmin.php");
+include("../View/header.php");
 include("../View/faq_admin.php");

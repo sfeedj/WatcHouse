@@ -14,12 +14,5 @@ if (!empty($_POST['question'])){
     AddQuestion($_SESSION['ID'], $_POST['question']);
 }
 $liste_q_r=GetQuestions();
-
-if (!empty($_SESSION['admin']) && $_SESSION['admin'] == 1){
-    include("../View/headerAdmin.php");
-}
-else {
-    include("../View/header.php");
-}
-
+include("../View/header.php");
 include("../View/faq.php");

@@ -78,3 +78,4 @@ function changeBackground(){
 
 // document.getElementById("d"+i).style.backgroundColor =
 // '#'+Math.floor(Math.random()*16777215).toString(16);
+

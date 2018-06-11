@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('bddConnect.php');
+$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
 
 function ajouterClient($nom,$email,$admin,$bdd){
   $req=$bdd->prepare("INSERT INTO users (username,password,email,admin) VALUES ( :username,:password,:email, :admin)");

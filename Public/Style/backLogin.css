@@ -20,6 +20,7 @@ body{
 
 .WelcomeMsg {
   font-family: 'Bauhaus 93';
+  text-shadow: 9px 9px 30px rgba(0, 0, 0, 0.397);
   position: relative;
   display: inline-block;
   color: white;
@@ -43,6 +44,33 @@ body{
   margin-top: 200px;
 }
 
+
+.LoginImg {
+  width: 38px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#connectezVous{
+  margin-bottom: 30px;
+}
+
+#connectezVousImg {
+  width:28px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#input-password {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+
+
+
 .ConnectionPanel{
   z-index: 1;
   display: flex;
@@ -50,32 +78,34 @@ body{
   justify-content: center;
   background-color: white;
   position: absolute ;
-  height: 440px;
-  width: 280px;
+  height: 480px;
+  width: 310px;
   float: right;
   top: 10%;
   right: 5%;
   text-align: center;
-  align-items: center;
+  border-radius: 12px;
+  box-shadow: 9px 9px 30px rgba(0, 0, 0, 0.178);
 }
 
 
 .messageConnexion{
-  margin-top: -20px;
-  margin-bottom: 30px;
   font-weight: bold;
   color: #ff5252;
   font-size: 30px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .ConnectionPanel input{
-  height: 40px;
+  height: 45px;
   border-radius: 14px;
   border:none;
   box-shadow: 0px  3px 10px rgba(143, 1, 1, 0.34);
   width: 240px;
   font-size: 25px;
-  margin-bottom:25px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .logButton {
@@ -85,13 +115,9 @@ body{
   color: white;
   font-size: 25px;
   border-style: hidden;
-  border-radius: 7px;
+  border-radius: 45px;
   cursor:pointer;
   /* margin-top: 30px; */
-}
-
-.mdpoublie {
-  width: 200px;
 }
 
 .logButton:hover{
@@ -155,74 +181,8 @@ body{
      opacity:1;
 }
 
-.messageErreur {
+.messageErreur{
   text-align: center;
   position: relative;
   color: red;
-}
-
-.invisible{
-  display: none;
-}
-.formWrapper{
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: absolute;
-  top : 30%;
-  left:25%;
-  height: 40%;
-  width: 50%;
-  text-align: center;
-  background-color: #ecf0f1;
-}
-.closeButton{
-  height: 50px;;
-  position: absolute;
-  top:2%;
-  cursor: pointer;
-  right:1%;
-}
-
-.closeButton:active{
-  height: 48px;
-  transition:0.1s;
-}
-.titre_form{
-  text-align: center;
-  font-family: 'Lato';
-  font-size: 150%;
-  color: #34495e;
-  margin-bottom: 20%;
-}
-.formulaire #txt{
-  height: 40px;
-  border-radius: 5px;
-  border:none;
-  width: 50%;
-  font-size: 20px;
-  margin-bottom:25px;
-}
-.formButton {
-  font-family: "Helvetica";
-  height: 70px;
-  width:200px;
-  background-color: #34495e;
-  color: white;
-  font-size: 25px;
-  border-style: hidden;
-  border-radius: 7px;
-  cursor:pointer;
-  transition: 0.3s;
-}
-
-.formButton:hover{
-  background-color: #2980b9;
-}
-
-.formButton:active {
-  background-color: #2980b9;
-  height: 65px;
-  width:195px;
 }

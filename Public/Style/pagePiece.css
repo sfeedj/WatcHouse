@@ -16,7 +16,6 @@ position : relative;
 width: 100%;
 }
 
-
 .addButton{
   background-color: #34495e;
   text-align: center;
@@ -204,5 +203,159 @@ form select{
   margin: 0;
   margin-bottom: 5%;
   color: #55efc4;
-  background: #74b9ff;
 }
+
+/* STATS */
+#chart_div{
+  margin-top: 15px;
+  margin-left: 27%;
+}
+
+
+
+/* -------------------------------------------------------------
+   Pure CSS Toggle Switch with :checked
+   ---------------------------------------------------------- */
+   .toggle-status {
+    display: none;
+  }
+  .toggle-switch {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    vertical-align: bottom;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    width:  1.625em; /* calc(1em * 2 - 0.125em * 2 - 0.0625em * 2); */
+    height: 1.000em; /* calc(1em * 1); */
+    box-sizing: border-box;
+    border: solid  #d8e2e6 0.125em;
+    transition: border 0.5s;
+  }
+  .toggle-status:checked + .toggle-switch {
+    border: solid lightgreen 0.125em;
+  }
+  .toggle-switch::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top:    0.0625em;
+    left:   0.0625em;
+    width:  0.625em; /* calc(1em - 0.125em * 2 - 0.0625em * 2); */
+    height: 0.625em; /* calc(1em - 0.125em * 2 - 0.0625em * 2); */
+    background: #d8e2e6;
+    transition: background 0.5s, left 0.5s;
+  }
+  .toggle-status:checked + .toggle-switch::after {
+    background: lightgreen;
+    left: 0.6875em; /* calc(1em - 0.125em * 2 - 0.0625em); */
+  }
+  .toggle-string {
+    line-height: 1;
+  }
+  /* ------------------------------------------ */
+  .toggle-rounded {
+    border-radius: 0.5000em; /* calc(1em / 2); */
+  }
+  .toggle-rounded::after {
+    border-radius: 0.3125em; /* calc(1em / 2 - 0.125em - 0.0625em); */
+  }
+  /* ---------------------------------------------
+     Size
+     ------------------------------------------ */
+  .toggle-x1 { font-size: 1rem; }
+  .toggle-x2 { font-size: 2rem; }
+  .toggle-x3 { font-size: 3rem; }
+  .toggle-x4 { font-size: 4rem; }
+  .toggle-x5 { font-size: 5rem; }
+  .toggle-x6 { font-size: 6rem; }
+  /* ------------------------------------------ */
+  
+  
+  
+  input[type="range"] {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    height: 100%;
+    min-height: 50px;
+    overflow: hidden;
+    width: 230px;
+  }
+  input[type="range"]:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: #d8e2e6;
+    content: '';
+    height: 12px;
+    pointer-events: none;
+    border: 1px solid #d5d5d5;
+    border-radius: 200px;
+  
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    height: 28px;
+    width: 28px;
+    -webkit-appearance: none;
+            appearance: none;
+    background: #fdfdfd;
+    box-shadow: 3px 3px 18px rgba(0, 0, 0, 0.336);
+    border-radius: 50%;
+    margin-top: -8px;
+    border: 1px solid rgb(255, 255, 255);
+  }
+  input[type="range"]::-moz-range-track {
+    width: 230px;
+    height: 12px;
+  
+  }
+  input[type="range"]::-moz-range-thumb {
+    height: 28px;
+    width: 28px;
+    background: #41bea8;
+    border-radius: 50%;
+    border: 1px solid #777;
+    position: relative;
+    border-radius: 200px;
+  
+    
+  }
+  input[type="range"]::-moz-range-progress {
+    height: 12px;
+    background: #737c81;
+    border: 0;
+    margin-top: 0;
+  }
+  input[type="range"]::-ms-track {
+    background: transparent;
+    border: 0;
+    border-color: transparent;
+    border-radius: 200px;
+    border-width: 0;
+    color: transparent;
+    height: 12px;
+    margin-top: 10px;
+    width: 230px;
+  }
+  input[type="range"]::-ms-thumb {
+    height: 28px;
+    width: 28px;
+    background: #41bea8;
+    border-radius: 50%;
+    border: 1px solid #777;
+    
+  }
+  input[type="range"]::-ms-fill-lower {
+    background: #737c81;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background: #f6f6f6;
+  }
+  input[type="range"]::-ms-tooltip {
+    display: none;
+  }
+  
