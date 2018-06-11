@@ -6,10 +6,16 @@ function getTrames(){
 
   curl_setopt($ch, CURLOPT_FILE, $fp);
   curl_setopt($ch, CURLOPT_HEADER, 0);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
 
   curl_exec($ch);
+  $data=  curl_exec($ch);
   curl_close($ch);
+
   fclose($fp);
+  disp($data);
+
 }
 
 function sendTrame(){
@@ -22,16 +28,10 @@ function sendTrame(){
   getTrames();
 }
 
-function AlertTxt($txtPath){
-  $var =  file_get_contents($txtPath);
-  echo "
-  <script>
-  alert(".$var.")
-  </script>
-  ";
+function disp($var){
+  var_dump($var);
 }
 
 getTrames();
-AlertTxt('../example_trames.txt');
 
 ?>

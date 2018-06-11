@@ -1,6 +1,9 @@
 <?php
+
 session_start();
-$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', 'ISEP');
+include_once('bddConnect.php');
+
+
 
 function ajouterClient($nom,$email,$admin,$bdd){
   $req=$bdd->prepare("INSERT INTO users (username,password,email,admin) VALUES ( :username,:password,:email, :admin)");
@@ -77,12 +80,12 @@ function isAdmin($id, $bdd){
   }
   return false;
 }
-function ajouterModule($nomModule,$Prix,$Description,$userfile,$moduleType,$bdd){
+function ajouterModule($nomModule,$Prix,$Description,$userfile,$bdd){
   echo 'LOLZER'.$userfile;
   $req=$bdd->prepare("INSERT INTO catalogue (Nom, Catégorie, Prix, Description, img) VALUES ( :Nom,:Categorie,:Prix,:Description,:img)");
   $req->execute(array(
     'Nom' =>$nomModule,
-    'Categorie'=>$moduleType,
+    'Categorie'=>'Module',
     'Prix' => $Prix,
     'Description' => $Description,
     'img'=>$userfile

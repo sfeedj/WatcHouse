@@ -4,6 +4,7 @@ $GLOBALS['pieceSelect']=$_GET['ip'];
 $GLOBALS['domicileSelect']=$_GET['id'];
 
 include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/domicileFunctions.php');
+include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Controller/Trames.php');
 
 if (isset($_SESSION['ID']) && checkProprietaire($_SESSION['ID'],$GLOBALS['domicileSelect'],$GLOBALS['bdd'])){                                // POUR LA SECURITE
 
