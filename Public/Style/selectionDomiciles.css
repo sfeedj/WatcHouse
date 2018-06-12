@@ -59,6 +59,7 @@ body{
 
 
 .clef{
+
   height: 150px;
   animation-duration: 0.5s;
   animation-name: rotation;

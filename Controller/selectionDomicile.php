@@ -1,5 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/Model/domicileFunctions.php');
+
 if (isset($_SESSION['ID'])){ // POUR LA SECURITE
 	include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/View/header.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/View/selectionDomicile.php');

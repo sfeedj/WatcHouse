@@ -30,6 +30,23 @@
             <input id='txt' type="txt" name="nomModule" placeholder=" Nom "  /><br/>
             <input id='txt' type="number" name="Prix" placeholder=" Prix"  /><br/>
             <input id='txt' type="txt" name="Description" placeholder=" Description"  /><br/>
+            <div class="typeModule">
+              <input class="radio" type="radio" id="moduleType1"
+               name="choice" value="Actionneur">
+              <label for="moduleType1">Actionneur</label>
+
+              <input class="radio" type="radio" id="moduleType2"
+               name="choice" value="Capteur">
+              <label for="moduleType2">Capteur</label>
+
+              <input class="radio" type="radio" id="moduleType3"
+               name="choice" value="Module">
+              <label for="moduleType3">Module</label>
+
+              <input class="radio" type="radio" id="moduleType4"
+               name="choice" value="On/Off">
+              <label for="moduleType4">On/Off</label>
+            </div>
             <div class="imgDrop" dropzone="link">
               <label for="file" id="dropZone"><img src='../Public/images/dz.png'><br/>Choisir ou déposer une image</label>
               <input id="file" type="file" name="userfile"/>

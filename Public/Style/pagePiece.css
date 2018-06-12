@@ -147,6 +147,7 @@ form select{
 
 /* BOUTON AJOUT MODULES */
 .gestionModules{
+  z-index:1;
   position: fixed;
   bottom: 45px;
   right:0px;
@@ -203,7 +204,6 @@ form select{
   margin: 0;
   margin-bottom: 5%;
   color: #55efc4;
-  background: #74b9ff;
 }
 
 /* STATS */
@@ -283,7 +283,7 @@ form select{
     height: 100%;
     min-height: 50px;
     overflow: hidden;
-    width: 230px;
+    width: 150px;
   }
   input[type="range"]:focus {
     box-shadow: none;
@@ -310,7 +310,7 @@ form select{
     border: 1px solid rgb(255, 255, 255);
   }
   input[type="range"]::-moz-range-track {
-    width: 230px;
+    width: 150px;
     height: 12px;
   
   }
@@ -340,7 +340,7 @@ form select{
     color: transparent;
     height: 12px;
     margin-top: 10px;
-    width: 230px;
+    width: 150px;
   }
   input[type="range"]::-ms-thumb {
     height: 28px;
@@ -360,3 +360,12 @@ form select{
     display: none;
   }
   
+
+  .valeur {
+    margin-top: 0px;
+  }
+
+
+.cursor {
+  margin-top: -10px;
+}

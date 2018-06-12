@@ -15,7 +15,8 @@ if (isset($_SESSION['ID']) && isAdmin($_SESSION['ID'],$bdd)){ // POUR LA SECURIT
     else{
       $userfile='N/A';
     }
-    ajouterModule($_POST['nomModule'],$_POST['Prix'],$_POST['Description'],$userfile,$GLOBALS['bdd']);
+    $moduleType=$_POST['choice'];
+    ajouterModule($_POST['nomModule'],$_POST['Prix'],$_POST['Description'],$userfile,$moduleType,$GLOBALS['bdd']);
     echo '<meta http-equiv="refresh" content="2" />';
   }
 

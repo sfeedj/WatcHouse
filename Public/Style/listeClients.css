@@ -188,6 +188,11 @@ label,#checkBox{
   cursor: pointer;
 }
 
+
+.radio :checked{
+  color:#2980b9;
+}
+
 /* POPUP MAIL DEJA UTILISE */
 .popupMail{
   z-index: 3;

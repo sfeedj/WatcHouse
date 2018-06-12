@@ -11,12 +11,16 @@
 
     <div class = 'entete'>
     <h1><?php echo nomDomicile($GLOBALS['pieceSelect'],$bdd); ?></h1>
+    <a id="return" href="../Controller/pageDomicile.php?id=<?php echo $GLOBALS['domicileSelect'];?>"> ←   Retourner au domicile</a>
   </div>
   <div class="selectModule"><?php listeModules($GLOBALS['pieceSelect'],$bdd); ?></div>
   <div class='gestionModules'>
     <button href="#" onclick="affichageInvisible('invisible')" id='left'>+</button>
     <button href="#" onclick="affichageInvisible('invisibleSuppr')">-</button>
   </div>
+
+      <!--Div that will hold the  chart-->
+      <div id="chart_div"></div>
 
 
     <!-- FORMULAIRE AJOUT MODULE -->
@@ -51,48 +55,13 @@
       </div>
       <div class ='pageCover'></div>
     </div>
+
     
 
 
   
 
-      
 
-    <script>
-    function go(id) {
-  
-      
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-        }
-      };
-      console.log(id);
-
-      xhttp.open("POST", "ajax.php", true);
-      xhttp.send("id="+id);
-    }
-
-
-
-
-
-
-        function cursor($id) {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          console.log(document.getElementById($id).value);
-
-        }
-      };
-      
-      xhttp.open("GET", "cursor.php", true);
-      xhttp.send();
-    }
-
-
-		</script>
 
   </body>
   </html>

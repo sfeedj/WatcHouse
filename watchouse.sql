@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 02 juin 2018 à 19:45
+-- Généré le :  mar. 12 juin 2018 à 10:27
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -39,19 +39,26 @@ CREATE TABLE IF NOT EXISTS `capteurs` (
   `Catégorie` text,
   `UUID` int(11) NOT NULL AUTO_INCREMENT,
   `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Etat` int(11) DEFAULT NULL,
   PRIMARY KEY (`UUID`)
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=88 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `capteurs`
 --
 
-INSERT INTO `capteurs` (`Référence`, `Type`, `Nom`, `ID_propriétaire`, `ID_pièce`, `ID_CeMac`, `Catégorie`, `UUID`, `AddedOnDate`) VALUES
-(3, 'WatcHouse Luxmètre', 'lumieres3', 1, 29, NULL, 'Capteur', 28, '2018-06-01 14:19:21'),
-(3, 'WatcHouse Luxmètre', 'lumière 2', 1, 29, NULL, 'Capteur', 26, '2018-06-01 14:12:42'),
-(1, 'CeMac', 'centrale', 1, 16, NULL, 'Module', 55, '2018-06-02 18:39:06'),
-(6, 'WatcHouse Hygromètre', 'hygro1', 1, 16, NULL, 'Capteur', 58, '2018-06-02 18:49:24'),
-(1, 'CeMac', 'ed', 1, 16, NULL, 'Module', 57, '2018-06-02 18:47:01');
+INSERT INTO `capteurs` (`Référence`, `Type`, `Nom`, `ID_propriétaire`, `ID_pièce`, `ID_CeMac`, `Catégorie`, `UUID`, `AddedOnDate`, `Etat`) VALUES
+(6, 'WatcHouse Hygromètre', 'Hygromètre', 1, 29, NULL, 'Capteur', 80, '2018-06-12 10:02:01', NULL),
+(81, 'WatcHouse Chauffage', 'chauffage ', 1, 29, NULL, 'Actionneur', 79, '2018-06-12 09:51:58', NULL),
+(1, 'CeMac', 'centrale', 1, 16, NULL, 'Module', 55, '2018-06-02 18:39:06', NULL),
+(6, 'WatcHouse Hygromètre', 'hygro1', 1, 16, NULL, 'Capteur', 58, '2018-06-02 18:49:24', NULL),
+(1, 'CeMac', 'ed', 1, 16, NULL, 'Module', 57, '2018-06-02 18:47:01', NULL),
+(3, 'WatcHouse Luxmètre', 'Luxmètre', 1, 29, NULL, 'Capteur', 81, '2018-06-12 10:02:18', NULL),
+(7, 'WatcHouse Motion Sensor', 'Motion Sensor', 1, 29, NULL, 'Capteur', 82, '2018-06-12 10:02:30', NULL),
+(8, 'WatcHouse Oversight', 'Camera', 1, 29, NULL, 'Module', 83, '2018-06-12 10:02:48', NULL),
+(4, 'WatcHouse Smart Lightbulb', 'Smart Lightbulb', 1, 29, NULL, 'On/Off', 87, '2018-06-12 10:07:24', 1),
+(5, 'WatcHouse Smart Outlet', 'Smart Outlet', 1, 29, NULL, 'On/Off', 85, '2018-06-12 10:03:37', 1),
+(1, 'CeMac', 'CeMac', 1, 29, NULL, 'Module', 86, '2018-06-12 10:04:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -68,21 +75,22 @@ CREATE TABLE IF NOT EXISTS `catalogue` (
   `img` text,
   `Référence` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`Référence`)
-) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=82 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `catalogue`
 --
 
 INSERT INTO `catalogue` (`Nom`, `Catégorie`, `Prix`, `Description`, `img`, `Référence`) VALUES
-('WatcHouse Thermomètre', 'Module', '8.00', 'Cet outil permet des mesures précises de température. Relié au CeMac, vous pourrez ainsi contrôler la température de la pièce que vous souhaitez.', '../Public/images/Modules/Thermometre.png', 2),
+('WatcHouse Thermomètre', 'Capteur', '8.00', 'Cet outil permet des mesures précises de température. Relié au CeMac, vous pourrez ainsi contrôler la température de la pièce que vous souhaitez.', '../Public/images/Modules/Thermometre.png', 2),
 ('WatcHouse Luxmètre', 'Capteur', '5.00', 'Détecteur de luminosité ; compatible avec les Smart Light Bulb, Smart Stores, ...', '../Public/images/Modules/Luxmetre.png', 3),
-('WatcHouse Smart Lightbulb', 'Actionneur', '10.00', 'Ampoule connectée.', '../Public/images/Modules/Light.png', 4),
-('WatcHouse Smart Outlet', 'Module', '20.00', 'Prise électrique connectée : surveillez votre consommation et gérez-la à distance !', '../Public/images/Modules/Prise.png', 5),
-('WatcHouse Oversight', 'Capteur', '80.00', 'Caméra de surveillance reliable à la CeMac.', '../Public/images/Modules/Camera.png', 8),
+('WatcHouse Smart Lightbulb', 'On/Off', '10.00', 'Ampoule connectée.', '../Public/images/Modules/Light.png', 4),
+('WatcHouse Smart Outlet', 'On/Off', '20.00', 'Prise électrique connectée : surveillez votre consommation et gérez-la à distance !', '../Public/images/Modules/Prise.png', 5),
+('WatcHouse Oversight', 'Module', '80.00', 'Caméra de surveillance reliable à la CeMac.', '../Public/images/Modules/Camera.png', 8),
 ('WatcHouse Hygromètre', 'Capteur', '15.00', 'Surveillez l\'humidité de vos pièces.', '../Public/images/Modules/Hygrometre.png', 6),
 ('WatcHouse Motion Sensor', 'Capteur', '15.00', 'Réagit au mouvement.', '../Public/images/Modules/Mouvement.png', 7),
-('CeMac', 'Module', '100.00', 'Centrale mobile d\'acquisition ; permet de gérer les capteurs alentours.', '../Public/images/Modules/CeMac.png', 1);
+('CeMac', 'Module', '100.00', 'Centrale mobile d\'acquisition ; permet de gérer les capteurs alentours.', '../Public/images/Modules/CeMac.png', 1),
+('WatcHouse Chauffage', 'Actionneur', '20.00', 'Cet outil permet de régler la température de votre pièce.', '../Public/images/Modules/chauffage.png', 81);
 
 -- --------------------------------------------------------
 
@@ -198,6 +206,32 @@ INSERT INTO `faq` (`id`, `id_user_question`, `id_user_reponse`, `question`, `rep
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `formulaire`
+--
+
+DROP TABLE IF EXISTS `formulaire`;
+CREATE TABLE IF NOT EXISTS `formulaire` (
+  `firstname` varchar(40) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `password` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `formulaire`
+--
+
+INSERT INTO `formulaire` (`firstname`, `name`, `password`) VALUES
+('john', 'doe', 'vfdv'),
+('ihdi', 'hoifda', 'ifdhs'),
+('ihdi', 'hoifda', 'ifdhs'),
+('ojdp', 'hpof', 'poifi'),
+('eoi', 'zoz', 'oso'),
+('eoi', 'zoz', 'oso'),
+('Nidhal', 'sabbah', 'azerty');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `mesures`
 --
 
@@ -211,14 +245,14 @@ CREATE TABLE IF NOT EXISTS `mesures` (
   `data` int(11) NOT NULL,
   `nomCapteur` text NOT NULL,
   PRIMARY KEY (`UUID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `mesures`
 --
 
 INSERT INTO `mesures` (`UUID`, `userID`, `capteurID`, `pieceID`, `AddedOnDate`, `data`, `nomCapteur`) VALUES
-(1, 1, 58, 16, '2018-06-02 19:36:07', 30, 'hygro1'),
+(79, 1, 79, 16, '2018-06-02 19:36:07', 30, 'chauffage'),
 (2, 1, 58, 16, '2018-06-02 19:36:09', 31, 'hygro1');
 
 -- --------------------------------------------------------
@@ -314,7 +348,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`ID`, `username`, `password`, `email`, `admin`, `AddedOnDate`, `Téléphone`, `adresse`, `Mail`, `Prénom`, `Nom`, `Date_de_naissance`, `image`, `name`) VALUES
 (4, 'Eliott', 'jmqs', 'eliott.sfedj@hotmail.fr', 0, '2018-04-21 07:49:53', 333, '7 allée hentri matisse', 'nidhal.sabbah@gmail.com', 'Nidhal', 'Sabbah', 0, '', ''),
-(1, 'Bob', 'password', 'eliott.sfedj@gmail.com', 1, '2018-04-21 07:49:53', 0, '', '', '', '', 0, '', ''),
+(1, 'Bob', 'password', 'eliott.sfedj@gmail.com', 1, '2018-04-21 07:49:53', 770702525, '7 Allée Henri Matisse, 501', 'nidhal.sabbah@gmail.com', 'Nid', 'Sabbah', 0, '', ''),
 (49, 'test', 'password', 'machin@gmail.com', 0, '2018-05-06 15:42:35', 0, '', '', '', '', 0, '', ''),
 (48, 'admin', 'password', 'admin.admin@admin.admin', 1, '2018-05-06 09:20:55', 0, '', '', '', '', 0, '', '');
 COMMIT;

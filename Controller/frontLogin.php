@@ -5,7 +5,7 @@ if (session_status() == 2){
 }
 //pour déconnecter l'utilisateur quand il fait "précédent" jusqu'au login
 
-
+//include_once($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Controller/Trames.php');
 include_once($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/loginFunctions.php');
 
 

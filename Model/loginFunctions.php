@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
+include_once('bddConnect.php');
 
 function checkID($username, $password, $bdd){
   $req = $bdd->prepare('SELECT ID, password FROM users WHERE username = ?');

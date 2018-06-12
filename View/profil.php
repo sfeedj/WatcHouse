@@ -50,9 +50,9 @@
 
 		<section class="sectionPassword">
 
-				<input  class="inputDialog"  name="oldPassword1"  type="password" placeholder="Ancien mot de Passe" required minlength="4">
-				<input  class="inputDialog" name="oldPassword2" type="password" placeholder="Confirmez l'ancien mot de Passe" required minlength="4">
-				<input  class="inputDialog" name="newPassword" type="password" placeholder="Nouveau mot de Passe" required minlength="4">
+				<input  class="inputDialog"  name="oldPassword1"  type="password" placeholder="Ancien mot de Passe" required minlength="8" maxlength="32">
+				<input  class="inputDialog" name="oldPassword2" type="password" placeholder="Confirmez l'ancien mot de Passe" required minlength="8" maxlength="32">
+				<input  class="inputDialog" name="newPassword" type="password" placeholder="Nouveau mot de Passe" required minlength="8" maxlength="32">
 		</section>
 		<menu class="menuDialog">
 			<button class="annuler" id="annuler" type="reset">Annuler</button>

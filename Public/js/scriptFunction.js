@@ -78,69 +78,15 @@ function changeBackground(){
 
 // document.getElementById("d"+i).style.backgroundColor =
 // '#'+Math.floor(Math.random()*16777215).toString(16);
+function go(id) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+  console.log(id);
+  xhttp.open("GET", "ajax.php?id="+id, true);
+  xhttp.send();
 
-
-
-
-
-//Boite de dialogue changement de mot de passe
-(function a () {
-  var updateButton = document.getElementById('changePassword');
-  var cancelButton = document.getElementById('annuler');
-  var dialog = document.getElementById('boiteDialogue');
-
-  // button ouvre une boite de dialogue
-  updateButton.addEventListener('click', function() {
-    document.getElementById('boiteDialogue').showModal();
-  });
-  // Bouton pour fermer la boîte de dialogue
-  cancelButton.addEventListener('click', function() {
-    document.getElementById('boiteDialogue').close();
-  });
-})();
-// Vérification du niveau et de la correspondance des mots de passe
-window.onload = function() {
-document.forms.form_password.onsubmit = function() {
-  var result = true;
-  if(document.forms.form_password.oldPassword1.value!=document.forms.form_password.oldPassword2.value) {
-    result = false;
-	document.getElementById('message_cache1').innerHTML='Les deux mots de passe ne correspondent pas!';
-  }
-  if ( !document.forms.form_password.newPassword.value.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,),1,2,3,4,5,6,7,8,9,0,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]/) )	{
-	result = false;
-	document.getElementById('message_cache2').innerHTML='le mot de passe doit contenir au moins un caractère spécial, un chiffre et une majuscule!';
-  }
-  else {
-    result = true;
-  }
-  return result;
-  }
 }
 
-			(function b () {
-		var updateButton3 = document.getElementById('changePhoto');
-		var cancelButton3 = document.getElementById('annuler3');
-		// button ouvre une boite de dialogue
-		updateButton3.addEventListener('click', function() {
-			document.getElementById('boiteDialogue3').showModal();
-		});
-		// Bouton pour fermer la boîte de dialogue
-		cancelButton3.addEventListener('click', function() {
-			document.getElementById('boiteDialogue3').close();
-		});
-	})();
-
-	console.dir(document.getElementById('submit_photo'));
-
-	(function c() {
-		var updateButton2 = document.getElementById('changeInfo');
-		var cancelButton2 = document.getElementById('annuler2');
-		// button ouvre une boite de dialogue
-		updateButton2.addEventListener('click', function() {
-			document.getElementById('boiteDialogue2').showModal();
-		});
-		// Bouton pour fermer la boîte de dialogue
-		cancelButton2.addEventListener('click', function() {
-			document.getElementById('boiteDialogue2').close();
-		});
-	})();

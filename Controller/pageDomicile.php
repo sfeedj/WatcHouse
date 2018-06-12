@@ -1,6 +1,6 @@
 <?php
 
-if (! isset($_GET['id'])){
+if (isset($_SESSION['ID']) && checkProprietaire($_SESSION['ID'],$GLOBALS['domicileSelect'],$GLOBALS['bdd'])){                                // POUR LA SECURITE
   header("Refresh:0; url=/../WatcHouse/index.php?page=selectionDomicile");// POUR LA SECURITE
 }
 else{
@@ -125,7 +125,7 @@ function listePiece($domicileID,$bdd){
 }
 
 function listeModulesInline($pieceID,$bdd){
-  $req = $bdd->prepare("SELECT Nom, Référence, UUID, Catégorie FROM capteurs WHERE ID_pièce=? AND Catégorie != 'Actionneur' ORDER BY UUID DESC");
+  $req = $bdd->prepare("SELECT Nom, Référence, UUID, Catégorie FROM capteurs WHERE ID_pièce=?  ORDER BY UUID DESC");
   $req->execute(array($pieceID));
 
   $k=0;
