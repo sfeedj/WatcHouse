@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <title>WatcHouse</title>
-      <link rel="stylesheet" href="/../WatcHouse/Public/Style/frontLog.css">
-      <script type="text/javascript" src="../Public/js/logFunction.js"></script>
-      <script type="text/javascript" src="../Public/js/scriptFunction.js"></script>
+    <link rel="stylesheet" href="/../WatcHouse/Public/Style/frontLog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../Public/js/logFunction.js"></script>
+    <script type="text/javascript" src="../Public/js/scriptFunction.js"></script>
+    <script type="text/javascript" src="../Public/js/scriptCaptcha.js"></script>
 
 </head>
 
@@ -46,22 +48,16 @@
     <br/>
     <div class="invisible" >
     <div class = 'formWrapper'>
-        <form action="../Controller/froontLogin.php" method="post" class="formulaire">
+        <form action="../Controller/frontLogin.php" method="post" class="formulaire" onsubmit="return verifyCaptcha();">
             <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisible')">
             <br/>
             <span class="titre_form">Oublie de mot de passe</span><br/><br/>
             <input id='txt' type="email" name="email" placeholder=" Email" required /><br/>
-
-            <?php
-            mt_srand((float) microtime()*1000000);
-            //affiche 1 nombre aléatoire entre 1000 et 10 000
-            //augmentez si vous voulez 6 chiffres  10 000  et 100 000  etc....
-            $captcha=mt_rand(1000, 10000);
-            echo '<h1><strong>'.$captcha.'</strong></h1>';
-            ?>
+            <h1><strong id="captcha"></strong></h1>
+            <p id="error"></p>
             <br/>
             <p>Veuillez recopier le code :</p>
-            <input type="hidden" name="captcha" value="<?php echo($captcha); ?>"/>
+            <input type="hidden" name="captcha" id="captcha_hidden"/>
             <input id='code' type="text" name="key" required /><br/>
             <br/>
             <br/>

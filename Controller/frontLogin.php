@@ -30,8 +30,6 @@ else{
   if(!empty($_POST['key']) && !empty($_POST['captcha'])){
     $key = $_POST['key'];
     $captcha = $_POST['captcha'];
-    echo($key);
-    echo($captcha);
     if (!empty($_POST['email']) && $captcha==$key){
         resetMdp($_POST['email']);
     }
