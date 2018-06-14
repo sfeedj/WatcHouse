@@ -79,3 +79,14 @@ function changeBackground(){
 // document.getElementById("d"+i).style.backgroundColor =
 // '#'+Math.floor(Math.random()*16777215).toString(16);
 
+function go(id) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+  };
+  console.log(id);
+  xhttp.open("GET", "ajax.php?id="+id, true);
+  xhttp.send();
+
+}

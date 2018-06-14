@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
+include_once('bddConnect.php');
 
 function ajouterDomcile($nom,$numero,$adresse,$codepostal,$ville,$pays,$proprietaire,$bdd){
   $liste='';
@@ -42,10 +42,8 @@ function checkProprietaire($userID,$domicileID,$bdd){
   $req2->execute(array($userID,$domicileID));
   $res2=$req2->fetchAll();
   if (!isset($res2[0])){
-    // echo 'false';
     return false;
   }
-  // echo 'true';
   return true;
 }
 

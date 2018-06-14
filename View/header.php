@@ -12,7 +12,7 @@
   <div class="bloc">
     <span id='logo'><a href="../index.php?page=selectionDomicile"><img src="../Public/images/logoWH2.png"></a></span>
     <nav>
-      <span id='links'><a href="../index.php?page=selectionDomicile">Acceuil</a>
+      <span id='links'><a href="../index.php?page=selectionDomicile">Accueil</a>
         <a href="../index.php?page=Catalogue">Catalogue</a>
         <a href="../index.php?page=faq">FAQ</a>
       </nav>

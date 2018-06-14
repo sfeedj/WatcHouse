@@ -5,8 +5,7 @@ $GLOBALS['domicileSelect']=$_GET['id'];
 
 include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/domicileFunctions.php');
 
-if (isset($_SESSION['ID'])){                                // POUR LA SECURITE
-
+if (isset($_SESSION['ID']) && checkProprietaire($_SESSION['ID'],$GLOBALS['domicileSelect'],$GLOBALS['bdd'])){
   include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/header.php');
   include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/pagePiece.php');
   include("../View/footer.php");
@@ -56,7 +55,7 @@ function Select_Installed_Module($pieceID,$bdd){
 }
 // LISTE DES MODULES SANS ACTIONNEURS
 function listeModules($pieceID,$bdd){
-  $req = $bdd->prepare("SELECT Nom, Référence, UUID, Catégorie FROM capteurs WHERE ID_pièce=? AND Catégorie != 'Actionneur' ORDER BY UUID DESC");
+  $req = $bdd->prepare("SELECT Nom, Référence, UUID, Catégorie FROM capteurs WHERE ID_pièce=?  ORDER BY UUID DESC");
   $req->execute(array($pieceID));
 
   $k=0;
@@ -99,6 +98,7 @@ function listeModules($pieceID,$bdd){
     $data = $get->fetch();
     return $data;
   }
+
   
   function isChecked($id) {
     global $bdd;
@@ -110,9 +110,8 @@ function listeModules($pieceID,$bdd){
       }
       else 
         return "";
-
   }
-} 
+}   
 
 
 
@@ -123,7 +122,7 @@ function moduleInfo($ref,$id,$categorie){
   //$etat = getEtat($id);
   //echo $etat['Etat'];
 
-
+/*
   if($categorie=="CapteurTemperature"){
     //WatcHouse Smart Outlet
     //WatcHouse Smart Lightbulb
@@ -133,42 +132,47 @@ function moduleInfo($ref,$id,$categorie){
     <button name="bouttonPlus" id="'.$id.'" class="bouttonTemp" onclick="plus('.$id.')">
     ';
   }
+  */
 
+  
+  if($categorie=="Actionneur") {
 
+    return 
+      '<div style="display: flex;justify-content: center;">
+      <input class="cursor" type="range" id="'.$id.'" min="15" max="40" value="'.lastMesure($id,$GLOBALS["bdd"]).'" step="0.5" onchange="cursor('.$id.')" />
+      </div>
+      <div class="valeur"><div id=" '.$id.' ">'.lastMesure($id,$GLOBALS["bdd"]).'°C</div></div>
+      <script>
+      document.getElementById("'.$id.'").onchange = function() {
+      document.getElementById(" '.$id.' ").textContent=document.getElementById("'.$id.'").value+"°C";
+      }
+      </script>';
+  }
 
+  elseif($categorie=="Module"){
+    return "Active";
+  }
 
-  if($categorie=="Module"){
+  elseif($categorie=="On/Off"){
     $checked=isChecked($id);
     return '
     <script>
     
     window.onload = function() {
       console.log("'.$checked.'");
-      }</script>
+      }
+      </script>
     <input name="cap" id="'.$id.'" class="toggle-status" onclick="go('.$id.')" type="checkbox"  '.$checked.'>
     <label for="'.$id.'"  class="toggle-switch  toggle-x2 toggle-rounded"></label>
     ';
   }
 
 
-  
   elseif ($categorie=="Capteur") {
-
-    return 
-      '<div style="height: 100px;display: flex;justify-content: center;">
-      <input type="range" id="'.$id.'" min="15" max="40" value="'.lastMesure($id,$GLOBALS["bdd"]).'" step="0.5" onchange="cursor('.$id.')" />
-      </div>
-      <div id=" '.$id.' "></div>
-      <script>
-      document.getElementById("'.$id.'").onchange = function() {
-      document.getElementById(" '.$id.' ").textContent=document.getElementById("'.$id.'").value+"°C";
-      }
-      </script>'
-
-
-//.lastMesure($id,$GLOBALS['bdd'] )
-;
+    return lastMesure($id,$GLOBALS['bdd'] );
   }
+
+
   return "test";
 }
 
