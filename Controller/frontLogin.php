@@ -21,10 +21,12 @@ else{
     include_once($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/frontLogin.php');
   }
 
+
   else{
     $messageErreur='';
     header("Refresh:0; url=/../WatcHouse/index.php?page=selectionDomicile");
   }
+}
   if(!empty($_POST['key']) && !empty($_POST['captcha'])){
     $key = $_POST['key'];
     $captcha = $_POST['captcha'];

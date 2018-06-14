@@ -42,8 +42,10 @@ function checkProprietaire($userID,$domicileID,$bdd){
   $req2->execute(array($userID,$domicileID));
   $res2=$req2->fetchAll();
   if (!isset($res2[0])){
+    // echo 'false';
     return false;
   }
+  // echo 'true';
   return true;
 }
 
@@ -122,7 +124,7 @@ function lastMesure($id,$bdd){
     return $res[0];
   }
   else
-    return "N/A";
+    return "N/A"; 
 }
 
 //Fonctions Relative à la page de profil

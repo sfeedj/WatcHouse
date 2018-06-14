@@ -118,21 +118,7 @@ function listeModules($pieceID,$bdd){
 
 
 function moduleInfo($ref,$id,$categorie){
-  
-  //$etat = getEtat($id);
-  //echo $etat['Etat'];
 
-/*
-  if($categorie=="CapteurTemperature"){
-    //WatcHouse Smart Outlet
-    //WatcHouse Smart Lightbulb
-    return '
-    <button name="bouttonPlus" id="'.$id.'" class="bouttonTemp" onclick="plus('.$id.')">
-    <h1>
-    <button name="bouttonPlus" id="'.$id.'" class="bouttonTemp" onclick="plus('.$id.')">
-    ';
-  }
-  */
 
   
   if($categorie=="Actionneur") {
