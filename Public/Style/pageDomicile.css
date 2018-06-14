@@ -217,7 +217,9 @@ color: white;
   border-radius: 5px;
   height: 180px;
   position: relative;
-  width: 95%
+  width: 95%;
+  background-color:    rgb(163, 205, 247);
+
 }
 
 .titrePiece{

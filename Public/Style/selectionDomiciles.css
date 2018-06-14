@@ -68,6 +68,8 @@ body{
 
 .addButton{
   height: 150px;
+  border: none;
+  border-radius: 100px;
   animation-duration: 0.5s;
   animation-name: rotation;
 }
