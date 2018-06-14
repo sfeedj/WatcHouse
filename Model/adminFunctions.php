@@ -11,7 +11,7 @@ function ajouterClient($nom,$email,$admin,$bdd){
     $password = genererMdp();
     $req->execute(array(
       'username' =>$nom,
-      'password' => $password,
+      'password' =>password_hash($password, PASSWORD_DEFAULT),
       'email' =>$email,
       'admin' =>$admin
     ));
