@@ -4,9 +4,11 @@ body {
 
 
 .bloc_q_r{
-  margin: 10px;
-  border: 1px solid black;
-  border-radius: 50px;
+  margin: 8px;
+  border: 1px solid rgba(199, 199, 199, 0.548);
+  background-color: rgb(252, 252, 252);
+  border-radius: 12px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.116);
 }
 
 .bloc_q {

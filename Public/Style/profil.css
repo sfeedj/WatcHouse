@@ -4,10 +4,64 @@
 
 }
 
-form.form1 {
+
+
+
+.form2{
+    z-index: 3;
+    display: flex;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
+    width: 320px;
+    text-align: center;
+    background-color:     rgb(255, 255, 255);   
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
+    box-shadow: 0px  0px 22px rgba(0, 0, 0, 0.113);
+    animation-duration: 0.5s;
+    animation-name: grossi;
+  }
+
+
+
+  .form1{
+    z-index: 3;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100;
+    height: 400px;
+    width: 600px;
+    padding-top: 30px;
+    justify-content: center;
+    text-align: center;
+    background-color:     rgb(255, 255, 255);   
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
+    animation-duration: 0.5s;
+    animation-name: grossi;
+  }
+
+form.form {
     text-align: center;
 }
 
+#form3 {
+    height: 200px;
+}
 
 h1,h2 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -76,7 +130,8 @@ h1,h2 {
 
 .msg {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: left;
+    text-align: center;
+    margin: auto;
 }
 
 
@@ -243,24 +298,14 @@ h1,h2 {
 
 
 
-dialog {
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 18px;
-    box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
-    animation-duration: 0.5s;
-    animation-name: grossi;
-}
+
 
 .sectionPassword{
-    width : 320px;
+    align-content: center;
  }
 
- #p1,#p2,#p3{
-    margin-left: 10px;
- }
-
+ 
+ 
  .confirmer,.annuler {
     border-radius: 28px 28px 28px 28px;
     border-width: 1.5px;
@@ -286,4 +331,15 @@ dialog {
 
  .annuler:hover {
     background-color: rgb(202, 201, 201);
+}
+
+.invisible1 {
+    display: none;
+  }
+.invisible2 {
+        display: none;
+}
+.invisible3 {
+    display: none;
+
 }

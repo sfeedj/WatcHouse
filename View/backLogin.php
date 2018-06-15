@@ -21,7 +21,7 @@
   </div>
   <div class="ConnectionPanel">
   <div id="connectezVous">
-    <img id="connectezVousImg" src="/../appwebsite/watchouse/Public/images/login.png" alt="userLogin"> 
+    <img id="connectezVousImg" src="/../watchouse/Public/images/login.png" alt="userLogin"> 
     <span class="messageConnexion">Connectez vous !</span>
   </div>
     <span class="messageErreur"><?php echo $messageErreur; ?></span>

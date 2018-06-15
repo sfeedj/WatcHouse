@@ -5,6 +5,7 @@
 	height: 60px;
 	color: #ffffff;
 	box-sizing: border-box;
+	box-shadow:1px 1px 14px #0c0c0c41;
 }
 
 body {margin: 0;}
