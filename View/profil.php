@@ -83,7 +83,7 @@
 			<button class="confirmer" id="submit_photo" type="submit"   >Confirmer</button>
 		</menu>
 </form>
-</dialog>
+</div>
 
 
 <script>

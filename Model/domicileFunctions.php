@@ -148,7 +148,7 @@ function chargerInfosProfile($bdd,$username) {
 
 function changePassword($bdd,$username) {
   if ( isset($_POST['oldPassword1']) && isset($_POST['oldPassword2']) && isset($_POST['newPassword']) && $_POST['oldPassword1']==$_POST['oldPassword2']   && $_POST['oldPassword1']!=$_POST['newPassword']) {
-    $newPassword=$_POST['newPassword'];
+    $newPassword=password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
     $bdd->exec( " UPDATE users SET password='$newPassword'  WHERE username='$username' ");
   }
 }

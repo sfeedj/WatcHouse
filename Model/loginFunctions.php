@@ -75,7 +75,7 @@ function resetMdp($email){
     else{
         $password=genererMdp();
         $req = $bdd->prepare('UPDATE users SET password=? WHERE ID= ?');
-        $req->execute(array($password, $resultat['ID']));
+        $req->execute(array(password_hash($password, PASSWORD_DEFAULT), $resultat['ID']));
         sendMailWithNewPassword($email, $resultat['username'], $password);
         return true;
     }
@@ -86,11 +86,11 @@ function genererMdp($long = 8){
     $mdp = '';
     for ($k = 0; $k < $long; $k++){
         if ($k == round($long/2)){
-            $i = mt_rand(0, strlen($speciaux));
+            $i = mt_rand(0, strlen($speciaux)-1);
             $c = $speciaux[$i];
         }
         else{
-            $i = mt_rand(0, strlen($chaine));
+            $i = mt_rand(0, strlen($chaine)-1);
             $c = $chaine[$i];
         }
         $mdp .= $c;
