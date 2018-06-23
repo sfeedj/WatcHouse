@@ -36,7 +36,7 @@ else {
 // GENERATION DE LA LISTE DES MODULES
 function Liste_Modules($bdd)
 {
-  $reqUser = $bdd->query('SELECT Nom, Prix,Description, Référence FROM Catalogue ORDER BY Référence');
+  $reqUser = $bdd->query('SELECT Nom, Prix,Description, Reference FROM Catalogue ORDER BY Reference');
   while ($donnees = $reqUser->fetch())
   {
     echo "
@@ -46,7 +46,7 @@ function Liste_Modules($bdd)
     </td>
     <td>".$donnees["Prix"]."</td>
     <td >".$donnees["Description"]."</td>
-    <td class='Ref'>".$donnees["Référence"]."</td>
+    <td class='Ref'>".$donnees["Reference"]."</td>
     </tr>
     ";
   }
@@ -55,7 +55,7 @@ function Liste_Modules($bdd)
 
 // GENERATION DU CHAMPS SELECT DES MODULES
 function Select_Module($bdd){
-  $req = $bdd->query('SELECT Nom, Référence FROM Catalogue ORDER BY Nom');
+  $req = $bdd->query('SELECT Nom, Reference FROM Catalogue ORDER BY Nom');
 
   echo "
   <form action='../Controller/listeModules.php' method='post'>
@@ -64,7 +64,7 @@ function Select_Module($bdd){
   <select name='refModule'>";
 
   while ($donnees = $req->fetch()){
-    echo "  <option value='".$donnees["Référence"]."'>".$donnees["Nom"]."</option>";
+    echo "  <option value='".$donnees["Reference"]."'>".$donnees["Nom"]."</option>";
   }
 
   echo "

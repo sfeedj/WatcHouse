@@ -8,7 +8,7 @@ function checkID($username, $password, $bdd){
   $req->execute(array($username));
   $resultat = $req->fetch();
 
-  // Comparaison du pass envoyé via le formulaire avec la base
+  // Comparaison du pass envoye via le formulaire avec la base
   $isPasswordCorrect = password_verify($password, $resultat['password']);
   
   if (!$resultat)
@@ -31,7 +31,7 @@ function checkAdmin($username, $password, $bdd){
   $req->execute(array($username));
   $resultat = $req->fetch();
 
-  // Comparaison du pass envoyé via le formulaire avec la base
+  // Comparaison du pass envoye via le formulaire avec la base
   $isPasswordCorrect = password_verify($password, $resultat['password']);
 
 
@@ -54,11 +54,11 @@ function sendMailWithNewPassword($email, $username, $password){
     $subject = 'Votre nouveau mot de passe';
     $message =
         "Bonjour " . $username . "," . "\r\n" .
-        "Vous avez demandé un renouvellement de mot de passe," ."\r\n" .
+        "Vous avez demande un renouvellement de mot de passe," ."\r\n" .
         "Votre nouveau mot de passe provisoire est:"  . $password . "\r\n" .
-        "Nous vous invitons à le modifier dès que possible." . "\r\n" .
+        "Nous vous invitons a le modifier des que possible." . "\r\n" .
         "Cordialement," . "\r\n" .
-        "L'équipe Domisep";
+        "L'equipe Domisep";
     $headers = 'From: WatchHouse.isep@gmail.com' . "\r\n" .
         'Reply-To: WatchHouse.isep@gmail.com' . "\r\n" .
         'Content-Type: text/plain; charset = "utf8"' . "\r\n";

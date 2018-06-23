@@ -59,7 +59,7 @@
           <input id='txt' type="txt" name="nomClient" placeholder=" Nom du Client" required /><br/>
           <input id='txt' type="email" name="email" placeholder=" Adresse Mail" required /><br/>
           <label for="checkBox">Compte Administrateur</label>
-          <input  name='admin' type="hidden" value=0> <!-- pour transmettre 0 par défaut -->
+          <input  name='admin' type="hidden" value=0> <!-- pour transmettre 0 par defaut -->
           <input id="checkBox" name='admin' type="checkbox" value=1>
           <br/>
           <br/>
@@ -91,7 +91,7 @@
       <div class = 'popupMail'>
         <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisibleMail')">
         <br/><br/><br/><br/><br/>
-          <span class="titre_form">Cette adresse mail est déjà utilisée !</span>
+          <span class="titre_form">Cette adresse mail est deja utilisee !</span>
       </div>
       <div class ='pageCover'></div>
     </div>

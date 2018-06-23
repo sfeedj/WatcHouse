@@ -10,7 +10,11 @@
   <body>
 
     <div class = 'entete'>
-    <h1><?php echo nomDomicile($GLOBALS['pieceSelect'],$bdd); ?></h1>
+    <h1><?php
+    echo nomDomicile($GLOBALS['pieceSelect'],$bdd);
+    echo "<br/>";
+    echo surfaceDomicile($GLOBALS['pieceSelect'],$bdd);
+    ?> m²</h1>
     <a id="return" href="../Controller/pageDomicile.php?id=<?php echo $GLOBALS['domicileSelect'];?>"> ←   Retourner au domicile</a>
   </div>
   <div class="selectModule"><?php listeModules($GLOBALS['pieceSelect'],$bdd); ?></div>
@@ -56,10 +60,10 @@
       <div class ='pageCover'></div>
     </div>
 
-    
 
 
-  
+
+
 
 
 

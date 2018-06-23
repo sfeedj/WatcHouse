@@ -25,7 +25,7 @@ foreach ($liste_q as $q_r) {
         <div class="bloc_r" id="r_<?php echo($count); ?>">
             <div class="reponse">
                 <form method="post" action="">
-                    <h3> Entrer la réponse </h3>
+                    <h3> Entrer la reponse </h3>
                     <input type="hidden" name="id" value="<?php echo($q_r['id']); ?>"/>
                     <textarea name="reponse" rows="10" cols="50"></textarea>
                     <div>
@@ -54,7 +54,7 @@ if (empty($liste_q)) {
 <a href="/../WatcHouse/Controller/faq.php" id="image_faq">
     <figure>
         <img src="/../WatcHouse/Public/images/faq_back.png" height="60" alt="test">
-        <figcaption>Accéder à la faq</figcaption>
+        <figcaption>Acceder a la faq</figcaption>
     </figure>
 </a>
 

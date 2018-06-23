@@ -4,7 +4,7 @@
   <br/>
   <span id='statut'>Statut : <b><?php echo $statut; ?></b></span>
   <span><button id='supprDomicile' href="#" onclick="affichageInvisible('invisibleSuppr')">Supprimer ce domicile</button></span><br/>
-  <table class='présentation'>
+  <table class='presentation'>
     <colgroup>
       <col span="1" style="width: 40%;">
       <col span="2" style="width: 60%;">
@@ -26,8 +26,8 @@
             </script>
           </div>
           <!-- widget meteo -->
-          <div class="général">
-            <span class='titre'>Général</span>
+          <div class="general">
+            <span class='titre'>General</span>
           </div>
           <table>
             <colgroup>
@@ -61,7 +61,7 @@
       <div class = 'formWrapper'>
         <form action="../Controller/pageDomicile.php?id=<?php echo $GLOBALS['domicileSelect'];?>" method="post" class="formulaire">
           <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisibleSuppr')">
-          <span class="titre_form">Supprimer définitivement ce domicile de votre compte ?</span><br/>
+          <span class="titre_form">Supprimer definitivement ce domicile de votre compte ?</span><br/>
           <?php echo "(ID de domicile : ".$GLOBALS['domicileSelect'].")"; ?><br/><br/>
           <input id='txt' type="hidden" name="supprDomicile"  value="delete" /><br/>
           <label for="checkBox">Cochez cette case pour confirmer : </label>
@@ -80,9 +80,10 @@
     <div class = 'formWrapper'>
       <form action="../Controller/pageDomicile.php?id=<?php echo $GLOBALS['domicileSelect'];?>"method="post" class="formulaire">
         <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisible')">
-        <span class="titre_form">Ajouter une pièce :</span><br/><br/><br/>
+        <span class="titre_form">Ajouter une piece :</span><br/><br/><br/>
         <input  name='addRoom' type="hidden" value='add'>
-        <input id='txt' type="txt" name="nomPiece" placeholder=" Nom de la pièce" required /><br/>
+        <input id='txt' type="txt" name="nomPiece" placeholder=" Nom de la piece" required /><br/>
+        <input id='txt' type="txt" name="surface" placeholder=" Surface (m²)" required /><br/>
         <input  name='Domicile' type="hidden" value='<?php  $GLOBALS['domicileSelect'];?>'> <!-- pour transmettre l'ID domicile -->
         <br/>
         <br/>
@@ -98,7 +99,7 @@
     <div class = 'formWrapper'>
       <form action="../Controller/pageDomicile.php?id=<?php echo $GLOBALS['domicileSelect'];?>"method="post" class="formulaire">
         <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisibleSupprPiece')">
-        <span class="titre_form">Supprimer une pièce :</span><br/><br/>
+        <span class="titre_form">Supprimer une piece :</span><br/><br/>
         <input  name='delRoom' type="hidden" value='suppr'>
         <input  name='Domicile' type="hidden" value='<?php  $GLOBALS['domicileSelect'];?>'> <!-- pour transmettre l'ID domicile -->
         <?php Select_Piece($GLOBALS['domicileSelect'],$bdd) ?>

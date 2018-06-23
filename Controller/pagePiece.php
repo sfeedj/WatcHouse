@@ -30,11 +30,11 @@ else{
 
 
 function Select_Module($bdd){
-  $req = $bdd->query('SELECT Nom, Prix,Description,img,Référence FROM Catalogue ORDER BY Nom');
+  $req = $bdd->query('SELECT Nom, Prix,Description,img,Reference FROM Catalogue ORDER BY Nom');
   echo "
   <select name='module'>";
   while ($donnees = $req->fetch()){
-    echo "  <option value='".$donnees["Référence"]."'>".$donnees["Nom"]."</option>";
+    echo "  <option value='".$donnees["Reference"]."'>".$donnees["Nom"]."</option>";
   }
   echo "
   </select>
@@ -42,7 +42,7 @@ function Select_Module($bdd){
 }
 
 function Select_Installed_Module($pieceID,$bdd){
-  $req = $bdd->prepare('SELECT Nom, Référence,UUID FROM capteurs WHERE ID_pièce=? ORDER BY UUID DESC');
+  $req = $bdd->prepare('SELECT Nom, Reference,UUID FROM capteurs WHERE ID_piece=? ORDER BY UUID DESC');
   $req->execute(array($pieceID));
   echo "
   <select name='module'>";
@@ -55,7 +55,7 @@ function Select_Installed_Module($pieceID,$bdd){
 }
 // LISTE DES MODULES SANS ACTIONNEURS
 function listeModules($pieceID,$bdd){
-  $req = $bdd->prepare("SELECT Nom, Référence, UUID, Catégorie FROM capteurs WHERE ID_pièce=?  ORDER BY UUID DESC");
+  $req = $bdd->prepare("SELECT Nom, Reference, UUID, Categorie FROM capteurs WHERE ID_piece=?  ORDER BY UUID DESC");
   $req->execute(array($pieceID));
 
   $k=0;
@@ -63,15 +63,15 @@ function listeModules($pieceID,$bdd){
   <table id='tableModules'>  ";
 
   while ($donnees = $req->fetch()){
-    $reqImg = $bdd->prepare('SELECT img FROM catalogue WHERE Référence=?');
-    $reqImg->execute(array($donnees['Référence']));
+    $reqImg = $bdd->prepare('SELECT img FROM catalogue WHERE Reference=?');
+    $reqImg->execute(array($donnees['Reference']));
     $reqImg=$reqImg->fetch();
 
       echo "
       <td  id='d".$k."' class='modulesWrapper'>
       <img src='".$reqImg[0]."' class='imageModule' style='height:100px;'>
       <p>";
-      echo moduleInfo($donnees['Référence'],$donnees['UUID'],$donnees['Catégorie']);
+      echo moduleInfo($donnees['Reference'],$donnees['UUID'],$donnees['Categorie']);
       echo "</p>
       <figcaption >".$donnees["Nom"]."</figcaption>
       </td>

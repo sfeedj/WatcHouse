@@ -21,7 +21,7 @@ else {
 
 //LISTE DES MODULES POUR PASSER UNE COMMANDE
 function Select_Commande($bdd){
-  $reqUser = $bdd->query('SELECT Nom, Prix,Description,img,Référence FROM Catalogue ORDER BY Nom');
+  $reqUser = $bdd->query('SELECT Nom, Prix,Description,img,Reference FROM Catalogue ORDER BY Nom');
   echo "
   <form action='../Controller/Catalogue.php' id='rechercheForm'>
   <select name='article'>";
@@ -39,7 +39,7 @@ function Select_Commande($bdd){
 // TABLEAU DES MODULES DISPONIBLES
 function Liste_Modules($bdd)
 {
-  $req = $bdd->query('SELECT Nom, Prix,Description,img,Référence FROM Catalogue ORDER BY Nom');
+  $req = $bdd->query('SELECT Nom, Prix,Description,img,Reference FROM Catalogue ORDER BY Nom');
   $k=1;
   while ($donnees = $req->fetch())
   {

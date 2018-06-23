@@ -40,6 +40,6 @@ for ($i=0, $size=count($data_tab); $i<$size; $i++) {
 
     }
 }
-/*t: type de la trame, oooo: numéro de l'objet, r: type de requête, c:type de capteur, NN: numéro du capteur, VVVV: la valeur remontée
-AAAA: numéro de la trame, XX: un checksum, YYYY: année, MM:mois, DD: jour, HH: heure, mm:minutes, ss:secondes*/
+/*t: type de la trame, oooo: numero de l'objet, r: type de requête, c:type de capteur, NN: numero du capteur, VVVV: la valeur remontee
+AAAA: numero de la trame, XX: un checksum, YYYY: annee, MM:mois, DD: jour, HH: heure, mm:minutes, ss:secondes*/
 ?>

@@ -87,7 +87,7 @@ color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   top : 15%;
   left:15%;
   height: 66%;
@@ -95,14 +95,14 @@ color: white;
   text-align: center;
   background-color: #ecf0f1;
 
-    text-align: center;
-    background-color: rgb(245, 245, 245);
-    border: none;
-    border-radius: 18px;
-    box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
-    animation-duration: 0.5s;
-    animation-name: grossi;
-  
+  text-align: center;
+  background-color: rgb(245, 245, 245);
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
+  animation-duration: 0.5s;
+  animation-name: grossi;
+
 }
 
 .titre_form{
@@ -115,7 +115,7 @@ color: white;
   height: 40px;
   border-radius: 5px;
   border-color: rgba(0, 0, 0, 0.075);
-  box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096); 
+  box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
   border:none;
   font-size: 20px;
   margin-bottom:10px;
@@ -137,7 +137,7 @@ color: white;
 
 /* TABLEAU DE PRESENTATION */
 
-.présentation{
+.presentation{
   margin-top: 25px;
   width:100%;
   margin-bottom: 100px;
@@ -167,7 +167,7 @@ color: white;
   animation-name: gauche;
 }
 
-.général{
+.general{
   border-radius: 5px;
   top:0;
   margin-left: -10px;

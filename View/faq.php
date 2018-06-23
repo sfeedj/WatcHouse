@@ -13,7 +13,7 @@ TODO :
 Pour installer le serveur smtp sur wamp (ou autre) :
 aller dans php.ini => ligne sendmail_path et remplacer la ligne par :
 sendmail_path = C:\wamp\www\WatcHouse\smtp\sendmail.exe
-PS : si le projet WatcHouse n'est pas à cet emplacement, modifier l'adresse en conséquence.
+PS : si le projet WatcHouse n'est pas a cet emplacement, modifier l'adresse en consequence.
 Compte gmail :
 WatchHouse.isep@gmail.com
 mdp : WatchHouseIsep*
@@ -76,7 +76,7 @@ if (!empty($_SESSION['admin'])) {
     <a href="/../WatcHouse/Controller/faq_admin.php" id="image_faq">
         <figure>
             <img src="/../WatcHouse/Public/Style/faq_admin.png" height="60">
-            <figcaption>Accéder à la faq admin</figcaption>
+            <figcaption>Acceder a la faq admin</figcaption>
         </figure>
     </a>
     <?php

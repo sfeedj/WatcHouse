@@ -11,10 +11,10 @@ else{
 
   if (isset($_SESSION['ID'])){                                // POUR LA SECURITE
 
-    $statut = 'Invité';
+    $statut = 'Invite';
 
     if(checkProprietaire($_SESSION['ID'],$_GET['id'],$GLOBALS['bdd'])){
-      $statut = 'Propriétaire';
+      $statut = 'Proprietaire';
     }
 
     include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/header.php');
@@ -36,8 +36,8 @@ else{
     }
 
     // AJOUT PIECE
-    if (isset($_POST['nomPiece']) AND isset($_POST['addRoom'])){
-      ajouterPiece($_POST['nomPiece'],$_GET['id'],$_SESSION['ID'],$GLOBALS['bdd']);
+    if (isset($_POST['nomPiece']) AND isset($_POST['addRoom']) AND isset($_POST['surface'])){
+      ajouterPiece($_POST['nomPiece'],$_POST['surface'],$_GET['id'],$_SESSION['ID'],$GLOBALS['bdd']);
       echo '<meta http-equiv="refresh" content="0" />';
     }
 
@@ -125,21 +125,21 @@ function listePiece($domicileID,$bdd){
 }
 
 function listeModulesInline($pieceID,$bdd){
-  $req = $bdd->prepare("SELECT Nom, Référence, UUID, Catégorie FROM capteurs WHERE ID_pièce=? AND Catégorie != 'Actionneur' ORDER BY UUID DESC");
+  $req = $bdd->prepare("SELECT Nom, Reference, UUID, Categorie FROM capteurs WHERE ID_piece=? AND Categorie != 'Actionneur' ORDER BY UUID DESC");
   $req->execute(array($pieceID));
 
   $k=0;
 
   while ($donnees = $req->fetch()){
-    $reqImg = $bdd->prepare('SELECT img FROM catalogue WHERE Référence=?');
-    $reqImg->execute(array($donnees['Référence']));
+    $reqImg = $bdd->prepare('SELECT img FROM catalogue WHERE Reference=?');
+    $reqImg->execute(array($donnees['Reference']));
     $reqImg=$reqImg->fetch();
 
       echo "
       <div  id='d".$k."' class='modulesWrapper'>
       <img src='".$reqImg[0]."' class='imageModule' style='height:70px;'>
       <p>";
-      echo moduleInfo($donnees['Référence'],$donnees['UUID'],$donnees['Catégorie']);
+      echo moduleInfo($donnees['Reference'],$donnees['UUID'],$donnees['Categorie']);
       echo "</p>
       <figcaption >".$donnees["Nom"]."</figcaption>
       </div>

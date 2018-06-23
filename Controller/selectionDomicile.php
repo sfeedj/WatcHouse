@@ -16,7 +16,7 @@ else {
 //Tableau domicile : ne pas oublier les balises <table> dans la vue
 function Tableau_Domiciles($bdd)
 {
-	$req = $bdd->prepare('SELECT ID, Nom FROM Domiciles WHERE propriétaire = ? ');
+	$req = $bdd->prepare('SELECT ID, Nom FROM Domiciles WHERE proprietaire = ? ');
 	$req->execute(array($_SESSION['ID']));
 	$result = $req;
 	echo "

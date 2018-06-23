@@ -5,7 +5,7 @@ include_once('bddConnect.php');
 
 function ajouterDomcile($nom,$numero,$adresse,$codepostal,$ville,$pays,$proprietaire,$bdd){
   $liste='';
-  $req=$bdd->prepare("INSERT INTO domiciles ( Nom, Numéro, Adresse, CodePostal, Ville, Pays, Propriétaire, Pièces) VALUES ( :Nom, :Numero, :Adresse, :CodePostal, :Ville, :Pays, :Proprietaire, :Pieces)");
+  $req=$bdd->prepare("INSERT INTO domiciles ( Nom, Numero, Adresse, CodePostal, Ville, Pays, Proprietaire, Pieces) VALUES ( :Nom, :Numero, :Adresse, :CodePostal, :Ville, :Pays, :Proprietaire, :Pieces)");
   $req->execute(array(
     'Nom' =>$nom,
     'Numero' =>$numero,
@@ -38,7 +38,7 @@ function supprUser($user,$domicile,$bdd){
 }
 
 function checkProprietaire($userID,$domicileID,$bdd){
-  $req2=$bdd->prepare("SELECT 1 FROM domiciles WHERE Propriétaire=? AND ID=?");
+  $req2=$bdd->prepare("SELECT 1 FROM domiciles WHERE Proprietaire=? AND ID=?");
   $req2->execute(array($userID,$domicileID));
   $res2=$req2->fetchAll();
   if (!isset($res2[0])){
@@ -52,7 +52,7 @@ function checkProprietaire($userID,$domicileID,$bdd){
 function supprimerDomicile($ID,$bdd){
   $req=$bdd->prepare("DELETE FROM domiciles WHERE ID=?");
   $req->execute(array($ID));
-  $req=$bdd->prepare("DELETE FROM pièces WHERE Domicile_ID=:ID");
+  $req=$bdd->prepare("DELETE FROM pieces WHERE Domicile_ID=:ID");
   $req->execute(array(
     'ID'=>$ID
   ));
@@ -64,24 +64,25 @@ function supprimerDomicileInvite($userID,$domicileID,$bdd){
 }
 
 function commanderArticle($nomModule,$userID,$bdd){
-  $req=$bdd->prepare("INSERT INTO commandes (user_ID, article_commandé) VALUES (:userID,:article)");
+  $req=$bdd->prepare("INSERT INTO commandes (user_ID, article_commande) VALUES (:userID,:article)");
   $req->execute(array(
     'userID' =>$userID,
     'article'=>$nomModule
   ));
 }
 
-function ajouterPiece($nomPiece,$domicile,$proprietaire,$bdd){
-  $req=$bdd->prepare("INSERT INTO rooms (Domicile_ID,Propriétaire,Nom) VALUES ( :Domicile, :Proprietaire, :Nom)");
+function ajouterPiece($nomPiece,$surface,$domicile,$proprietaire,$bdd){
+  $req=$bdd->prepare("INSERT INTO rooms (Domicile_ID,Proprietaire,Nom, Surface) VALUES ( :Domicile, :Proprietaire, :Nom, :Surface)");
   $req->execute(array(
     'Domicile' =>$domicile,
     'Proprietaire' => $proprietaire,
-    'Nom' => $nomPiece
+    'Nom' => $nomPiece,
+    'Surface'=>$surface
   ));
 }
 
 function supprimerPiece($IDPiece,$domicile,$proprietaire,$bdd){
-  $req=$bdd->prepare("DELETE FROM rooms WHERE ID=? AND Propriétaire=?");
+  $req=$bdd->prepare("DELETE FROM rooms WHERE ID=? AND Proprietaire=?");
   $req->execute(array($IDPiece,$proprietaire));
 }
 
@@ -93,14 +94,21 @@ function nomDomicile($domicileID,$bdd){
   return $res['Nom'];
 }
 
+function surfaceDomicile($domicileID,$bdd){
+  $req=$bdd->prepare("SELECT Surface FROM rooms WHERE ID=?");
+  $req->execute(array($domicileID));
+  $res=$req->fetch();
+  return $res['Surface'];
+}
+
 
 function ajouterModule($name,$userID, $pieceID, $ref,$bdd){
-  $reqName=$bdd->prepare("SELECT Nom, Catégorie FROM Catalogue WHERE Référence =?");
+  $reqName=$bdd->prepare("SELECT Nom, Categorie FROM Catalogue WHERE Reference =?");
   $reqName->execute(array($ref));
   $res=$reqName->fetch();
   $resType=$res[0];
   $resCategorie=$res[1];
-  $req=$bdd->prepare("INSERT INTO capteurs (Référence,Type , Nom, ID_propriétaire,ID_pièce,Catégorie) VALUES ( :ref, :type, :nom, :userID, :pieceID, :categorie)");
+  $req=$bdd->prepare("INSERT INTO capteurs (Reference,Type , Nom, ID_proprietaire,ID_piece,Categorie) VALUES ( :ref, :type, :nom, :userID, :pieceID, :categorie)");
   $req->execute(array(
     'ref' =>$ref,
     'type'=>$resType,
@@ -112,7 +120,7 @@ function ajouterModule($name,$userID, $pieceID, $ref,$bdd){
 }
 
 function supprimerModule($moduleID,$pieceID,$bdd){
-  $req=$bdd->prepare("DELETE FROM capteurs WHERE UUID=? AND ID_pièce=?");
+  $req=$bdd->prepare("DELETE FROM capteurs WHERE UUID=? AND ID_piece=?");
   $req->execute(array($moduleID,$pieceID));
 }
 
@@ -124,10 +132,10 @@ function lastMesure($id,$bdd){
     return $res[0];
   }
   else
-    return "N/A"; 
+    return "N/A";
 }
 
-//Fonctions Relative à la page de profil
+//Fonctions Relative a la page de profil
 
 function chargerInfosProfile($bdd,$username) {
   $req = $bdd->query('SELECT * FROM users WHERE username="'.$username.'"');
@@ -137,10 +145,10 @@ function chargerInfosProfile($bdd,$username) {
     $_SESSION['username']=$donnees['username'];
     $_SESSION['Nom']=$donnees['Nom'];
     $_SESSION['password']=$donnees['password'];
-    $_SESSION['Prénom']=$donnees['Prénom'];
+    $_SESSION['Prenom']=$donnees['Prenom'];
     $_SESSION['Date_de_naissance']=$donnees['Date_de_naissance'];
     $_SESSION['Mail']=$donnees['Mail'];
-    $_SESSION['Téléphone']=$donnees['Téléphone'];
+    $_SESSION['Telephone']=$donnees['Telephone'];
     $_SESSION['Adresse']=$donnees['adresse'];
   }
 }
@@ -185,26 +193,26 @@ function changeMail($bdd,$username) {
   }
 }
 function changePrenom($bdd,$username) {
-  if (  isset($_POST['Prénom']) ) {
-    $newPrénom=$_POST['Prénom'];
-    $_SESSION['Prénom']=$newPrénom;
-    $bdd->exec(" UPDATE users SET Prénom='$newPrénom' WHERE username='$username' ");
+  if (  isset($_POST['Prenom']) ) {
+    $newPrenom=$_POST['Prenom'];
+    $_SESSION['Prenom']=$newPrenom;
+    $bdd->exec(" UPDATE users SET Prenom='$newPrenom' WHERE username='$username' ");
 
   }
 }
 
 function changePhone($bdd,$username) {
-  if (  isset($_POST['Prénom']) ) {
-    $newPhone=$_POST['Téléphone'];
-    $_SESSION['Téléphone']=$newPhone;
-    $bdd->exec(" UPDATE users SET Téléphone='$newPhone' WHERE username='$username' ");
+  if (  isset($_POST['Prenom']) ) {
+    $newPhone=$_POST['Telephone'];
+    $_SESSION['Telephone']=$newPhone;
+    $bdd->exec(" UPDATE users SET Telephone='$newPhone' WHERE username='$username' ");
 
   }
 }
 
 function ajouterPhoto($userphoto,$username,$bdd){
   $req=$bdd->exec("UPDATE users SET image='$userphoto' WHERE username='$username' ");
-  
+
 }
 
 function urlImage($username,$bdd) {

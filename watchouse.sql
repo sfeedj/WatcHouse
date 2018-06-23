@@ -2,8 +2,8 @@
 -- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 21 juin 2018 à 12:05
+-- Hote : 127.0.0.1:3306
+-- Genere le :  jeu. 21 juin 2018 a 12:05
 -- Version du serveur :  5.7.21
 -- Version de PHP :  5.6.35
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `watchouse`
+-- Base de donnees :  `watchouse`
 --
 
 -- --------------------------------------------------------
@@ -41,12 +41,12 @@ CREATE TABLE IF NOT EXISTS `capteur` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `capteur`
+-- Dechargement des donnees de la table `capteur`
 --
 
 INSERT INTO `capteur` (`id_user`, `ID_Type`, `Type_capteur`, `nom_capteur`, `presence`, `panne`, `image`) VALUES
-(129, 3, 'Temperature', 'Temperature', 1, 0, '/../APPwebsite/Public/images/logoWH2.png'),
-(129, 5, 'Lumiere', 'lumiere', 1, 0, '/../APPwebsite/Public/images/logoWH2.png'),
+(129, 3, 'Temperature', 'Temperature', 1, 0, '/../Public/images/logoWH2.png'),
+(129, 5, 'Lumiere', 'lumiere', 1, 0, '/../Public/images/logoWH2.png'),
 (0, 1, 'Distance 1', 'distance1', 1, 0, '');
 
 -- --------------------------------------------------------
@@ -57,27 +57,27 @@ INSERT INTO `capteur` (`id_user`, `ID_Type`, `Type_capteur`, `nom_capteur`, `pre
 
 DROP TABLE IF EXISTS `capteurs`;
 CREATE TABLE IF NOT EXISTS `capteurs` (
-  `Référence` int(11) NOT NULL,
+  `Reference` int(11) NOT NULL,
   `Type` text NOT NULL,
   `Nom` text,
-  `ID_propriétaire` int(11) NOT NULL,
-  `ID_pièce` int(11) NOT NULL,
+  `ID_proprietaire` int(11) NOT NULL,
+  `ID_piece` int(11) NOT NULL,
   `ID_CeMac` varchar(11) DEFAULT NULL,
-  `Catégorie` text,
+  `Categorie` text,
   `UUID` int(11) NOT NULL AUTO_INCREMENT,
   `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`UUID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `capteurs`
+-- Dechargement des donnees de la table `capteurs`
 --
 
-INSERT INTO `capteurs` (`Référence`, `Type`, `Nom`, `ID_propriétaire`, `ID_pièce`, `ID_CeMac`, `Catégorie`, `UUID`, `AddedOnDate`) VALUES
-(3, 'WatcHouse Luxmètre', 'lumieres3', 1, 29, '011A', 'Capteur', 28, '2018-06-01 14:19:21'),
-(3, 'WatcHouse Luxmètre', 'lumière 2', 1, 29, NULL, 'Capteur', 26, '2018-06-01 14:12:42'),
+INSERT INTO `capteurs` (`Reference`, `Type`, `Nom`, `ID_proprietaire`, `ID_piece`, `ID_CeMac`, `Categorie`, `UUID`, `AddedOnDate`) VALUES
+(3, 'WatcHouse Luxmetre', 'lumieres3', 1, 29, '011A', 'Capteur', 28, '2018-06-01 14:19:21'),
+(3, 'WatcHouse Luxmetre', 'lumiere 2', 1, 29, NULL, 'Capteur', 26, '2018-06-01 14:12:42'),
 (1, 'CeMac', 'centrale', 1, 16, '011A', 'Module', 55, '2018-06-02 18:39:06'),
-(6, 'WatcHouse Hygromètre', 'hygro1', 1, 16, '011A', 'Capteur', 58, '2018-06-02 18:49:24'),
+(6, 'WatcHouse Hygrometre', 'hygro1', 1, 16, '011A', 'Capteur', 58, '2018-06-02 18:49:24'),
 (1, 'CeMac', 'ed', 1, 16, '011A', 'Module', 57, '2018-06-02 18:47:01');
 
 -- --------------------------------------------------------
@@ -89,27 +89,27 @@ INSERT INTO `capteurs` (`Référence`, `Type`, `Nom`, `ID_propriétaire`, `ID_pi
 DROP TABLE IF EXISTS `catalogue`;
 CREATE TABLE IF NOT EXISTS `catalogue` (
   `Nom` tinytext NOT NULL,
-  `Catégorie` tinytext NOT NULL,
+  `Categorie` tinytext NOT NULL,
   `Prix` decimal(8,2) NOT NULL,
   `Description` text NOT NULL,
   `img` text,
-  `Référence` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`Référence`)
+  `Reference` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`Reference`)
 ) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `catalogue`
+-- Dechargement des donnees de la table `catalogue`
 --
 
-INSERT INTO `catalogue` (`Nom`, `Catégorie`, `Prix`, `Description`, `img`, `Référence`) VALUES
-('WatcHouse Thermomètre', 'Module', '8.00', 'Cet outil permet des mesures précises de température. Relié au CeMac, vous pourrez ainsi contrôler la température de la pièce que vous souhaitez.', '../Public/images/Modules/Thermometre.png', 2),
-('WatcHouse Luxmètre', 'Capteur', '5.00', 'Détecteur de luminosité ; compatible avec les Smart Light Bulb, Smart Stores, ...', '../Public/images/Modules/Luxmetre.png', 3),
-('WatcHouse Smart Lightbulb', 'Actionneur', '10.00', 'Ampoule connectée.', '../Public/images/Modules/Light.png', 4),
-('WatcHouse Smart Outlet', 'Module', '20.00', 'Prise électrique connectée : surveillez votre consommation et gérez-la à distance !', '../Public/images/Modules/Prise.png', 5),
-('WatcHouse Oversight', 'Capteur', '80.00', 'Caméra de surveillance reliable à la CeMac.', '../Public/images/Modules/Camera.png', 8),
-('WatcHouse Hygromètre', 'Capteur', '15.00', 'Surveillez l\'humidité de vos pièces.', '../Public/images/Modules/Hygrometre.png', 6),
-('WatcHouse Motion Sensor', 'Capteur', '15.00', 'Réagit au mouvement.', '../Public/images/Modules/Mouvement.png', 7),
-('CeMac', 'Module', '100.00', 'Centrale mobile d\'acquisition ; permet de gérer les capteurs alentours.', '../Public/images/Modules/CeMac.png', 1);
+INSERT INTO `catalogue` (`Nom`, `Categorie`, `Prix`, `Description`, `img`, `Reference`) VALUES
+('WatcHouse Thermometre', 'Module', '8.00', 'Cet outil permet des mesures precises de temperature. Relie au CeMac, vous pourrez ainsi controler la temperature de la piece que vous souhaitez.', '../Public/images/Modules/Thermometre.png', 2),
+('WatcHouse Luxmetre', 'Capteur', '5.00', 'Detecteur de luminosite ; compatible avec les Smart Light Bulb, Smart Stores, ...', '../Public/images/Modules/Luxmetre.png', 3),
+('WatcHouse Smart Lightbulb', 'Actionneur', '10.00', 'Ampoule connectee.', '../Public/images/Modules/Light.png', 4),
+('WatcHouse Smart Outlet', 'Module', '20.00', 'Prise electrique connectee : surveillez votre consommation et gerez-la a distance !', '../Public/images/Modules/Prise.png', 5),
+('WatcHouse Oversight', 'Capteur', '80.00', 'Camera de surveillance reliable a la CeMac.', '../Public/images/Modules/Camera.png', 8),
+('WatcHouse Hygrometre', 'Capteur', '15.00', 'Surveillez l\'humidite de vos pieces.', '../Public/images/Modules/Hygrometre.png', 6),
+('WatcHouse Motion Sensor', 'Capteur', '15.00', 'Reagit au mouvement.', '../Public/images/Modules/Mouvement.png', 7),
+('CeMac', 'Module', '100.00', 'Centrale mobile d\'acquisition ; permet de gerer les capteurs alentours.', '../Public/images/Modules/CeMac.png', 1);
 
 -- --------------------------------------------------------
 
@@ -121,17 +121,17 @@ DROP TABLE IF EXISTS `commandes`;
 CREATE TABLE IF NOT EXISTS `commandes` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `user_ID` int(11) NOT NULL,
-  `article_commandé` tinytext NOT NULL,
+  `article_commande` tinytext NOT NULL,
   `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `commandes`
+-- Dechargement des donnees de la table `commandes`
 --
 
-INSERT INTO `commandes` (`ID`, `user_ID`, `article_commandé`, `AddedOnDate`) VALUES
-(1, 1, 'WatcHouse Hygromètre', '2018-05-03 21:48:34'),
+INSERT INTO `commandes` (`ID`, `user_ID`, `article_commande`, `AddedOnDate`) VALUES
+(1, 1, 'WatcHouse Hygrometre', '2018-05-03 21:48:34'),
 (2, 1, 'WatcHouse CeMac', '2018-05-03 21:48:35'),
 (3, 1, 'WatcHouse CeMac', '2018-05-03 21:52:36'),
 (4, 1, 'WatcHouse CeMac', '2018-05-03 21:52:38'),
@@ -151,7 +151,7 @@ INSERT INTO `commandes` (`ID`, `user_ID`, `article_commandé`, `AddedOnDate`) VA
 (37, 1, 'CeMac', '2018-05-10 13:07:23'),
 (36, 1, 'CeMac', '2018-05-10 12:34:03'),
 (35, 49, 'WatcHouse Sound System', '2018-05-06 17:46:45'),
-(34, 48, 'WatcHouse Thermomètre', '2018-05-06 13:58:30'),
+(34, 48, 'WatcHouse Thermometre', '2018-05-06 13:58:30'),
 (33, 48, 'WatcHouse Oversight', '2018-05-06 13:58:28'),
 (32, 1, 'WatcHouse Sound System', '2018-05-06 10:55:28'),
 (31, 1, 'WatcHouse Sound System', '2018-05-06 10:53:39'),
@@ -171,22 +171,22 @@ DROP TABLE IF EXISTS `domiciles`;
 CREATE TABLE IF NOT EXISTS `domiciles` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` text NOT NULL,
-  `Numéro` int(11) NOT NULL,
+  `Numero` int(11) NOT NULL,
   `Adresse` text NOT NULL,
   `CodePostal` int(11) NOT NULL,
   `Ville` text NOT NULL,
   `Pays` text NOT NULL,
-  `Propriétaire` int(11) NOT NULL,
-  `Pièces` text NOT NULL,
+  `Proprietaire` int(11) NOT NULL,
+  `Pieces` text NOT NULL,
   `InstalledOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `domiciles`
+-- Dechargement des donnees de la table `domiciles`
 --
 
-INSERT INTO `domiciles` (`ID`, `Nom`, `Numéro`, `Adresse`, `CodePostal`, `Ville`, `Pays`, `Propriétaire`, `Pièces`, `InstalledOnDate`) VALUES
+INSERT INTO `domiciles` (`ID`, `Nom`, `Numero`, `Adresse`, `CodePostal`, `Ville`, `Pays`, `Proprietaire`, `Pieces`, `InstalledOnDate`) VALUES
 (1, 'Chez Bobby', 3, 'Impasse de Nulle-part', 78000, 'Versailles', 'France', 1, '', '2018-04-21 07:50:43'),
 (2, 'Chez les parents', 18, 'Boulevard du Pois Vert', 1000, 'Lausanne', 'Suisse', 1, '', '2018-04-21 07:50:43'),
 (65, 'Cabane du jardin', 0, 'Au fond du jardin', 0, '0', '0', 1, '', '2018-04-21 20:55:59'),
@@ -211,15 +211,15 @@ CREATE TABLE IF NOT EXISTS `faq` (
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `faq`
+-- Dechargement des donnees de la table `faq`
 --
 
 INSERT INTO `faq` (`id`, `id_user_question`, `id_user_reponse`, `question`, `reponse`, `visible`) VALUES
-(1, 1, 1, 'J\'aimerais installer de nouveaux capteurs dans ma maison. Est ce que l\'installation peut être effectuée par un professionnel ?', 'Oui bien-sur un professionnel peut installer vos capteurs. Le service d\'installation est gratuit.', 1),
-(2, 1, 1, 'Mon capteur de température ne fonctionne plus. Que dois-je faire ?', 'Vous pouvez redémarrer le capteur. Si le problème persiste n\'hésitez pas à appeler un de nos agents au SAV.', 1),
-(3, 1, 1, 'Un de mes capteurs est cassé. Est-il remboursable?', 'Oui, si la garantie comprend la cause de la casse. Pour vérifier cela il vous suffit de nous envoyer votre certificat de garantie sur notre adresse mail.', 1),
-(12, 1, 1, '\r\nJ\'aimerais avoir un nouveau système de domotique pour mon appartement, puis-je avoir un devis? ', 'Oui, il vous suffit d\'appeler notre espace client et un de nos agents répondra à votre demande. ', 1),
-(21, 1, 1, 'Est ce que le simulateur smtp fonctionne bien ? ', 'Oui il fonctionne très bien ;)', 1);
+(1, 1, 1, 'J\'aimerais installer de nouveaux capteurs dans ma maison. Est ce que l\'installation peut être effectuee par un professionnel ?', 'Oui bien-sur un professionnel peut installer vos capteurs. Le service d\'installation est gratuit.', 1),
+(2, 1, 1, 'Mon capteur de temperature ne fonctionne plus. Que dois-je faire ?', 'Vous pouvez redemarrer le capteur. Si le probleme persiste n\'hesitez pas a appeler un de nos agents au SAV.', 1),
+(3, 1, 1, 'Un de mes capteurs est casse. Est-il remboursable?', 'Oui, si la garantie comprend la cause de la casse. Pour verifier cela il vous suffit de nous envoyer votre certificat de garantie sur notre adresse mail.', 1),
+(12, 1, 1, '\r\nJ\'aimerais avoir un nouveau systeme de domotique pour mon appartement, puis-je avoir un devis? ', 'Oui, il vous suffit d\'appeler notre espace client et un de nos agents repondra a votre demande. ', 1),
+(21, 1, 1, 'Est ce que le simulateur smtp fonctionne bien ? ', 'Oui il fonctionne tres bien ;)', 1);
 
 -- --------------------------------------------------------
 
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `mesures` (
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `mesures`
+-- Dechargement des donnees de la table `mesures`
 --
 
 INSERT INTO `mesures` (`UUID`, `userID`, `capteurID`, `pieceID`, `AddedOnDate`, `data`, `nomCapteur`) VALUES
@@ -257,17 +257,17 @@ DROP TABLE IF EXISTS `rooms`;
 CREATE TABLE IF NOT EXISTS `rooms` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Domicile_ID` int(11) NOT NULL,
-  `Propriétaire` int(11) NOT NULL,
+  `Proprietaire` int(11) NOT NULL,
   `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Nom` mediumtext NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `rooms`
+-- Dechargement des donnees de la table `rooms`
 --
 
-INSERT INTO `rooms` (`ID`, `Domicile_ID`, `Propriétaire`, `AddedOnDate`, `Nom`) VALUES
+INSERT INTO `rooms` (`ID`, `Domicile_ID`, `Proprietaire`, `AddedOnDate`, `Nom`) VALUES
 (30, 2, 1, '2018-05-12 19:25:16', 'Salon'),
 (5, 65, 1, '2018-05-05 14:05:48', 'Atelier'),
 (6, 65, 1, '2018-05-05 16:43:10', 'Toilettes'),
@@ -314,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `userdomicile` (
 ) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `userdomicile`
+-- Dechargement des donnees de la table `userdomicile`
 --
 
 INSERT INTO `userdomicile` (`userID`, `domicileID`, `AddedOnDate`, `ID`) VALUES
@@ -334,10 +334,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` text NOT NULL,
   `admin` tinyint(1) NOT NULL,
   `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Téléphone` int(20) NOT NULL,
+  `Telephone` int(20) NOT NULL,
   `adresse` varchar(200) NOT NULL,
   `Mail` varchar(200) NOT NULL,
-  `Prénom` varchar(50) NOT NULL,
+  `Prenom` varchar(50) NOT NULL,
   `Nom` varchar(40) NOT NULL,
   `Date_de_naissance` int(11) NOT NULL,
   `image` longblob NOT NULL,
@@ -346,10 +346,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=MyISAM AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `users`
+-- Dechargement des donnees de la table `users`
 --
 
-INSERT INTO `users` (`ID`, `username`, `password`, `email`, `admin`, `AddedOnDate`, `Téléphone`, `adresse`, `Mail`, `Prénom`, `Nom`, `Date_de_naissance`, `image`, `name`) VALUES
+INSERT INTO `users` (`ID`, `username`, `password`, `email`, `admin`, `AddedOnDate`, `Telephone`, `adresse`, `Mail`, `Prenom`, `Nom`, `Date_de_naissance`, `image`, `name`) VALUES
 (1, 'Bob', '$2y$10$dC5CWbbuSKoQsyMqtEH4yuAs9JgPCoxK6kWIpPToi.PT7ILh/YV3.', 'eliott.sfedj@isep.fr', 1, '2018-06-14 07:45:02', 0, '', '', '', '', 0, '', ''),
 (64, 'Nidhal', '$2y$10$cvInq/sUUDFCuvqDSkhlBe3SgOWb9lm5.I.4L2e/5U/sSR2mrs4Zu', 'nidhal.sabbah@isep.fr', 1, '2018-06-14 07:50:23', 0, '', '', '', '', 0, '', ''),
 (48, 'Pierre', '$2y$10$tuuANMhTvwW2hdR6iC0rJOM6fpLw6If0HGRxxMlLEpVg/voKttuc2', 'pierre.rozo@isep.fr', 1, '2018-06-14 07:48:33', 0, '', '', '', '', 0, '', ''),

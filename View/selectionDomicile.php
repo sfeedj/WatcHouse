@@ -18,7 +18,7 @@
         <span class="titre_form">Ajouter un domicile :</span><br/><br/>
         <input class = "full" type="txt" name="nomDomicile" placeholder=" Nom du Domicile" required /><br/>
         <input  class = "full" type="txt" name="adresseDomicile" placeholder=" Adresse" required /><br/>
-        <input class="half" type="int" name="numeroDomicile" placeholder=" Numéro" required />
+        <input class="half" type="int" name="numeroDomicile" placeholder=" Numero" required />
         <input class="half" type="int" name="codepostalDomicile" placeholder=" Code Postal" required />
         <input class = "full"  type="txt" name="villeDomicile" placeholder=" Ville" required />
         <input  class = "full" type="txt" name="paysDomicile" placeholder=" Pays" required /><br/>

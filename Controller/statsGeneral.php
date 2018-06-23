@@ -15,7 +15,7 @@ function drawChart() {
 
   // Create the data table.
   var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Pièce');
+  data.addColumn('string', 'Piece');
   data.addColumn('number', 'Kwh');
   data.addRows([
     ['Cuisine ', 3],
@@ -26,7 +26,7 @@ function drawChart() {
   ]);
 
   // Set chart options
-  var options = {'title':'Consomation Electricité : Juin 2018',
+  var options = {'title':'Consomation Electricite : Juin 2018',
   'width':470,
   'height':200};
 

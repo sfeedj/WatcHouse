@@ -45,12 +45,12 @@ function sendMailWithPassword($email, $username, $password){
     $subject = 'Bienvenue chez vous';
     $message =
         "Bonjour " . $username . "," . "\r\n" .
-        "Merci d'avoir choisi notre équipe pour votre système de domotique," . "\r\n" .
+        "Merci d'avoir choisi notre equipe pour votre systeme de domotique," . "\r\n" .
         "Vous êtes maintenant client chez Domisep," . "\r\n" .
         "Votre mot de passe provisoire est : " . $password . "\r\n" .
-        "Nous vous invitons à le modifier des que possible." . "\r\n" .
+        "Nous vous invitons a le modifier des que possible." . "\r\n" .
         "Cordialement," . "\r\n" .
-        "L'équipe Domisep";
+        "L'equipe Domisep";
     $headers = 'From: WatchHouse.isep@gmail.com' . "\r\n" .
         'Reply-To: WatchHouse.isep@gmail.com' . "\r\n" .
         'Content-Type: text/plain; charset = "utf8"' . "\r\n";
@@ -62,7 +62,7 @@ function supprimerClient($nom,$ID,$bdd){
     'username' =>$nom,
     'ID'=>$ID
   ));
-  $req=$bdd->prepare("DELETE FROM domiciles WHERE Propriétaire=:ID");
+  $req=$bdd->prepare("DELETE FROM domiciles WHERE Proprietaire=:ID");
   $req->execute(array(
     'ID'=>$ID
   ));
@@ -79,7 +79,7 @@ function isAdmin($id, $bdd){
 }
 function ajouterModule($nomModule,$Prix,$Description,$userfile,$moduleType,$bdd){
   echo 'LOLZER'.$userfile;
-  $req=$bdd->prepare("INSERT INTO catalogue (Nom, Catégorie, Prix, Description, img) VALUES ( :Nom,:Categorie,:Prix,:Description,:img)");
+  $req=$bdd->prepare("INSERT INTO catalogue (Nom, Categorie, Prix, Description, img) VALUES ( :Nom,:Categorie,:Prix,:Description,:img)");
   $req->execute(array(
     'Nom' =>$nomModule,
     'Categorie'=>$moduleType,
@@ -88,16 +88,16 @@ function ajouterModule($nomModule,$Prix,$Description,$userfile,$moduleType,$bdd)
     'img'=>$userfile,
   ));
 }
-function supprimerModule($Référence,$bdd){
-  $reqImg=$bdd->prepare("SELECT img FROM catalogue WHERE Référence= :Ref");
-  $reqImg->execute(array('Ref'=>$Référence));
+function supprimerModule($Reference,$bdd){
+  $reqImg=$bdd->prepare("SELECT img FROM catalogue WHERE Reference= :Ref");
+  $reqImg->execute(array('Ref'=>$Reference));
   $resultat = $reqImg->fetch();
   if (file_exists($resultat[0])){
     unlink($resultat[0]);
   }
-  $req=$bdd->prepare("DELETE FROM catalogue WHERE Référence= :Ref");
+  $req=$bdd->prepare("DELETE FROM catalogue WHERE Reference= :Ref");
   $req->execute(array(
-    'Ref' =>$Référence
+    'Ref' =>$Reference
   ));
 }
 ?>
