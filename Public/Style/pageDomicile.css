@@ -3,6 +3,32 @@ body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+#liste_cemac{
+  overflow: scroll;
+  height: 200px;
+}
+.tableau_clients{
+  position: relative;
+  width: 100%;
+  border-collapse: collapse;
+  border-width: medium;
+  border-color: #7f8c8d;
+}
+.tableau_clients td{
+  border: solid;
+  border-width: medium;
+  border-color: #7f8c8d;
+  padding: 20px;
+}
+.enTete {
+  font-weight: bold;
+  border: solid;
+  border-width: medium;
+  border-color: #7f8c8d;
+}
+
+
 /* STATUT USER */
 #statut{
 position: absolute;
@@ -298,12 +324,20 @@ label,#checkBox{
   display: none;
 }
 
+.invisible_Cemac{
+  display: none;
+}
+
+.invisible_Suppr_Cemac{
+  display: none;
+}
+
 /* BOUTON AJOUT PIECE */
 .gestionPieces{
-  position: fixed;
-  bottom: 45px;
-  right:0px;
-}
+   position: fixed;
+   bottom: 45px;
+   right:0px;
+ }
 
 .gestionPieces button{
   background-color: #34495e;
@@ -325,6 +359,36 @@ label,#checkBox{
 }
 
 .gestionPieces button:active{
+  padding-left:38px;
+  padding-right: 38px;
+}
+
+/* BOUTON AJOUT CEMAC */
+
+.gestionCemac {
+  display: flex;
+}
+
+.gestionCemac button{
+  background-color: #34495e;
+  text-align: center;
+  border:none;
+  color:white;
+  font-size: 1.5em;
+  padding-left:40px;
+  padding-right: 40px;
+  margin-bottom: 5%;
+  margin-right: -5px;
+  cursor: pointer;
+  transition: 0.2s;
+
+}
+
+.gestionCemac button:hover{
+  background-color: #2980b9;
+}
+
+.gestionCemac button:active{
   padding-left:38px;
   padding-right: 38px;
 }
@@ -374,3 +438,9 @@ select{
   margin-top: -20%;
   font-weight: bold;
 }
+
+
+
+
+
+

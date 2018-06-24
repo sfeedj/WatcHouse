@@ -29,11 +29,11 @@ function genererMdp($long = 8){
   $mdp = '';
   for ($k = 0; $k < $long; $k++){
     if ($k == round($long/2)){
-      $i = mt_rand(0, strlen($speciaux));
+      $i = mt_rand(0, strlen($speciaux)-1);
       $c = $speciaux[$i];
     }
     else{
-      $i = mt_rand(0, strlen($chaine));
+      $i = mt_rand(0, strlen($chaine)-1);
       $c = $chaine[$i];
     }
     $mdp .= $c;
