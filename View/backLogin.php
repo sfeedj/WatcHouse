@@ -39,7 +39,6 @@
       <a href="#" class="popup"><span>Utilisez vos identifiants administrateur !</span><img src="/../WatcHouse/Public/images/logoInterrogation.png" alt="" class="logoInterrogation"></a>
       <br/>
       <button type="submit" class="logButton" />Connexion</button><br/><br/>
-      <a href="/../WatcHouse/index.php?page=oublieMDP">J'ai oublie mon mot de passe ! </a>
     </form>
     <button onclick="affichageInvisible('invisible')" class="mdpoublie">J'ai oublie mon mot de passe</button>
   </div>

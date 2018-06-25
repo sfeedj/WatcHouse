@@ -33,7 +33,7 @@ function rechercheClient($nom,$bdd){
   $reqDomiciles->execute(array($nom));
   $reqPieces = $bdd->prepare('SELECT Nom, Domicile_ID, AddedOnDate FROM rooms WHERE Proprietaire=? ');
   $reqPieces->execute(array($nom));
-  $reqCapteurs= $bdd->prepare('SELECT Reference, ID_piece, InstalledOnDate, UUID FROM capteurs WHERE ID_proprietaire=? ');
+  $reqCapteurs= $bdd->prepare('SELECT Nom, Reference, ID_piece, AddedOnDate, UUID FROM capteurs WHERE ID_proprietaire=? ');
   $reqCapteurs->execute(array($nom));
   $reqCom= $bdd->prepare('SELECT ID, article_commande, AddedOnDate FROM commandes WHERE user_ID=? ORDER BY AddedOnDate DESC');
   $reqCom->execute(array($nom));
@@ -78,11 +78,13 @@ function rechercheClient($nom,$bdd){
     <p class='searchCategory'>----- CAPTEURS -----</p><br/>";
     while ( $donneesCapteurs = $reqCapteurs->fetch()){
       echo "
-      Reference : ".$donneesCapteurs["Nom"]."<br/>
-      ID_piece : ".$donneesCapteurs["Domicile_ID"]."<br/>
+      Nom : ".$donneesCapteurs["Nom"]."<br/>
+      Reference : ".$donneesCapteurs["Reference"]."<br/>
+      ID_piece : ".$donneesCapteurs["ID_piece"]."<br/>
       Date d'installation : ".$donneesCapteurs["AddedOnDate"]."<br/>
-      UUID : ".$donneesCapteurs["AddedOnDate"]."<br/><br/>
+      UUID : ".$donneesCapteurs["UUID"]."<br/><br/>
       ";
+
     }
 
     echo "</td>

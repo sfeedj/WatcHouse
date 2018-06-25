@@ -23,23 +23,7 @@ function ajouterClient($nom,$email,$admin,$bdd){
     </script>";
   }
 }
-function genererMdp($long = 8){
-  $chaine = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  $speciaux = '*$<>-_';
-  $mdp = '';
-  for ($k = 0; $k < $long; $k++){
-    if ($k == round($long/2)){
-      $i = mt_rand(0, strlen($speciaux));
-      $c = $speciaux[$i];
-    }
-    else{
-      $i = mt_rand(0, strlen($chaine));
-      $c = $chaine[$i];
-    }
-    $mdp .= $c;
-  }
-  return $mdp;
-}
+
 function sendMailWithPassword($email, $username, $password){
     $to      = $email;
     $subject = 'Bienvenue chez vous';
