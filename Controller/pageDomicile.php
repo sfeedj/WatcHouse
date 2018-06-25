@@ -153,19 +153,22 @@ function listeModulesInline($pieceID, $bdd)
 {
     $req = $bdd->prepare("SELECT Nom, Reference, UUID, Categorie FROM capteurs WHERE ID_piece=? ORDER BY UUID DESC");
     $req->execute(array($pieceID));
+    if ($req == false)
+        return;
+    $data = $req->fetchAll();
 
     $k = 0;
 
-    while ($donnees = $req->fetch()) {
+    foreach ($data as $donnees) {
         $reqImg = $bdd->prepare('SELECT img FROM catalogue WHERE Reference=?');
         $reqImg->execute(array($donnees['Reference']));
         $reqImg = $reqImg->fetch();
 
         echo "
       <div  id='d" . $k . "' class='modulesWrapper'>
-      <img src='" . $reqImg[0] . "' class='imageModule' style='height:70px;'>
+      <img src='" . $reqImg['img'] . "' class='imageModule' style='height:70px;'>
       <p>";
-        echo moduleInfo($donnees['Reference'], $donnees['UUID'], $donnees['Categorie']);
+        echo moduleInfo($donnees['UUID'], $donnees['Categorie']);
         echo "</p>
       <figcaption >" . $donnees["Nom"] . "</figcaption>
       </div>
@@ -175,12 +178,12 @@ function listeModulesInline($pieceID, $bdd)
     $k++;
 }
 
-function moduleInfo($ref, $id, $categorie)
+function moduleInfo($id, $categorie)
 {
     if ($categorie == "Module") {
         return "Active";
     } elseif ($categorie == "Capteur") {
-        return lastMesure($id,$categorie, $ref);
+        return lastMesure($id);
     }
     return "test";
 }

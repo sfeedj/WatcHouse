@@ -18,7 +18,7 @@
     <a id="return" href="../Controller/pageDomicile.php?id=<?php echo $GLOBALS['domicileSelect']; ?>"> ← Retourner au
         domicile</a>
 </div>
-<div class="selectModule"><?php listeModules($GLOBALS['pieceSelect'], $bdd); ?></div>
+<div class="selectModule"><?php listeModules($GLOBALS['pieceSelect']); ?></div>
 <div class='gestionModules'>
     <button href="#" onclick="affichageInvisible('invisible')" id='left'>+</button>
     <button href="#" onclick="affichageInvisible('invisibleSuppr')">-</button>
@@ -40,7 +40,7 @@
                 Associer à un CeMac : <br/>
                 <?php select_Cemac($GLOBALS['domicileSelect']); ?><br/><br/>
                 <input id='txt' type="number" name="numero" placeholder="Numero du capteur" required><br/>
-                <input id='txt' type="text" name="nom" placeholder=" Nom du module" required><br/>
+                <input id='txt' type="text" name="Nom" placeholder=" Nom du module" required><br/>
             </div>
             <button type="submit" class="formButton">Ajouter</button>
             <br/><br/>

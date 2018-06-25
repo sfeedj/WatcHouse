@@ -113,31 +113,45 @@ function surfaceDomicile($domicileID, $bdd)
 }
 
 
-function ajouterModule($id_cemac, $id_type, $numero, $nom, $id_piece)
+function ajouterModule($Reference, $numero, $Nom, $ID_piece, $ID_CeMac)
 {
     $bdd = $GLOBALS['bdd'];
-    $req = $bdd->prepare("INSERT INTO capteurs (id_cemac ,id_type , numero, nom, id_piece) VALUES ( :id_cemac, :id_type, :numero, :nom, :id_piece)");
+    $r = $bdd->prepare('SELECT Nom,Categorie FROM Catalogue WHERE Reference=?');
+    $r->execute(array($Reference));
+    $data = $r->fetch();
+    $Type = $data['Nom'];
+    $Categorie = $data['Categorie'];
+    $req = $bdd->prepare("INSERT INTO capteurs (Reference, Type, numero, Nom, ID_piece, ID_CeMac, Categorie, Etat) 
+                          VALUES (:Reference, :Type, :numero, :Nom, :ID_piece, :ID_CeMac, :Categorie, 0)");
     $req->execute(array(
-        'id_cemac' => $id_cemac,
-        'id_type' => $id_type,
+        'Reference' => $Reference,
+        'Type' => $Type,
         'numero' => $numero,
-        'nom' => $nom,
-        'id_piece' => $id_piece
+        'Nom' => $Nom,
+        'ID_piece' => $ID_piece,
+        'ID_CeMac' => $ID_CeMac,
+        'Categorie' => $Categorie
     ));
 }
 
-function supprimerModule($id)
+function supprimerModule($UUID)
 {
     $bdd = $GLOBALS['bdd'];
-    $req = $bdd->prepare("DELETE FROM capteurs WHERE id=?");
-    $req->execute(array($id));
+    $req = $bdd->prepare("DELETE FROM capteurs WHERE UUID=?");
+    $req->execute(array($UUID));
 }
 
-function lastMesure($id_cemac, $type_capteur, $numero_capteur)
+function lastMesure($UUID)
 {
     $bdd = $GLOBALS['bdd'];
-    $req = $bdd->prepare("SELECT data FROM mesures WHERE id_cemac=? and id_type=? and numero_capteur=? ORDER BY AddedOnDate DESC LIMIT 1");
-    $req->execute(array("$id_cemac", "$type_capteur", "$numero_capteur"));
+    $req = $bdd->prepare("SELECT Reference,ID_CeMac,numero FROM capteurs WHERE UUID=?");
+    $req->execute(array($UUID));
+    $data = $req->fetch();
+    $Reference = $data['Reference'];
+    $ID_CeMac = $data['ID_CeMac'];
+    $numero = $data['numero'];
+    $req = $bdd->prepare("SELECT data FROM mesures WHERE id_cemac=? and Reference=? and numero_capteur=? ORDER BY AddedOnDate DESC LIMIT 1");
+    $req->execute(array($ID_CeMac, $Reference, $numero));
     $res = $req->fetch();
     if (isset($res['data'])) {
         return $res['data'];

@@ -11,14 +11,14 @@ if (isset($_SESSION['ID']) && checkProprietaire($_SESSION['ID'], $GLOBALS['domic
     include("../View/footer.php");
 
     // AJOUT MODULE
-    if (isset($_POST['id_cemac']) && isset($GLOBALS['pieceSelect']) && isset($_POST['id_type']) && isset($_POST['numero']) && isset($_POST['nom'])) {
-        ajouterModule($_POST['id_cemac'], $_POST['id_type'], $_POST['numero'], $_POST['nom'], $GLOBALS['pieceSelect']);
+    if (isset($_POST['ID_CeMac']) && isset($GLOBALS['pieceSelect']) && isset($_POST['Reference']) && isset($_POST['numero']) && isset($_POST['Nom'])) {
+        ajouterModule($_POST['Reference'], $_POST['numero'], $_POST['Nom'], $GLOBALS['pieceSelect'], $_POST['ID_CeMac']);
         echo '<meta http-equiv="refresh" content="0" />';
     }
 
     // SUPPRESSION MODULE
-    if (isset($_POST['id_module'])) {
-        supprimerModule($_POST['id_module']);
+    if (isset($_POST['UUID'])) {
+        supprimerModule($_POST['UUID']);
         echo '<meta http-equiv="refresh" content="0" />';
     }
 
@@ -29,10 +29,10 @@ if (isset($_SESSION['ID']) && checkProprietaire($_SESSION['ID'], $GLOBALS['domic
 
 function Select_Module($bdd)
 {
-    $req = $bdd->query('SELECT id_type, nom FROM type_capteur ORDER BY nom');
-    echo "<select name='id_type'>";
+    $req = $bdd->query('SELECT Reference, Nom FROM catalogue ORDER BY Nom');
+    echo "<select name='Reference'>";
     while ($donnees = $req->fetch()) {
-        echo "<option value='" . $donnees["id_type"] . "'>" . $donnees["nom"] . "</option>";
+        echo "<option value='" . $donnees["Reference"] . "'>" . $donnees["Nom"] . "</option>";
     }
     echo "</select>";
 }
@@ -44,7 +44,7 @@ function select_Cemac($id_domilice)
     $req->execute(array($id_domilice));
     $data = $req->fetchAll();
 
-    echo "<select id='select_cemac' name='id_cemac'>";
+    echo "<select id='select_cemac' name='ID_CeMac'>";
     foreach ($data as $row) {
         echo "<option value='" . $row["id_cemac"] . "'>" . $row["id_cemac"] . " : " . $row["nom"] . "</option>";
     }
@@ -56,9 +56,9 @@ function Select_Installed_Module($pieceID, $bdd)
     $req = $bdd->prepare('SELECT * FROM capteurs WHERE id_piece=? ORDER BY nom DESC');
     $req->execute(array($pieceID));
     echo "
-  <select name='id_module'>";
+  <select name='UUID'>";
     while ($donnees = $req->fetch()) {
-        echo "  <option value='" . $donnees["id"] . "'>" . $donnees["nom"] . "</option>";
+        echo "  <option value='" . $donnees["UUID"] . "'>" . $donnees["Nom"] . "</option>";
     }
     echo "
   </select>
@@ -69,9 +69,9 @@ function Select_Installed_Module($pieceID, $bdd)
 function listeModules($pieceID)
 {
     $bdd = $GLOBALS['bdd'];
-    $req = $bdd->prepare("SELECT id, id_cemac, numero, capteurs.nom AS nom, image, capteurs.id_type AS id_type, type_capteur.nom AS type_capteur, categorie
-                          FROM capteurs JOIN type_capteur ON capteurs.id_type=type_capteur.id_type
-                          WHERE id_piece=? ORDER BY nom DESC");
+    $req = $bdd->prepare("SELECT img,capteurs.Nom as Nom,UUID,ID_CeMac,numero,capteurs.Categorie as Categorie 
+                          FROM catalogue JOIN capteurs ON catalogue.Reference=capteurs.Reference 
+                          WHERE id_piece=? ORDER BY Nom DESC");
     $req->execute(array($pieceID));
 
     $k = 0;
@@ -81,11 +81,11 @@ function listeModules($pieceID)
     while ($donnees = $req->fetch()) {
         echo "
       <td  id='d" . $k . "' class='modulesWrapper'>
-      <img src='" . $donnees['image'] . "' class='imageModule' style='height:100px;'>
+      <img src='" . $donnees['img'] . "' class='imageModule' style='height:100px;'>
       <p>";
-        echo moduleInfo($donnees['id'], $donnees['id_cemac'], $donnees['id_type'], $donnees['numero'], $donnees['categorie']);
+        echo moduleInfo($donnees['UUID'], $donnees['Categorie']);
         echo "</p>
-      <figcaption >" . $donnees["nom"] . "</figcaption>
+      <figcaption >" . $donnees["Nom"] . "</figcaption>
       </td>
       <td class='separator'></td>
       ";
@@ -114,9 +114,12 @@ function getEtat($id)
 function isChecked($id)
 {
     global $bdd;
-    $req = $bdd->query("SELECT etat FROM capteurs WHERE id='$id'");
-    while ($donnees = $req->fetch()) {
-        if ($donnees['etat'] == 1) {
+    $req = $bdd->query("SELECT Etat FROM capteurs WHERE UUID='$id'");
+    if ($req == false)
+        return "";
+    $data = $req->fetchAll();
+    foreach ($data as $row) {
+        if ($row['Etat'] == 1) {
             return "checked";
         } else
             return "";
@@ -125,25 +128,25 @@ function isChecked($id)
 }
 
 
-function moduleInfo($id, $id_cemac, $id_type, $numero, $categorie)
+function moduleInfo($UUID, $Categorie)
 {
 
-    if ($categorie == "Actionneur") {
+    if ($Categorie == "Actionneur") {
 
         return
             '<div style="display: flex;justify-content: center;">
-      <input class="cursor" type="range" id="' . $id . '" min="15" max="40" value="' . lastMesure($id_cemac, $id_type, $numero) . '" step="0.5" onchange="cursor(' . $id . ')" />
+      <input class="cursor" type="range" id="' . $UUID . '" min="15" max="40" value="' . lastMesure($UUID) . '" step="0.5" onchange="cursor(' . $UUID . ')" />
       </div>
-      <div class="valeur"><div id=" ' . $id . ' ">' . lastMesure($id_cemac, $id_type, $numero) . '°C</div></div>
+      <div class="valeur"><div id=" ' . $UUID . ' ">' . lastMesure($UUID) . '°C</div></div>
       <script>
-      document.getElementById("' . $id . '").onchange = function() {
-      document.getElementById(" ' . $id . ' ").textContent=document.getElementById("' . $id . '").value+"°C";
+      document.getElementById("' . $UUID . '").onchange = function() {
+        document.getElementById(" ' . $UUID . ' ").textContent=document.getElementById("' . $UUID . '").value+"°C";
       }
       </script>';
-    } elseif ($categorie == "Module") {
+    } elseif ($Categorie == "Module") {
         return "Active";
-    } elseif ($categorie == "On/Off") {
-        $checked = isChecked($id);
+    } elseif ($Categorie == "On/Off") {
+        $checked = isChecked($UUID);
         return '
     <script>
 
@@ -151,11 +154,11 @@ function moduleInfo($id, $id_cemac, $id_type, $numero, $categorie)
       console.log("' . $checked . '");
       }
       </script>
-    <input name="cap" id="' . $id . '" class="toggle-status" onclick="go(' . $id . ')" type="checkbox"  ' . $checked . '>
-    <label for="' . $id . '"  class="toggle-switch  toggle-x2 toggle-rounded"></label>
+    <input name="cap" id="' . $UUID . '" class="toggle-status" onclick="go(' . $UUID . ')" type="checkbox"  ' . $checked . '>
+    <label for="' . $UUID . '"  class="toggle-switch  toggle-x2 toggle-rounded"></label>
     ';
-    } elseif ($categorie == "Capteur") {
-        return lastMesure($id_cemac, $id_type, $numero);
+    } elseif ($Categorie == "Capteur") {
+        return lastMesure($UUID);
     }
 
 

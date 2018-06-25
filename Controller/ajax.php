@@ -1,28 +1,24 @@
 <?php
 session_start();
 
-$GLOBALS['bdd'] = new PDO('mysql:host=localhost;dbname=watchouse;charset=utf8', 'root', '');
-$username=$_SESSION['username'];
+include_once($_SERVER['DOCUMENT_ROOT'] . '/WatcHouse/Model/bddConnect.php');
+$username = $_SESSION['username'];
 
 
-$id=$_GET['id'];
-
-
+$id = $_GET['id'];
+$bdd = $GLOBALS['bdd'];
 
 
 $req = $bdd->query("SELECT Etat FROM capteurs WHERE UUID='$id' ");
-  while ($donnees = $req->fetch())
-  {
-    if($donnees['Etat']==0){
-            $req=$bdd->exec("UPDATE capteurs SET Etat='1' WHERE UUID='$id' ");
+$donnees = $req->fetch();
+if ($donnees == false)
+    exit();
+else {
+    if ($donnees['Etat'] == 0) {
+        $req = $bdd->exec("UPDATE capteurs SET Etat='1' WHERE UUID='$id' ");
+    } else {
+        $req = $bdd->exec("UPDATE capteurs SET Etat='0' WHERE UUID='$id' ");
     }
-    else {
-            $req=$bdd->exec("UPDATE capteurs SET Etat='0' WHERE UUID='$id' ");
-    }
-
 }
-
-
-echo "222";
 
 ?>

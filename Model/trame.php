@@ -25,7 +25,12 @@ function sendTrame(){
 function getTrameBDD(){
     $bdd = $GLOBALS["bdd"];
     $req = $bdd->query('SELECT * FROM trame');
-    return $req->fetchAll();
+    $data = $req->fetchAll();
+    $result = array();
+    foreach($data as $row){
+        $result[] = $row['ID_Trame'];
+    }
+    return $result;
 }
 
 function saveTrameData($trame){
@@ -34,7 +39,7 @@ function saveTrameData($trame){
     if ($t == 1 && $r == 1){
         $bdd = $GLOBALS['bdd'];
         $timestamp = $year."-".$month."-".$day." ".$hour.":".$min.":".$sec;
-        $req = $bdd->prepare("INSERT INTO mesures(id_cemac,id_type,numero_capteur,AddedOnDate,data) VALUES(?,?,?,?,?)");
+        $req = $bdd->prepare("INSERT INTO mesures(id_cemac,Reference,numero_capteur,AddedOnDate,data) VALUES(?,?,?,?,?)");
         $req->execute(array($o, $c, $n, $timestamp, $v));
         $req = $bdd->prepare("INSERT INTO trame(ID_Trame) VALUES(?)");
         $req->execute(array($a));

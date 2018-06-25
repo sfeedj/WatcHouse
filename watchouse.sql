@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 24, 2018 at 09:15 PM
+-- Generation Time: Jun 25, 2018 at 11:04 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.0.13
 
@@ -27,78 +27,35 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `capteurs` (
-  `id` int(11) NOT NULL,
-  `id_CeMac` varchar(4) NOT NULL,
-  `id_type` int(11) NOT NULL,
-  `numero` int(11) NOT NULL,
-  `nom` varchar(100) NOT NULL,
-  `id_piece` int(11) NOT NULL,
-  `etat` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `capteurs`
---
-
-INSERT INTO `capteurs` (`id`, `id_CeMac`, `id_type`, `numero`, `nom`, `id_piece`, `etat`) VALUES
-(4, '011A', 4, 1, 'Hygromètre salle de ', 27, NULL),
-(5, '011A', 5, 1, 'Luxmètre', 27, NULL),
-(6, '011A', 9, 1, 'detecteur mvnt', 27, NULL),
-(7, '011A', 3, 1, 'thermomètre', 27, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `capteurs_old`
---
-
-CREATE TABLE IF NOT EXISTS `capteurs_old` (
   `Reference` int(11) NOT NULL,
   `Type` text NOT NULL,
+  `numero` int(11) DEFAULT NULL,
   `Nom` text,
   `ID_proprietaire` int(11) NOT NULL,
   `ID_piece` int(11) NOT NULL,
   `ID_CeMac` varchar(11) DEFAULT NULL,
   `Categorie` text,
   `UUID` int(11) NOT NULL,
-  `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
+  `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Etat` int(11) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=81 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `capteurs_old`
+-- Dumping data for table `capteurs`
 --
 
-INSERT INTO `capteurs_old` (`Reference`, `Type`, `Nom`, `ID_proprietaire`, `ID_piece`, `ID_CeMac`, `Categorie`, `UUID`, `AddedOnDate`) VALUES
-(3, 'WatcHouse Luxmetre', 'lumieres3', 1, 29, '011A', 'Capteur', 28, '2018-06-01 14:19:21'),
-(3, 'WatcHouse Luxmetre', 'lumiere 2', 1, 29, NULL, 'Capteur', 26, '2018-06-01 14:12:42'),
-(1, 'CeMac', 'centrale', 1, 16, '011A', 'Module', 55, '2018-06-02 18:39:06'),
-(6, 'WatcHouse Hygrometre', 'hygro1', 1, 16, '011A', 'Capteur', 58, '2018-06-02 18:49:24'),
-(1, 'CeMac', 'ed', 1, 16, '011A', 'Module', 57, '2018-06-02 18:47:01');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `capteur_old`
---
-
-CREATE TABLE IF NOT EXISTS `capteur_old` (
-  `id_user` int(11) NOT NULL,
-  `ID_Type` int(11) NOT NULL,
-  `Type_capteur` varchar(30) NOT NULL,
-  `nom_capteur` varchar(40) NOT NULL,
-  `presence` tinyint(1) NOT NULL,
-  `panne` tinyint(1) NOT NULL,
-  `image` varchar(150) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `capteur_old`
---
-
-INSERT INTO `capteur_old` (`id_user`, `ID_Type`, `Type_capteur`, `nom_capteur`, `presence`, `panne`, `image`) VALUES
-(129, 3, 'Temperature', 'Temperature', 1, 0, '/../Public/images/logoWH2.png'),
-(129, 5, 'Lumiere', 'lumiere', 1, 0, '/../Public/images/logoWH2.png'),
-(0, 1, 'Distance 1', 'distance1', 1, 0, '');
+INSERT INTO `capteurs` (`Reference`, `Type`, `numero`, `Nom`, `ID_proprietaire`, `ID_piece`, `ID_CeMac`, `Categorie`, `UUID`, `AddedOnDate`, `Etat`) VALUES
+(3, 'WatcHouse Thermomètre', 1, 'Thermomètre', 0, 25, '011A', 'Capteur', 77, '2018-06-25 22:01:42', 0),
+(15, 'WatcHouse Smart Outlet', 1, 'Smart Oulet', 0, 25, '011A', 'On/Off', 76, '2018-06-25 22:01:32', 1),
+(11, 'CeMac', 1, 'CeMac', 0, 25, '011A', 'Module', 69, '2018-06-25 21:59:55', 0),
+(81, 'WatcHouse Chauffage', 1, 'Chauffage', 0, 25, '011A', 'Actionneur', 70, '2018-06-25 22:00:17', 0),
+(4, 'WatcHouse Hygromètre', 1, 'Hygromètre', 0, 25, '011A', 'Capteur', 71, '2018-06-25 22:00:32', 0),
+(5, 'WatcHouse Luxmètre', 1, 'Luxmètre', 0, 25, '011A', 'Capteur', 72, '2018-06-25 22:00:41', 0),
+(7, 'WatcHouse Motion Sensor', 1, 'Motion Sensor', 0, 25, '011A', 'Capteur', 73, '2018-06-25 22:00:50', 0),
+(18, 'WatcHouse Oversight', 1, 'OverSight', 0, 25, '011A', 'Module', 74, '2018-06-25 22:00:59', 0),
+(14, 'WatcHouse Smart Lightbulb', 1, 'Lightbulb', 0, 25, '011A', 'On/Off', 75, '2018-06-25 22:01:15', 0),
+(18, 'WatcHouse Oversight', 2, 'test', 0, 27, '011A', 'Module', 79, '2018-06-25 22:44:07', 0),
+(3, 'WatcHouse Thermomètre', 2, 'test2', 0, 27, '011A', 'Capteur', 80, '2018-06-25 22:44:27', 0);
 
 -- --------------------------------------------------------
 
@@ -113,21 +70,22 @@ CREATE TABLE IF NOT EXISTS `catalogue` (
   `Description` text NOT NULL,
   `img` text,
   `Reference` int(11) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=82 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `catalogue`
 --
 
 INSERT INTO `catalogue` (`Nom`, `Categorie`, `Prix`, `Description`, `img`, `Reference`) VALUES
-('WatcHouse Thermometre', 'Module', 8.00, 'Cet outil permet des mesures precises de temperature. Relie au CeMac, vous pourrez ainsi controler la temperature de la piece que vous souhaitez.', '../Public/images/Modules/Thermometre.png', 2),
-('WatcHouse Luxmetre', 'Capteur', 5.00, 'Detecteur de luminosite ; compatible avec les Smart Light Bulb, Smart Stores, ...', '../Public/images/Modules/Luxmetre.png', 3),
-('WatcHouse Smart Lightbulb', 'Actionneur', 10.00, 'Ampoule connectee.', '../Public/images/Modules/Light.png', 4),
-('WatcHouse Smart Outlet', 'Module', 20.00, 'Prise electrique connectee : surveillez votre consommation et gerez-la a distance !', '../Public/images/Modules/Prise.png', 5),
-('WatcHouse Oversight', 'Capteur', 80.00, 'Camera de surveillance reliable a la CeMac.', '../Public/images/Modules/Camera.png', 8),
-('WatcHouse Hygrometre', 'Capteur', 15.00, 'Surveillez l''humidite de vos pieces.', '../Public/images/Modules/Hygrometre.png', 6),
-('WatcHouse Motion Sensor', 'Capteur', 15.00, 'Reagit au mouvement.', '../Public/images/Modules/Mouvement.png', 7),
-('CeMac', 'Module', 100.00, 'Centrale mobile d''acquisition ; permet de gerer les capteurs alentours.', '../Public/images/Modules/CeMac.png', 1);
+('WatcHouse Hygromètre', 'Capteur', 15.00, 'Surveillez l''humidité de vos pièces.', '../Public/images/Modules/Hygrometre.png', 4),
+('WatcHouse Motion Sensor', 'Capteur', 15.00, 'Réagit au mouvement.', '../Public/images/Modules/Mouvement.png', 7),
+('WatcHouse Oversight', 'Module', 80.00, 'Caméra de surveillance reliable à la CeMac.', '../Public/images/Modules/Camera.png', 18),
+('WatcHouse Smart Lightbulb', 'On/Off', 10.00, 'Ampoule connectée.', '../Public/images/Modules/Light.png', 14),
+('WatcHouse Smart Outlet', 'On/Off', 20.00, 'Prise électrique connectée : surveillez votre consommation et gérez-la à distance !', '../Public/images/Modules/Prise.png', 15),
+('WatcHouse Luxmètre', 'Capteur', 5.00, 'Détecteur de luminosité ; compatible avec les Smart Light Bulb, Smart Stores, ...', '../Public/images/Modules/Luxmetre.png', 5),
+('WatcHouse Thermomètre', 'Capteur', 8.00, 'Cet outil permet des mesures précises de température. Relié au CeMac, vous pourrez ainsi contrôler la température de la pièce que vous souhaitez.', '../Public/images/Modules/Thermometre.png', 3),
+('CeMac', 'Module', 100.00, 'Centrale mobile d''acquisition ; permet de gérer les capteurs alentours.', '../Public/images/Modules/CeMac.png', 11),
+('WatcHouse Chauffage', 'Actionneur', 20.00, 'Cet outil permet de régler la température de votre pièce.', '../Public/images/Modules/chauffage.png', 81);
 
 -- --------------------------------------------------------
 
@@ -140,14 +98,14 @@ CREATE TABLE IF NOT EXISTS `cemac` (
   `id_cemac` varchar(4) NOT NULL,
   `id_domicile` int(11) NOT NULL,
   `nom` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cemac`
 --
 
 INSERT INTO `cemac` (`id`, `id_cemac`, `id_domicile`, `nom`) VALUES
-(2, '011A', 86, 'APP');
+(9, '011A', 86, 'Groupe 11 A');
 
 -- --------------------------------------------------------
 
@@ -214,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `domiciles` (
   `Proprietaire` int(11) NOT NULL,
   `Pieces` text NOT NULL,
   `InstalledOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM AUTO_INCREMENT=91 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `domiciles`
@@ -256,49 +214,61 @@ INSERT INTO `faq` (`id`, `id_user_question`, `id_user_reponse`, `question`, `rep
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `formulaire`
+--
+
+CREATE TABLE IF NOT EXISTS `formulaire` (
+  `firstname` varchar(40) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `password` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `formulaire`
+--
+
+INSERT INTO `formulaire` (`firstname`, `name`, `password`) VALUES
+('john', 'doe', 'vfdv'),
+('ihdi', 'hoifda', 'ifdhs'),
+('ihdi', 'hoifda', 'ifdhs'),
+('ojdp', 'hpof', 'poifi'),
+('eoi', 'zoz', 'oso'),
+('eoi', 'zoz', 'oso'),
+('Nidhal', 'sabbah', 'azerty');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `mesures`
 --
 
 CREATE TABLE IF NOT EXISTS `mesures` (
   `id_mesure` int(11) NOT NULL,
   `id_cemac` varchar(4) NOT NULL,
-  `id_type` int(11) NOT NULL,
+  `Reference` int(11) NOT NULL,
   `numero_capteur` int(11) NOT NULL,
   `AddedOnDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `data` int(11) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `mesures`
 --
 
-INSERT INTO `mesures` (`id_mesure`, `id_cemac`, `id_type`, `numero_capteur`, `AddedOnDate`, `data`) VALUES
-(25, '011A', 3, 1, '2018-06-24 20:34:00', 23),
-(24, '011A', 9, 1, '2018-06-24 20:34:00', 1),
-(23, '011A', 5, 1, '2018-06-24 20:34:00', 10),
-(22, '011A', 4, 1, '2018-06-24 20:34:00', 30),
-(21, '011A', 3, 1, '2018-06-24 20:34:00', 23),
-(20, '011A', 9, 1, '2018-06-24 20:34:00', 1),
-(19, '011A', 5, 1, '2018-06-24 20:34:00', 10),
-(18, '011A', 4, 1, '2018-06-24 20:34:00', 30),
-(17, '011A', 3, 1, '2018-06-24 20:34:00', 23),
-(26, '011A', 4, 1, '2018-06-24 20:34:00', 30),
-(27, '011A', 5, 1, '2018-06-24 20:34:00', 10),
-(28, '011A', 9, 1, '2018-06-24 20:34:00', 1),
-(29, '011A', 3, 1, '2018-06-24 20:36:00', 25),
-(30, '011A', 3, 1, '2018-06-24 20:34:00', 23),
-(31, '011A', 4, 1, '2018-06-24 20:34:00', 30),
-(32, '011A', 5, 1, '2018-06-24 20:34:00', 10),
-(33, '011A', 9, 1, '2018-06-24 20:34:00', 1),
-(34, '011A', 3, 1, '2018-06-24 20:36:00', 25),
-(35, '011A', 3, 1, '2018-06-24 20:32:00', 18),
-(36, '011A', 3, 1, '2018-06-24 20:34:00', 23),
-(37, '011A', 4, 1, '2018-06-24 20:34:00', 30),
-(38, '011A', 5, 1, '2018-06-24 20:34:00', 10),
-(39, '011A', 9, 1, '2018-06-24 20:34:00', 1),
-(40, '011A', 3, 1, '2018-06-24 20:36:00', 25),
-(41, '011A', 3, 1, '2018-06-24 20:32:00', 18),
-(42, '011A', 3, 1, '2018-06-24 20:38:00', 1);
+INSERT INTO `mesures` (`id_mesure`, `id_cemac`, `Reference`, `numero_capteur`, `AddedOnDate`, `data`) VALUES
+(55, '011A', 3, 2, '2018-06-24 20:38:01', 145),
+(54, '011A', 3, 1, '2018-06-24 20:38:01', 111),
+(53, '011A', 0, 1, '2018-06-24 20:38:01', 111),
+(52, '011A', 0, 1, '2018-06-24 20:38:00', 4),
+(51, '011A', 9, 1, '2018-06-24 20:38:00', 12),
+(50, '011A', 8, 1, '2018-06-24 20:38:00', 30),
+(49, '011A', 7, 1, '2018-06-24 20:38:00', 20),
+(48, '011A', 6, 1, '2018-06-24 20:32:00', 18),
+(47, '011A', 5, 1, '2018-06-24 20:36:00', 25),
+(46, '011A', 4, 1, '2018-06-24 20:34:00', 1),
+(45, '011A', 3, 1, '2018-06-24 20:34:00', 10),
+(44, '011A', 2, 1, '2018-06-24 20:34:00', 30),
+(43, '011A', 1, 1, '2018-06-24 20:34:00', 23);
 
 -- --------------------------------------------------------
 
@@ -353,36 +323,19 @@ CREATE TABLE IF NOT EXISTS `trame` (
 --
 
 INSERT INTO `trame` (`ID_Trame`) VALUES
+('0001'),
+('0002'),
+('0003'),
+('0004'),
 ('0005'),
 ('0006'),
 ('0007'),
 ('0008'),
 ('0009'),
-('0010');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `type_capteur`
---
-
-CREATE TABLE IF NOT EXISTS `type_capteur` (
-  `id_type` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `image` text NOT NULL,
-  `categorie` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `type_capteur`
---
-
-INSERT INTO `type_capteur` (`id_type`, `nom`, `description`, `image`, `categorie`) VALUES
-(3, 'Thermomètre', 'Capteur de température', '../Public/images/Modules/Thermometre.png', 'Capteur'),
-(4, 'Hygromètre', 'Capteur d''humidité', '../Public/images/Modules/Hygrometre.png', 'Capteur'),
-(5, 'Luxmètre', 'Capteur de luminosité modèle 1', '../Public/images/Modules/Luxmetre.png', 'Capteur'),
-(9, 'Motion Sensor', 'Détecteur de mouvement', '../Public/images/Modules/Mouvement.png', 'Capteur');
+('0010'),
+('0011'),
+('0012'),
+('0013');
 
 -- --------------------------------------------------------
 
@@ -447,19 +400,7 @@ INSERT INTO `users` (`ID`, `username`, `password`, `email`, `admin`, `AddedOnDat
 -- Indexes for table `capteurs`
 --
 ALTER TABLE `capteurs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `capteurs_old`
---
-ALTER TABLE `capteurs_old`
   ADD PRIMARY KEY (`UUID`);
-
---
--- Indexes for table `capteur_old`
---
-ALTER TABLE `capteur_old`
-  ADD PRIMARY KEY (`ID_Type`);
 
 --
 -- Indexes for table `catalogue`
@@ -510,12 +451,6 @@ ALTER TABLE `trame`
   ADD PRIMARY KEY (`ID_Trame`);
 
 --
--- Indexes for table `type_capteur`
---
-ALTER TABLE `type_capteur`
-  ADD PRIMARY KEY (`id_type`);
-
---
 -- Indexes for table `userdomicile`
 --
 ALTER TABLE `userdomicile`
@@ -535,22 +470,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `capteurs`
 --
 ALTER TABLE `capteurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `capteurs_old`
---
-ALTER TABLE `capteurs_old`
-  MODIFY `UUID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=59;
+  MODIFY `UUID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=81;
 --
 -- AUTO_INCREMENT for table `catalogue`
 --
 ALTER TABLE `catalogue`
-  MODIFY `Reference` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=79;
+  MODIFY `Reference` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=82;
 --
 -- AUTO_INCREMENT for table `cemac`
 --
 ALTER TABLE `cemac`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=100;
 --
 -- AUTO_INCREMENT for table `commandes`
 --
@@ -560,7 +490,7 @@ ALTER TABLE `commandes`
 -- AUTO_INCREMENT for table `domiciles`
 --
 ALTER TABLE `domiciles`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=91;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=92;
 --
 -- AUTO_INCREMENT for table `faq`
 --
@@ -570,7 +500,7 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT for table `mesures`
 --
 ALTER TABLE `mesures`
-  MODIFY `id_mesure` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
+  MODIFY `id_mesure` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT for table `rooms`
 --

@@ -29,7 +29,7 @@ function tableauCapteurs($ID,$bdd)
         JOIN rooms
         ON rooms.ID = capteurs.ID_piece
         JOIN domiciles
-        ON domiciles.ID= rooms.Domicile_ID WHERE ID_proprietaire= ?");
+        ON domiciles.ID= rooms.Domicile_ID WHERE domiciles.Proprietaire= ?");
   $req->execute(array($ID));
 
 
