@@ -25,7 +25,7 @@
     <p> <?php echo $_SESSION['username'] ?> </P>
     <ul>
       <li><a href="../index.php?page=profil">Profil</a></li>
-      <li><a href="../index.php?page=logOut" class="highlight">Deconnexion</a></li>
+      <li><a href="../index.php?page=logOut" class="highlight">Déconnexion</a></li>
     </ul>
   </div>
 
@@ -50,7 +50,7 @@
 
 <noscript>
   <div style="border: 1px solid red; padding: 10px;text-align:center">
-    <span style="color:red;text-align:center;"> Attention : JavaScript est desactive !</span><br/>
-    <span style="color:red;text-align:center;"> Veuillez le reactiver pour une utilisation optimale de WatcHouse.</span>
+    <span style="color:red;text-align:center;"> Attention : JavaScript est désactivé !</span><br/>
+    <span style="color:red;text-align:center;"> Veuillez le réactiver pour une utilisation optimale de WatcHouse.</span>
   </div>
 </noscript>

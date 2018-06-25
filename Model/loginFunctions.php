@@ -8,7 +8,7 @@ function checkID($username, $password, $bdd){
   $req->execute(array($username));
   $resultat = $req->fetch();
 
-  // Comparaison du pass envoye via le formulaire avec la base
+  // Comparaison du pass envoyé via le formulaire avec la base
   $isPasswordCorrect = password_verify($password, $resultat['password']);
   
   if (!$resultat)
@@ -31,7 +31,7 @@ function checkAdmin($username, $password, $bdd){
   $req->execute(array($username));
   $resultat = $req->fetch();
 
-  // Comparaison du pass envoye via le formulaire avec la base
+  // Comparaison du pass envoyé via le formulaire avec la base
   $isPasswordCorrect = password_verify($password, $resultat['password']);
 
 
@@ -54,11 +54,11 @@ function sendMailWithNewPassword($email, $username, $password){
     $subject = 'Votre nouveau mot de passe';
     $message =
         "Bonjour " . $username . "," . "\r\n" .
-        "Vous avez demande un renouvellement de mot de passe," ."\r\n" .
+        "Vous avez demandé un renouvellement de mot de passe," ."\r\n" .
         "Votre nouveau mot de passe provisoire est:"  . $password . "\r\n" .
-        "Nous vous invitons a le modifier des que possible." . "\r\n" .
+        "Nous vous invitons à le modifier dès que possible." . "\r\n" .
         "Cordialement," . "\r\n" .
-        "L'equipe Domisep";
+        "L'équipe Domisep";
     $headers = 'From: WatchHouse.isep@gmail.com' . "\r\n" .
         'Reply-To: WatchHouse.isep@gmail.com' . "\r\n" .
         'Content-Type: text/plain; charset = "utf8"' . "\r\n";
@@ -75,7 +75,7 @@ function resetMdp($email){
     else{
         $password=genererMdp();
         $req = $bdd->prepare('UPDATE users SET password=? WHERE ID= ?');
-        $req->execute(array(password_hash($password, PASSWORD_DEFAULT), $resultat['ID']));
+        $req->execute(array($password, $resultat['ID']));
         sendMailWithNewPassword($email, $resultat['username'], $password);
         return true;
     }
@@ -86,11 +86,11 @@ function genererMdp($long = 8){
     $mdp = '';
     for ($k = 0; $k < $long; $k++){
         if ($k == round($long/2)){
-            $i = mt_rand(0, strlen($speciaux)-1);
+            $i = mt_rand(0, strlen($speciaux));
             $c = $speciaux[$i];
         }
         else{
-            $i = mt_rand(0, strlen($chaine)-1);
+            $i = mt_rand(0, strlen($chaine));
             $c = $chaine[$i];
         }
         $mdp .= $c;

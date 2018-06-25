@@ -29,13 +29,13 @@ else {
 function rechercheClient($nom,$bdd){
   $reqUser = $bdd->prepare('SELECT username, email, admin, AddedOnDate FROM users WHERE ID=?');
   $reqUser->execute(array($nom));
-  $reqDomiciles = $bdd->prepare('SELECT Nom, Adresse, InstalledOnDate FROM domiciles WHERE Proprietaire=? ');
+  $reqDomiciles = $bdd->prepare('SELECT Nom, Adresse, InstalledOnDate FROM domiciles WHERE Propriétaire=? ');
   $reqDomiciles->execute(array($nom));
-  $reqPieces = $bdd->prepare('SELECT Nom, Domicile_ID, AddedOnDate FROM rooms WHERE Proprietaire=? ');
+  $reqPieces = $bdd->prepare('SELECT Nom, Domicile_ID, AddedOnDate FROM rooms WHERE Propriétaire=? ');
   $reqPieces->execute(array($nom));
-  $reqCapteurs= $bdd->prepare('SELECT Nom, Reference, ID_piece, AddedOnDate, UUID FROM capteurs WHERE ID_proprietaire=? ');
+  $reqCapteurs= $bdd->prepare('SELECT Référence, ID_pièce, InstalledOnDate, UUID FROM capteurs WHERE ID_propriétaire=? ');
   $reqCapteurs->execute(array($nom));
-  $reqCom= $bdd->prepare('SELECT ID, article_commande, AddedOnDate FROM commandes WHERE user_ID=? ORDER BY AddedOnDate DESC');
+  $reqCom= $bdd->prepare('SELECT ID, article_commandé, AddedOnDate FROM commandes WHERE user_ID=? ORDER BY AddedOnDate DESC');
   $reqCom->execute(array($nom));
 
 
@@ -78,13 +78,11 @@ function rechercheClient($nom,$bdd){
     <p class='searchCategory'>----- CAPTEURS -----</p><br/>";
     while ( $donneesCapteurs = $reqCapteurs->fetch()){
       echo "
-      Nom : ".$donneesCapteurs["Nom"]."<br/>
-      Reference : ".$donneesCapteurs["Reference"]."<br/>
-      ID_piece : ".$donneesCapteurs["ID_piece"]."<br/>
+      Référence : ".$donneesCapteurs["Nom"]."<br/>
+      ID_pièce : ".$donneesCapteurs["Domicile_ID"]."<br/>
       Date d'installation : ".$donneesCapteurs["AddedOnDate"]."<br/>
-      UUID : ".$donneesCapteurs["UUID"]."<br/><br/>
+      UUID : ".$donneesCapteurs["AddedOnDate"]."<br/><br/>
       ";
-
     }
 
     echo "</td>
@@ -94,7 +92,7 @@ function rechercheClient($nom,$bdd){
     while ( $donneesCom = $reqCom->fetch()){
       echo "
       ID Commande: ".$donneesCom["ID"]."<br/>
-      Reference : ".$donneesCom["article_commande"]."<br/>
+      Référence : ".$donneesCom["article_commandé"]."<br/>
       Date de commande : ".$donneesCom["AddedOnDate"]."<br/><br/>
       ";
     }
@@ -110,7 +108,7 @@ function rechercheClient($nom,$bdd){
 function Liste_Clients($bdd)
 {
   $reqUser = $bdd->query('SELECT ID, username,admin, AddedOnDate FROM users ORDER BY ID ');
-  $reqDomiciles = $bdd->prepare('SELECT Nom,Adresse,InstalledOnDate FROM domiciles WHERE Proprietaire = ?');
+  $reqDomiciles = $bdd->prepare('SELECT Nom,Adresse,InstalledOnDate FROM domiciles WHERE Propriétaire = ?');
   $k=0 ;
   while ($donnees = $reqUser->fetch())
   {

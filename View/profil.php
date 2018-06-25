@@ -14,14 +14,14 @@
 <h2>  ID : <?php echo htmlspecialchars($_SESSION['ID']) ?></h2>
 		<input class="appelation" id="NomF" type="text" name="NomF" value="Nom" disabled="disabled" />
 		<input  class="inputCourt" type="text" name="Nom" value="<?php echo htmlspecialchars($_SESSION['Nom']) ?>"  disabled="disabled"/>
-		<input class="appelation" id="PrenomF" type="text" name="PrenomF" value="Prenom" disabled="disabled" />
-		<input class="inputCourt" type="text" name="Prenom" value="<?php echo htmlspecialchars($_SESSION['Prenom']) ?>" disabled="disabled"  />  </br>
+		<input class="appelation" id="PrénomF" type="text" name="PrénomF" value="Prénom" disabled="disabled" />
+		<input class="inputCourt" type="text" name="Prénom" value="<?php echo htmlspecialchars($_SESSION['Prénom']) ?>" disabled="disabled"  />  </br>
 		<input class="appelation" id="MailF" type="text" name="MailF"  disabled="disabled" />
 		<input class="inputLong"  type="text" type="button"  name="Mail" value="<?php echo htmlspecialchars($_SESSION['Mail']) ?>" disabled="disabled" /> </br>
 		<input class="appelation" id="NaissanceF" type="text" name="NaissanceF" value="      " disabled="disabled" />
 		<input class="inputCourt"  name="Date_de_naissance" value="<?php echo htmlspecialchars($_SESSION['Date_de_naissance']) ?>"  disabled="disabled"/>
-		<input class="appelation" id="TelephoneF"  type="text" name="TelephoneF" value="      " disabled="disabled" />
-		<input class="inputCourt"  type="tel" type="button" name="Telephone" value="<?php echo htmlspecialchars($_SESSION['Telephone']) ?>"  disabled="disabled"/></br>
+		<input class="appelation" id="TéléphoneF"  type="text" name="TéléphoneF" value="      " disabled="disabled" />
+		<input class="inputCourt"  type="tel" type="button" name="Téléphone" value="<?php echo htmlspecialchars($_SESSION['Téléphone']) ?>"  disabled="disabled"/></br>
 		<input class="appelation" id="AdresseF" type="text" name="AdresseF" disabled="disabled" />
 		<input class="inputLong" type="text" name="Adresse" value="<?php echo htmlspecialchars($_SESSION['Adresse']) ?>" disabled="disabled" /></br>
 	<button id="changeInfo" type="button" onclick="affichageInvisible('invisible1')">Changer mes Informations</button>
@@ -34,14 +34,14 @@
 <form  method="post" class="form1" action="/../watchouse/Controller/profil.php">
 		<input class="appelation" id="NomF2" type="text" name="NomF" value="Nom" disabled="disabled" />
 		<input class="inputCourt" type="text" name="Nom" value="<?php echo htmlspecialchars($_SESSION['Nom']) ?>"/>
-		<input class="appelation" id="PrenomF2" type="text" name="PrenomF" value="Prenom" disabled="disabled" />
-		<input class="inputCourt" type="text" name="Prenom" value="<?php echo htmlspecialchars($_SESSION['Prenom']) ?>"  />  </br>
+		<input class="appelation" id="PrénomF2" type="text" name="PrénomF" value="Prénom" disabled="disabled" />
+		<input class="inputCourt" type="text" name="Prénom" value="<?php echo htmlspecialchars($_SESSION['Prénom']) ?>"  />  </br>
 		<input class="appelation" id="MailF2" type="text" name="MailF"  disabled="disabled" />
 		<input class="inputLong" type="email" type="button"  name="Mail" value="<?php echo htmlspecialchars($_SESSION['Mail']) ?>"  /></br>
 		<input class="appelation" id="NaissanceF2" type="text" name="NaissanceF" value="      " disabled="disabled" />
 		<input class="inputCourt" type="date" name="Date_de_naissance" value="<?php echo htmlspecialchars($_SESSION['Date_de_naissance']) ?>"  />
-		<input class="appelation" id="TelephoneF2"  type="text" name="TelephoneF" value="      " disabled="disabled" />
-		<input class="inputCourt"  type="tel" type="button" name="Telephone" value="<?php echo htmlspecialchars($_SESSION['Telephone']) ?>"  /></br>
+		<input class="appelation" id="TéléphoneF2"  type="text" name="TéléphoneF" value="      " disabled="disabled" />
+		<input class="inputCourt"  type="tel" type="button" name="Téléphone" value="<?php echo htmlspecialchars($_SESSION['Téléphone']) ?>"  /></br>
 		<input class="appelation" id="AdresseF2" type="text" name="AdresseF"  disabled="disabled" />
 		<input class="inputLong" type="text" name="Adresse" value="<?php echo htmlspecialchars($_SESSION['Adresse']) ?>" /></br>
 		<menu class="menuDialog">
@@ -83,11 +83,11 @@
 			<button class="confirmer" id="submit_photo" type="submit"   >Confirmer</button>
 		</menu>
 </form>
-</div>
+</dialog>
 
 
 <script>
-// Verification du niveau et de la correspondance des mots de passe
+// Vérification du niveau et de la correspondance des mots de passe
 window.onload = function() {
 document.forms.form_password.onsubmit = function() {
   var result = true;
@@ -99,7 +99,7 @@ document.forms.form_password.onsubmit = function() {
 		if( !document.forms.form_password.newPassword.value.match(/.[1,2,3,4,5,6,7,8,9,0]/)) {
 			if (!document.forms.form_password.newPassword.value.match(/.[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]/))	{
 				result = false;
-				document.getElementById('message_cache2').innerHTML='-Le mot de passe doit contenir au moins </br>un caractere special, un chiffre et une majuscule!';
+				document.getElementById('message_cache2').innerHTML='-Le mot de passe doit contenir au moins </br>un caractère spécial, un chiffre et une majuscule!';
 			}
 		 }
   }

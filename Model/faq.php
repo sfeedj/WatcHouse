@@ -34,13 +34,13 @@ function SendMailWithAnswer($idQuestion, $reponse){
     $username = $result['username'];
     $question = $result['question'];
     $to      = $email;
-    $subject = 'Reponse a votre question';
+    $subject = 'Réponse à votre question';
     $message =
         "Bonjour " . $username . ",\r\n" .
-        "La reponse a votre question :\r\n\r\n" . $question . "\r\n\r\n" .
+        "La réponse à votre question :\r\n\r\n" . $question . "\r\n\r\n" .
         "est la suivante :\r\n\r\n" . $reponse . "\r\n\r\n" .
         "Cordialement, " . "\r\n" .
-        "L'equipe WatcHouse.";
+        "L'équipe WatcHouse.";
     $headers = 'From: WatchHouse.isep@gmail.com' . "\r\n" .
         'Reply-To: WatchHouse.isep@gmail.com' . "\r\n" .
         'Content-Type: text/plain; charset = "utf8"' . "\r\n";

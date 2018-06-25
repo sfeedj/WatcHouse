@@ -15,7 +15,7 @@
             </tr>
           </table>
           <table class='tableau_modules'>
-            <tr class="enTete"><td>Nom</td><td>Prix (€)</td><td>Description</td><td>Reference</td></tr>
+            <tr class="enTete"><td>Nom</td><td>Prix (€)</td><td>Description</td><td>Référence</td></tr>
             <?php Liste_Modules($bdd) ?>
           </table>
         </div>
@@ -31,7 +31,7 @@
             <input id='txt' type="number" name="Prix" placeholder=" Prix"  /><br/>
             <input id='txt' type="txt" name="Description" placeholder=" Description"  /><br/>
             <div class="imgDrop" dropzone="link">
-              <label for="file" id="dropZone"><img src='../Public/images/dz.png'><br/>Choisir ou deposer une image</label>
+              <label for="file" id="dropZone"><img src='../Public/images/dz.png'><br/>Choisir ou déposer une image</label>
               <input id="file" type="file" name="userfile"/>
             </div>
             <button type="submit" class="formButton">Ajouter</button><br/><br/>

@@ -21,29 +21,30 @@
   </div>
   <div class="ConnectionPanel">
   <div id="connectezVous">
-    <img id="connectezVousImg" src="/../watchouse/Public/images/login.png" alt="userLogin">
+    <img id="connectezVousImg" src="/../watchouse/Public/images/login.png" alt="userLogin"> 
     <span class="messageConnexion">Connectez vous !</span>
   </div>
     <span class="messageErreur"><?php echo $messageErreur; ?></span>
     <br/>
     <form action="/../WatcHouse/Controller/backLogin.php" method="post" class="formulaire">
     <div>
-      <img class="LoginImg" src="/../watchouse/Public/images/userLogin.png" alt="userLogin">
+      <img class="LoginImg" src="/../appwebsite/watchouse/Public/images/userLogin.png" alt="userLogin"> 
       <input type="txt" name="username" placeholder=" Identifiant" required />
       </div>
       <div id="input-password">
-      <img class="LoginImg" src="/../watchouse/Public/images/password.png" alt="password">
+      <img class="LoginImg" src="/../appwebsite/watchouse/Public/images/password.png" alt="password">
       <input type="password" name="password" placeholder=" Mot de passe" required />
       </div>
       <br/>
       <a href="#" class="popup"><span>Utilisez vos identifiants administrateur !</span><img src="/../WatcHouse/Public/images/logoInterrogation.png" alt="" class="logoInterrogation"></a>
       <br/>
       <button type="submit" class="logButton" />Connexion</button><br/><br/>
+      <a href="/../WatcHouse/index.php?page=oublieMDP">J'ai oublié mon mot de passe ! </a>
     </form>
-    <button onclick="affichageInvisible('invisible')" class="mdpoublie">J'ai oublie mon mot de passe</button>
+    <button onclick="affichageInvisible('invisible')" class="mdpoublie">J'ai oublié mon mot de passe</button>
   </div>
-  <a href="/../WatcHouse/index.php?page=frontLogin" class="logoAdmin" title="Acces Utilisateur"><img src="/../WatcHouse/Public/images/user.png" ></a>
-
+  <a href="/../WatcHouse/index.php?page=frontLogin" class="logoAdmin" title="Accès Utilisateur"><img src="/../WatcHouse/Public/images/user.png" ></a>
+  
   <div>
      <div class="invisible" >
         <div class = 'formWrapper'>

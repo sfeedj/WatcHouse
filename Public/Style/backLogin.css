@@ -259,23 +259,6 @@ body{
   width:195px;
 }
 
-.mdpoublie {
-  width:200px;
-  color: rgb(14, 14, 14);
-  margin: auto;
-  background-color: rgba(173, 173, 173, 0);
-  border: none;
-  border-radius: 0px;
-  cursor:pointer;
-  transition: 0.3s;
-}
-
-.mdpoublie:hover {
-  color: rgb(30, 109, 228);
-  font-weight: bold;
-}
-
-
 @font-face {
   font-family: "ttf";
   src: url("akaDylan_Plain.ttf");

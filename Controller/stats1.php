@@ -28,7 +28,7 @@ function drawChart() {
   ]);
 
   // Set chart options
-  var options = {'title':'Consomation Electricite',
+  var options = {'title':'Consomation Electricité',
   'width':600,
   'height':300};
 

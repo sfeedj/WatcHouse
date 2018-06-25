@@ -9,7 +9,7 @@
             <th>Type</th>
             <th>Piece</th>
             <th>Domicile</th>
-            <th>Reference</th>
+            <th>Référence</th>
             <th>Etat</th>
 
         </tr>

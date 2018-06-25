@@ -9,28 +9,27 @@ function iconEtat($icon,$bdd) {
   if ($icon=="1" ){
     return "<img class='okIcons' src='../Public/images/icons/1.png' alt='ok'>";
   }
-  else
+  else 
     return "<img class='okIcons'src='../Public/images/icons/0.png' alt='notOk'>";
-
+  
 }
 
 
 function tableauCapteurs($ID,$bdd)
 {
 
-  $req = $bdd->prepare(
-       "SELECT capteurs.Nom AS capteurNom,
+  $req = $bdd->query(
+       ' SELECT capteurs.Nom AS capteurNom,
         capteurs.Type AS capteurType,
         rooms.Nom AS pieceNom,
         domiciles.Nom AS domicileNom,
-        capteurs.Reference AS capteurRef,
+        capteurs.Référence AS capteurRef,
         capteurs.Etat AS capteurEtat
-        FROM capteurs
-        JOIN rooms
-        ON rooms.ID = capteurs.ID_piece
-        JOIN domiciles
-        ON domiciles.ID= rooms.Domicile_ID WHERE ID_proprietaire= ?");
-  $req->execute(array($ID));
+        FROM capteurs 
+        JOIN rooms 
+        ON rooms.ID = capteurs.ID_pièce 
+        JOIN domiciles 
+        ON domiciles.ID= rooms.Domicile_ID WHERE ID_propriétaire="'.$ID.'" ');
 
 
   while ($donnees = $req->fetch()){
@@ -46,16 +45,15 @@ function tableauCapteurs($ID,$bdd)
     " ;
 
     }
-
   }
 
 
-if (isset($_SESSION['ID'])){
+if (isset($_SESSION['ID'])){ 
   include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/header.php');
   include($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/View/etatCapteurs.php');
   include("../View/footer.php");
-
-
+  
+ 
 }
 
 

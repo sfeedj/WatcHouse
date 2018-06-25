@@ -3,32 +3,6 @@ body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-#liste_cemac{
-  overflow: scroll;
-  height: 200px;
-}
-.tableau_clients{
-  position: relative;
-  width: 100%;
-  border-collapse: collapse;
-  border-width: medium;
-  border-color: #7f8c8d;
-}
-.tableau_clients td{
-  border: solid;
-  border-width: medium;
-  border-color: #7f8c8d;
-  padding: 20px;
-}
-.enTete {
-  font-weight: bold;
-  border: solid;
-  border-width: medium;
-  border-color: #7f8c8d;
-}
-
-
 /* STATUT USER */
 #statut{
 position: absolute;
@@ -113,7 +87,7 @@ color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   top : 15%;
   left:15%;
   height: 66%;
@@ -121,14 +95,14 @@ color: white;
   text-align: center;
   background-color: #ecf0f1;
 
-  text-align: center;
-  background-color: rgb(245, 245, 245);
-  border: none;
-  border-radius: 18px;
-  box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
-  animation-duration: 0.5s;
-  animation-name: grossi;
-
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
+    animation-duration: 0.5s;
+    animation-name: grossi;
+  
 }
 
 .titre_form{
@@ -141,7 +115,7 @@ color: white;
   height: 40px;
   border-radius: 5px;
   border-color: rgba(0, 0, 0, 0.075);
-  box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096);
+  box-shadow: 0px  3px 8px rgba(0, 0, 0, 0.096); 
   border:none;
   font-size: 20px;
   margin-bottom:10px;
@@ -163,7 +137,7 @@ color: white;
 
 /* TABLEAU DE PRESENTATION */
 
-.presentation{
+.présentation{
   margin-top: 25px;
   width:100%;
   margin-bottom: 100px;
@@ -193,7 +167,7 @@ color: white;
   animation-name: gauche;
 }
 
-.general{
+.général{
   border-radius: 5px;
   top:0;
   margin-left: -10px;
@@ -324,20 +298,12 @@ label,#checkBox{
   display: none;
 }
 
-.invisible_Cemac{
-  display: none;
-}
-
-.invisible_Suppr_Cemac{
-  display: none;
-}
-
 /* BOUTON AJOUT PIECE */
 .gestionPieces{
-   position: fixed;
-   bottom: 45px;
-   right:0px;
- }
+  position: fixed;
+  bottom: 45px;
+  right:0px;
+}
 
 .gestionPieces button{
   background-color: #34495e;
@@ -359,36 +325,6 @@ label,#checkBox{
 }
 
 .gestionPieces button:active{
-  padding-left:38px;
-  padding-right: 38px;
-}
-
-/* BOUTON AJOUT CEMAC */
-
-.gestionCemac {
-  display: flex;
-}
-
-.gestionCemac button{
-  background-color: #34495e;
-  text-align: center;
-  border:none;
-  color:white;
-  font-size: 1.5em;
-  padding-left:40px;
-  padding-right: 40px;
-  margin-bottom: 5%;
-  margin-right: -5px;
-  cursor: pointer;
-  transition: 0.2s;
-
-}
-
-.gestionCemac button:hover{
-  background-color: #2980b9;
-}
-
-.gestionCemac button:active{
   padding-left:38px;
   padding-right: 38px;
 }
@@ -438,9 +374,3 @@ select{
   margin-top: -20%;
   font-weight: bold;
 }
-
-
-
-
-
-

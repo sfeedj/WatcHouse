@@ -21,7 +21,7 @@
   </div>
   <div class="ConnectionPanel">
   <div id="connectezVous">
-    <img id="connectezVousImg" src="/../watchouse/Public/images/login.png" alt="userLogin">
+    <img id="connectezVousImg" src="/../watchouse/Public/images/login.png" alt="userLogin"> 
     <span class="messageConnexion">Connectez vous !</span>
   </div>
 
@@ -29,11 +29,11 @@
     <br/>
     <form action="/../WatcHouse/Controller/frontLogin.php" method="post" class="formulaire">
       <div>
-      <img class="LoginImg" src="/../watchouse/Public/images/userLogin.png" alt="userLogin">
+      <img class="LoginImg" src="/../watchouse/Public/images/userLogin.png" alt="userLogin"> 
       <input type="txt" name="username" placeholder=" Identifiant" required />
-      </div>
+      </div>     
       <div id="input-password">
-      <img class="LoginImg" src="/../watchouse/Public/images/password.png" alt="password">
+      <img class="LoginImg" src="/../appwebsite/watchouse/Public/images/password.png" alt="password">
       <input type="password" name="password" placeholder=" Mot de passe" required />
       </div>
       <br/>
@@ -41,7 +41,7 @@
       <br/>
       <button type="submit" class="logButton" />Connexion</button><br/><br/>
     </form>
-  <button onclick="affichageInvisible('invisible')" class="mdpoublie">J'ai oublie mon mot de passe</button>
+  <button onclick="affichageInvisible('invisible')" class="mdpoublie">J'ai oublié mon mot de passe</button>
   </div>
   <a href="/../WatcHouse/index.php?page=backLogin" class="logoAdmin"><img src="/../WatcHouse/Public/images/admin.png" ></a>
   <div>

@@ -3,7 +3,7 @@
 if (session_status() == 2){
   session_destroy();
 }
-//pour deconnecter l'utilisateur quand il fait "precedent" jusqu'au login
+//pour déconnecter l'utilisateur quand il fait "précédent" jusqu'au login
 
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/loginFunctions.php');
