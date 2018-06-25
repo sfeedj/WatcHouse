@@ -34,7 +34,7 @@
         <form action="../Controller/pagePiece.php?id=<?php echo $GLOBALS['domicileSelect']; ?>&ip=<?php echo $GLOBALS['pieceSelect']; ?>"
               method="post" class="formulaire">
             <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisible')">
-            <span class="titre_form">Ajouter un module :</span><br/><br/><br/>
+            <span class="titre_form">Ajouter un module :</span><br/><br/>
             <div>
                 <?php Select_Module($bdd); ?><br/><br/>
                 Associer à un CeMac : <br/>
@@ -42,8 +42,6 @@
                 <input id='txt' type="number" name="numero" placeholder="Numero du capteur" required><br/>
                 <input id='txt' type="text" name="nom" placeholder=" Nom du module" required><br/>
             </div>
-            <br/>
-            <br/>
             <button type="submit" class="formButton">Ajouter</button>
             <br/><br/>
         </form>
@@ -52,8 +50,6 @@
 </div>
 
 <!-- FORMULAIRE SUPPRESSION MODULE -->
-
-
 <div class="invisibleSuppr">
     <div class='formWrapper'>
         <form action="../Controller/pagePiece.php?id=<?php echo $GLOBALS['domicileSelect']; ?>&ip=<?php echo $GLOBALS['pieceSelect']; ?>"

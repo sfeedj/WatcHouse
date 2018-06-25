@@ -120,7 +120,6 @@
             <input name='Domicile' type="hidden" value='<?php $GLOBALS['domicileSelect']; ?>'>
             <!-- pour transmettre l'ID domicile -->
             <br/>
-            <br/>
             <button type="submit" class="formButton">Ajouter</button>
             <br/><br/>
         </form>

@@ -151,7 +151,7 @@ function listePiece($domicileID, $bdd)
 
 function listeModulesInline($pieceID, $bdd)
 {
-    $req = $bdd->prepare("SELECT Nom, Reference, UUID, Categorie FROM capteurs WHERE ID_piece=? AND Categorie != 'Actionneur' ORDER BY UUID DESC");
+    $req = $bdd->prepare("SELECT Nom, Reference, UUID, Categorie FROM capteurs WHERE ID_piece=? ORDER BY UUID DESC");
     $req->execute(array($pieceID));
 
     $k = 0;
@@ -180,7 +180,7 @@ function moduleInfo($ref, $id, $categorie)
     if ($categorie == "Module") {
         return "Active";
     } elseif ($categorie == "Capteur") {
-        return lastMesure($id, $GLOBALS['bdd']);
+        return lastMesure($id,$categorie, $ref);
     }
     return "test";
 }

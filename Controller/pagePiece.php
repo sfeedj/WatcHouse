@@ -69,8 +69,8 @@ function Select_Installed_Module($pieceID, $bdd)
 function listeModules($pieceID)
 {
     $bdd = $GLOBALS['bdd'];
-    $req = $bdd->prepare("SELECT id, id_cemac, numero, capteurs.nom AS nom, image, capteurs.id_type AS id_type, type_capteur.nom AS type_capteur, categorie 
-                          FROM capteurs JOIN type_capteur ON capteurs.id_type=type_capteur.id_type 
+    $req = $bdd->prepare("SELECT id, id_cemac, numero, capteurs.nom AS nom, image, capteurs.id_type AS id_type, type_capteur.nom AS type_capteur, categorie
+                          FROM capteurs JOIN type_capteur ON capteurs.id_type=type_capteur.id_type
                           WHERE id_piece=? ORDER BY nom DESC");
     $req->execute(array($pieceID));
 
@@ -146,7 +146,7 @@ function moduleInfo($id, $id_cemac, $id_type, $numero, $categorie)
         $checked = isChecked($id);
         return '
     <script>
-    
+
     window.onload = function() {
       console.log("' . $checked . '");
       }

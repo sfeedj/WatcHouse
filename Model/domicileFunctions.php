@@ -137,7 +137,7 @@ function lastMesure($id_cemac, $type_capteur, $numero_capteur)
 {
     $bdd = $GLOBALS['bdd'];
     $req = $bdd->prepare("SELECT data FROM mesures WHERE id_cemac=? and id_type=? and numero_capteur=? ORDER BY AddedOnDate DESC LIMIT 1");
-    $req->execute(array($id_cemac, $type_capteur, $numero_capteur));
+    $req->execute(array("$id_cemac", "$type_capteur", "$numero_capteur"));
     $res = $req->fetch();
     if (isset($res['data'])) {
         return $res['data'];
