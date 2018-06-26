@@ -3,7 +3,7 @@
 
 
 <section id=photo-profil>
-<?php echo urlImage($_SESSION['username'],$bdd); ?>
+<?php echo urlImage($_SESSION['ID'],$bdd); ?>
 </section>
 <button id="changePhoto" onclick="affichageInvisible('invisible3')">Changer l'image</button>
 
@@ -22,8 +22,7 @@
 		<input class="inputCourt"  name="Date_de_naissance" value="<?php echo htmlspecialchars($_SESSION['Date_de_naissance']) ?>"  disabled="disabled"/>
 		<input class="appelation" id="TelephoneF"  type="text" name="TelephoneF" value="      " disabled="disabled" />
 		<input class="inputCourt"  type="tel" type="button" name="Telephone" value="<?php echo htmlspecialchars($_SESSION['Telephone']) ?>"  disabled="disabled"/></br>
-		<input class="appelation" id="AdresseF" type="text" name="AdresseF" disabled="disabled" />
-		<input class="inputLong" type="text" name="Adresse" value="<?php echo htmlspecialchars($_SESSION['Adresse']) ?>" disabled="disabled" /></br>
+		<?php afficherDomiciles($bdd) ?>
 	<button id="changeInfo" type="button" onclick="affichageInvisible('invisible1')">Changer mes Informations</button>
 	<button id="changePassword" type="button"  onclick="affichageInvisible('invisible2')" >Changer de mot de passe</button>
 </form>
@@ -42,8 +41,6 @@
 		<input class="inputCourt" type="date" name="Date_de_naissance" value="<?php echo htmlspecialchars($_SESSION['Date_de_naissance']) ?>"  />
 		<input class="appelation" id="TelephoneF2"  type="text" name="TelephoneF" value="      " disabled="disabled" />
 		<input class="inputCourt"  type="tel" type="button" name="Telephone" value="<?php echo htmlspecialchars($_SESSION['Telephone']) ?>"  /></br>
-		<input class="appelation" id="AdresseF2" type="text" name="AdresseF"  disabled="disabled" />
-		<input class="inputLong" type="text" name="Adresse" value="<?php echo htmlspecialchars($_SESSION['Adresse']) ?>" /></br>
 		<menu class="menuDialog">
 			<button class="annuler"  id="annuler2" type="reset" onclick="affichageInvisible('invisible1')">Annuler</button>
 			<button class="confirmer" id="confirmer2" type="submit"   >Confirmer</button>

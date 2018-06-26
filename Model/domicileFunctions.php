@@ -161,96 +161,87 @@ function lastMesure($UUID)
 
 //Fonctions Relative a la page de profil
 
-function chargerInfosProfile($bdd, $username)
+function chargerInfosProfile($bdd, $ID)
 {
-    $req = $bdd->query('SELECT * FROM users WHERE username="' . $username . '"');
+    $req = $bdd->query('SELECT * FROM users WHERE ID="' . $ID . '"');
     while ($donnees = $req->fetch()) {
         $_SESSION['ID'] = $donnees['ID'];
-        $_SESSION['username'] = $donnees['username'];
+        $_SESSION['ID'] = $donnees['ID'];
         $_SESSION['Nom'] = $donnees['Nom'];
         $_SESSION['password'] = $donnees['password'];
         $_SESSION['Prenom'] = $donnees['Prenom'];
         $_SESSION['Date_de_naissance'] = $donnees['Date_de_naissance'];
         $_SESSION['Mail'] = $donnees['Mail'];
         $_SESSION['Telephone'] = $donnees['Telephone'];
-        $_SESSION['Adresse'] = $donnees['adresse'];
     }
 }
 
 
-function changePassword($bdd, $username)
+function changePassword($bdd, $ID)
 {
     if (isset($_POST['oldPassword1']) && isset($_POST['oldPassword2']) && isset($_POST['newPassword']) && $_POST['oldPassword1'] == $_POST['oldPassword2'] && $_POST['oldPassword1'] != $_POST['newPassword']) {
         $newPassword = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
-        $bdd->exec(" UPDATE users SET password='$newPassword'  WHERE username='$username' ");
+        $bdd->exec(" UPDATE users SET password='$newPassword'  WHERE ID='$ID' ");
     }
 }
 
-function changeNom($bdd, $username)
+function changeNom($bdd, $ID)
 {
     if (isset($_POST['Nom']) && $_POST['Nom'] != $_SESSION['Nom']) {
         $Nom = $_POST['Nom'];
         $_SESSION['Nom'] = $Nom;
-        $bdd->exec(" UPDATE users SET Nom='$Nom' WHERE username='$username' ");
+        $bdd->exec(" UPDATE users SET Nom='$Nom' WHERE ID='$ID' ");
     }
 }
 
-function changeDate($bdd, $username)
+function changeDate($bdd, $ID)
 {
     if (isset($_POST['Date_de_naissance']) && $_POST['Date_de_naissance'] != $_SESSION['Date_de_naissance']) {
         $Date = date('j-F-Y', strtotime($_POST['Date_de_naissance']));
         $_SESSION['Date_de_naissance'] = $Date;
-        $bdd->exec(" UPDATE users SET Date_de_naissance='$Date' WHERE username='$username' ");
+        $bdd->exec(" UPDATE users SET Date_de_naissance='$Date' WHERE ID='$ID' ");
     }
 }
 
-function changeAdresse($bdd, $username)
-{
-    if (isset($_POST['Adresse']) && $_POST['Adresse'] != $_SESSION['Adresse']) {
-        $Adresse = $_POST['Adresse'];
-        $_SESSION['Adresse'] = $Adresse;
-        $bdd->exec(" UPDATE users SET Adresse='$Adresse' WHERE username='$username' ");
-    }
-}
 
-function changeMail($bdd, $username)
+function changeMail($bdd, $ID)
 {
     if (isset($_POST['Mail'])) {
         $Mail = $_POST['Mail'];
         $_SESSION['Mail'] = $Mail;
-        $bdd->exec(" UPDATE users SET Mail='$Mail' WHERE username='$username' ");
+        $bdd->exec(" UPDATE users SET Mail='$Mail' WHERE ID='$ID' ");
     }
 }
 
-function changePrenom($bdd, $username)
+function changePrenom($bdd, $ID)
 {
     if (isset($_POST['Prenom'])) {
         $newPrenom = $_POST['Prenom'];
         $_SESSION['Prenom'] = $newPrenom;
-        $bdd->exec(" UPDATE users SET Prenom='$newPrenom' WHERE username='$username' ");
+        $bdd->exec(" UPDATE users SET Prenom='$newPrenom' WHERE ID='$ID' ");
 
     }
 }
 
-function changePhone($bdd, $username)
+function changePhone($bdd, $ID)
 {
     if (isset($_POST['Prenom'])) {
         $newPhone = $_POST['Telephone'];
         $_SESSION['Telephone'] = $newPhone;
-        $bdd->exec(" UPDATE users SET Telephone='$newPhone' WHERE username='$username' ");
+        $bdd->exec(" UPDATE users SET Telephone='$newPhone' WHERE ID='$ID' ");
 
     }
 }
 
-function ajouterPhoto($userphoto, $username, $bdd)
+function ajouterPhoto($userphoto, $ID, $bdd)
 {
-    $req = $bdd->exec("UPDATE users SET image='$userphoto' WHERE username='$username' ");
+    $req = $bdd->exec("UPDATE users SET image='$userphoto' WHERE ID='$ID' ");
 
 }
 
-function urlImage($username, $bdd)
+function urlImage($ID, $bdd)
 {
-    $req = $bdd->query("SELECT image FROM users WHERE username='$username' ");
+    $req = $bdd->query("SELECT image FROM users WHERE ID='$ID' ");
     while ($donnees = $req->fetch()) {
         $urlPhoto = $donnees['image'];
         if ($urlPhoto != "") {
@@ -283,6 +274,32 @@ function listeCemac($id_domicile)
     $req->execute(array("id_domicile" => $id_domicile));
     return $req->fetchAll();
 }
+
+
+
+/*
+function isAdmin($id, $bdd){
+    $req = $bdd->prepare('SELECT admin FROM users WHERE ID=?');
+    $req->execute(array($id));
+    $resultat = $req->fetch();
+    if ($resultat[0]==1)
+    {
+      return true;
+    }
+    return false;
+  }
+  
+  function headerAdmin($id,$bdd)
+  {
+    if (isAdmin($id,$bdd)==true)
+
+      echo  " include($_SERVER[DOCUMENT_ROOT']./Watchouse/View/headerAdmin.php'); ";
+    else
+      echo "  include($_SERVER['DOCUMENT_ROOT'].'/Watchouse/View/header.php');";
+  }
+
+  */
+
 
 
 ?>

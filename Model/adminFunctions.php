@@ -61,6 +61,9 @@ function isAdmin($id, $bdd){
   }
   return false;
 }
+
+
+
 function ajouterModule($nomModule,$Prix,$Description,$userfile,$moduleType,$bdd){
   echo 'LOLZER'.$userfile;
   $req=$bdd->prepare("INSERT INTO catalogue (Nom, Categorie, Prix, Description, img) VALUES ( :Nom,:Categorie,:Prix,:Description,:img)");

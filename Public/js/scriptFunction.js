@@ -80,7 +80,20 @@ function changeBackground() {
 
 function go(id) {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "ajax.php?id=" + id, true);
+    xhttp.open("GET", "ajax/ajax.php?id=" + id, true);
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(xhttp.responseText);
+        }
+    };
+    xhttp.send();
+
+}
+
+
+function geteindreToutLumieres(id) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "ajax/ajax.php?id=" + id, true);
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(xhttp.responseText);
