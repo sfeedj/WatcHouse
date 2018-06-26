@@ -29,9 +29,20 @@
                     </script>
                 </div>
                 <!-- widget meteo -->
-                <div class="general">
-                    <span class='titre'>General</span>
+            
+            <div class="general">
+             <span class='titre'>General</span>
+    <!--    <td  >
+      <img src='../Public/images/Modules/Light.png' class='imageModule' style='height:100px;'>
+      <figcaption >Eteindre toutes les lumieres</figcaption>
+      <input name="tt" id="tt" class="toggle-status" onclick="geteindreToutLumieres()" type="checkbox"  ' . $checked . '>
+    <label for="tt"  class="toggle-switch  toggle-x2 toggle-rounded"></label>
+    
+      </td>
+      <td ></td>-->
+      
                 </div>
+
                 <table>
                     <colgroup>
                         <col span="1" style="width: 50%;">

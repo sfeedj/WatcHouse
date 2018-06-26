@@ -92,16 +92,29 @@ document.forms.form_password.onsubmit = function() {
     result = false;
 	document.getElementById('message_cache1').innerHTML='-Les deux mots de passe ne correspondent pas!';
   }
-  if ( !document.forms.form_password.newPassword.value.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)){
-		if( !document.forms.form_password.newPassword.value.match(/.[1,2,3,4,5,6,7,8,9,0]/)) {
-			if (!document.forms.form_password.newPassword.value.match(/.[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]/))	{
-				result = false;
-				document.getElementById('message_cache2').innerHTML='-Le mot de passe doit contenir au moins </br>un caractere special, un chiffre et une majuscule!';
+  if ( document.forms.form_password.newPassword.value.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)){
+		if( document.forms.form_password.newPassword.value.match(/.[1,2,3,4,5,6,7,8,9,0]/)) {
+			if (document.forms.form_password.newPassword.value.match(/.[A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z]/))	{
+				result = true;
+				
+			}
+			else {
+			result = false;
+			document.getElementById('message_cache2').innerHTML='-Le mot de passe doit contenir au moins </br>un caractere special, un chiffre et une majuscule!';
+
 			}
 		 }
+		 else {
+	result = false;
+	document.getElementById('message_cache2').innerHTML='-Le mot de passe doit contenir au moins </br>un caractere special, un chiffre et une majuscule!';
+
   }
+}
+
   else {
-    result = true;
+    result = false;
+	document.getElementById('message_cache2').innerHTML='-Le mot de passe doit contenir au moins </br>un caractere special, un chiffre et une majuscule!';
+
   }
   return result;
   }

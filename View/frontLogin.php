@@ -41,7 +41,7 @@
       <br/>
       <button type="submit" class="logButton" />Connexion</button><br/><br/>
     </form>
-  <button onclick="affichageInvisible('invisible')" class="mdpoublie">J'ai oublie mon mot de passe</button>
+  <button onclick="affichageInvisible('invisible')" class="mdpoublie">J'ai oublié mon mot de passe</button>
   </div>
   <a href="/../WatcHouse/index.php?page=backLogin" class="logoAdmin"><img src="/../WatcHouse/Public/images/admin.png" ></a>
   <div>
@@ -51,7 +51,7 @@
         <form action="../Controller/frontLogin.php" method="post" class="formulaire" onsubmit="return verifyCaptcha();">
             <img src='../Public/images/close.png' class="closeButton" onclick="affichageInvisible('invisible')">
             <br/>
-            <span class="titre_form">Oublie de mot de passe</span><br/><br/>
+            <span class="titre_form">Mot de passe oublié</span><br/><br/>
             <input id='txt' type="email" name="email" placeholder=" Email" required /><br/>
             <h1><strong id="captcha"></strong></h1>
             <p id="error"></p>

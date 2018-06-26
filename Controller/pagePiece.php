@@ -148,12 +148,6 @@ function moduleInfo($UUID, $Categorie)
     } elseif ($Categorie == "On/Off") {
         $checked = isChecked($UUID);
         return '
-    <script>
-
-    window.onload = function() {
-      console.log("' . $checked . '");
-      }
-      </script>
     <input name="cap" id="' . $UUID . '" class="toggle-status" onclick="go(' . $UUID . ')" type="checkbox"  ' . $checked . '>
     <label for="' . $UUID . '"  class="toggle-switch  toggle-x2 toggle-rounded"></label>
     ';
