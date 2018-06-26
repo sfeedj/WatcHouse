@@ -1,6 +1,6 @@
 <?php
-session_start();
 include_once('bddConnect.php');
+session_start();
 
 function ajouterClient($nom,$email,$admin,$bdd){
   $req=$bdd->prepare("INSERT INTO users (username,password,email,admin) VALUES ( :username,:password,:email, :admin)");
@@ -86,5 +86,22 @@ function supprimerModule($Reference,$bdd){
   $req->execute(array(
     'Ref' =>$Reference
   ));
+}
+function genererMdp($long = 8){
+    $chaine = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $speciaux = '*$<>-_';
+    $mdp = '';
+    for ($k = 0; $k < $long; $k++){
+        if ($k == round($long/2)){
+            $i = mt_rand(0, strlen($speciaux)-1);
+            $c = $speciaux[$i];
+        }
+        else{
+            $i = mt_rand(0, strlen($chaine)-1);
+            $c = $chaine[$i];
+        }
+        $mdp .= $c;
+    }
+    return $mdp;
 }
 ?>

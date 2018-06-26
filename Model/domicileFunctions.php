@@ -53,6 +53,19 @@ function checkProprietaire($userID, $domicileID, $bdd)
     return true;
 }
 
+function checkInvite($userID, $domicileID, $bdd)
+{
+    $req2 = $bdd->prepare("SELECT 1 FROM userdomicile WHERE userID=? AND domicileID=?");
+    $req2->execute(array($userID, $domicileID));
+    $res2 = $req2->fetchAll();
+    if (!isset($res2[0])) {
+        // echo 'false';
+        return false;
+    }
+    // echo 'true';
+    return true;
+}
+
 function supprimerDomicile($ID, $bdd)
 {
     $req = $bdd->prepare("DELETE FROM domiciles WHERE ID=?");

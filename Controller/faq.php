@@ -6,6 +6,7 @@
  * Time: 13:13
  */
 include_once($_SERVER['DOCUMENT_ROOT'].'/WatcHouse/Model/loginFunctions.php');
+
 if (empty($_SESSION["ID"])){
     header("Refresh:0; url=/../WatcHouse/");
 }

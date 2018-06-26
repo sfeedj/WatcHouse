@@ -9,6 +9,10 @@ if (isset($_SESSION['ID']) && checkProprietaire($_SESSION['ID'], $GLOBALS['domic
     include($_SERVER['DOCUMENT_ROOT'] . '/WatcHouse/View/header.php');
     include($_SERVER['DOCUMENT_ROOT'] . '/WatcHouse/View/pagePiece.php');
     include("../View/footer.php");
+    include_once($_SERVER['DOCUMENT_ROOT'] . '/WatcHouse/Model/trame.php');
+
+
+    //sendTrame();
 
     // AJOUT MODULE
     if (isset($_POST['ID_CeMac']) && isset($GLOBALS['pieceSelect']) && isset($_POST['Reference']) && isset($_POST['numero']) && isset($_POST['Nom'])) {
@@ -132,6 +136,7 @@ function moduleInfo($UUID, $Categorie)
 {
 
     if ($Categorie == "Actionneur") {
+
 
         return
             '<div style="display: flex;justify-content: center;">
