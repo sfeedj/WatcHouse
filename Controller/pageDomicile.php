@@ -4,6 +4,7 @@ if (!isset($_GET['id'])) {
     header("Refresh:0; url=/../WatcHouse/index.php?page=selectionDomicile");// POUR LA SECURITE
 } else {
     $GLOBALS['domicileSelect'] = $_GET['id'];
+    $error = !empty($_GET['error']) && $_GET['error'] == 1;
 
 
     include($_SERVER['DOCUMENT_ROOT'] . '/WatcHouse/Model/domicileFunctions.php');
@@ -84,6 +85,10 @@ if (!isset($_GET['id'])) {
         include($_SERVER['DOCUMENT_ROOT'] . '/WatcHouse/View/header.php');
         include($_SERVER['DOCUMENT_ROOT'] . '/WatcHouse/Controller/statsGeneral.php');
         include($_SERVER['DOCUMENT_ROOT'] . '/WatcHouse/View/pageDomicile.php');
+
+        if ($error){
+            echo("<script>alert('Vous n\'avez pas les droits d\'acceder à cette page.')</script>");
+        }
 
 
         // FOOTER

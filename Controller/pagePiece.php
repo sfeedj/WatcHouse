@@ -27,7 +27,7 @@ if (isset($_SESSION['ID']) && checkProprietaire($_SESSION['ID'], $GLOBALS['domic
     }
 
 } else {
-    header("Refresh:0; url=/../WatcHouse/index.php");
+    header("Refresh:0; url=pageDomicile.php?error=1&id=".$GLOBALS['domicileSelect']);
 }
 
 
