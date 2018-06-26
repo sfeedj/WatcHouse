@@ -3,7 +3,7 @@ include_once('bddConnect.php');
 
 function getTrames(){
     $ch = curl_init("http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=011A");
-    $fp = fopen('../example_trames.txt', "w");
+    $fp = fopen('../../example_trames.txt', "w");
     curl_setopt($ch, CURLOPT_FILE, $fp);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -13,13 +13,14 @@ function getTrames(){
     fclose($fp);
     return ($data);
 }
-function sendTrame(){
-    $trame = "1"."011A"."1"."3"."01"."0050"."0005"."1B"."2018"."06"."24"."22"."34"."00";
+function sendTrame($Reference, $numero, $valeur){
+    $num = str_repeat("0", 2-strlen($numero)).$numero;
+    $trame = "1"."011A"."1".$Reference.$num.$valeur."99";
     $ch = curl_init("http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=011A&TRAME=".$trame);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_exec($ch);
     curl_close($ch);
-    getTrames();
+    //getTrames();
 }
 
 function getTrameBDD(){

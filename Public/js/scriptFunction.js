@@ -87,7 +87,6 @@ function go(id) {
         }
     };
     xhttp.send();
-
 }
 
 
